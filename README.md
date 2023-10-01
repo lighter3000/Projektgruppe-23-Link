@@ -1,14 +1,17 @@
 # Projektgruppe WS23/24 (Programmiererlebnisse)
 
 ## Projektteam
-Stakeholder
+
+### Stakeholder: 
 - Prof. Carsten Link
-Scrum Master
+### Scrum Master
 - Viet Hai Nguyen (7021478)
-Product Owner
+### Product Owner
 - Marcus Rosengart
-Entwicklerteam
-- 
+### Entwicklerteam
+- Name 1
+- Name 2
+- Name 3
 
 
 ## Geplantes Vorgehen (Scrum)
