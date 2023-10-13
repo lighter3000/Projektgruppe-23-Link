@@ -1,0 +1,52 @@
+<!Doctype html>
+<html>
+
+<head>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <meta charset="utf-8">
+  <script type="text/javascript" src="brython.js"></script>
+  <script type="text/javascript" src="brython_stdlib.js"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/styles/default.min.css">
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/highlight.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/languages/python.min.js"></script>
+
+  <script>hljs.highlightAll();</script>
+
+  <script type="text/python" src="http://localhost:8000/editor-structure.py"></script>
+</head>
+
+<body onload="brython()">
+
+  <div style="width: 100%;">
+    <div style="width: 50%; height: 100px; float: left;">
+      <h1>Code-Editor auf Basis von kTurtle und Brython</h1>
+      <p>Wähle ein Level!
+        <select id="demo_selector" autocomplete="off">
+          <option value="1">Level 1</option>
+          <option value="2">Level 2</option>
+        </select>
+        <br>
+
+      <div id="info"> </div>
+
+      </p>
+      <p><button id="run" class="btn-disabled">Run</button> <span id="status-info"></span>
+        <button id="clear" class="btn-enabled">Clear</button>
+        <button id="replay-scene" class="btn-enabled">Replay scene</button>
+      </p>
+
+      <pre>
+        <code class="language-python" id="source" style="float:left" contenteditable="true" data-lt-tmp-id="lt-817531" spellcheck="false" data-gramm="false"></code>
+      </pre>
+
+      <pre id="turtle-print-output"></pre>
+    </div>
+    <div style="margin-left: 50%; height: 100px;">
+      <div id="turtle-div" style="float:left;border:1px solid green; margin-left:50px;"> </div>
+    </div>
+  </div>
+</body>
+
+</html>

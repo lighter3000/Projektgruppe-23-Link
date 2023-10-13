@@ -1,0 +1,36 @@
+<div class="level_2">
+  <div id="level_2_tutorial" style="display:none">
+    <b>Nutze eine Funktion in der for-Schleife um ein Hexagon zu zeichen!</b>
+    <pre>
+      <code>
+def print_some_text(text):    # definiert eine Funktion. Der Funktion wird ein Text als "text" übergeben
+  print("some_text: ", text)  # Jenach dem was in "text" steht wird etwas anderes ausgegeben.
+
+print_some_text("Hallo Welt") # Es wird der Text "Hallo Welt" übergeben und dadurch auch ausgegeben.
+
+Ausgabe: Hallo Welt
+      </code>
+    </pre>
+  </div>
+  <div id="level_2_code" style="display:none">
+from browser import document
+import turtle
+
+turtle.set_defaults(
+  turtle_canvas_wrapper = document['turtle-div']
+)
+
+t = turtle.Turtle()
+
+def forward_and_turn():
+  t.forward(100)
+  t.right(60) 
+
+t.color("blue")
+
+for x in range(6): 
+  forward_and_turn()
+
+turtle.done()
+  </div>
+</div>
