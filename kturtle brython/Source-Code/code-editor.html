@@ -1,52 +1,47 @@
-<!Doctype html>
 <html>
 
 <head>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <meta charset="utf-8">
-  <script type="text/javascript" src="brython.js"></script>
-  <script type="text/javascript" src="brython_stdlib.js"></script>
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/styles/default.min.css">
-  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/highlight.min.js"></script>
-
-  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/languages/python.min.js"></script>
-
-  <script>hljs.highlightAll();</script>
-
-  <script type="text/python" src="http://localhost:8000/editor-structure.py"></script>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="brython.js"></script>
+    <script type="text/javascript" src="brython_stdlib.js"></script>
+  
+    <script type="text/python" src="http://localhost:8000/code-editor.py"></script>
+  
+    <link rel="stylesheet" href="styling.css">
 </head>
 
-<body onload="brython()">
-
-  <div style="width: 100%;">
-    <div style="width: 50%; height: 100px; float: left;">
-      <h1>Code-Editor auf Basis von kTurtle und Brython</h1>
-      <p>Wähle ein Level!
-        <select id="demo_selector" autocomplete="off">
-          <option value="1">Level 1</option>
-          <option value="2">Level 2</option>
-        </select>
-        <br>
-
-      <div id="info"> </div>
-
-      </p>
-      <p><button id="run" class="btn-disabled">Run</button> <span id="status-info"></span>
-        <button id="clear" class="btn-enabled">Clear</button>
-        <button id="replay-scene" class="btn-enabled">Replay scene</button>
-      </p>
-
-      <pre>
-        <code class="language-python" id="source" style="float:left" contenteditable="true" data-lt-tmp-id="lt-817531" spellcheck="false" data-gramm="false"></code>
-      </pre>
-
-      <pre id="turtle-print-output"></pre>
+<body style="margin: 0%;">
+    <div class="navbar">
+        <p style="margin:0; color: white;">Navbar für Levelwahl, exportieren, etc.</p>
     </div>
-    <div style="margin-left: 50%; height: 100px;">
-      <div id="turtle-div" style="float:left;border:1px solid green; margin-left:50px;"> </div>
+    <div class="side-content-container" style="background-color: white; height: 95%;">
+        <div class="side-container side-left">
+            <div class="vertical-spacer"></div>
+            <div class="tutorial-container" id="tutorial-area">
+                <p style="margin:0">Tutorial</p>
+            </div>
+            <div class="vertical-spacer"></div>
+            <div class="code-editor-container" id="code-editor-area">
+                <p style="margin:0">Code-Editor</p>
+            </div>
+            <div class="vertical-spacer"></div>
+            <div class="run-debug-button-container" id="run-debug-button-area">
+                <p style="margin:0">Buttons für Run und Debug</p>
+            </div>
+            <div class="vertical-spacer"></div>
+        </div>
+        <div class="side-container side-right">
+            <div class="vertical-spacer"></div>
+            <div class="canvas-container" id="canvas-area">
+                <p style="margin:0">Canvas</p>
+            </div>
+            <div class="vertical-spacer"></div>
+            <div class="console-container" id="console-area">
+                <p style="margin:0">Konsole</p>
+            </div>
+            <div class="vertical-spacer"></div>
+        </div>
     </div>
-  </div>
 </body>
 
 </html>
