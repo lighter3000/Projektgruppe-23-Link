@@ -2,42 +2,66 @@
 
 <head>
     <meta charset="utf-8">
+
     <script type="text/javascript" src="brython.js"></script>
     <script type="text/javascript" src="brython_stdlib.js"></script>
-  
+
     <script type="text/python" src="http://localhost:8000/code-editor.py"></script>
-  
+
     <link rel="stylesheet" href="styling.css">
 </head>
 
-<body style="margin: 0%;">
-    <div class="navbar">
-        <p style="margin:0; color: white;">Navbar für Levelwahl, exportieren, etc.</p>
+<body>
+    <!--                             Navbar                                       -->
+    <div class="navbar-container">
+        <h3 class="navbar-title">Webanwendung auf Basis von kturtle und brython</h3>
+        <!--                         Level Select Buttons                         -->
+        <button id="previous_level" class="navbar-button">-</button>
+        <h3 class="navbar-title">Level 1</h3>
+        <button id="next_level" class="navbar-button">+</button>
+        <!--                         Dropdown                                     -->
+        <div class="dropdown">
+            <button class="navbar-button dropdown-button">Exportieren</button>
+            <ul class="dropdown-menu">
+                <li><button id="export_download" class="dropdown-button">Download</button></li>
+                <li><button id="export_print" class="dropdown-button">Drucken</button></li>
+                <li><button id="export_qrcode" class="dropdown-button">QR-Code</button></li>
+            </ul>
+        </div>
     </div>
-    <div class="side-content-container" style="background-color: white; height: 95%;">
+    <!--                             2 Container on left and right                -->
+    <div class="side-content-container">
+        <!--                         Left Container                               -->
         <div class="side-container side-left">
             <div class="vertical-spacer"></div>
-            <div class="tutorial-container" id="tutorial-area">
-                <p style="margin:0">Tutorial</p>
+            <!--                     Tutorial Container                           -->
+            <div class="tutorial-container area-container" id="tutorial-area">
+                <p class="container-text">Tutorial</p>
             </div>
             <div class="vertical-spacer"></div>
-            <div class="code-editor-container" id="code-editor-area">
-                <p style="margin:0">Code-Editor</p>
+            <!--                     Code-Editor Container                        -->
+            <div class="code-editor-container area-container" id="code-editor-area">
+                <p class="container-text">Code-Editor</p>
             </div>
             <div class="vertical-spacer"></div>
+            <!--                     Run and Debug Buttons Container              -->
             <div class="run-debug-button-container" id="run-debug-button-area">
-                <p style="margin:0">Buttons für Run und Debug</p>
+                <button id="run_code" class="run-debug-button">Run</button>
+                <button id="debug_code" class="run-debug-button">Debug</button>
             </div>
             <div class="vertical-spacer"></div>
         </div>
+        <!--                         Right Container                              -->
         <div class="side-container side-right">
             <div class="vertical-spacer"></div>
-            <div class="canvas-container" id="canvas-area">
-                <p style="margin:0">Canvas</p>
+            <!--                     Canvas Container                             -->
+            <div class="canvas-container area-container" id="canvas-area">
+                <p class="container-text">Canvas</p>
             </div>
             <div class="vertical-spacer"></div>
-            <div class="console-container" id="console-area">
-                <p style="margin:0">Konsole</p>
+            <!--                     Console Container                            -->
+            <div class="console-container area-container" id="console-area">
+                <p class="container-text">Konsole</p>
             </div>
             <div class="vertical-spacer"></div>
         </div>
