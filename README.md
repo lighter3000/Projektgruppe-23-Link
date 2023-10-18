@@ -1,6 +1,6 @@
 # Projektgruppe WS23/24 (Programmiererlebnisse)
 
-## Projektteam
+## Projektteam 2D-Game mit Godot
 
 ### Stakeholder: 
 - Prof. Carsten Link
@@ -9,9 +9,10 @@
 ### Product Owner
 - Marcus Rosengart
 ### Entwicklerteam
-- Name 1
-- Name 2
-- Name 3
+- Torben L.
+- Daniel S.
+- Max H.
+- Niklas S.
 
 
 ## Geplantes Vorgehen (Scrum)
