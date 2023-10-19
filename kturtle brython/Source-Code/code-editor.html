@@ -9,6 +9,15 @@
     <script type="text/python" src="http://localhost:8000/code-editor.py"></script>
 
     <link rel="stylesheet" href="styling.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/styles/default.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/languages/python.min.js"></script>
+
+    <script>hljs.highlightAll();</script>
+
+
+
 </head>
 
 <body>
@@ -42,6 +51,9 @@
             <!--                     Code-Editor Container                        -->
             <div class="code-editor-container area-container" id="code-editor-area">
                 <p class="container-text">Code-Editor</p>
+                <pre>
+                    <code class="language-python" id="code-editor-source" style="float:left" contenteditable="true" data-lt-tmp-id="lt-817531" spellcheck="false" data-gramm="false"></code>
+                </pre>
             </div>
             <div class="vertical-spacer"></div>
             <!--                     Run and Debug Buttons Container              -->

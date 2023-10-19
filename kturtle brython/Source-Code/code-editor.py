@@ -1,4 +1,21 @@
-from browser import document
+from browser import document, timer, html, ajax
+import sys, traceback
+
+
+FIRST_TIME = True
+
+
+#####                  Output functions                  #####
+
+def _writeCanvas(*args):
+    document["canvas-area"].html += "".join(args)
+    
+def _writeConsole(*args):
+    document["console-area"].html += "".join(args)
+
+sys.stdout.write = _writeCanvas
+sys.stderr.write = _writeConsole
+
 
 #####                  button functions                  #####
 
@@ -18,7 +35,18 @@ def export_qrcode(ev):
     print("export_qrcode")
 
 def run_code(ev):
-    print("run_code")
+    document["run_code"].class_name = "btn-disabled"
+    _code = document["code-editor-source"].text
+    try:
+        exec(_code)
+    except:
+        try:
+            traceback.print_exc()
+        except:
+            print("could not print traceback")
+    document["debug_code"].class_name = "btn-enabled"
+    
+    
 
 def debug_code(ev):
     print("debug_code")
