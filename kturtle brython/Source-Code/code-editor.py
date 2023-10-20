@@ -1,17 +1,13 @@
 from browser import document, timer, html, ajax
 import sys, traceback
 
-
-FIRST_TIME = True
-
-
 #####                  Output functions                  #####
 
 def _writeCanvas(*args):
     document["canvas-area"].html += "".join(args)
     
 def _writeConsole(*args):
-    document["console-area"].html += "".join(args)
+    document["console-area"].html = "".join(args)
 
 sys.stdout.write = _writeCanvas
 sys.stderr.write = _writeConsole
@@ -35,7 +31,6 @@ def export_qrcode(ev):
     print("export_qrcode")
 
 def run_code(ev):
-    document["run_code"].class_name = "btn-disabled"
     _code = document["code-editor-source"].text
     try:
         exec(_code)
@@ -44,7 +39,6 @@ def run_code(ev):
             traceback.print_exc()
         except:
             print("could not print traceback")
-    document["debug_code"].class_name = "btn-enabled"
     
     
 
