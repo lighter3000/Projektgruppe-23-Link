@@ -7,7 +7,7 @@
       },
       "code": {
         "imports": [
-          "from browser import document\n",
+          "from browser import document",
           "import turtle"
         ],
         "setup": "t = turtle.Turtle()\n\nt.color('blue')",

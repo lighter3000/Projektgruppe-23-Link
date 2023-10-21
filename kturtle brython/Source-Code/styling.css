@@ -161,3 +161,9 @@ button:active {
     top: 100%;
     left: 0;
 }
+
+#code-editor-source {
+    width: 80%;
+    height: 80%;
+    font-size: 1rem;
+}

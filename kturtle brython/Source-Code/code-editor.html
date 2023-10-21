@@ -25,7 +25,7 @@
         <h3 class="navbar-title">Webanwendung auf Basis von kturtle und brython</h3>
         <!--                         Level Select Buttons                         -->
         <button id="previous_level" class="navbar-button">-</button>
-        <h3 id="level_title" class="navbar-title">Level 1</h3>
+        <h3 id="level_title" class="navbar-title"></h3>
         <button id="next_level" class="navbar-button">+</button>
         <!--                         Dropdown                                     -->
         <div class="dropdown">
@@ -46,7 +46,9 @@
             <div class="tutorial-container area-container" id="tutorial-area">
                 <p class="container-text">Tutorial</p>
                 <h5 id="tutorial_text"></h5>
-                <p id="tutorial_code"></p>
+                <pre>
+                    <code class="language-python" id="tutorial_code" style="float:left" spellcheck="false" data-gramm="false"></code>
+                </pre>
             </div>
             <div class="vertical-spacer"></div>
             <!--                     Code-Editor Container                        -->

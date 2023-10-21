@@ -7,10 +7,10 @@
     },
     "code": {
       "imports": [
-        "from browser import document\n import turtle"
+        "from browser import document\nimport turtle"
       ],
       "setup": "t = turtle.Turtle()\n\nt.color('red')",
-      "execution": "for x in range(6):\n  t.forward(100)\n  t.right(60)\n turtle.done()"
+      "execution": "for x in range(6):\n\tt.forward(100)\n\tt.right(60)\n\tturtle.done()"
     }
   }
 ]
