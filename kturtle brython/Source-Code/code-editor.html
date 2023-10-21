@@ -7,17 +7,17 @@
     <script type="text/javascript" src="brython_stdlib.js"></script>
 
     <script type="text/python" src="http://localhost:8000/code-editor.py"></script>
-
+   
     <link rel="stylesheet" href="styling.css">
 </head>
 
-<body>
+<body onload="brython()">
     <!--                             Navbar                                       -->
     <div class="navbar-container">
         <h3 class="navbar-title">Webanwendung auf Basis von kturtle und brython</h3>
         <!--                         Level Select Buttons                         -->
         <button id="previous_level" class="navbar-button">-</button>
-        <h3 class="navbar-title">Level 1</h3>
+        <h3 id="level_title" class="navbar-title">Level 1</h3>
         <button id="next_level" class="navbar-button">+</button>
         <!--                         Dropdown                                     -->
         <div class="dropdown">
@@ -37,11 +37,19 @@
             <!--                     Tutorial Container                           -->
             <div class="tutorial-container area-container" id="tutorial-area">
                 <p class="container-text">Tutorial</p>
+                <h5 id="tutorial_text"></h5>
+                <p id="tutorial_code"></p>
             </div>
             <div class="vertical-spacer"></div>
             <!--                     Code-Editor Container                        -->
             <div class="code-editor-container area-container" id="code-editor-area">
                 <p class="container-text">Code-Editor</p>
+                <p id="code_text"></p>
+                <p id="code_setup"></p>
+                <p id="code_functions_name"></p>
+                <p id="code_functions_code"></p>
+                <p id="code_execution"></p>
+                <p id="code_finish"></p>
             </div>
             <div class="vertical-spacer"></div>
             <!--                     Run and Debug Buttons Container              -->

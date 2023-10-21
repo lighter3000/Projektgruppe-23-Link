@@ -1,0 +1,25 @@
+[
+    {
+      "name": "Level 2",
+      "tutorial": {
+        "instructions": "Nutze eine Funktion in der for-Schleife um ein Hexagon zu zeichnen!",
+        "code": "def print_some_text(text):\n  print('some_text: ', text)\n\nprint_some_text('Hallo Welt')\n\nAusgabe: Hallo Welt"
+      },
+      "code": {
+        "imports": [
+          "from browser import document\n",
+          "import turtle"
+        ],
+        "setup": "t = turtle.Turtle()\n\nt.color('blue')",
+        "functions": [
+          {
+            "name": "forward_and_turn",
+            "code": "t.forward(100)\n  t.right(60)"
+          }
+        ],
+        "execution": "for x in range(6):\n  forward_and_turn()",
+        "finish": "turtle.done()"
+      }
+    }
+  ]
+  
