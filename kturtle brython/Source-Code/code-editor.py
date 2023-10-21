@@ -1,7 +1,16 @@
-from browser import document
-import json
+from browser import document, timer, html, ajax
+import sys, traceback, json
 
+#####                  Output functions                  #####
 
+def _writeCanvas(*args):
+    document["canvas-area"].html += "".join(args)
+    
+def _writeConsole(*args):
+    document["console-area"].html = "".join(args)
+
+sys.stdout.write = _writeCanvas
+sys.stderr.write = _writeConsole
 
 current_level = 1
 #####                  button functions                  #####
@@ -60,7 +69,16 @@ def export_qrcode(ev):
     print("export_qrcode")
 
 def run_code(ev):
-    print("run_code")
+    _code = document["code-editor-source"].text
+    try:
+        exec(_code)
+    except:
+        try:
+            traceback.print_exc()
+        except:
+            print("could not print traceback")
+    
+    
 
 def debug_code(ev):
     print("debug_code")
