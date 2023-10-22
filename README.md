@@ -8,11 +8,35 @@
 - Viet Hai Nguyen (7021478)
 ### Product Owner
 - Marcus Rosengart
-### Entwicklerteam
-- Name 1
-- Name 2
-- Name 3
+### Entwicklerteams
 
+#### Webanwendung mit brython
+Mit k-turtle
+- Noah S.
+- Niklas H.
+- Tom B.
+
+Als ISBN-Prüfsumme
+- Mohamed
+
+#### ASCII Bild
+- Marcus R.
+- Nick
+- Dennis
+
+#### Vokabeltrainer mit MIT App Inventor
+- Viet Hai N.
+- Timm S.
+
+#### Musik Recherche
+- Jan W.
+- Majd
+
+#### 2D Spiel mit GoDot Engine
+- Torben L.
+- Max
+- Niklas S.
+- Daniel S.
 
 ## Geplantes Vorgehen (Scrum)
 
