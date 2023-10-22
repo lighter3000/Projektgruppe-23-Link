@@ -14,7 +14,6 @@ enum AudioBus {
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Setting_Options/VBoxContainer/Video.grab_focus()
-	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -22,12 +21,12 @@ func _process(_delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().change_scene_to_file("res://main_menu/mainmenu.tscn")
 
-
+# shows given first node and hides given second node
 func show_and_hide(first, second):
 	first.show()
 	second.hide()
 
-
+# sets the volume of given audiobus (index) 
 func volume(bus_index, value):
 	AudioServer.set_bus_volume_db(bus_index, value)
 
@@ -62,6 +61,7 @@ func _on_v_sync_button_toggled(button_pressed):
 
 func _on_back_from_video_button_pressed():
 	show_and_hide(setting_options, video)
+	$Setting_Options/VBoxContainer/Video.grab_focus()
 
 
 func _on_master_slider_value_changed(value):
@@ -78,3 +78,4 @@ func _on_sound_fx_slider_value_changed(value):
 
 func _on_back_from_audio_button_pressed():
 	show_and_hide(setting_options, audio)
+	$Setting_Options/VBoxContainer/Video.grab_focus()

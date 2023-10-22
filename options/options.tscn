@@ -47,6 +47,7 @@ grow_vertical = 2
 
 [node name="Video" type="Button" parent="Setting_Options/VBoxContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../../Back_From_Options_Button")
 text = "Video Settings"
 
 [node name="Audio" type="Button" parent="Setting_Options/VBoxContainer"]
@@ -65,6 +66,7 @@ offset_top = -31.0
 offset_right = 22.5
 grow_horizontal = 2
 grow_vertical = 0
+focus_neighbor_bottom = NodePath("../VBoxContainer/Video")
 text = "Back"
 
 [node name="Video" type="Control" parent="."]
@@ -120,6 +122,7 @@ layout_mode = 2
 
 [node name="Full_Screen_Button" type="CheckBox" parent="Video/HBoxContainer/Buttons"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../../../Back_From_Video_Button")
 
 [node name="VSync_Button" type="CheckBox" parent="Video/HBoxContainer/Buttons"]
 layout_mode = 2
@@ -136,6 +139,7 @@ offset_top = -31.0
 offset_right = 22.5
 grow_horizontal = 2
 grow_vertical = 0
+focus_neighbor_bottom = NodePath("../HBoxContainer/Buttons/Full_Screen_Button")
 text = "Back"
 
 [node name="Audio" type="Control" parent="."]
@@ -195,6 +199,7 @@ size_flags_horizontal = 3
 [node name="Master_Slider" type="HSlider" parent="Audio/HBoxContainer/Sliders"]
 layout_mode = 2
 size_flags_vertical = 2
+focus_neighbor_top = NodePath("../../../Back_From_Audio_Button")
 
 [node name="Music_Slider" type="HSlider" parent="Audio/HBoxContainer/Sliders"]
 layout_mode = 2
@@ -216,12 +221,12 @@ offset_top = -31.0
 offset_right = 22.5
 grow_horizontal = 2
 grow_vertical = 0
+focus_neighbor_bottom = NodePath("../HBoxContainer/Sliders/Master_Slider")
 text = "Back"
 
 [connection signal="pressed" from="Setting_Options/VBoxContainer/Video" to="." method="_on_video_pressed"]
 [connection signal="pressed" from="Setting_Options/VBoxContainer/Audio" to="." method="_on_audio_pressed"]
 [connection signal="pressed" from="Setting_Options/Back_From_Options_Button" to="." method="_on_back_from_options_button_pressed"]
-[connection signal="pressed" from="Video/HBoxContainer/Buttons/Full_Screen_Button" to="." method="_on_full_screen_button_pressed"]
 [connection signal="toggled" from="Video/HBoxContainer/Buttons/Full_Screen_Button" to="." method="_on_full_screen_button_toggled"]
 [connection signal="toggled" from="Video/HBoxContainer/Buttons/VSync_Button" to="." method="_on_v_sync_button_toggled"]
 [connection signal="pressed" from="Video/Back_From_Video_Button" to="." method="_on_back_from_video_button_pressed"]
