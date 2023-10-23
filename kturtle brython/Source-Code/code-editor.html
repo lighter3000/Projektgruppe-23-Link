@@ -5,7 +5,8 @@
 
     <script type="text/javascript" src="brython.js"></script>
     <script type="text/javascript" src="brython_stdlib.js"></script>
-    <script type="text/python" src="http://localhost:8000/code-editor.py"></script>
+    <script type="text/javascript" src="file-upload.js"></script>
+    <script type="text/python" src="code-editor.py"></script>
    
     <link rel="stylesheet" href="styling.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/styles/default.min.css">
@@ -14,6 +15,8 @@
     <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/languages/python.min.js"></script>
 
     <script>hljs.highlightAll();</script>
+
+    <title>Code-Editor kturtle/brython</title>
 
 
 
@@ -72,12 +75,15 @@
             <!--                     Canvas Container                             -->
             <div class="canvas-container area-container" id="canvas-area">
                 <p class="container-text">Canvas</p>
+                <div id="canvas"></div>
             </div>
             
             <div class="vertical-spacer"></div>
             <!--                     Console Container                            -->
             <div class="console-container area-container" id="console-area">
                 <p class="container-text">Konsole</p>
+                <div id="debug-console">
+                </div>
             </div>
             <div class="vertical-spacer"></div>
         </div>

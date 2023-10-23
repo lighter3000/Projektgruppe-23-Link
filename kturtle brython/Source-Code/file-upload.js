@@ -1,0 +1,28 @@
+function uploadFile() {
+
+    var filePath = 'test_upload_file.txt';
+
+    fetch(filePath)
+        .then(response => response.blob())
+        .then(blob => {
+            var formData = new FormData();
+            formData.append('file', blob, filePath);
+
+            fetch('https://store1.gofile.io/uploadFile', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'ok') {
+                        console.log(data.data.downloadPage)
+                    }
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        })
+        .catch(error => {
+            console.error(error);
+        });
+}

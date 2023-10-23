@@ -9,8 +9,9 @@
       "imports": [
         "from browser import document\nimport turtle"
       ],
-      "setup": "t = turtle.Turtle()\n\nt.color('red')",
-      "execution": "for x in range(6):\n\tt.forward(100)\n\tt.right(60)\n\tturtle.done()"
+      "setup": "turtle.set_defaults(turtle_canvas_wrapper = document['canvas'])\nt = turtle.Turtle()\n\nt.color('red')",
+      "execution": "for x in range(6):\n\tt.forward(100)\n\tt.right(60)",
+      "finish": "turtle.done()"
     }
   }
 ]

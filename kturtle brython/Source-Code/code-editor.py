@@ -1,5 +1,6 @@
 from browser import document, timer, html, ajax
 import sys, traceback, json
+import javascript
 
 #####                  Output functions                  #####
 
@@ -63,13 +64,13 @@ def next_level(ev):
     
     
 def export_download(ev):
-    print("export_download")
+    pass
 
 def export_print(ev):
-    print("export_print")
+    pass
 
 def export_qrcode(ev):
-    print("export_qrcode")
+    javascript.this().uploadFile()
 
 def run_code(ev):
     _code = document["code-editor-source"].text
@@ -84,7 +85,8 @@ def run_code(ev):
     
 
 def debug_code(ev):
-    print("debug_code")
+    pass
+
     
 
     
