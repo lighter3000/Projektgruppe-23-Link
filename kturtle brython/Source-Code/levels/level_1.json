@@ -3,7 +3,7 @@
     "name": "Level 1",
     "tutorial": {
       "instructions": "Nutze eine for-Schleife um ein Hexagon zu zeichen!",
-      "code": "for x in range(n):\n print(x, \", \")\n\nAusgabe: 0, 1, 2, ..., n,"
+      "code": "for x in range(n):\n\tprint(x, \", \")\n\nAusgabe: 0, 1, 2, ..., n,"
     },
     "code": {
       "imports": [
