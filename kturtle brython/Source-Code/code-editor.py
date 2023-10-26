@@ -13,10 +13,37 @@ def _writeConsole(*args):
 sys.stdout.write = _writeCanvas
 sys.stderr.write = _writeConsole
 
-current_level = 1
+level_index = 1
+
 #####                  button functions                  #####
 # Zum Einlesen der JSON-Datei und dem Zuweisen zu den entsprechenden HTML-Elementen
-def load_level(level_index=1):
+
+def load_level(level_index):
+    level_file_path = f"/levels/level_{level_index}.py"
+    
+    with open(level_file_path, "r") as level_file:
+        level_code = level_file.read()
+    
+    level_globals = {}
+    exec(level_code, level_globals)
+   
+    
+    document["level_title"].text = "Level " + str(level_index)
+     
+    if 'tutorial_text' in level_globals:
+        document["tutorial_text"].text = level_globals['tutorial_text']
+    if 'tutorial_code' in level_globals:
+        document["tutorial_code"].text = level_globals['tutorial_code']
+    
+    """ if 'written_code' in level_globals is not "":
+        document["code-editor-source"].text = level_globals['written_code']    """
+    if 'init_code' in level_globals:
+        document["code-editor-source"].text = level_globals['init_code']
+
+
+
+
+""" def load_level(level_index=1):
     with open ("/levels/level_" + str(level_index) + ".json", "r") as level_file:
             level_data = json.load(level_file)
     
@@ -42,24 +69,24 @@ def load_level(level_index=1):
     if "finish" in level_info["code"]:
         code_text = code_text + level_info["code"]["finish"] + "\n\n"
         
-    document["code-editor-source"].html = code_text
+    document["code-editor-source"].html = code_text """
    
     
     
     
 def previous_level(ev):
-    global current_level
-    if (current_level > 0):
-        current_level -= 1
-        load_level(current_level)
+    global level_index
+    if (level_index > 0):
+        level_index -= 1
+        load_level(level_index)
         
 
 
 def next_level(ev):
-    global current_level
-    if (current_level < 10):
-        current_level += 1
-        load_level(current_level)
+    global level_index
+    if (level_index < 10):
+        level_index+= 1
+        load_level(level_index)
         
     
     
@@ -82,8 +109,15 @@ def run_code(ev):
         except:
             print("could not print traceback")
     
+    level_file_path = f"/levels/level_{level_index}.py"
+    with open(level_file_path, "w") as level_file:
+        level_code = level_file.read()
     
-
+    level_globals = {}
+    exec(level_code, level_globals)
+    
+    level_globals["written_code"] = _code
+    
 def debug_code(ev):
     pass
 
@@ -100,4 +134,4 @@ document["export_qrcode"].bind("click", export_qrcode)
 document["run_code"].bind("click", run_code)
 document["debug_code"].bind("click", debug_code)
 
-load_level(1)
+load_level(level_index)
