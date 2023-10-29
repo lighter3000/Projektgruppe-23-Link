@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://bx8tsca3k6aaj"]
+
+[ext_resource type="Script" path="res://levels/level1/level_1.gd" id="1_daruv"]
+
+[node name="level1" type="Node2D"]
+script = ExtResource("1_daruv")
+
+[node name="title" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 480.0
+offset_right = 534.0
+offset_bottom = 26.0
+grow_vertical = 0
+scale = Vector2(3, 3)
+text = "Level 1"
+metadata/_edit_use_anchors_ = true
+
+[node name="Back_Button" type="Button" parent="."]
+offset_left = 900.0
+offset_top = 500.0
+offset_right = 969.0
+offset_bottom = 531.0
+text = "<-- Back"
+
+[connection signal="pressed" from="Back_Button" to="." method="_on_back_button_pressed"]
