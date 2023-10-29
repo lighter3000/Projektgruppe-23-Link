@@ -7,6 +7,7 @@
     <script type="text/javascript" src="brython_stdlib.js"></script>
     <script type="text/javascript" src="file-upload.js"></script>
     <script type="text/python" src="code-editor.py"></script>
+    <script type="text/javascript" src="tab-space.js"></script>
    
     <link rel="stylesheet" href="styling.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/styles/default.min.css">
@@ -58,14 +59,14 @@
             <div class="code-editor-container area-container" id="code-editor-area">
                 <p class="container-text">Code-Editor</p>
                 <pre>
-                    <code class="language-python" id="code-editor-source" style="float:left" contenteditable="true" spellcheck="false" data-gramm="false"></code>
+                    <code class="language-python" id="code-editor-source" style="float:left" contenteditable="true" spellcheck="false" data-gramm="false" onkeydown="handleTabKey(event)"></code>
                 </pre>
             </div>
             <div class="vertical-spacer"></div>
             <!--                     Run and Debug Buttons Container              -->
-            <div class="run-debug-button-container" id="run-debug-button-area">
-                <button id="run_code" class="run-debug-button">Run</button>
-                <button id="debug_code" class="run-debug-button">Debug</button>
+            <div class="run-debug-button-container" id="run-debug-button-area" >
+                <button id="run_code" class="run-debug-button" tabindex="-1">Run</button>
+                <button id="debug_code" class="run-debug-button" tabindex="-1">Debug</button>
             </div>
             <div class="vertical-spacer"></div>
         </div>
