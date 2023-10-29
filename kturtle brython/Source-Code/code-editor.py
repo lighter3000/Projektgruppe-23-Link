@@ -15,9 +15,7 @@ sys.stderr.write = _writeConsole
 
 level_index = 1
 
-#####                  button functions                  #####
-# Zum Einlesen der JSON-Datei und dem Zuweisen zu den entsprechenden HTML-Elementen
-
+# Einlesen des Codes und Tutorials aus .py Dateien
 def load_level(level_index):
     level_file_path = f"/levels/level_{level_index}.py"
     
@@ -37,43 +35,12 @@ def load_level(level_index):
     
     """ if 'written_code' in level_globals is not "":
         document["code-editor-source"].text = level_globals['written_code']    """
+        
     if 'init_code' in level_globals:
         document["code-editor-source"].text = level_globals['init_code']
 
-
-
-
-""" def load_level(level_index=1):
-    with open ("/levels/level_" + str(level_index) + ".json", "r") as level_file:
-            level_data = json.load(level_file)
     
-    document["level_title"].text = "Level " + str(current_level)
-    level_info = level_data[0]  
-    document["tutorial_text"].text = level_info["tutorial"]["instructions"]
-    document["tutorial_code"].html = level_info["tutorial"]["code"]
-    
-    code_text = ""
-    if level_info["code"]["imports"] is not None:
-        code_text = code_text + "\n".join(level_info["code"]["imports"]) + "\n\n"
-        
-    if level_info["code"]["setup"] is not None:
-        code_text = code_text + level_info["code"]["setup"] + "\n\n"
-        
-    if "functions" in level_info["code"]:
-        for function in level_info["code"]["functions"]:
-            code_text = code_text + "def " + function["name"] + ":\n\t" + function["code"] + "\n\n"
-        
-    if level_info["code"]["execution"] is not None:
-        code_text = code_text + level_info["code"]["execution"] + "\n\n"
-        
-    if "finish" in level_info["code"]:
-        code_text = code_text + level_info["code"]["finish"] + "\n\n"
-        
-    document["code-editor-source"].html = code_text """
-   
-    
-    
-    
+#####                  button functions                  #####    
 def previous_level(ev):
     global level_index
     if (level_index > 0):
@@ -101,6 +68,7 @@ def export_qrcode(ev):
 
 def run_code(ev):
     _code = document["code-editor-source"].text
+    print("Aktueller Code:", _code)
     try:
         exec(_code)
     except:
@@ -108,15 +76,16 @@ def run_code(ev):
             traceback.print_exc()
         except:
             print("could not print traceback")
-    
-    level_file_path = f"/levels/level_{level_index}.py"
+            
+    # Zum Einlesen des Codes in Datei muss noch implementiert werden
+    """level_file_path = f"/levels/level_{level_index}.py"
     with open(level_file_path, "w") as level_file:
         level_code = level_file.read()
     
     level_globals = {}
     exec(level_code, level_globals)
     
-    level_globals["written_code"] = _code
+    level_globals["written_code"] = _code """
     
 def debug_code(ev):
     pass
