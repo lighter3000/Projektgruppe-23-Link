@@ -10,15 +10,8 @@
     <script type="text/javascript" src="tab-space.js"></script>
    
     <link rel="stylesheet" href="styling.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/styles/default.min.css">
-    
-    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/highlight.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/languages/python.min.js"></script>
 
     <title>Code-Editor kturtle/brython</title>
-
-
-
 </head>
 
 <body onload="brython()">
@@ -30,14 +23,15 @@
         <h3 id="level_title" class="navbar-title"></h3>
         <button id="next_level" class="navbar-button">+</button>
         <!--                         Dropdown                                     -->
-        <div class="dropdown">
-            <button class="navbar-button dropdown-button">Exportieren</button>
-            <ul class="dropdown-menu">
+        <div id="dropdown" class="dropdown">
+            <button id="dropdown-button" class="navbar-button dropdown-button">Exportieren</button>
+            <ul id="dropdown-menu" class="dropdown-menu">
                 <li><button id="export_download" class="dropdown-button">Download</button></li>
                 <li><button id="export_print" class="dropdown-button">Drucken</button></li>
                 <li><button id="export_qrcode" class="dropdown-button">QR-Code</button></li>
             </ul>
         </div>
+        <button id="dark-mode-button" class="navbar-button">Dark Mode</button>
     </div>
     <!--                             2 Container on left and right                -->
     <div class="side-content-container">
@@ -56,8 +50,8 @@
             <!--                     Code-Editor Container                        -->
             <div class="code-editor-container area-container" id="code-editor-area">
                 <p class="container-text">Code-Editor</p>
-                <pre>
-                    <code class="language-python" id="code-editor-source" style="float:left" contenteditable="true" spellcheck="false" data-gramm="false" onkeydown="handleTabKey(event)"></code>
+                <pre class="pre-block">
+                    <code class="code-block" id="code-editor-source" style="float:left" contenteditable="true" spellcheck="false" data-gramm="false" onkeydown="handleTabKey(event)"></code>
                 </pre>
             </div>
             <div class="vertical-spacer"></div>
@@ -84,6 +78,15 @@
                 <div id="console"></div>
             </div>
             <div class="vertical-spacer"></div>
+        </div>
+    </div>
+
+    <div id="qrcodeModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="qrCodeModalCloseButton">&times;</span>
+            <div id="qrCodeToDownload" class="download-qrcode"></div>
+            <a id="linkToDownload" class="download-link"></a>
+            <p id="errorMessage"></p>
         </div>
     </div>
 </body>

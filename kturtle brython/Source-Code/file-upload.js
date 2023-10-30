@@ -2,6 +2,9 @@ function uploadFile() {
 
     var filePath = 'test_upload_file.txt';
 
+    var linkToDownload = document.getElementById("linkToDownload")
+    var qrCodeToDownload = document.getElementById("qrCodeToDownload")
+
     fetch(filePath)
         .then(response => response.blob())
         .then(blob => {
@@ -15,7 +18,15 @@ function uploadFile() {
                 .then(response => response.json())
                 .then(data => {
                     if (data.status === 'ok') {
-                        console.log(data.data.downloadPage)
+
+                        qrCodeToDownload.innerHTML = null
+                        var qrcode = new QRCode("qrCodeToDownload")
+                        
+                        qrcode.clear()
+                        qrcode.makeCode(data.data.downloadPage);
+
+                        linkToDownload.href = data.data.downloadPage
+                        linkToDownload.text = data.data.downloadPage
                     }
                 })
                 .catch(error => {

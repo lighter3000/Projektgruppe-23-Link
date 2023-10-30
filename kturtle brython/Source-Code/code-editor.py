@@ -79,11 +79,8 @@ def run_code(ev):
 def debug_code(ev):
     pass
 
-    
 
-    
 #####                  button bindings                   #####
-
 document["previous_level"].bind("click", previous_level)
 document["next_level"].bind("click", next_level)
 document["export_download"].bind("click", export_download)
@@ -93,3 +90,29 @@ document["run_code"].bind("click", run_code)
 document["debug_code"].bind("click", debug_code)
 
 load_level(level_index)
+
+
+#####                  dialog modal for qrcode           #####
+qrcode_modal = document.getElementById("qrcodeModal")
+
+# set event to close button on modal to hide modal
+qrcode_modal_close_button = document.getElementsByClassName("close")[0]
+qrcode_modal_close_button.bind("click", lambda ev: qrcode_modal.style.__setitem__("display", "none"))
+
+#set event to click in background to hide modal
+document.bind("click", lambda event: qrcode_modal.style.__setitem__("display", "none") if event.target == qrcode_modal else None)
+
+#####                  darkmode                          #####
+
+def toggle_dark_mode(event):
+    document.body.classList.toggle('darkmode')
+
+    buttons = document.select("button")
+    for button in buttons:
+        button.classList.toggle("darkmode")
+
+    links = document.select("a")
+    for link in links:
+        link.classList.toggle("darkmode-link")
+
+document["dark-mode-button"].bind('click', toggle_dark_mode)
