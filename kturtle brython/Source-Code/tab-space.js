@@ -21,6 +21,13 @@ function handleTabKey(event)
 
         // Der Tab wird mit reingepackt
         var text = code.textContent;
+
+        if(startOffset>endOffset){
+            var swap = startOffset;
+            startOffset = endOffset;
+            endOffset = swap;
+        }
+
         var newText = text.substring(0, startOffset) + "\t" + text.substring(endOffset);
 
         // Der neue Text mit dem Tab wird eingefügt
@@ -32,27 +39,5 @@ function handleTabKey(event)
         range.setEnd(code.firstChild, startOffset+1);
         selection.removeAllRanges();
         selection.addRange(range);
-
-
-
-        /*
-        //console.log(code);
-        var start = code.selectionStart;
-        console.log("Start: " + start);
-        var end = code.selectionEnd;
-        console.log("End: " + end);
-        var text = code.textContent;
-
-        */
-        //var newText = text.substring(0, start) + 'FFFF' + text.substring(end);
-        //var newText = text.substring(0, start) + "\t" + text.substring(end);
-        //newText = "FFFF";
-        
-        
-        //var newText = text.substring(0, start) + "\t";
-        //code.innerHTML = newText;
-        console.log("Test2");
-        
-        //console.log("hello");
     }
 }
