@@ -35,8 +35,8 @@
 - Gebe den Hinweis dass die Komponenten aussagekräftige Namen besitzen sollten und erkläre warum.
 
 Komponenten:
-    - Zwei Textfelder zur Eingabe der Vokabelpaare
-    - Schaltfläche (Button) zum Hinzufügen
+- Zwei Textfelder zur Eingabe der Vokabelpaare
+- Schaltfläche (Button) zum Hinzufügen
 
 #### Aufgabe 3: Programmieren (Blockly) - Vokabel hinzufügen
 
