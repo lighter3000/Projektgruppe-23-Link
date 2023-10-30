@@ -1,16 +1,13 @@
 from browser import document, timer, html, ajax
+from turtle import restart
 import sys, traceback, json
 import javascript
 
-#####                  Output functions                  #####
-FIRST_TIME = True
-def _writeCanvas(*args):
-    document["canvas-area"].html += "".join(args)
-    
+#####                  Output functions                  #####    
 def _writeConsole(*args):
-    document["console-area"].html = "".join(args)
+    document["console"].html += "".join(args)
 
-sys.stdout.write = _writeCanvas
+sys.stdout.write = _writeConsole
 sys.stderr.write = _writeConsole
 
 level_index = 1
@@ -65,9 +62,8 @@ def export_qrcode(ev):
     javascript.this().uploadFile()
 
 def run_code(ev):
-    document["console-area"].html = ""
+    document["console"].html = ""
     _code = document["code-editor-source"].text
-    from turtle import restart
     restart()
     exec(_code)    
     # Zum Einlesen des Codes in Datei muss noch implementiert werden
