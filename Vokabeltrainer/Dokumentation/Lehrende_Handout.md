@@ -24,21 +24,23 @@
 ## Schritt 2: Anmeldung und Benutzeroberfläche (10 Minuten)
 
 - Leiten Sie die Schülerinnen und Schüler an, die MIT App Inventor-Website ([https://appinventor.mit.edu](https://appinventor.mit.edu/)) zu besuchen.
-- Ermutigen Sie sie, ein neues Projekt mit dem Namen "Vokabeltrainer" zu erstellen.
+- Ermutigen Sie sie, ein neues Projekt mit dem Namen "Vokabeltrainer + eigener Name" zu erstellen.
+- Erläutern Sie die grundlegenden Funktionen (Design/Blöcke) der Oberfläche
 
 ## Schritt 3: Vokabel hinzufügen (20 Minuten)
 
-#### Aufgabe 1: App erstellen
+#### Aufgabe 1: Oberfläche (Design) - Vokabel hinzufügen
 
-- Führen Sie die Schülerinnen und Schüler durch den Prozess, einen neuen Projekt mit dem Namen "Vokabeltrainer" im "Designer" zu erstellen.
+- Helfen Sie den Schülern dabei darüber nachzudenken welche Komponenten benötigt werden um Vokabeln hinzufügen zu können.
+- Gebe den Hinweis dass die Komponenten aussagekräftige Namen besitzen sollten und erkläre warum.
 
-#### Aufgabe 2: Komponenten hinzufügen
+Komponenten:
+    - Zwei Textfelder zur Eingabe der Vokabelpaare
+    - Schaltfläche (Button) zum Hinzufügen
 
-- Erklären Sie, wie man eine "Listview"-Komponente hinzufügt, die zur Anzeige der gespeicherten Vokabeln dient.
+#### Aufgabe 3: Programmieren (Blockly) - Vokabel hinzufügen
 
-#### Aufgabe 3: Programmieren (Musterlösung)
-
-- Zeigen Sie den Schülerinnen und Schülern die folgende Musterlösung für das Programmieren des "Hinzufügen"-Buttons:
+- Hier ist eine Musterlösung
 
 ```
 when Hinzufügen.Click
@@ -49,16 +51,15 @@ when Hinzufügen.Click
         set item to Vokabel & ": " & Übersetzung
         Textbox_Vokabel.Text = ""
         Textbox_Übersetzung.Text = ""
-        update Listview1
 ```
 
 ## Schritt 4: Vokabeln anzeigen und bearbeiten (30 Minuten)
 
-#### Aufgabe 1: Komponenten hinzufügen
+#### Aufgabe 1: Oberfläche (Design) - Vokabeln anzeigen
 
 - Zeigen Sie den Schülerinnen und Schülern, wie sie eine "Listview"-Komponente hinzufügen, um die gespeicherten Vokabeln anzuzeigen.
 
-#### Aufgabe 2: Programmieren - Vokabeln anzeigen (Musterlösung)
+#### Aufgabe 2: Programmieren (Blocks) - Vokabeln anzeigen
 
 - Erklären Sie, wie die Schülerinnen und Schülern die folgende Musterlösung verwenden können, um die Vokabeln aus der Liste in der "Listview" anzuzeigen:
 
@@ -68,7 +69,12 @@ when Screen1.Initialize
         add item to Listview1
 ```
 
-#### Aufgabe 3: Programmieren - Vokabeln bearbeiten (Hilfestellung)
+
+Außerdem soll beim Drücken von "Hinzufügen" die Anzeige der Liste aktualisiert werden. Deshalb erweitern wir den "Hinzufügen" Code aus Schritt 3 mit folgendem Befehl:
+
+- `update Listview1` - Dieser Block aktualisiert die "Listview", um die neuen Vokabeln anzuzeigen.
+
+#### Aufgabe 3: Programmieren (Blocks) - Vokabeln bearbeiten
 
 - Ermutigen Sie die Schülerinnen und Schülern, die Vokabeln in der "Listview" zu bearbeiten. Geben Sie Hinweise, wie sie dies tun können.
 
@@ -89,8 +95,6 @@ set Ausgewählte_Vokabel to Listview1.Selection
 ## Schritt 5: Fortschrittsverfolgung und Belohnungen (20 Minuten)
 
 #### Aufgabe 1: Punktesystem hinzufügen (Musterlösung)
-
-- Zeigen Sie den Schülerinnen und Schülern die folgende Musterlösung in Blockly-Code für das Hinzufügen eines Punktesystems:
 
 ```
 when Screen1.Initialize
@@ -115,5 +119,3 @@ when Falsche_Antwort.Click
 ## Schritt 6: Abschluss (10 Minuten)
 
 - Ermutigen Sie die Schülerinnen und Schüler, ihre Apps zu präsentieren und ihre Erfahrungen zu teilen.
-- Motivieren Sie sie zur weiteren Entwicklung ihrer Apps und zum Lernen von App-Programmierung.
-

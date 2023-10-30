@@ -17,26 +17,30 @@
 
 ## Schritt 1: Einführung (10 Minuten)
 
-- Willkommen zum Workshop!
 - Heute lernt ihr, wie man eine eigene App erstellt, die als Vokabeltrainer dient.
 - Ziel: Spaß beim Programmieren und Lernen!
 
 ## Schritt 2: Anmeldung und Benutzeroberfläche (10 Minuten)
 
 - Besucht die MIT App Inventor-Website ([https://appinventor.mit.edu](https://appinventor.mit.edu/)).
-- Erstellt ein neues Projekt und nennt es "Vokabeltrainer".
+- Erstellt ein neues Projekt und nennt es "Vokabeltrainer + Euer Name".
+
+- Weitere Erklärungen zur Oberfläche (TODO)
 
 ## Schritt 3: Vokabel hinzufügen (20 Minuten)
 
-#### Aufgabe 1: App erstellen
+#### Aufgabe 1: Oberfläche (Design) - Vokabel hinzufügen
 
-- Öffnet den "Designer" und erstellt ein neues Projekt mit dem Namen "Vokabeltrainer".
+Euer Vokabeltrainer soll in dieser Aufgabe folgende Dinge machen können:
 
-#### Aufgabe 2: Komponenten hinzufügen
+- Vokabelpaare (Deutsch - Englisch) eingeben
+- Vokabeln hinzufügen
 
-- Fügt eine "Listview" hinzu, um später die gespeicherten Vokabeln anzuzeigen.
+- Überlegt euch welche Komponenten (Schaltflächen, Textfelder, etc.) aus der Design-Ansicht nötig sind und fügt sie eurer App hinzu.
+- Es wird empfohlen den Komponenten aussagekräftige Namen zu geben wie z.B. "Schaltfläche_Hinzufügen"
 
-#### Aufgabe 3: Programmieren
+
+#### Aufgabe 2: Programmieren (Blocks) - Vokabel hinzufügen
 
 - Klickt auf "Blocks".
 - Verwendet die folgenden Blockly-Blöcke, um den "Hinzufügen"-Button zu programmieren:
@@ -47,15 +51,17 @@
     - `add item to Vokabelliste` - Dieser Block fügt einen Eintrag zur Liste "Vokabelliste" hinzu.
     - `set item to Vokabel & ": " & Übersetzung` - Dieser Block erstellt den Eintrag in der Liste im Format "Vokabel: Übersetzung".
     - `Textbox_Vokabel.Text = ""` und `Textbox_Übersetzung.Text = ""` - Diese Blöcke setzen die Texteingabefelder zurück.
-    - `update Listview1` - Dieser Block aktualisiert die "Listview", um die neuen Vokabeln anzuzeigen.
+
 
 ## Schritt 4: Vokabeln anzeigen und bearbeiten (30 Minuten)
 
-#### Aufgabe 1: Komponenten hinzufügen
+
+#### Aufgabe 1: Oberfläche (Design) - Vokabeln anzeigen
+Um die Vokabeln anzuzeigen brauchen wir eine Liste (ListView).
 
 - Fügt eine "Listview" hinzu, um die gespeicherten Vokabeln anzuzeigen.
 
-#### Aufgabe 2: Programmieren - Vokabeln anzeigen
+#### Aufgabe 2: Programmieren (Blocks) - Vokabeln anzeigen
 
 - Klickt auf "Blocks".
 - Verwendet die folgenden Blockly-Blöcke, um die Vokabeln aus der Liste in der "Listview" anzuzeigen:
@@ -63,21 +69,24 @@
     - `for each item in Vokabelliste` - Dieser Block durchläuft alle Einträge in der Liste "Vokabelliste".
     - `add item to Listview1` - Dieser Block fügt die Einträge in die "Listview" hinzu.
 
-#### Aufgabe 3: Programmieren - Vokabeln bearbeiten
+Außerdem soll beim Drücken von "Hinzufügen" die Anzeige der Liste aktualisiert werden. Deshalb erweitern wir den "Hinzufügen" Code aus Schritt 3 mit folgendem Befehl:
 
-- In dieser Aufgabe könnt ihr die Vokabeln, die ihr bereits hinzugefügt habt, bearbeiten. Hier ist, wie ihr das machen könnt:
+- `update Listview1` - Dieser Block aktualisiert die "Listview", um die neuen Vokabeln anzuzeigen.
+
+#### Aufgabe 3: Programmieren (Blocks) - Vokabeln bearbeiten
+
+- In dieser Aufgabe könnt ihr die Vokabeln, die ihr bereits hinzugefügt habt, bearbeiten.
 
 1. Klickt auf die Vokabel in der "Listview", die ihr bearbeiten möchtet.
 2. Ein Popup-Fenster sollte erscheinen und euch auffordern, die Vokabel zu bearbeiten.
 3. Gebt die gewünschten Änderungen ein und klickt auf "OK", um die Bearbeitung abzuschließen.
 
-Denkt daran, dass die Musterlösung euch gezeigt hat, wie man die "Listview" für das Anzeigen von Vokabeln verwendet. Um Vokabeln zu bearbeiten, könnt ihr einen ähnlichen Ansatz verwenden und die Nutzer über ein Popup-Fenster Änderungen vornehmen lassen.
 
 ## Schritt 5: Fortschrittsverfolgung und Belohnungen (20 Minuten)
 
 #### Aufgabe 1: Punktesystem hinzufügen
 
-- In dieser Aufgabe werdet ihr ein einfaches Punktesystem hinzufügen, um euren Fortschritt im Vokabeltrainer zu verfolgen. Hier ist, wie ihr das machen könnt:
+- In dieser Aufgabe werdet ihr ein einfaches Punktesystem hinzufügen, um euren Fortschritt im Vokabeltrainer zu verfolgen.
 
 1. Fügt eine "Label" (Textanzeige) -Komponente hinzu und nennt sie "Punktestand".
 2. Erstellt eine neue Variable namens "Punkte" und setzt sie auf 0.
