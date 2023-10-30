@@ -3,7 +3,7 @@ import sys, traceback, json
 import javascript
 
 #####                  Output functions                  #####
-
+FIRST_TIME = True
 def _writeCanvas(*args):
     document["canvas-area"].html += "".join(args)
     
@@ -55,8 +55,6 @@ def next_level(ev):
         level_index+= 1
         load_level(level_index)
         
-    
-    
 def export_download(ev):
     pass
 
@@ -67,16 +65,11 @@ def export_qrcode(ev):
     javascript.this().uploadFile()
 
 def run_code(ev):
+    document["console-area"].html = ""
     _code = document["code-editor-source"].text
-    print("Aktueller Code:", _code)
-    try:
-        exec(_code)
-    except:
-        try:
-            traceback.print_exc()
-        except:
-            print("could not print traceback")
-            
+    from turtle import restart
+    restart()
+    exec(_code)    
     # Zum Einlesen des Codes in Datei muss noch implementiert werden
     """level_file_path = f"/levels/level_{level_index}.py"
     with open(level_file_path, "w") as level_file:
