@@ -19,7 +19,6 @@
 
 - Begrüßen Sie die Schülerinnen und Schüler herzlich.
 - Erklären Sie das Ziel des Workshops: Die Erstellung eines Vokabeltrainers mit dem MIT App Inventor.
-- Betonen Sie den Spaß und die Lernmöglichkeiten in der App-Programmierung.
 
 ## Schritt 2: Anmeldung und Benutzeroberfläche (10 Minuten)
 
