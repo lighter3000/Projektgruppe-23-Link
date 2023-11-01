@@ -60,6 +60,7 @@ def export_print(ev):
 
 def export_qrcode(ev):
     javascript.this().uploadFile()
+    qrcode_modal.style.__setitem__("display", "block")
 
 def run_code(ev):
     document["console"].html = ""
@@ -114,5 +115,11 @@ def toggle_dark_mode(event):
     links = document.select("a")
     for link in links:
         link.classList.toggle("darkmode-link")
+
+    if (document["dark-mode-button"].text == "Dark Mode"):
+        document["dark-mode-button"].text = "Light Mode"
+    else:
+        document["dark-mode-button"].text = "Dark Mode"
+    
 
 document["dark-mode-button"].bind('click', toggle_dark_mode)
