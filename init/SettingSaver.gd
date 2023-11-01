@@ -18,27 +18,31 @@ static var original_settings: Dictionary
 static var auto_flush = false
 
 static  func load_settings():
-	var json_as_text = FileAccess.get_file_as_string('res://settings.json')
-	var json_as_dict = JSON.parse_string(json_as_text)
+	
+	if not FileAccess.file_exists('res://settings.json'):
+		save_settings()
+	else:
+		var json_as_text = FileAccess.get_file_as_string('res://settings.json')
+		var json_as_dict = JSON.parse_string(json_as_text)
 
-	if json_as_dict:
-		if json_as_dict.has('audio'):
-			var audio_dict = json_as_dict['audio']
+		if json_as_dict:
+			if json_as_dict.has('audio'):
+				var audio_dict = json_as_dict['audio']
 
-			if audio_dict.has('master'):
-				settings['audio']['master'] = audio_dict['master']
-			if audio_dict.has('music'):
-				settings['audio']['music'] = audio_dict['music']
-			if audio_dict.has('sound_effects'):
-				settings['audio']['sound_effects'] = audio_dict['sound_effects']
+				if audio_dict.has('master'):
+					settings['audio']['master'] = audio_dict['master']
+				if audio_dict.has('music'):
+					settings['audio']['music'] = audio_dict['music']
+				if audio_dict.has('sound_effects'):
+					settings['audio']['sound_effects'] = audio_dict['sound_effects']
 
-		if json_as_dict.has('video'):
-			var video_dict = json_as_dict['video']
+			if json_as_dict.has('video'):
+				var video_dict = json_as_dict['video']
 
-			if video_dict.has('full_screen'):
-				settings['video']['full_screen'] = video_dict['full_screen']
-			if video_dict.has('vsync'):
-				settings['video']['vsync'] = video_dict['vsync']
+				if video_dict.has('full_screen'):
+					settings['video']['full_screen'] = video_dict['full_screen']
+				if video_dict.has('vsync'):
+					settings['video']['vsync'] = video_dict['vsync']
 
 	original_settings = settings.duplicate(true)
 
