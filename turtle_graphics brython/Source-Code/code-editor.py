@@ -26,7 +26,7 @@ def load_level(level_index):
     document["level_title"].text = "Level " + str(level_index)
      
     if 'tutorial_text' in level_globals:
-        document["tutorial_text"].text = level_globals['tutorial_text']
+        document["tutorial_text"].html = level_globals['tutorial_text']
     if 'tutorial_code' in level_globals:
         document["tutorial_code"].text = level_globals['tutorial_code']
     
@@ -60,7 +60,6 @@ def export_print(ev):
 
 def export_qrcode(ev):
     javascript.this().uploadFile()
-    qrcode_modal.style.__setitem__("display", "block")
 
 def run_code(ev):
     document["console"].html = ""
@@ -90,8 +89,6 @@ document["export_qrcode"].bind("click", export_qrcode)
 document["run_code"].bind("click", run_code)
 document["debug_code"].bind("click", debug_code)
 
-load_level(level_index)
-
 
 #####                  dialog modal for qrcode           #####
 qrcode_modal = document.getElementById("qrcodeModal")
@@ -108,13 +105,13 @@ document.bind("click", lambda event: qrcode_modal.style.__setitem__("display", "
 def toggle_dark_mode(event):
     document.body.classList.toggle('darkmode')
 
+    document["modal-content"].classList.toggle('darkmode')
+
+    document["linkToDownload"].classList.toggle('darkmode')
+
     buttons = document.select("button")
     for button in buttons:
         button.classList.toggle("darkmode")
-
-    links = document.select("a")
-    for link in links:
-        link.classList.toggle("darkmode-link")
 
     if (document["dark-mode-button"].text == "Dark Mode"):
         document["dark-mode-button"].text = "Light Mode"
@@ -123,3 +120,7 @@ def toggle_dark_mode(event):
     
 
 document["dark-mode-button"].bind('click', toggle_dark_mode)
+
+toggle_dark_mode(EnvironmentError)
+
+load_level(level_index)

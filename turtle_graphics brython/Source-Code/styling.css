@@ -113,6 +113,10 @@ button:active {
     margin-right: 2%;
 }
 
+.darkmode-button {
+    width: 130px;
+}
+
 /*                             dropdown                            */
 
 .dropdown-button,
@@ -165,18 +169,36 @@ button:active {
     left: 0;
 }
 
+/*                             tutorial                               */
+.tutorial {
+    float:left;
+    overflow: auto;
+    height: 100%;
+    width: 100%;
+}
+
 /*                             code-editor                            */
 
-.pre-block {
+.pre-block-tutorial {
     margin: 0;
     padding: 0;
 }
 
-.code-block {
+.pre-block {
     margin: 0;
     padding: 0;
-    height: 85%;
+    height: 100%;
     width: 100%;
+}
+
+.code-block {
+    float:left;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
 }
 
 /*                             qrcode modal                            */
@@ -198,12 +220,13 @@ button:active {
 }
 
 .modal-content {
-    margin-left: 40%;
+    margin-left: 42.5%;
     background-color: white;
     border-radius: 10px;
     box-shadow: var(--normal-shadow);
     padding-bottom: 10pt;
-    width: min-content;
+    width: 282.66px;
+    height: min-content;
 }
 
 .close {
@@ -221,12 +244,13 @@ button:active {
     cursor: pointer;
 }
 
-.download-qrcode {
+.modal-elements {
     padding: 10pt;
 }
 
-.download-link {
-    padding: 10pt;
+.error-message {
+    display: none;
+    color: red;
 }
 
 /*                             dark mode                            */
