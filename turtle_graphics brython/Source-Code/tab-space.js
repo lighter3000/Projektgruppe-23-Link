@@ -1,26 +1,31 @@
 function handleTabKey(event) 
 {
     if (event.key === "Tab") {
-
         // Verhindert das Standardverhalten der Tab-Taste (das Bewegen zum nächsten Element)
         event.preventDefault(); 
+        insertElement("\t");
+    }
 
-        // Snappt sich das Element und die markierte Stelle
-        var code = document.getElementById("code-editor-source");
-        // selectionEnd und selectionStart geht bei <code> nicht, nur bei <textField> und <input>
-        var selection = window.getSelection();
+    if (event.key === "Enter") {
+        // Verhindert das Standardverhalten der Tab-Taste (das Bewegen zum nächsten Element)
+        event.preventDefault();
+        insertElement("\n");
+    }
+}
 
-        // überprüfe, ob die Auswahl in <code> liegt
-        if(code.contains(selection.anchorNode)){
-            var startOffset = selection.anchorOffset;   // Start der markierung
-            var endOffset = selection.focusOffset;      // Ende der markierung
+function insertElement(element){ 
+    // Snappt sich das Element und die markierte Stelle
+    var code = document.getElementById("code-editor-source");
+    // selectionEnd und selectionStart geht bei <code> nicht, nur bei <textField> und <input>
+    var selection = window.getSelection();
 
-            console.log("Start Offset: " + startOffset);
-            console.log("End Offset: " + endOffset);
-        }
+    // überprüfe, ob die Auswahl in <code> liegt
+    if(code.contains(selection.anchorNode)){
+        var startOffset = selection.anchorOffset;   // Start der markierung
+        var endOffset = selection.focusOffset;      // Ende der markierung
 
-        // Der Tab wird mit reingepackt
-        var text = code.textContent;
+        console.log("Start Offset: " + startOffset);
+        console.log("End Offset: " + endOffset);
 
         if(startOffset>endOffset){
             var swap = startOffset;
@@ -28,10 +33,12 @@ function handleTabKey(event)
             endOffset = swap;
         }
 
-        var newText = text.substring(0, startOffset) + "\t" + text.substring(endOffset);
+        // Der Tab wird mit reingepackt
+        var text = code.textContent;
+        var newText = text.substring(0, startOffset) + element + text.substring(endOffset);
 
         // Der neue Text mit dem Tab wird eingefügt
-        code.innerHTML = newText;
+        code.textContent = newText;
 
         // Die Position des Schreibers wird an die Originale Stelle plus den Tab zurückgesetzt
         var range = document.createRange();
