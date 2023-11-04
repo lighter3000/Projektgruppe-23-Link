@@ -14,6 +14,8 @@ level_index = 1
 
 # Einlesen des Codes und Tutorials aus .py Dateien
 def load_level(level_index):
+    document['canvas'].html = ""
+    document["console"].html = ""
     level_file_path = f"/levels/level_{level_index}.py"
     
     with open(level_file_path, "r") as level_file:
