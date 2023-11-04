@@ -5,13 +5,14 @@
 
     <script type="text/javascript" src="brython.js"></script>
     <script type="text/javascript" src="brython_stdlib.js"></script>
+    <script type="text/javascript" src="qrcode.min.js"></script>
     <script type="text/javascript" src="file-upload.js"></script>
     <script type="text/python" src="code-editor.py"></script>
     <script type="text/javascript" src="tab-space.js"></script>
    
     <link rel="stylesheet" href="styling.css">
 
-    <title>Code-Editor kturtle/brython</title>
+    <title>Code-Editor turtle/brython</title>
 </head>
 
 <body onload="brython()">
@@ -19,9 +20,9 @@
     <div class="navbar-container">
         <h3 class="navbar-title">Webanwendung auf Basis von kturtle und brython</h3>
         <!--                         Level Select Buttons                         -->
-        <button id="previous_level" class="navbar-button">-</button>
+        <button id="previous_level" class="navbar-button next-previous-button">-</button>
         <h3 id="level_title" class="navbar-title"></h3>
-        <button id="next_level" class="navbar-button">+</button>
+        <button id="next_level" class="navbar-button next-previous-button">+</button>
         <!--                         Dropdown                                     -->
         <div id="dropdown" class="dropdown">
             <button id="dropdown-button" class="navbar-button dropdown-button">Exportieren</button>
