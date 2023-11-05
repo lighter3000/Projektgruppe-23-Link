@@ -1,5 +1,6 @@
 from browser import document, timer, html, ajax
 from turtle import restart
+from collections import defaultdict
 import sys, traceback, json
 import javascript
 
@@ -11,7 +12,7 @@ sys.stdout.write = _writeConsole
 sys.stderr.write = _writeConsole
 
 level_index = 1
-
+written_code = defaultdict(str)
 # Einlesen des Codes und Tutorials aus .py Dateien
 def load_level(level_index):
     document['canvas'].html = ""
@@ -32,17 +33,17 @@ def load_level(level_index):
     if 'tutorial_code' in level_globals:
         document["tutorial_code"].text = level_globals['tutorial_code']
     
-    """ if 'written_code' in level_globals is not "":
-        document["code-editor-source"].text = level_globals['written_code']    """
-        
-    if 'init_code' in level_globals:
+    if written_code[level_index - 1] != "":
+        document["code-editor-source"].text = written_code[level_index - 1]  
+    elif 'init_code' in level_globals:
         document["code-editor-source"].text = level_globals['init_code']
-
+        
     
 #####                  button functions                  #####    
 def previous_level(ev):
     global level_index
     if (level_index > 0):
+        written_code[level_index - 1] = document["code-editor-source"].text
         level_index -= 1
         load_level(level_index)
         
@@ -51,6 +52,7 @@ def previous_level(ev):
 def next_level(ev):
     global level_index
     if (level_index < 10):
+        written_code[level_index - 1] = document["code-editor-source"].text
         level_index+= 1
         load_level(level_index)
         
@@ -67,7 +69,10 @@ def run_code(ev):
     document["console"].html = ""
     _code = document["code-editor-source"].text
     restart()
-    exec(_code)    
+    exec(_code) 
+    
+    written_code[level_index - 1] = _code
+
     # Zum Einlesen des Codes in Datei muss noch implementiert werden
     """level_file_path = f"/levels/level_{level_index}.py"
     with open(level_file_path, "w") as level_file:
@@ -80,7 +85,21 @@ def run_code(ev):
     
 def debug_code(ev):
     pass
+def reset_code(ev):
+    level_file_path = f"/levels/level_{level_index}.py"
+    with open(level_file_path, "r") as level_file:
+        level_code = level_file.read()
+    
+    level_globals = {}
+    exec(level_code, level_globals)
+    
+    document["code-editor-source"].text = level_globals['init_code']
+    written_code[level_index - 1] = ""
 
+def load_code(ev):
+    if written_code[level_index - 1] != "":
+        document["code-editor-source"].text = written_code[level_index - 1]
+    
 
 #####                  button bindings                   #####
 document["previous_level"].bind("click", previous_level)
@@ -90,6 +109,8 @@ document["export_print"].bind("click", export_print)
 document["export_qrcode"].bind("click", export_qrcode)
 document["run_code"].bind("click", run_code)
 document["debug_code"].bind("click", debug_code)
+document["reset_code"].bind("click", reset_code)
+document["load_code"].bind("click", load_code)
 
 
 #####                  dialog modal for qrcode           #####
