@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://bcap7ag1woj0x"]
+[gd_scene load_steps=8 format=3 uid="uid://bcap7ag1woj0x"]
 
 [ext_resource type="Script" path="res://main_menu/mainmenu.gd" id="1_80xsw"]
+[ext_resource type="Texture2D" uid="uid://bgswiq05dxckk" path="res://assets/icons/play.png" id="3_7f66p"]
+[ext_resource type="Texture2D" uid="uid://dn33xwhfg280g" path="res://assets/icons/setting.png" id="4_wiogh"]
+[ext_resource type="Texture2D" uid="uid://0hhhucg5nj5a" path="res://assets/icons/quit.png" id="5_ehnr3"]
+[ext_resource type="Texture2D" uid="uid://y7hjmruu1434" path="res://assets/icons/backgroundButton.png" id="6_bq7ce"]
+[ext_resource type="FontFile" uid="uid://dgbtqe4jybj4" path="res://assets/fonts/rollbox/RollboxBlack-axn3a.ttf" id="6_flgr3"]
+[ext_resource type="Texture2D" uid="uid://bq8yrr6lnnuia" path="res://assets/icons/background_focus_Button.png" id="8_kaw8e"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -10,6 +16,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_80xsw")
+
+[node name="GameTitle_Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -332.0
+offset_top = 50.0
+offset_right = 333.0
+offset_bottom = 104.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("6_flgr3")
+theme_override_font_sizes/font_size = 50
+text = "Project CodeClash"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -25,18 +45,114 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Start_Game_Button" type="Button" parent="VBoxContainer"]
+[node name="Start_Game_TextureButton" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
-text = "Start Game"
+texture_normal = ExtResource("6_bq7ce")
+texture_hover = ExtResource("8_kaw8e")
+texture_focused = ExtResource("8_kaw8e")
 
-[node name="Options_Button" type="Button" parent="VBoxContainer"]
+[node name="HSplitContainer" type="HSplitContainer" parent="VBoxContainer/Start_Game_TextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -12.5
+offset_right = 96.0
+offset_bottom = 12.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 7
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Start_Game_TextureButton/HSplitContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("3_7f66p")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Start_Game_TextureButton/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.0784314, 0.270588, 0.854902, 1)
+theme_override_fonts/font = ExtResource("6_flgr3")
+theme_override_font_sizes/font_size = 21
+text = "Play "
+vertical_alignment = 2
+
+[node name="Options_TextureButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_bq7ce")
+texture_hover = ExtResource("8_kaw8e")
+texture_focused = ExtResource("8_kaw8e")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="VBoxContainer/Options_TextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -12.5
+offset_right = 96.0
+offset_bottom = 12.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 7
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Options_TextureButton/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("4_wiogh")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Options_TextureButton/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.0784314, 0.270588, 0.854902, 1)
+theme_override_fonts/font = ExtResource("6_flgr3")
+theme_override_font_sizes/font_size = 21
 text = "Options"
+vertical_alignment = 2
 
-[node name="Quit_Game_Button" type="Button" parent="VBoxContainer"]
+[node name="Quit_Game_TextureButton" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
-text = "Quit Game"
+texture_normal = ExtResource("6_bq7ce")
+texture_hover = ExtResource("8_kaw8e")
+texture_focused = ExtResource("8_kaw8e")
 
-[connection signal="pressed" from="VBoxContainer/Start_Game_Button" to="." method="_on_start_game_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Options_Button" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Quit_Game_Button" to="." method="_on_quit_game_button_pressed"]
+[node name="HSplitContainer" type="HSplitContainer" parent="VBoxContainer/Quit_Game_TextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -12.5
+offset_right = 96.0
+offset_bottom = 12.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 7
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Quit_Game_TextureButton/HSplitContainer"]
+layout_mode = 2
+texture = ExtResource("5_ehnr3")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Quit_Game_TextureButton/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.0784314, 0.270588, 0.854902, 1)
+theme_override_fonts/font = ExtResource("6_flgr3")
+theme_override_font_sizes/font_size = 21
+text = "Quit
+"
+vertical_alignment = 2
+
+[connection signal="pressed" from="VBoxContainer/Start_Game_TextureButton" to="." method="_on_start_game_texture_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Options_TextureButton" to="." method="_on_options_game_texture_button_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit_Game_TextureButton" to="." method="_on_quit_game_texture_button_pressed"]
