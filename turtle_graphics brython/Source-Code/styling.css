@@ -59,7 +59,7 @@ body {
     height: 60%;
 }
 
-.run-debug-button-container {
+.button-container {
     height: 5%;
 }
 
@@ -107,7 +107,7 @@ button:active {
     aspect-ratio: 1 / 1;
 }
 
-.run-debug-button {
+.buttons {
     height: 100%;
     width: 10%;
     margin-right: 2%;
@@ -246,6 +246,7 @@ button:active {
 
 .modal-elements {
     padding: 10pt;
+    margin: 0;
 }
 
 .error-message {

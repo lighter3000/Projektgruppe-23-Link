@@ -12,6 +12,7 @@ function uploadFile() {
     linkToDownload.style.display = "none"
     errorMessage.style.display = "none"
 
+    message.innerText = "Warten auf Upload ..."
     message.style.display = "block"
     qrcode_modal.style.display = "block"
 
@@ -64,7 +65,7 @@ function uploadFile() {
                 .catch(error => {
                     console.error(error)
                     message.style.display = "none"
-                    errorMessage.innerText = 'Error beim Upload: keine Intrnetverbindung'
+                    errorMessage.innerText = 'Error beim Upload: keine Internetverbindung'
                     qrcode_modal.style.display = "block"
                 })
         })
