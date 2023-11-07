@@ -57,6 +57,7 @@ body {
 
 .code-editor-container {
     height: 60%;
+    overflow: auto;
 }
 
 .button-container {
@@ -69,6 +70,18 @@ body {
 
 .console-container {
     height: 17%;
+}
+
+.line-number-container {
+    width: 3%;
+    float: left;
+    margin: 0;
+    text-align: center;
+}
+
+.source-code-container{
+    margin-left: 3%;
+    width: 97%;
 }
 
 /*                             navbar                              */
@@ -198,7 +211,6 @@ button:active {
     padding: 0;
     height: 100%;
     width: 100%;
-    overflow: auto;
 }
 
 /*                             qrcode modal                            */

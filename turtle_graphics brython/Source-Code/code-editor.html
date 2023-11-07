@@ -2,9 +2,6 @@
 
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
 
     <script type="text/javascript" src="brython.js"></script>
     <script type="text/javascript" src="brython_stdlib.js"></script>
@@ -18,24 +15,24 @@
     <title>Code-Editor turtle graphics/brython</title>
 </head>
 
-<body onload="brython()">
+<body onload="brython()" class="darkmode">
     <!--                             Navbar                                       -->
     <div class="navbar-container">
         <h3 class="navbar-title">Webanwendung auf Basis von turtle graphics und brython</h3>
         <!--                         Level Select Buttons                         -->
-        <button id="previous_level" class="navbar-button next-previous-button">-</button>
+        <button id="previous_level" class="navbar-button next-previous-button darkmode">-</button>
         <h3 id="level_title" class="navbar-title">Level 1</h3>
-        <button id="next_level" class="navbar-button next-previous-button">+</button>
+        <button id="next_level" class="navbar-button next-previous-button darkmode">+</button>
         <!--                         Dropdown                                     -->
         <div id="dropdown" class="dropdown">
-            <button id="dropdown-button" class="navbar-button dropdown-button">Exportieren</button>
+            <button id="dropdown-button" class="navbar-button dropdown-button darkmode">Exportieren</button>
             <ul id="dropdown-menu" class="dropdown-menu">
-                <li><button id="export_download" class="dropdown-button">Download</button></li>
-                <li><button id="export_print" class="dropdown-button">Drucken</button></li>
-                <li><button id="export_qrcode" class="dropdown-button">QR-Code</button></li>
+                <li><button id="export_download" class="dropdown-button darkmode">Download</button></li>
+                <li><button id="export_print" class="dropdown-button darkmode">Drucken</button></li>
+                <li><button id="export_qrcode" class="dropdown-button darkmode">QR-Code</button></li>
             </ul>
         </div>
-        <button id="dark-mode-button" class="navbar-button darkmode-button">Dark Mode</button>
+        <button id="dark-mode-button" class="navbar-button darkmode-button darkmode">Light Mode</button>
     </div>
     <!--                             2 Container on left and right                -->
     <div class="side-content-container">
@@ -46,23 +43,26 @@
             <div class="tutorial-container area-container" id="tutorial-area">
                 <div class="tutorial">
                     <h5 id="tutorial_text" class="tutorial-text" style="margin: 0;"></h5>
-                    <pre class="pre-block-tutorial"><code id="tutorial_code" spellcheck="false" data-gramm="false"></code></pre>
+                    <pre
+                        class="pre-block-tutorial"><code id="tutorial_code" spellcheck="false" data-gramm="false"></code></pre>
                 </div>
             </div>
             <div class="vertical-spacer"></div>
             <!--                     Code-Editor Container                        -->
             <div class="code-editor-container area-container" id="code-editor-area">
-                <!-- <p class="container-text">Code-Editor</p> -->
-                <pre
-                    class="pre-block"><code class="code-block" id="code-editor-source" contenteditable="true" spellcheck="false" data-gramm="false" onkeydown="handleTabKey(event)"></code></pre>
+                <pre class="line-number-container" id="line-number-area">1<br/>21<br/>321</pre>
+                <div class="source-code-container" id="source-code-area">
+                    <pre
+                        class="pre-block"><code class="code-block" id="code-editor-source" contenteditable="true" spellcheck="false" data-gramm="false" onkeydown="handleTabKey(event)"></code></pre>
+                </div>
             </div>
             <div class="vertical-spacer"></div>
             <!--                     Run and Debug Buttons Container              -->
             <div class="button-container" id="button-area">
-                <button id="run_code" class="buttons" tabindex="-1">Run</button>
-                <button id="debug_code" class="buttons" tabindex="-1">Debug</button>
-                <button id="reset_code" class="buttons" tabindex="-1">Reset</button>
-                <button id="load_code" class="buttons" tabindex="-1">Load</button>
+                <button id="run_code" class="buttons darkmode" tabindex="-1">Run</button>
+                <button id="debug_code" class="buttons darkmode" tabindex="-1">Debug</button>
+                <button id="reset_code" class="buttons darkmode" tabindex="-1">Reset</button>
+                <button id="load_code" class="buttons darkmode" tabindex="-1">Load</button>
             </div>
             <div class="vertical-spacer"></div>
         </div>
@@ -89,7 +89,7 @@
         <div id="modal-content" class="modal-content">
             <span class="close" id="qrCodeModalCloseButton">&times;</span>
             <div id="qrCodeToDownload" class="modal-elements"></div>
-            <a id="linkToDownload" class="modal-elements"></a>
+            <a id="linkToDownload" class="modal-elements darkmode"></a>
             <p id="message" class="modal-elements">Warten auf Upload ...</p>
             <p id="errorMessage" class="modal-elements error-message"></p>
         </div>

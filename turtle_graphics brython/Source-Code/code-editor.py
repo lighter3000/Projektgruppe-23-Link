@@ -144,6 +144,4 @@ def toggle_dark_mode(event):
 
 document["dark-mode-button"].bind('click', toggle_dark_mode)
 
-toggle_dark_mode(EnvironmentError)
-
 load_level(level_index)
