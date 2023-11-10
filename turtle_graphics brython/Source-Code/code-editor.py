@@ -46,6 +46,7 @@ def previous_level(ev):
         written_code[level_index - 1] = document["code-editor-source"].text
         level_index -= 1
         load_level(level_index)
+        load_linesnumbers()
         
 
 
@@ -55,6 +56,7 @@ def next_level(ev):
         written_code[level_index - 1] = document["code-editor-source"].text
         level_index+= 1
         load_level(level_index)
+        load_linesnumbers()
         
 def export_download(ev):
     pass
@@ -144,4 +146,17 @@ def toggle_dark_mode(event):
 
 document["dark-mode-button"].bind('click', toggle_dark_mode)
 
+#####                  Code-Editor                       #####
+
+def load_linesnumbers():
+    document["line-number-area"].html = ""
+    code_text = document["code-editor-source"].text
+    line_count = code_text.split("\n")
+    for line_number in range(1, len(line_count)):
+        document["line-number-area"].html += f"{line_number}<br/>"
+
+
+
+#####                    onload                          #####
 load_level(level_index)
+load_linesnumbers()

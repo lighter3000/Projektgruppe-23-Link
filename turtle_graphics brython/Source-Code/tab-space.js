@@ -1,5 +1,8 @@
 function handleTabKey(event) 
 {
+    const isCtrlOrCommand = event.ctrlKey || event.metaKey;
+
+
     if (event.key === "Tab") {
         // Verhindert das Standardverhalten der Tab-Taste (das Bewegen zum nächsten Element)
         event.preventDefault(); 
@@ -7,10 +10,24 @@ function handleTabKey(event)
     }
 
     if (event.key === "Enter") {
-        // Verhindert das Standardverhalten der Tab-Taste (das Bewegen zum nächsten Element)
+        // Verhindert das Standardverhalten der Enter-Taste (das Einfügen von <br/>)
         event.preventDefault();
+        
         insertElement("\n");
+        codeEditorLines(countLines());
     }
+
+    if(event.key === "Backspace"){
+        codeEditorLines(countLines());
+    }
+
+    if(isCtrlOrCommand && event.key === "c"){
+        console.log("Strg+C");
+    } 
+
+    if(isCtrlOrCommand && event.key === "v"){
+        console.log("Strg+V");
+    } 
 }
 
 function insertElement(element){ 
@@ -46,5 +63,20 @@ function insertElement(element){
         range.setEnd(code.firstChild, startOffset+1);
         selection.removeAllRanges();
         selection.addRange(range);
+    }
+}
+
+function countLines(){
+    var code = document.getElementById("code-editor-source");
+    var text = code.innerText;
+    var lines = text.split("\n").length-1;
+    return lines;
+}
+
+function codeEditorLines(lines){
+    var numbers = document.getElementById("line-number-area");
+    numbers.innerHTML = "";
+    for(let i=1; i<=lines; i++){
+           numbers.innerHTML += i+"<br/>";
     }
 }
