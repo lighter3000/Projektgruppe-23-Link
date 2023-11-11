@@ -96,7 +96,6 @@ def reset_code(ev):
     exec(level_code, level_globals)
     
     document["code-editor-source"].text = level_globals['init_code']
-    written_code[level_index - 1] = ""
 
 def load_code(ev):
     if written_code[level_index - 1] != "":
