@@ -18,21 +18,27 @@
 <body onload="brython()" class="darkmode">
     <!--                             Navbar                                       -->
     <div class="navbar-container">
-        <h3 class="navbar-title">Webanwendung auf Basis von turtle graphics und brython</h3>
-        <!--                         Level Select Buttons                         -->
-        <button id="previous_level" class="navbar-button next-previous-button darkmode">-</button>
-        <h3 id="level_title" class="navbar-title">Level 1</h3>
-        <button id="next_level" class="navbar-button next-previous-button darkmode">+</button>
-        <!--                         Dropdown                                     -->
-        <div id="dropdown" class="dropdown">
-            <button id="dropdown-button" class="navbar-button dropdown-button darkmode">Exportieren</button>
-            <ul id="dropdown-menu" class="dropdown-menu">
-                <li><button id="export_download" class="dropdown-button darkmode">Download</button></li>
-                <li><button id="export_print" class="dropdown-button darkmode">Drucken</button></li>
-                <li><button id="export_qrcode" class="dropdown-button darkmode">QR-Code</button></li>
-            </ul>
+        <div class="navbar-container-left">
+            <h3 class="navbar-title">Webanwendung auf Basis von turtle graphics und brython</h3>
+            <!--                         Level Select Buttons                         -->
+            <button id="previous_level" class="navbar-button-left next-previous-button darkmode">-</button>
+            <h3 id="level_title" class="level-title">Level 1</h3>
+            <button id="next_level" class="navbar-button-left next-previous-button darkmode">+</button>
         </div>
-        <button id="dark-mode-button" class="navbar-button darkmode-button darkmode">Light Mode</button>
+        <div class="navbar-container-right ">
+            <!--                         Dropdown                                     -->
+            <div id="dropdown" class="dropdown">
+                <button id="dropdown-button" class="dropdown-button darkmode">Exportieren</button>
+                <ul id="dropdown-menu" class="dropdown-menu">
+                    <li><button id="export_download" class="dropdown-button darkmode">Download</button></li>
+                    <li><button id="export_print" class="dropdown-button darkmode">Drucken</button></li>
+                    <li><button id="export_qrcode" class="dropdown-button darkmode">QR-Code</button></li>
+                </ul>
+            </div>
+            <!--                         Dark Mode Button                             -->
+            <button id="dark-mode-button" class="navbar-button-right darkmode-button darkmode">Light Mode</button>
+        </div>
+
     </div>
     <!--                             2 Container on left and right                -->
     <div class="side-content-container">
@@ -59,14 +65,10 @@
             <div class="vertical-spacer"></div>
             <!--                     Run and Debug Buttons Container              -->
             <div class="button-container" id="button-area">
-                <div class="btn-left">
-                    <button id="run_code" class="buttons darkmode" tabindex="-1">Run</button>
-                    <button id="debug_code" class="buttons darkmode" tabindex="-1">Debug</button>
-                </div>
-                <div class="btn-right">
-                    <button id="load_code" class="buttons darkmode" tabindex="-1">Load</button>
-                    <button id="reset_code" class="buttons darkmode" tabindex="-1">Reset</button>
-                </div>
+                <button id="run_code" class="buttons button-left darkmode" tabindex="-1">Run</button>
+                <button id="debug_code" class="buttons button-left darkmode" tabindex="-1">Debug</button>
+                <button id="load_code" class="buttons button-right darkmode" tabindex="-1">Load</button>
+                <button id="reset_code" class="buttons button-right darkmode" tabindex="-1">Reset</button>
             </div>
 
             <div class="vertical-spacer"></div>
@@ -91,11 +93,11 @@
     </div>
 
     <div id="qrcodeModal" class="modal">
-        <div id="modal-content" class="modal-content">
+        <div id="modal-content" class="modal-content darkmode">
             <span class="close" id="qrCodeModalCloseButton">&times;</span>
+            <p id="message" class="modal-elements">Warten auf Upload ...</p>
             <div id="qrCodeToDownload" class="modal-elements"></div>
             <a id="linkToDownload" class="modal-elements darkmode"></a>
-            <p id="message" class="modal-elements">Warten auf Upload ...</p>
             <p id="errorMessage" class="modal-elements error-message"></p>
         </div>
     </div>
