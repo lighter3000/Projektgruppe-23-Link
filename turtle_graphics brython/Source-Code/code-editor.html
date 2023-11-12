@@ -47,19 +47,19 @@
             <div class="vertical-spacer"></div>
             <!--                     Tutorial Container                           -->
             <div class="tutorial-container area-container" id="tutorial-area">
-                <div class="tutorial">
-                    <h5 id="tutorial_text" class="tutorial-text" style="margin: 0;"></h5>
+                <div id="tutorial" class="tutorial">
+                    <!-- <h5 id="tutorial_text" class="tutorial-text" style="margin: 0;"></h5>
                     <pre
-                        class="pre-block-tutorial"><code id="tutorial_code" spellcheck="false" data-gramm="false"></code></pre>
+                        class="pre-block-tutorial"><code id="tutorial_code" spellcheck="false" data-gramm="false"></code></pre> -->
                 </div>
             </div>
             <div class="vertical-spacer"></div>
             <!--                     Code-Editor Container                        -->
             <div class="code-editor-container area-container" id="code-editor-area">
-                <pre class="line-number-container" id="line-number-area"></pre>
+                <pre class="line-number-container"><span id="line-number-area" class="code-font"></span></pre>
                 <div class="source-code-container" id="source-code-area">
                     <pre
-                        class="pre-block"><code class="code-block" id="code-editor-source" contenteditable="true" spellcheck="false" data-gramm="false" onkeydown="handleTabKey(event)"></code></pre>
+                        class="pre-block"><code class="code-block" contenteditable="true" spellcheck="false" data-gramm="false" onkeydown="handleTabKey(event)"><span  id="code-editor-source" class="code-font"></span></code></pre>
                 </div>
             </div>
             <div class="vertical-spacer"></div>
@@ -87,7 +87,7 @@
             <!--                     Console Container                            -->
             <div class="console-container area-container" id="console-area">
                 <p class="container-text">Konsole</p>
-                <div id="console"></div>
+                <div class="console" id="console"></div>
             </div>
             <div class="vertical-spacer"></div>
         </div>

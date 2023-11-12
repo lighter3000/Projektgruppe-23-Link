@@ -116,6 +116,23 @@ body {
     width: 97%;
 }
 
+/*                             code-editor + tutorial area         */
+.p-font {
+    font-size: 14px;
+    margin: 0;
+}
+
+.code-font {
+    font-size: 14px;
+    color: #878787;
+}
+
+/*                             console                             */
+.console {
+    overflow: auto;
+    height: 90%;
+}
+
 /*                             navbar                              */
 
 .navbar-title {

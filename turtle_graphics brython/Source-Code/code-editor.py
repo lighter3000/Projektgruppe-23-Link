@@ -28,11 +28,11 @@ def load_level(level_index):
    
     
     document["level_title"].text = "Level " + str(level_index)
-     
-    if 'tutorial_text' in level_globals:
-        document["tutorial_text"].html = level_globals['tutorial_text']
-    if 'tutorial_code' in level_globals:
-        document["tutorial_code"].text = level_globals['tutorial_code']
+    
+    if 'tutorial' in level_globals:
+        document["tutorial"].html = level_globals['tutorial']
+    # if 'tutorial_code' in level_globals:
+    #     document["tutorial_code"].text = level_globals['tutorial_code']
     
     if written_code[level_index - 1] != "":
         document["code-editor-source"].text = written_code[level_index - 1]  
@@ -152,7 +152,8 @@ document.bind("click", lambda event: soultion_modal.style.__setitem__("display",
 def toggle_dark_mode(event):
     document.body.classList.toggle('darkmode')
 
-    document["modal-content"].classList.toggle('darkmode')
+    document["qrcode-modal-content"].classList.toggle('darkmode')
+    document["solution-modal-content"].classList.toggle('darkmode')
 
     document["linkToDownload"].classList.toggle('darkmode')
 
