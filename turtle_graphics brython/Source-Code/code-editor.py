@@ -1,5 +1,6 @@
-from browser import document, timer, html, ajax
+from browser import document, window
 from turtle import restart
+import turtle
 from collections import defaultdict
 import sys, traceback, json
 import javascript
@@ -11,7 +12,7 @@ def _writeConsole(*args):
 sys.stdout.write = _writeConsole
 sys.stderr.write = _writeConsole
 
-level_index = 1
+level_index = 0
 written_code = defaultdict(str)
 solution_code = defaultdict(str)
 # Einlesen des Codes und Tutorials aus .py Dateien
@@ -63,7 +64,7 @@ def next_level(ev):
         load_linesnumbers()
         
 def export_download(ev):
-    pass
+    resize_canvas()
 
 def export_print(ev):
     pass
@@ -74,8 +75,14 @@ def export_qrcode(ev):
 def run_code(ev):
     document["console"].html = ""
     _code = document["code-editor-source"].text
+
+    # code_with_turtle_setup_and_rollback = "t = turtle.Turtle() \n" + _code + "\nturtle.done()"
+    code_with_turtle_rollback = _code + "\nturtle.done()"
+    
     restart()
-    exec(_code) 
+    exec(code_with_turtle_rollback)
+
+    # window.requestAnimationFrame(check_canvas_existence)
     
     written_code[level_index - 1] = _code
 
@@ -89,8 +96,6 @@ def run_code(ev):
     
     level_globals["written_code"] = _code """
     
-def debug_code(ev):
-    pass
 def reset_code(ev):
     level_file_path = f"/levels/level_{level_index}.py"
     with open(level_file_path, "r") as level_file:
@@ -111,7 +116,6 @@ def show_solution(ev):
 def paste_solution(ev):
     document["code-editor-source"].text = document["solution_code"].text
     load_linesnumbers()
-    
 
 #####                  button bindings                   #####
 document["previous_level"].bind("click", previous_level)
@@ -120,7 +124,6 @@ document["export_download"].bind("click", export_download)
 document["export_print"].bind("click", export_print)
 document["export_qrcode"].bind("click", export_qrcode)
 document["run_code"].bind("click", run_code)
-document["debug_code"].bind("click", debug_code)
 document["reset_code"].bind("click", reset_code)
 document["load_code"].bind("click", load_code)
 document["show_solution"].bind("click", show_solution)
@@ -178,6 +181,13 @@ def load_linesnumbers():
     for line_number in range(1, len(line_count)):
         document["line-number-area"].html += f"{line_number}<br/>"
 
+#####
+
+def resize_canvas():
+    turtle_canvas = document.getElementById("turtle-canvas")
+    canvas = document.getElementById("canvas")
+    turtle_canvas.setAttribute('width', canvas.clientWidth)
+    turtle_canvas.setAttribute('height', canvas.clientHeight)
 
 
 #####                    onload                          #####

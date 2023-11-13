@@ -47,26 +47,23 @@
             <div class="vertical-spacer"></div>
             <!--                     Tutorial Container                           -->
             <div class="tutorial-container area-container" id="tutorial-area">
-                <div id="tutorial" class="tutorial">
-                    <!-- <h5 id="tutorial_text" class="tutorial-text" style="margin: 0;"></h5>
-                    <pre
-                        class="pre-block-tutorial"><code id="tutorial_code" spellcheck="false" data-gramm="false"></code></pre> -->
-                </div>
+                <div id="tutorial" class="tutorial"></div>
             </div>
             <div class="vertical-spacer"></div>
             <!--                     Code-Editor Container                        -->
             <div class="code-editor-container area-container" id="code-editor-area">
-                <pre class="line-number-container"><span id="line-number-area" class="code-font"></span></pre>
-                <div class="source-code-container" id="source-code-area">
-                    <pre
-                        class="pre-block"><code class="code-block" contenteditable="true" spellcheck="false" data-gramm="false" onkeydown="handleTabKey(event)"><span  id="code-editor-source" class="code-font"></span></code></pre>
+                <div class="code-area">
+                    <pre class="line-number-container" id="line-number-pre"><span id="line-number-area" class="line-number-font"></span></pre>
+                    <div class="source-code-container" id="source-code-area">
+                        <pre
+                            class="pre-block" id="code-editor-pre"><code class="code-block" contenteditable="true" spellcheck="false" data-gramm="false" onkeydown="handleTabKey(event)"><span  id="code-editor-source" class="code-editor-font"></span></code></pre>
+                    </div>
                 </div>
             </div>
             <div class="vertical-spacer"></div>
             <!--                     Run and Debug Buttons Container              -->
             <div class="button-container" id="button-area">
                 <button id="run_code" class="buttons button-left darkmode" tabindex="-1">Run</button>
-                <button id="debug_code" class="buttons button-left darkmode" tabindex="-1">Debug</button>
                 <button id="load_code" class="buttons button-right darkmode" tabindex="-1">Load</button>
                 <button id="reset_code" class="buttons button-right darkmode" tabindex="-1">Reset</button>
                 <button id="show_solution" class="buttons button-right darkmode" tabindex="-1">Lösung</button>
@@ -79,14 +76,14 @@
             <div class="vertical-spacer"></div>
             <!--                     Canvas Container                             -->
             <div class="canvas-container area-container" id="canvas-area">
-                <p class="container-text">Canvas</p>
-                <div id="canvas"></div>
+                <p class="canvas-container-text">Canvas</p>
+                <div id="canvas" class="canvas"></div>
             </div>
 
             <div class="vertical-spacer"></div>
             <!--                     Console Container                            -->
             <div class="console-container area-container" id="console-area">
-                <p class="container-text">Konsole</p>
+                <p class="console-container-text">Konsole</p>
                 <div class="console" id="console"></div>
             </div>
             <div class="vertical-spacer"></div>
