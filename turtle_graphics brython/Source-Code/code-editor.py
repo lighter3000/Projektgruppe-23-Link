@@ -86,15 +86,6 @@ def run_code(ev):
     
     written_code[level_index - 1] = _code
 
-    # Zum Einlesen des Codes in Datei muss noch implementiert werden
-    """level_file_path = f"/levels/level_{level_index}.py"
-    with open(level_file_path, "w") as level_file:
-        level_code = level_file.read()
-    
-    level_globals = {}
-    exec(level_code, level_globals)
-    
-    level_globals["written_code"] = _code """
     
 def reset_code(ev):
     level_file_path = f"/levels/level_{level_index}.py"
@@ -110,7 +101,11 @@ def load_code(ev):
     if written_code[level_index - 1] != "":
         document["code-editor-source"].text = written_code[level_index - 1]
 
+def save_code(ev):
+    written_code[level_index - 1] = document["code-editor-source"].text
+
 def show_solution(ev):
+    save_code(1)
     document["solutionModal"].style.display = "block"
 
 def paste_solution(ev):
@@ -126,6 +121,7 @@ document["export_qrcode"].bind("click", export_qrcode)
 document["run_code"].bind("click", run_code)
 document["reset_code"].bind("click", reset_code)
 document["load_code"].bind("click", load_code)
+document["save_code"].bind("click", save_code)
 document["show_solution"].bind("click", show_solution)
 document["paste_solution"].bind("click", paste_solution)
 
