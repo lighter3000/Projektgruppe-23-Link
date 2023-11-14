@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://cjlxdtwtvd7mw"]
+
+[ext_resource type="Script" path="res://game_objects/while_block/while_block.gd" id="1_h06t5"]
+[ext_resource type="Texture2D" uid="uid://bb22317h2vw3t" path="res://game_objects/assets/while_block.png" id="2_4qnep"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dsh8q"]
+size = Vector2(84, 66)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v2l3p"]
+size = Vector2(7, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_10m5u"]
+size = Vector2(7, 21)
+
+[node name="while_block" type="Area2D"]
+script = ExtResource("1_h06t5")
+
+[node name="while_block_sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_4qnep")
+
+[node name="while_block_collisionshape" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_dsh8q")
+
+[node name="input_connector_collisionshape" type="CollisionShape2D" parent="."]
+position = Vector2(-45.5, 4)
+shape = SubResource("RectangleShape2D_v2l3p")
+
+[node name="output_connector_collisionshape" type="CollisionShape2D" parent="."]
+position = Vector2(45.5, 12.5)
+shape = SubResource("RectangleShape2D_10m5u")

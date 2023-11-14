@@ -1,52 +1,82 @@
-[gd_scene load_steps=2 format=3 uid="uid://bx8tsca3k6aaj"]
+[gd_scene load_steps=6 format=3 uid="uid://bx8tsca3k6aaj"]
 
 [ext_resource type="Script" path="res://levels/level1/level_1.gd" id="1_daruv"]
+[ext_resource type="PackedScene" uid="uid://c4xwakfr5oonp" path="res://game_objects/end_block/end_block.tscn" id="2_1cily"]
+[ext_resource type="PackedScene" uid="uid://qs3du0q4n3vx" path="res://game_objects/start_block/start_block.tscn" id="3_1kchg"]
+[ext_resource type="PackedScene" uid="uid://y0u1veo1swd1" path="res://game_objects/if_block/if_block.tscn" id="4_xqph8"]
+[ext_resource type="PackedScene" uid="uid://cjlxdtwtvd7mw" path="res://game_objects/while_block/while_block.tscn" id="5_0xbtt"]
 
 [node name="level1" type="Node2D"]
 script = ExtResource("1_daruv")
 
 [node name="GUI" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="GUI"]
+[node name="toolbar_top" type="HBoxContainer" parent="GUI"]
+layout_mode = 0
 offset_right = 1149.0
 offset_bottom = 66.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="GUI/HBoxContainer"]
+[node name="left_items" type="HBoxContainer" parent="GUI/toolbar_top"]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
+size_flags_horizontal = 0
 
-[node name="Back_Button" type="Button" parent="GUI/HBoxContainer/HBoxContainer"]
+[node name="Back_Button" type="Button" parent="GUI/toolbar_top/left_items"]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 text = "Back"
 
-[node name="title" type="Label" parent="GUI/HBoxContainer/HBoxContainer"]
+[node name="title" type="Label" parent="GUI/toolbar_top/left_items"]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 text = "Level 1"
+horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Help_Button" type="Button" parent="GUI/HBoxContainer/HBoxContainer"]
+[node name="Help_Button" type="Button" parent="GUI/toolbar_top/left_items"]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
+tooltip_text = "Help"
 text = "Help"
+expand_icon = true
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="GUI/HBoxContainer"]
+[node name="right_items" type="HBoxContainer" parent="GUI/toolbar_top"]
 layout_mode = 2
 size_flags_horizontal = 10
 
-[node name="Start_Button" type="Button" parent="GUI/HBoxContainer/HBoxContainer2"]
+[node name="Start_Button" type="Button" parent="GUI/toolbar_top/right_items"]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 text = "Start"
 
-[node name="Max_Elements_Label" type="Label" parent="GUI/HBoxContainer/HBoxContainer2"]
+[node name="Max_Elements_Label" type="Label" parent="GUI/toolbar_top/right_items"]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 text = "1 / ?"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Delete_Button" type="Button" parent="GUI/HBoxContainer/HBoxContainer2"]
+[node name="Delete_Button" type="Button" parent="GUI/toolbar_top/right_items"]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 text = "Delete"
 
-[connection signal="pressed" from="GUI/HBoxContainer/HBoxContainer/Back_Button" to="." method="_on_back_button_pressed"]
+[node name="end_block" parent="GUI" instance=ExtResource("2_1cily")]
+position = Vector2(448, 600)
+
+[node name="start_block" parent="GUI" instance=ExtResource("3_1kchg")]
+position = Vector2(192, 600)
+
+[node name="if_block" parent="GUI" instance=ExtResource("4_xqph8")]
+position = Vector2(704, 600)
+
+[node name="while_block" parent="GUI" instance=ExtResource("5_0xbtt")]
+position = Vector2(960, 603)
+
+[connection signal="pressed" from="GUI/toolbar_top/left_items/Back_Button" to="." method="_on_back_button_pressed"]
