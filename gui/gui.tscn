@@ -1,0 +1,148 @@
+[gd_scene load_steps=9 format=3 uid="uid://de2s3mtltkf6x"]
+
+[ext_resource type="PackedScene" uid="uid://qs3du0q4n3vx" path="res://game_objects/start_block/start_block.tscn" id="1_bcma2"]
+[ext_resource type="Script" path="res://gui/gui.gd" id="1_prwvm"]
+[ext_resource type="PackedScene" uid="uid://c4xwakfr5oonp" path="res://game_objects/end_block/end_block.tscn" id="2_4virq"]
+[ext_resource type="PackedScene" uid="uid://y0u1veo1swd1" path="res://game_objects/if_block/if_block.tscn" id="3_g6kl6"]
+[ext_resource type="PackedScene" uid="uid://cjlxdtwtvd7mw" path="res://game_objects/while_block/while_block.tscn" id="4_03xxy"]
+[ext_resource type="Texture2D" uid="uid://pwsslcsrp7hk" path="res://assets/icons/elements_background.png" id="4_8bnqk"]
+[ext_resource type="Texture2D" uid="uid://f1cexif6rtu8" path="res://assets/icons/gameplay_background.png" id="6_5lf6f"]
+[ext_resource type="Texture2D" uid="uid://yl1ru4pdna2v" path="res://assets/icons/toolbar_backgound.png" id="7_skx72"]
+
+[node name="gui" type="CanvasLayer"]
+script = ExtResource("1_prwvm")
+
+[node name="background_gameplay" type="TextureRect" parent="."]
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_right = 576.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_5lf6f")
+
+[node name="background_toolbar" type="TextureRect" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 94.0
+grow_horizontal = 2
+texture = ExtResource("7_skx72")
+stretch_mode = 2
+
+[node name="background_elements" type="TextureRect" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -577.0
+offset_top = -101.0
+offset_right = 577.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("4_8bnqk")
+stretch_mode = 2
+
+[node name="Control" type="Control" parent="."]
+top_level = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+
+[node name="toolbar_top_margin" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = 15
+
+[node name="toolbar_top" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/toolbar_top_margin"]
+layout_mode = 2
+
+[node name="left_items" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/toolbar_top_margin/toolbar_top"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Back_Button" type="Button" parent="Control/MarginContainer/VBoxContainer/toolbar_top_margin/toolbar_top/left_items"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "Back"
+
+[node name="title" type="Label" parent="Control/MarginContainer/VBoxContainer/toolbar_top_margin/toolbar_top/left_items"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "Level 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Help_Button" type="Button" parent="Control/MarginContainer/VBoxContainer/toolbar_top_margin/toolbar_top/left_items"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+tooltip_text = "Help"
+text = "Help"
+expand_icon = true
+
+[node name="right_items" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/toolbar_top_margin/toolbar_top"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Start_Button" type="Button" parent="Control/MarginContainer/VBoxContainer/toolbar_top_margin/toolbar_top/right_items"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "Start"
+
+[node name="Max_Elements_Label" type="Label" parent="Control/MarginContainer/VBoxContainer/toolbar_top_margin/toolbar_top/right_items"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "1 / ?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Delete_Button" type="Button" parent="Control/MarginContainer/VBoxContainer/toolbar_top_margin/toolbar_top/right_items"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "Delete"
+
+[node name="gameplay_margin_container" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 11
+theme_override_constants/margin_bottom = 47
+
+[node name="Control" type="Control" parent="Control/MarginContainer/VBoxContainer/gameplay_margin_container"]
+layout_mode = 2
+
+[node name="elements" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="start_block" parent="Control/MarginContainer/VBoxContainer/elements" instance=ExtResource("1_bcma2")]
+position = Vector2(144, 0)
+
+[node name="end_block" parent="Control/MarginContainer/VBoxContainer/elements" instance=ExtResource("2_4virq")]
+position = Vector2(432, 0)
+
+[node name="if_block" parent="Control/MarginContainer/VBoxContainer/elements" instance=ExtResource("3_g6kl6")]
+position = Vector2(720, 0)
+
+[node name="while_block" parent="Control/MarginContainer/VBoxContainer/elements" instance=ExtResource("4_03xxy")]
+position = Vector2(1000, 0)
+
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/toolbar_top_margin/toolbar_top/left_items/Back_Button" to="." method="_on_back_button_pressed"]
