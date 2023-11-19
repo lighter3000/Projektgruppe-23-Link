@@ -4,13 +4,9 @@ import turtle
 from collections import defaultdict
 import sys, traceback, json
 import javascript
+import re
 
-#####                  Output functions                  #####    
-def _writeConsole(*args):
-    document["console"].html += "".join(args)
-
-sys.stdout.write = _writeConsole
-sys.stderr.write = _writeConsole
+#####------------------Level Switch----------------------#####  
 
 level_index = 0
 written_code = defaultdict(str)
@@ -41,10 +37,10 @@ def load_level(level_index):
         document["code-editor-source"].text = level_globals['init_code']
 
     if 'solution_code' in level_globals:
-        document["solution_code"].text = level_globals['solution_code']
-        
-    
-#####                  button functions                  #####    
+        document["solution_code"].text = level_globals['solution_code']         
+        document["solution_comments"].text = get_solution_text(level_globals['solution_code'])
+
+#####------------------button functions------------------#####  
 def previous_level(ev):
     global level_index
     if (level_index > 0):
@@ -52,8 +48,6 @@ def previous_level(ev):
         level_index -= 1
         load_level(level_index)
         load_linesnumbers()
-        
-
 
 def next_level(ev):
     global level_index
@@ -117,7 +111,21 @@ def paste_solution(ev):
     document["code-editor-source"].text = document["solution_code"].text
     load_linesnumbers()
 
-#####                  button bindings                   #####
+def show_solution_code(ev):
+    document['solution_comments_container'].style.display = 'none'
+    document['solution_code_container'].style.display = 'block'
+    document["show_solution_comments"].style.display = 'block'
+    document["show_solution_code"].style.display = 'none'
+    document["paste_solution"].style.display = 'block'
+
+def show_solution_comments(ev):
+    document['solution_comments_container'].style.display = 'block'
+    document['solution_code_container'].style.display = 'none'
+    document["show_solution_comments"].style.display = 'none'
+    document["show_solution_code"].style.display = 'block'
+    document["paste_solution"].style.display = 'none'
+
+#####------------------Button Bindings-------------------#####  
 document["previous_level"].bind("click", previous_level)
 document["next_level"].bind("click", next_level)
 document["export_download"].bind("click", export_download)
@@ -128,29 +136,10 @@ document["reset_code"].bind("click", reset_code)
 document["load_code"].bind("click", load_code)
 document["show_solution"].bind("click", show_solution)
 document["paste_solution"].bind("click", paste_solution)
+document["show_solution_code"].bind("click", show_solution_code)
+document["show_solution_comments"].bind("click", show_solution_comments)
 
-#####                  dialog modal for qrcode           #####
-qrcode_modal = document.getElementById("qrcodeModal")
-
-# set event to close button on modal to hide modal
-qrcode_modal_close_button = qrcode_modal.getElementsByClassName("close")[0]
-qrcode_modal_close_button.bind("click", lambda ev: qrcode_modal.style.__setitem__("display", "none"))
-
-#set event to click in background to hide modal
-document.bind("click", lambda event: qrcode_modal.style.__setitem__("display", "none") if event.target == qrcode_modal else None)
-
-
-#####                  dialog modal for solution         #####
-soultion_modal = document.getElementById("solutionModal")
-
-# set event to close button on modal to hide modal
-soultion_modal_close_button = soultion_modal.getElementsByClassName("close")[0]
-soultion_modal_close_button.bind("click", lambda ev: soultion_modal.style.__setitem__("display", "none"))
-
-#set event to click in background to hide modal
-document.bind("click", lambda event: soultion_modal.style.__setitem__("display", "none") if event.target == soultion_modal else None)
-
-#####                  darkmode                          #####
+#####------------------Dark Mode-------------------------#####   
 
 def toggle_dark_mode(event):
     document.body.classList.toggle('darkmode')
@@ -172,7 +161,7 @@ def toggle_dark_mode(event):
 
 document["dark-mode-button"].bind('click', toggle_dark_mode)
 
-#####                  Code-Editor                       #####
+#####------------------Code-Editor-----------------------#####   
 
 def load_linesnumbers():
     document["line-number-area"].html = ""
@@ -181,15 +170,55 @@ def load_linesnumbers():
     for line_number in range(1, len(line_count)):
         document["line-number-area"].html += f"{line_number}<br/>"
 
-#####
-
+#####------------------Canvas----------------------------#####  
 def resize_canvas():
     turtle_canvas = document.getElementById("turtle-canvas")
     canvas = document.getElementById("canvas")
     turtle_canvas.setAttribute('width', canvas.clientWidth)
     turtle_canvas.setAttribute('height', canvas.clientHeight)
 
+#####------------------Console----------------------------#####  
+def _writeConsole(*args):
+    document["console"].html += "".join(args)
 
-#####                    onload                          #####
+sys.stdout.write = _writeConsole
+sys.stderr.write = _writeConsole            
+
+#####------------------Solution---------------------------#####
+def get_solution_text(string):
+    string = re.sub(re.compile(r'(.*)#'), r'#', string)
+    lines = string.split('\n')
+
+    for i in range(len(lines)):
+        line = lines[i]
+        
+        if '#' not in line:
+            lines[i] = ''
+
+        return '\n'.join(lines)
+
+###-----dialog modal for solution-----#####
+soultion_modal = document.getElementById("solutionModal")
+
+# set event to close button on modal to hide modal
+soultion_modal_close_button = soultion_modal.getElementsByClassName("close")[0]
+soultion_modal_close_button.bind("click", lambda ev: soultion_modal.style.__setitem__("display", "none"))
+
+#set event to click in background to hide modal
+document.bind("click", lambda event: soultion_modal.style.__setitem__("display", "none") if event.target == soultion_modal else None)
+     
+#####------------------Export PDF------------------------#####  
+#  
+###-----dialog modal for qrcode-------#####
+qrcode_modal = document.getElementById("qrcodeModal")
+
+# set event to close button on modal to hide modal
+qrcode_modal_close_button = qrcode_modal.getElementsByClassName("close")[0]
+qrcode_modal_close_button.bind("click", lambda ev: qrcode_modal.style.__setitem__("display", "none"))
+
+#set event to click in background to hide modal
+document.bind("click", lambda event: qrcode_modal.style.__setitem__("display", "none") if event.target == qrcode_modal else None)
+
+#####------------------onload----------------------------#####   
 load_level(level_index)
 load_linesnumbers()

@@ -105,13 +105,19 @@
             <div class="close-container">
                 <span class="close" id="solutionCodeModalCloseButton">&times;</span>
             </div>
-            <div class="solution-code-container">
+            <div id="solution_code_container" style="display: none;" class="solution-code-container">
                 <pre
                     class="pre-block-tutorial"><code id="solution_code" spellcheck="false" data-gramm="false"></code></pre>
             </div>
+            <div id="solution_comments_container" class="solution-code-container">
+                <pre
+                    class="pre-block-tutorial"><code id="solution_comments" spellcheck="false" data-gramm="false"></code></pre>
+            </div>
             <div class="modal-spacer"></div>
-            <div class="paste-solution-button-container">
-                <button id="paste_solution" class="paste-solution-button darkmode">In Code-Editor einfügen</button>
+            <div class="solution-button-container">
+                <button id="show_solution_comments" style="display: none;" class="solution-button darkmode">Nur Kommentare</button>
+                <button id="show_solution_code" class="solution-button darkmode">Code + Kommentaren</button>
+                <button id="paste_solution" style="display: none;" class="solution-button darkmode">In Code-Editor einfügen</button>
             </div>
             <div class="modal-spacer"></div>
         </div>
