@@ -20,6 +20,8 @@ texture = ExtResource("2_qbess")
 position = Vector2(-0.5, -1)
 shape = SubResource("RectangleShape2D_ptomv")
 
-[node name="connector_collisionshape" type="CollisionShape2D" parent="."]
+[node name="Detector" type="Area2D" parent="."]
+
+[node name="connector_collisionshape" type="CollisionShape2D" parent="Detector"]
 position = Vector2(46, 13)
 shape = SubResource("RectangleShape2D_7fkfw")
