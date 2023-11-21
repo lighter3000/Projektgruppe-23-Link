@@ -105,6 +105,8 @@ def load_code(ev):
         document["code-editor-source"].text = written_code[level_index - 1]
 
 def show_solution(ev):
+    document['solution_comments_container'].style.display = 'block'
+    document['solution_code_container'].style.display = 'none'
     document["solutionModal"].style.display = "block"
 
 def paste_solution(ev):
@@ -112,18 +114,15 @@ def paste_solution(ev):
     load_linesnumbers()
 
 def show_solution_code(ev):
-    document['solution_comments_container'].style.display = 'none'
-    document['solution_code_container'].style.display = 'block'
-    document["show_solution_comments"].style.display = 'block'
-    document["show_solution_code"].style.display = 'none'
-    document["paste_solution"].style.display = 'block'
+    if document["solution_password"].value == "Passwort":
+        document['solution_comments_container'].style.display = 'none'
+        document['solution_code_container'].style.display = 'block'
 
-def show_solution_comments(ev):
-    document['solution_comments_container'].style.display = 'block'
-    document['solution_code_container'].style.display = 'none'
-    document["show_solution_comments"].style.display = 'none'
-    document["show_solution_code"].style.display = 'block'
-    document["paste_solution"].style.display = 'none'
+        document["solution_password"].value = ""
+    else:
+        document["solution_password"].value = ""
+
+
 
 #####------------------Button Bindings-------------------#####  
 document["previous_level"].bind("click", previous_level)
@@ -137,7 +136,6 @@ document["load_code"].bind("click", load_code)
 document["show_solution"].bind("click", show_solution)
 document["paste_solution"].bind("click", paste_solution)
 document["show_solution_code"].bind("click", show_solution_code)
-document["show_solution_comments"].bind("click", show_solution_comments)
 
 #####------------------Dark Mode-------------------------#####   
 
