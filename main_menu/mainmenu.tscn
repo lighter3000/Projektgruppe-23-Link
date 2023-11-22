@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bcap7ag1woj0x"]
+[gd_scene load_steps=9 format=3 uid="uid://bcap7ag1woj0x"]
 
 [ext_resource type="Script" path="res://main_menu/mainmenu.gd" id="1_80xsw"]
+[ext_resource type="Texture2D" uid="uid://oa4wif6eh2s5" path="res://assets/Backgrounds/main-menu-background.png" id="2_7cr0o"]
 [ext_resource type="Texture2D" uid="uid://bgswiq05dxckk" path="res://assets/icons/play.png" id="3_7f66p"]
 [ext_resource type="Texture2D" uid="uid://dn33xwhfg280g" path="res://assets/icons/setting.png" id="4_wiogh"]
 [ext_resource type="Texture2D" uid="uid://0hhhucg5nj5a" path="res://assets/icons/quit.png" id="5_ehnr3"]
@@ -17,32 +18,38 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_80xsw")
 
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7cr0o")
+
 [node name="GameTitle_Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -332.0
-offset_top = 50.0
+offset_top = 20.0
 offset_right = 333.0
-offset_bottom = 104.0
+offset_bottom = 74.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("6_flgr3")
 theme_override_font_sizes/font_size = 50
 text = "Project CodeClash"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+clip_contents = true
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
+offset_top = -110.0
+offset_right = 231.0
+offset_bottom = 111.0
 grow_vertical = 2
 
 [node name="Start_Game_TextureButton" type="TextureButton" parent="VBoxContainer"]
