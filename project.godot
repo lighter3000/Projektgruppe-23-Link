@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 Init="*res://init/init.gd"
-global="*res://Drag&Drop/global.gd"
 
 [display]
 

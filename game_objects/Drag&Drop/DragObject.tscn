@@ -1,15 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://uuvccokfj7h5"]
 
-[ext_resource type="Script" path="res://Drag&Drop/dragObject.gd" id="1_16oh3"]
-[ext_resource type="Texture2D" uid="uid://b4p0a4yh3c8ve" path="res://icon.svg" id="2_8h7lr"]
+[ext_resource type="Script" path="res://game_objects/Drag&Drop/dragObject.gd" id="1_7lwh4"]
+[ext_resource type="Texture2D" uid="uid://b4p0a4yh3c8ve" path="res://icon.svg" id="2_neted"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8emdm"]
 
 [node name="DragObject" type="Node2D"]
-script = ExtResource("1_16oh3")
+script = ExtResource("1_7lwh4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_8h7lr")
+texture = ExtResource("2_neted")
 
 [node name="Area2D" type="Area2D" parent="."]
 

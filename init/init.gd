@@ -2,11 +2,14 @@ extends Node
 
 class_name intitialClass
 
+static var is_dragging = false
+
 enum AudioBus {
 	MASTER = 0,
 	MUSIC = 1,
 	Sound_EFFFECTS = 2
 }
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
