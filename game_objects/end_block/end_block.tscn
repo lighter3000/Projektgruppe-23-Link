@@ -9,7 +9,7 @@ size = Vector2(85, 66)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ereye"]
 size = Vector2(6, 20)
 
-[node name="end_block" type="Area2D"]
+[node name="end_block" type="Area2D" groups=["end_block"]]
 script = ExtResource("1_co13d")
 
 [node name="end_block_sprite" type="Sprite2D" parent="."]
@@ -20,6 +20,10 @@ texture = ExtResource("2_xt1m0")
 position = Vector2(0.5, -1)
 shape = SubResource("RectangleShape2D_xrrds")
 
-[node name="connector_collisionshape" type="CollisionShape2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="connector_collisionshape" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-45, 3)
 shape = SubResource("RectangleShape2D_ereye")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

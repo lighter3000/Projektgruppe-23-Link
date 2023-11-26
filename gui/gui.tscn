@@ -143,4 +143,10 @@ position = Vector2(720, 0)
 [node name="while_block" parent="Control/MarginContainer/VBoxContainer/elements" instance=ExtResource("8_yl45u")]
 position = Vector2(1000, 0)
 
+[connection signal="connection_to_end_block" from="." to="Control/MarginContainer/VBoxContainer/elements/end_block" method="_on_gui_connection_to_end_block"]
+[connection signal="connection_to_if_block" from="." to="Control/MarginContainer/VBoxContainer/elements/if_block" method="_on_gui_connection_to_if_block"]
+[connection signal="connection_to_start_block" from="." to="Control/MarginContainer/VBoxContainer/elements/start_block" method="_on_gui_connection_to_start_block"]
+[connection signal="connection_to_while_block" from="." to="Control/MarginContainer/VBoxContainer/elements/while_block" method="_on_gui_connection_to_while_block"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/toolbar_top_margin/toolbar_top/left_items/Back_Button" to="." method="_on_back_button_pressed"]
+[connection signal="startblock_clicked" from="Control/MarginContainer/VBoxContainer/elements/start_block" to="." method="_on_start_block_startblock_clicked"]
+[connection signal="endblock_clicked" from="Control/MarginContainer/VBoxContainer/elements/end_block" to="." method="_on_end_block_endblock_clicked"]

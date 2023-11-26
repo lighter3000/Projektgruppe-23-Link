@@ -17,3 +17,7 @@ func _on_menu_button_pressed():
 
 func _on_level_1_button_pressed():
 	get_tree().change_scene_to_file("res://levels/level1/level_1.tscn")
+
+
+func _on_level_2_button_pressed():
+	pass
