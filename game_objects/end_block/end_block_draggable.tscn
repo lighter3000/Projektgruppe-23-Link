@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dpul3dxrju8us"]
+[gd_scene load_steps=6 format=3 uid="uid://dpul3dxrju8us"]
 
 [ext_resource type="Script" path="res://game_objects/end_block/end_block_draggable.gd" id="1_qmssk"]
 [ext_resource type="Texture2D" uid="uid://bilr68q5p1yff" path="res://game_objects/assets/end_block.png" id="2_4qd3x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8muv1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ghf2x"]
 size = Vector2(84, 64)
@@ -9,8 +11,11 @@ size = Vector2(84, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k8mi3"]
 size = Vector2(6, 20)
 
-[node name="end_block_draggable" type="Node2D"]
+[node name="end_block_draggable" type="StaticBody2D" groups=["collision"]]
 script = ExtResource("1_qmssk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8muv1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.05, 0.05)
@@ -27,6 +32,8 @@ position = Vector2(-45, 3)
 shape = SubResource("RectangleShape2D_k8mi3")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered2"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited2"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

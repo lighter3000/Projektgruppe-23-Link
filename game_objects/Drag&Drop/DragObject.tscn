@@ -1,12 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://uuvccokfj7h5"]
+[gd_scene load_steps=5 format=3 uid="uid://uuvccokfj7h5"]
 
 [ext_resource type="Script" path="res://game_objects/Drag&Drop/dragObject.gd" id="1_7lwh4"]
 [ext_resource type="Texture2D" uid="uid://b4p0a4yh3c8ve" path="res://icon.svg" id="2_neted"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o03v6"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8emdm"]
 
-[node name="DragObject" type="Node2D"]
+[node name="DragObject" type="StaticBody2D" groups=["collision"]]
 script = ExtResource("1_7lwh4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_o03v6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_neted")
@@ -18,6 +23,8 @@ scale = Vector2(6, 6)
 shape = SubResource("RectangleShape2D_8emdm")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered2"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited2"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

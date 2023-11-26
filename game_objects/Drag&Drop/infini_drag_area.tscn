@@ -1,11 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://wdpttcyoepl3"]
+[gd_scene load_steps=3 format=3 uid="uid://cmy67s1x44gb2"]
 
-[ext_resource type="Script" path="res://game_objects/Drag&Drop/DragArea.gd" id="1_jvx2j"]
+[ext_resource type="Script" path="res://game_objects/Drag&Drop/infini_drag_area.gd" id="1_4jhft"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mb8t8"]
 
-[node name="DragArea" type="StaticBody2D" groups=["dropable"]]
-script = ExtResource("1_jvx2j")
+[node name="DragArea" type="StaticBody2D" groups=["infini_drag"]]
+script = ExtResource("1_4jhft")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_mb8t8")
