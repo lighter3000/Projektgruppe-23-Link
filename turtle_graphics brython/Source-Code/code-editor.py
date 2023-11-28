@@ -5,6 +5,7 @@ from collections import defaultdict
 import sys, traceback, json
 import javascript
 import re
+import html
 
 #####------------------Level Switch----------------------#####  
 level_index = 0
@@ -81,16 +82,10 @@ def run_code(ev):
     # window.requestAnimationFrame(check_canvas_existence)
     
     written_code[level_index - 1] = _code
-
-    # Zum Einlesen des Codes in Datei muss noch implementiert werden
-    """level_file_path = f"/levels/level_{level_index}.py"
-    with open(level_file_path, "w") as level_file:
-        level_code = level_file.read()
     
-    level_globals = {}
-    exec(level_code, level_globals)
     
-    level_globals["written_code"] = _code """
+def save_code(ev):
+    written_code[level_index - 1] = document["code-editor-source"].text
     
 def reset_code(ev):
     level_file_path = f"/levels/level_{level_index}.py"
@@ -101,6 +96,7 @@ def reset_code(ev):
     exec(level_code, level_globals)
     
     document["code-editor-source"].text = level_globals['init_code']
+    
 
 def load_code(ev):
     if written_code[level_index - 1] != "":
@@ -133,6 +129,7 @@ def show_solution(ev):
     document["solutionModal"].style.display = "block"
 
 def paste_solution(ev):
+    save_code()
     document["code-editor-source"].text = document["solution_code"].text
     load_linesnumbers()
 
@@ -154,10 +151,13 @@ document["export_qrcode"].bind("click", export_qrcode)
 document["run_code"].bind("click", run_code)
 document["reset_code"].bind("click", reset_code)
 document["load_code"].bind("click", load_code)
+document["save_code"].bind("click", save_code)
 document["dark-mode-button"].bind('click', toggle_dark_mode)
 document["show_solution"].bind("click", show_solution)
 document["paste_solution"].bind("click", paste_solution)
 document["show_solution_code"].bind("click", show_solution_code)
+
+
 
 #####------------------Code-Editor-----------------------#####   
 
