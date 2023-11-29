@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xtgyu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h0iql"]
-size = Vector2(84, 66)
+size = Vector2(84, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_577gb"]
 size = Vector2(7, 20)
@@ -38,9 +38,9 @@ shape = SubResource("RectangleShape2D_577gb")
 position = Vector2(45.5, 12.5)
 shape = SubResource("RectangleShape2D_s12l1")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered2"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited2"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

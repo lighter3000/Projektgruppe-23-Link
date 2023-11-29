@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 func _ready():
-	modulate = Color(Color.MEDIUM_PURPLE, 0.7)
+	modulate = Color(Color.GRAY, 0.7)
 
 func _process(_delta):
 	if intitialClass.is_dragging:

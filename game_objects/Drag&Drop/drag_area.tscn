@@ -22,4 +22,4 @@ offset_right = 24.0
 offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.607843, 0.0941176, 0.388235, 1)
+color = Color(0.752941, 0.752941, 0.752941, 1)

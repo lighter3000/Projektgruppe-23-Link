@@ -9,10 +9,10 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -13.0
-offset_top = -8.0
-offset_right = 1165.0
-offset_bottom = 655.0
+offset_left = -11.0
+offset_top = -7.0
+offset_right = 1168.0
+offset_bottom = 658.0
 color = Color(0.337255, 0.278431, 0.188235, 1)
 
 [node name="DragArea" parent="." instance=ExtResource("1_w816f")]
@@ -52,13 +52,13 @@ position = Vector2(360, 362)
 position = Vector2(209, 135)
 
 [node name="end_block_draggable" parent="." instance=ExtResource("3_08pcl")]
-position = Vector2(447, 152)
+position = Vector2(449, 152)
 
 [node name="if_block_dragable" parent="." instance=ExtResource("3_4uqu6")]
-position = Vector2(357, 363)
+position = Vector2(360, 362)
 
 [node name="start_block_dragable" parent="." instance=ExtResource("4_ppsiv")]
 position = Vector2(200, 251)
 
 [node name="while_block_dragable" parent="." instance=ExtResource("5_wgaug")]
-position = Vector2(499, 300)
+position = Vector2(500, 300)
