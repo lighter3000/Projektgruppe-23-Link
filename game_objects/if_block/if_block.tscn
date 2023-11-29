@@ -26,20 +26,22 @@ texture = ExtResource("2_yfu7k")
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_gueu4")
 
-[node name="input_detector" type="Area2D" parent="."]
+[node name="input_detector" type="Area2D" parent="." groups=["if_block", "input"]]
 
 [node name="input_connector_collisionshape" type="CollisionShape2D" parent="input_detector"]
 position = Vector2(-45, 5.5)
 shape = SubResource("RectangleShape2D_om1je")
 
-[node name="green_output_detector" type="Area2D" parent="."]
+[node name="green_output_detector" type="Area2D" parent="." groups=["green", "if_block", "output"]]
 
 [node name="green_output_connector_collisionshape" type="CollisionShape2D" parent="green_output_detector"]
 position = Vector2(45.5, -6)
 shape = SubResource("RectangleShape2D_s3blh")
 
-[node name="red_output_detector" type="Area2D" parent="."]
+[node name="red_output_detector" type="Area2D" parent="." groups=["if_block", "output", "red"]]
 
 [node name="red_output_connector_collisionshape" type="CollisionShape2D" parent="red_output_detector"]
 position = Vector2(45.5, 15)
 shape = SubResource("RectangleShape2D_buo86")
+
+[connection signal="input_event" from="red_output_detector" to="." method="_on_red_output_detector_input_event"]

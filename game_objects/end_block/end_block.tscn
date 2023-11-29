@@ -20,10 +20,10 @@ texture = ExtResource("2_xt1m0")
 position = Vector2(0.5, -1)
 shape = SubResource("RectangleShape2D_xrrds")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="input_connector_detector" type="Area2D" parent="." groups=["end_block", "input"]]
 
-[node name="connector_collisionshape" type="CollisionShape2D" parent="Area2D"]
+[node name="connector_collisionshape" type="CollisionShape2D" parent="input_connector_detector"]
 position = Vector2(-45, 3)
 shape = SubResource("RectangleShape2D_ereye")
 
-[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="input_event" from="input_connector_detector" to="." method="_on_area_2d_input_event"]

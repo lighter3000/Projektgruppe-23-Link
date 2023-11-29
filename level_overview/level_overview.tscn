@@ -1,9 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://c1u3fxi70uw50"]
+[gd_scene load_steps=3 format=3 uid="uid://c1u3fxi70uw50"]
 
 [ext_resource type="Script" path="res://level_overview/level_overview.gd" id="1_mi7ab"]
+[ext_resource type="Texture2D" uid="uid://oa4wif6eh2s5" path="res://assets/Backgrounds/main_menu_scene/main-menu-background.png" id="2_p8lcv"]
 
 [node name="level_overview" type="Node2D"]
 script = ExtResource("1_mi7ab")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(576, 324)
+texture = ExtResource("2_p8lcv")
 
 [node name="Menu_Button" type="Button" parent="."]
 offset_left = 900.0

@@ -1,9 +1,48 @@
-[gd_scene load_steps=3 format=3 uid="uid://bx8tsca3k6aaj"]
+[gd_scene load_steps=9 format=3 uid="uid://bx8tsca3k6aaj"]
 
 [ext_resource type="Script" path="res://levels/level1/level_1.gd" id="1_daruv"]
 [ext_resource type="PackedScene" uid="uid://c4nnml61qhs0j" path="res://gui/gui.tscn" id="3_71ljn"]
+[ext_resource type="PackedScene" uid="uid://ctnc2anvyt16k" path="res://game_objects/object_connector/object_connector.tscn" id="3_fvqbm"]
+[ext_resource type="PackedScene" uid="uid://c4xwakfr5oonp" path="res://game_objects/end_block/end_block.tscn" id="4_30cl2"]
+[ext_resource type="PackedScene" uid="uid://y0u1veo1swd1" path="res://game_objects/if_block/if_block.tscn" id="5_5s88l"]
+[ext_resource type="PackedScene" uid="uid://qs3du0q4n3vx" path="res://game_objects/start_block/start_block.tscn" id="6_ea0fr"]
+[ext_resource type="PackedScene" uid="uid://cjlxdtwtvd7mw" path="res://game_objects/while_block/while_block.tscn" id="7_r0duw"]
+[ext_resource type="PackedScene" uid="uid://i4rmt6oc1lp6" path="res://game_objects/finish_block/finish_block.tscn" id="8_1xta5"]
 
 [node name="level1" type="Node2D"]
 script = ExtResource("1_daruv")
 
 [node name="gui" parent="." instance=ExtResource("3_71ljn")]
+
+[node name="object_connector" parent="." instance=ExtResource("3_fvqbm")]
+
+[node name="end_block" parent="." instance=ExtResource("4_30cl2")]
+top_level = true
+position = Vector2(256, 602)
+
+[node name="if_block" parent="." instance=ExtResource("5_5s88l")]
+top_level = true
+position = Vector2(424, 600)
+
+[node name="start_block" parent="." instance=ExtResource("6_ea0fr")]
+top_level = true
+position = Vector2(88, 600)
+
+[node name="while_block" parent="." instance=ExtResource("7_r0duw")]
+top_level = true
+position = Vector2(560, 600)
+
+[node name="finish_block" parent="." instance=ExtResource("8_1xta5")]
+top_level = true
+position = Vector2(720, 600)
+
+[connection signal="connection_to_end_block" from="object_connector" to="end_block" method="_on_object_connector_connection_to_end_block"]
+[connection signal="connection_to_finish_block" from="object_connector" to="finish_block" method="_on_object_connector_connection_to_finish_block"]
+[connection signal="connection_to_if_block" from="object_connector" to="if_block" method="_on_object_connector_connection_to_if_block"]
+[connection signal="connection_to_start_block" from="object_connector" to="start_block" method="_on_object_connector_connection_to_start_block"]
+[connection signal="connection_to_while_block" from="object_connector" to="while_block" method="_on_object_connector_connection_to_while_block"]
+[connection signal="endblock_clicked" from="end_block" to="object_connector" method="_on_end_block_endblock_clicked"]
+[connection signal="if_block_clicked" from="if_block" to="object_connector" method="_on_if_block_if_block_clicked"]
+[connection signal="startblock_clicked" from="start_block" to="object_connector" method="_on_start_block_startblock_clicked"]
+[connection signal="while_block_clicked" from="while_block" to="object_connector" method="_on_while_block_while_block_clicked"]
+[connection signal="finish_block_clicked" from="finish_block" to="object_connector" method="_on_finish_block_finish_block_clicked"]

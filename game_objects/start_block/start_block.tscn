@@ -20,10 +20,10 @@ texture = ExtResource("2_qbess")
 position = Vector2(-0.5, -1)
 shape = SubResource("RectangleShape2D_ptomv")
 
-[node name="connector_detector" type="Area2D" parent="."]
+[node name="output_connector_detector" type="Area2D" parent="." groups=["output", "start_block"]]
 
-[node name="connector_collisionshape" type="CollisionShape2D" parent="connector_detector"]
+[node name="connector_collisionshape" type="CollisionShape2D" parent="output_connector_detector"]
 position = Vector2(46, 13)
 shape = SubResource("RectangleShape2D_7fkfw")
 
-[connection signal="input_event" from="connector_detector" to="." method="_on_detector_input_event"]
+[connection signal="input_event" from="output_connector_detector" to="." method="_on_detector_input_event"]

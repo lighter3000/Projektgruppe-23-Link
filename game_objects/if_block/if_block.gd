@@ -5,27 +5,16 @@ extends Area2D
 signal if_block_clicked(node: Node)
 
 
-@onready var sprite = $if_block_sprite
-@onready var if_block_collisionshape = $if_block_collisionshape
-@onready var input_connector_collisionshape = $input_detector/input_connector_collisionshape
-@onready var green_output_connector_collisionshape = $green_output_detector/green_output_connector_collisionshape
-@onready var red_output_connector_collisionshape = $red_output_detector/red_output_connector_collisionshape
-
-
 var predecessor = null
 var successor_green = null
 var successor_red = null
 
 
-# Called when the node enters the scene tree for the first time.
-#func _ready():
-#	pass # Replace with function body.
+func _on_red_output_detector_input_event(_viewport, event, _shape_idx):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		emit_signal("if_block_clicked", self)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
-func _on_gui_connection_to_if_block(_node):
-	pass # Replace with function body.
+func _on_object_connector_connection_to_if_block(node):
+	if not node.is_in_group("if_block"):
+		print("yes!")

@@ -5,25 +5,14 @@ extends Area2D
 signal while_block_clicked(node: Node)
 
 
-@onready var sprite = $while_block_sprite
-@onready var while_block_collisionshape = $while_block_collisionshape
-@onready var input_connector_collisionshape = $input_detector/input_connector_collisionshape
-@onready var output_connector_collisionshape = $output_detector/output_connector_collisionshape
-
-
 var predecessor = null
 var successor = null
 
 
-# Called when the node enters the scene tree for the first time.
-#func _ready():
-#	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
-func _on_gui_connection_to_while_block(_node):
+func _on_object_connector_connection_to_while_block(node):
 	pass # Replace with function body.
+
+
+func _on_input_detector_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		emit_signal("while_block_clicked", self)

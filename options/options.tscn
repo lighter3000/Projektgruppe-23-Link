@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bhl5bxiechbmt"]
 
 [ext_resource type="Script" path="res://options/options.gd" id="1_5bees"]
-[ext_resource type="Texture2D" uid="uid://oa4wif6eh2s5" path="res://assets/Backgrounds/main-menu-background.png" id="2_op5xw"]
+[ext_resource type="Texture2D" uid="uid://oa4wif6eh2s5" path="res://assets/Backgrounds/main_menu_scene/main-menu-background.png" id="2_op5xw"]
 
 [node name="options" type="Control"]
 layout_mode = 3
