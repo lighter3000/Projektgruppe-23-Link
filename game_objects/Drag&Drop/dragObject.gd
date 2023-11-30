@@ -34,22 +34,20 @@ func _on_area_2d_mouse_exited():
 		scale = Vector2(1,1)
 
 #If the body, wich the object enters/leaves has the group dropable, set is_inside dropable variable to true/false
+#If the body the object enters/leaves has the group collision, set collision variable to true/false
 func _on_area_2d_body_entered(body:StaticBody2D):
 	if body.is_in_group('dropable'):
 		is_inside_dropable = true
 		body.modulate = Color(Color.LIGHT_GRAY,1)
 		body_ref = body
-
+	if body.is_in_group("collision"):
+		is_ontop = true
+	
+	
 func _on_area_2d_body_exited(body:StaticBody2D):
 	if body.is_in_group('dropable'):
 		is_inside_dropable = false
 		body.modulate = Color(Color.LIGHT_GRAY,0.7)
-
-#If the body the object enters/leaves has the group collision, set collision variable to true/false
-func _on_area_2d_body_entered2(body:StaticBody2D):
-	if body.is_in_group("collision"):
-		is_ontop = true
-
-func _on_area_2d_body_exited2(body:StaticBody2D):
 	if body.is_in_group("collision"):
 		is_ontop = false
+

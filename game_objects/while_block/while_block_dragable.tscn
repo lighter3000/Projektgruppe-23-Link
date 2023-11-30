@@ -30,17 +30,17 @@ texture = ExtResource("1_l1ej7")
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_h0iql")
 
-[node name="input_connector_collisionshape" type="CollisionShape2D" parent="Area2D"]
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="input_connector_collisionshape" type="CollisionShape2D" parent="Area2D2"]
 position = Vector2(-45.5, 4)
 shape = SubResource("RectangleShape2D_577gb")
 
-[node name="output_connector_collisionshape" type="CollisionShape2D" parent="Area2D"]
+[node name="output_connector_collisionshape" type="CollisionShape2D" parent="Area2D2"]
 position = Vector2(45.5, 12.5)
 shape = SubResource("RectangleShape2D_s12l1")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered2"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited2"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

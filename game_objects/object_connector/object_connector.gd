@@ -46,9 +46,9 @@ func _on_if_block_if_block_clicked(node):
 		first_clicked = null
 
 
-func _on_while_block_while_block_clicked(node):
+func _on_while_block_while_block_clicked(_node):
 	pass # Replace with function body.
 
 
-func _on_finish_block_finish_block_clicked(node):
+func _on_finish_block_finish_block_clicked(_node):
 	pass # Replace with function body.

@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://hcbdeqesddwr"]
+
+[ext_resource type="Script" path="res://gui/Help_popup.gd" id="1_j7le1"]
+
+[node name="Help_popup" type="Popup"]
+size = Vector2i(300, 100)
+visible = true
+script = ExtResource("1_j7le1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(300, 100)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)
+
+[node name="help_message" type="Label" parent="."]
+custom_minimum_size = Vector2(300, 100)
+offset_right = 300.0
+offset_bottom = 100.0
+text = "If u can see this message ingame, something went wrong ^^\""
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
