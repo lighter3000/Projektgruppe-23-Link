@@ -1,5 +1,5 @@
 class_name While_Block
-extends Area2D
+extends StaticBody2D
 
 
 signal while_block_clicked(node: Node)

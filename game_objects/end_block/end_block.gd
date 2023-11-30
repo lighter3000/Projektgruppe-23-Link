@@ -1,5 +1,5 @@
 class_name End_Block
-extends Area2D
+extends StaticBody2D
 
 
 signal endblock_clicked(node: Node)

@@ -1,5 +1,5 @@
 class_name Start_Block
-extends Area2D
+extends StaticBody2D
 
 
 signal startblock_clicked(node: Node)

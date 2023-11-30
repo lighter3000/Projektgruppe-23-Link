@@ -12,7 +12,7 @@ size = Vector2(7, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_10m5u"]
 size = Vector2(7, 21)
 
-[node name="while_block" type="Area2D" groups=["while_block"]]
+[node name="while_block" type="StaticBody2D" groups=["while_block"]]
 script = ExtResource("1_h06t5")
 
 [node name="while_block_sprite" type="Sprite2D" parent="."]

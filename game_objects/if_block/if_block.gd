@@ -1,5 +1,5 @@
 class_name If_Block
-extends Area2D
+extends StaticBody2D
 
 
 signal if_block_clicked(node: Node)

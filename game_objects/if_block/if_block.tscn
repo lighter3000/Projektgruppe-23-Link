@@ -15,7 +15,7 @@ size = Vector2(7, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_buo86"]
 size = Vector2(7, 20)
 
-[node name="if_block" type="Area2D" groups=["if_block"]]
+[node name="if_block" type="StaticBody2D" groups=["if_block"]]
 script = ExtResource("1_qb8gp")
 
 [node name="if_block_sprite" type="Sprite2D" parent="."]

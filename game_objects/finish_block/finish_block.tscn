@@ -9,7 +9,7 @@ size = Vector2(80, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_13cdn"]
 size = Vector2(8, 20)
 
-[node name="finish_block" type="Area2D" groups=["finish_block"]]
+[node name="finish_block" type="StaticBody2D" groups=["finish_block"]]
 script = ExtResource("1_snxyb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

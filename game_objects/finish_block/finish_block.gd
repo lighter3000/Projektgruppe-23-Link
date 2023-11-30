@@ -1,5 +1,5 @@
 class_name Finish_Block
-extends Area2D
+extends StaticBody2D
 
 
 signal finish_block_clicked(node: Node)
