@@ -1,6 +1,5 @@
+extends "res://game_objects/Drag&Drop/dragObject.gd"
 class_name While_Block
-extends StaticBody2D
-
 
 signal while_block_clicked(node: Node)
 

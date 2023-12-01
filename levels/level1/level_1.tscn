@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bx8tsca3k6aaj"]
+[gd_scene load_steps=10 format=3 uid="uid://bx8tsca3k6aaj"]
 
 [ext_resource type="Script" path="res://levels/level1/level_1.gd" id="1_daruv"]
 [ext_resource type="PackedScene" uid="uid://c4nnml61qhs0j" path="res://gui/gui.tscn" id="3_71ljn"]
@@ -8,9 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://qs3du0q4n3vx" path="res://game_objects/start_block/start_block.tscn" id="6_ea0fr"]
 [ext_resource type="PackedScene" uid="uid://cjlxdtwtvd7mw" path="res://game_objects/while_block/while_block.tscn" id="7_r0duw"]
 [ext_resource type="PackedScene" uid="uid://i4rmt6oc1lp6" path="res://game_objects/finish_block/finish_block.tscn" id="8_1xta5"]
-[ext_resource type="PackedScene" uid="uid://dmhf7tbtsw7h3" path="res://game_objects/if_block/if_block_dragable.tscn" id="9_5gkf1"]
-[ext_resource type="PackedScene" uid="uid://b5pas1s31kqvb" path="res://game_objects/while_block/while_block_dragable.tscn" id="10_odarv"]
-[ext_resource type="PackedScene" uid="uid://dpul3dxrju8us" path="res://game_objects/end_block/end_block_draggable.tscn" id="11_ab21p"]
 [ext_resource type="PackedScene" uid="uid://wdpttcyoepl3" path="res://game_objects/Drag&Drop/drag_area.tscn" id="12_bojjm"]
 
 [node name="level1" type="Node2D" groups=["level1"]]
@@ -19,26 +16,6 @@ script = ExtResource("1_daruv")
 [node name="gui" parent="." instance=ExtResource("3_71ljn")]
 
 [node name="object_connector" parent="." instance=ExtResource("3_fvqbm")]
-
-[node name="end_block" parent="." instance=ExtResource("4_30cl2")]
-top_level = true
-position = Vector2(694, 47)
-
-[node name="if_block" parent="." instance=ExtResource("5_5s88l")]
-top_level = true
-position = Vector2(901, 47)
-
-[node name="start_block" parent="." instance=ExtResource("6_ea0fr")]
-top_level = true
-position = Vector2(300, 324)
-
-[node name="while_block" parent="." instance=ExtResource("7_r0duw")]
-top_level = true
-position = Vector2(794, 47)
-
-[node name="finish_block" parent="." instance=ExtResource("8_1xta5")]
-top_level = true
-position = Vector2(852, 324)
 
 [node name="Label" type="Label" parent="."]
 top_level = true
@@ -65,25 +42,33 @@ alignment = 1
 top_level = true
 position = Vector2(576, 324)
 
-[node name="end_block_draggable" parent="Level-Objects" instance=ExtResource("11_ab21p")]
+[node name="end_block" parent="Level-Objects" instance=ExtResource("4_30cl2")]
 top_level = true
-position = Vector2(904, 605)
+position = Vector2(539, 604)
 
-[node name="while_block_dragable" parent="Level-Objects" instance=ExtResource("10_odarv")]
+[node name="if_block" parent="Level-Objects" instance=ExtResource("5_5s88l")]
 top_level = true
-position = Vector2(622, 604)
+position = Vector2(918, 602)
 
-[node name="if_block_dragable" parent="Level-Objects" instance=ExtResource("9_5gkf1")]
+[node name="start_block" parent="Level-Objects" instance=ExtResource("6_ea0fr")]
 top_level = true
-position = Vector2(363, 603)
+position = Vector2(300, 324)
 
-[connection signal="connection_to_end_block" from="object_connector" to="end_block" method="_on_object_connector_connection_to_end_block"]
-[connection signal="connection_to_finish_block" from="object_connector" to="finish_block" method="_on_object_connector_connection_to_finish_block"]
-[connection signal="connection_to_if_block" from="object_connector" to="if_block" method="_on_object_connector_connection_to_if_block"]
-[connection signal="connection_to_start_block" from="object_connector" to="start_block" method="_on_object_connector_connection_to_start_block"]
-[connection signal="connection_to_while_block" from="object_connector" to="while_block" method="_on_object_connector_connection_to_while_block"]
-[connection signal="endblock_clicked" from="end_block" to="object_connector" method="_on_end_block_endblock_clicked"]
-[connection signal="if_block_clicked" from="if_block" to="object_connector" method="_on_if_block_if_block_clicked"]
-[connection signal="startblock_clicked" from="start_block" to="object_connector" method="_on_start_block_startblock_clicked"]
-[connection signal="while_block_clicked" from="while_block" to="object_connector" method="_on_while_block_while_block_clicked"]
-[connection signal="finish_block_clicked" from="finish_block" to="object_connector" method="_on_finish_block_finish_block_clicked"]
+[node name="while_block" parent="Level-Objects" instance=ExtResource("7_r0duw")]
+top_level = true
+position = Vector2(153, 603)
+
+[node name="finish_block" parent="Level-Objects" instance=ExtResource("8_1xta5")]
+top_level = true
+position = Vector2(852, 324)
+
+[connection signal="connection_to_end_block" from="object_connector" to="Level-Objects/end_block" method="_on_object_connector_connection_to_end_block"]
+[connection signal="connection_to_finish_block" from="object_connector" to="Level-Objects/finish_block" method="_on_object_connector_connection_to_finish_block"]
+[connection signal="connection_to_if_block" from="object_connector" to="Level-Objects/if_block" method="_on_object_connector_connection_to_if_block"]
+[connection signal="connection_to_start_block" from="object_connector" to="Level-Objects/start_block" method="_on_object_connector_connection_to_start_block"]
+[connection signal="connection_to_while_block" from="object_connector" to="Level-Objects/while_block" method="_on_object_connector_connection_to_while_block"]
+[connection signal="endblock_clicked" from="Level-Objects/end_block" to="object_connector" method="_on_end_block_endblock_clicked"]
+[connection signal="if_block_clicked" from="Level-Objects/if_block" to="object_connector" method="_on_if_block_if_block_clicked"]
+[connection signal="startblock_clicked" from="Level-Objects/start_block" to="object_connector" method="_on_start_block_startblock_clicked"]
+[connection signal="while_block_clicked" from="Level-Objects/while_block" to="object_connector" method="_on_while_block_while_block_clicked"]
+[connection signal="finish_block_clicked" from="Level-Objects/finish_block" to="object_connector" method="_on_finish_block_finish_block_clicked"]

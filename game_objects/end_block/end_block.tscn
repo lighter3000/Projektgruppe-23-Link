@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4xwakfr5oonp"]
+[gd_scene load_steps=6 format=3 uid="uid://c4xwakfr5oonp"]
 
 [ext_resource type="Script" path="res://game_objects/end_block/end_block.gd" id="1_co13d"]
 [ext_resource type="Texture2D" uid="uid://bilr68q5p1yff" path="res://game_objects/assets/end_block.png" id="2_xt1m0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_axy14"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrrds"]
 size = Vector2(85, 66)
@@ -9,14 +11,19 @@ size = Vector2(85, 66)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ereye"]
 size = Vector2(6, 20)
 
-[node name="end_block" type="StaticBody2D" groups=["end_block"]]
+[node name="end_block" type="StaticBody2D" groups=["collision", "end_block"]]
 script = ExtResource("1_co13d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_axy14")
 
 [node name="end_block_sprite" type="Sprite2D" parent="."]
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("2_xt1m0")
 
-[node name="end_block_collisionshape" type="CollisionShape2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="end_block_collisionshape" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0.5, -1)
 shape = SubResource("RectangleShape2D_xrrds")
 
@@ -26,4 +33,8 @@ shape = SubResource("RectangleShape2D_xrrds")
 position = Vector2(-45, 3)
 shape = SubResource("RectangleShape2D_ereye")
 
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
 [connection signal="input_event" from="input_connector_detector" to="." method="_on_area_2d_input_event"]

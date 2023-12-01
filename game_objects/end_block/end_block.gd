@@ -1,5 +1,5 @@
+extends "res://game_objects/Drag&Drop/dragObject.gd"
 class_name End_Block
-extends StaticBody2D
 
 
 signal endblock_clicked(node: Node)

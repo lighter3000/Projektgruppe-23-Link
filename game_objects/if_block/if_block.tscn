@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://y0u1veo1swd1"]
+[gd_scene load_steps=8 format=3 uid="uid://y0u1veo1swd1"]
 
 [ext_resource type="Script" path="res://game_objects/if_block/if_block.gd" id="1_qb8gp"]
 [ext_resource type="Texture2D" uid="uid://ckn7yfytvriip" path="res://game_objects/assets/if_block.png" id="2_yfu7k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1a603"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gueu4"]
 size = Vector2(84, 65)
@@ -15,14 +17,19 @@ size = Vector2(7, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_buo86"]
 size = Vector2(7, 20)
 
-[node name="if_block" type="StaticBody2D" groups=["if_block"]]
+[node name="if_block" type="StaticBody2D" groups=["collision", "if_block"]]
 script = ExtResource("1_qb8gp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1a603")
 
 [node name="if_block_sprite" type="Sprite2D" parent="."]
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("2_yfu7k")
 
-[node name="if_block_collisionshape" type="CollisionShape2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="if_block_collisionshape" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_gueu4")
 
@@ -44,4 +51,8 @@ shape = SubResource("RectangleShape2D_s3blh")
 position = Vector2(45.5, 15)
 shape = SubResource("RectangleShape2D_buo86")
 
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
 [connection signal="input_event" from="red_output_detector" to="." method="_on_red_output_detector_input_event"]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dp7t8gcjiiibb"]
+[gd_scene load_steps=7 format=3 uid="uid://dp7t8gcjiiibb"]
 
 [ext_resource type="PackedScene" uid="uid://wdpttcyoepl3" path="res://game_objects/Drag&Drop/drag_area.tscn" id="1_w816f"]
-[ext_resource type="PackedScene" uid="uid://dmhf7tbtsw7h3" path="res://game_objects/if_block/if_block_dragable.tscn" id="3_4uqu6"]
-[ext_resource type="PackedScene" uid="uid://dpul3dxrju8us" path="res://game_objects/end_block/end_block_draggable.tscn" id="3_08pcl"]
-[ext_resource type="PackedScene" uid="uid://b3e5w8m2n7fkj" path="res://game_objects/start_block/start_block_dragable.tscn" id="4_ppsiv"]
-[ext_resource type="PackedScene" uid="uid://b5pas1s31kqvb" path="res://game_objects/while_block/while_block_dragable.tscn" id="5_wgaug"]
+[ext_resource type="PackedScene" uid="uid://y0u1veo1swd1" path="res://game_objects/if_block/if_block.tscn" id="2_knp17"]
+[ext_resource type="PackedScene" uid="uid://c4xwakfr5oonp" path="res://game_objects/end_block/end_block.tscn" id="3_wwpj8"]
+[ext_resource type="PackedScene" uid="uid://qs3du0q4n3vx" path="res://game_objects/start_block/start_block.tscn" id="4_cjmho"]
+[ext_resource type="PackedScene" uid="uid://cjlxdtwtvd7mw" path="res://game_objects/while_block/while_block.tscn" id="5_ahvvl"]
+[ext_resource type="PackedScene" uid="uid://i4rmt6oc1lp6" path="res://game_objects/finish_block/finish_block.tscn" id="6_x24bq"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -51,14 +52,17 @@ position = Vector2(360, 362)
 [node name="DragArea12" parent="." instance=ExtResource("1_w816f")]
 position = Vector2(209, 135)
 
-[node name="end_block_draggable" parent="." instance=ExtResource("3_08pcl")]
-position = Vector2(449, 152)
-
-[node name="if_block_dragable" parent="." instance=ExtResource("3_4uqu6")]
-position = Vector2(360, 362)
-
-[node name="start_block_dragable" parent="." instance=ExtResource("4_ppsiv")]
-position = Vector2(200, 251)
-
-[node name="while_block_dragable" parent="." instance=ExtResource("5_wgaug")]
+[node name="if_block" parent="." instance=ExtResource("2_knp17")]
 position = Vector2(500, 300)
+
+[node name="end_block" parent="." instance=ExtResource("3_wwpj8")]
+position = Vector2(365, 365)
+
+[node name="start_block" parent="." instance=ExtResource("4_cjmho")]
+position = Vector2(85, 357)
+
+[node name="while_block" parent="." instance=ExtResource("5_ahvvl")]
+position = Vector2(451, 149)
+
+[node name="finish_block" parent="." instance=ExtResource("6_x24bq")]
+position = Vector2(1074, 228)

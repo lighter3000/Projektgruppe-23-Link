@@ -1,6 +1,5 @@
+extends "res://game_objects/Drag&Drop/dragObject.gd"
 class_name If_Block
-extends StaticBody2D
-
 
 signal if_block_clicked(node: Node)
 
