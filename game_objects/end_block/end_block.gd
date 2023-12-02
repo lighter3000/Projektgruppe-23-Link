@@ -14,6 +14,6 @@ func _on_area_2d_input_event(_viewport, event, _shape_idx):
 
 
 func _on_object_connector_connection_to_end_block(node):
-	if not node.is_in_group("end_block"):
+	if node != self and node != predecessor:
 		predecessor = node
 	print("Endblock predecessor: %s" %predecessor)

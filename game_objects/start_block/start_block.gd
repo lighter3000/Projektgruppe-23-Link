@@ -14,6 +14,6 @@ func _on_detector_input_event(_viewport, event, _shape_idx):
 
 
 func _on_object_connector_connection_to_start_block(node):
-	if not node.is_in_group("start_block"):
+	if node != self and node != successor:
 		successor = node
-	print("Startblock successor: %s" %successor)
+		print("Startblock successor: %s" %successor)

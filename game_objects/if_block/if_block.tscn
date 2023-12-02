@@ -55,4 +55,6 @@ shape = SubResource("RectangleShape2D_buo86")
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="input_event" from="input_detector" to="." method="_on_input_detector_input_event"]
+[connection signal="input_event" from="green_output_detector" to="." method="_on_green_output_detector_input_event"]
 [connection signal="input_event" from="red_output_detector" to="." method="_on_red_output_detector_input_event"]
