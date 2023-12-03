@@ -5,11 +5,14 @@
 
     <script type="text/javascript" src="brython.js"></script>
     <script type="text/javascript" src="brython_stdlib.js"></script>
+    <script type="text/javascript" src="lib/codemirror.js"></script>
     <script type="text/javascript" src="qrcode.min.js"></script>
     <script type="text/javascript" src="file-upload.js"></script>
     <script type="text/python" src="code-editor.py"></script>
     <script type="text/javascript" src="tab-space.js"></script>
 
+
+    <link rel="stylesheet" href="lib/codemirror.css">
     <link rel="stylesheet" href="styling.css">
 
     <title>Code-Editor turtle graphics/brython</title>
@@ -52,13 +55,14 @@
             <div class="vertical-spacer"></div>
             <!--                     Code-Editor Container                        -->
             <div class="code-editor-container area-container" id="code-editor-area">
-                <div class="code-area">
-                    <pre class="line-number-container" id="line-number-pre"><span id="line-number-area" class="line-number-font"></span></pre>
+                <!--<div class="code-area">
                     <div class="source-code-container" id="source-code-area">
                         <pre
-                            class="pre-block" id="code-editor-pre"><code class="code-block" contenteditable="true" spellcheck="false" data-gramm="false" onkeydown="handleTabKey(event)"><span  id="code-editor-source" class="code-editor-font"></span></code></pre>
+                            class="pre-block" id="code-editor-pre"><code class="code-block" contenteditable="true" spellcheck="false" data-gramm="false"><span  id="code-editor-source" class="code-editor-font"></span></code></pre>
                     </div>
                 </div>
+                --->
+                <span  id="code-editor-source" class="code-editor-font" style="height:100%"></span>
             </div>
             <div class="vertical-spacer"></div>
             <!--                     Run and Debug Buttons Container              -->

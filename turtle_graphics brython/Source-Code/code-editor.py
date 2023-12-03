@@ -1,4 +1,4 @@
-from browser import document, window
+from browser import document, window, bind
 from turtle import restart
 import turtle
 from collections import defaultdict
@@ -32,9 +32,11 @@ def load_level(level_index):
     #     document["tutorial_code"].text = level_globals['tutorial_code']
     
     if written_code[level_index - 1] != "":
-        document["code-editor-source"].text = written_code[level_index - 1]  
+        window.setCodeMirrorContent(clean_text(written_code[level_index - 1]))
+        #document["code-editor-source"].text = written_code[level_index - 1]  
     elif 'init_code' in level_globals:
-        document["code-editor-source"].text = level_globals['init_code']
+        window.setCodeMirrorContent(clean_text(level_globals['init_code']))
+        #document["code-editor-source"].text = level_globals['init_code']
 
     if 'solution_code' in level_globals:
         document["solution_code"].text = level_globals['solution_code']         
@@ -45,20 +47,22 @@ def load_level(level_index):
 def previous_level(ev):
     global level_index
     if (level_index > 0):
-        written_code[level_index - 1] = document["code-editor-source"].text
+        #written_code[level_index - 1] = document["code-editor-source"].text
+        written_code[level_index - 1] = window.getCodeMirrorContent()
         level_index -= 1
         load_level(level_index)
-        load_linesnumbers()
+        #load_linesnumbers()
         
 
 
 def next_level(ev):
     global level_index
     if (level_index < 10):
-        written_code[level_index - 1] = document["code-editor-source"].text
+        #written_code[level_index - 1] = document["code-editor-source"].text
+        written_code[level_index - 1] = window.getCodeMirrorContent()
         level_index+= 1
         load_level(level_index)
-        load_linesnumbers()
+        #load_linesnumbers()
         
 def export_download(ev):
     resize_canvas()
@@ -71,7 +75,8 @@ def export_qrcode(ev):
 
 def run_code(ev):
     document["console"].html = ""
-    _code = document["code-editor-source"].text
+    _code = window.getCodeMirrorContent()
+    #_code = document["code-editor-source"].text
 
     # code_with_turtle_setup_and_rollback = "t = turtle.Turtle() \n" + _code + "\nturtle.done()"
     code_with_turtle_rollback = _code + "\nturtle.done()"
@@ -95,12 +100,14 @@ def reset_code(ev):
     level_globals = {}
     exec(level_code, level_globals)
     
-    document["code-editor-source"].text = level_globals['init_code']
+    #document["code-editor-source"].text = level_globals['init_code']
+    window.setCodeMirrorContent(level_globals['init_code'])
     
 
 def load_code(ev):
     if written_code[level_index - 1] != "":
-        document["code-editor-source"].text = written_code[level_index - 1]
+        window.setCodeMirrorContent(written_code[level_index - 1])
+        #document["code-editor-source"].text = written_code[level_index - 1]
         
 ###-----Dark-Mode Button--------------#####
 def toggle_dark_mode(event):
@@ -129,9 +136,10 @@ def show_solution(ev):
     document["solutionModal"].style.display = "block"
 
 def paste_solution(ev):
-    save_code()
-    document["code-editor-source"].text = document["solution_code"].text
-    load_linesnumbers()
+    save_code(ev)
+    window.setCodeMirrorContent(document["solution_code"].text)
+    #document["code-editor-source"].text = document["solution_code"].text
+    #load_linesnumbers()
 
 def show_solution_code(ev):
     if document["solution_password"].value == "Passwort":
@@ -161,12 +169,8 @@ document["show_solution_code"].bind("click", show_solution_code)
 
 #####------------------Code-Editor-----------------------#####   
 
-def load_linesnumbers():
-    document["line-number-area"].html = ""
-    code_text = document["code-editor-source"].text
-    line_count = code_text.split("\n")
-    for line_number in range(1, len(line_count)):
-        document["line-number-area"].html += f"{line_number}<br/>"
+def clean_text(text):
+    return text.replace("\u200B", "")
 
 #####------------------Canvas----------------------------#####  
 def resize_canvas():
@@ -218,5 +222,9 @@ qrcode_modal_close_button.bind("click", lambda ev: qrcode_modal.style.__setitem_
 document.bind("click", lambda event: qrcode_modal.style.__setitem__("display", "none") if event.target == qrcode_modal else None)
 
 #####------------------onload----------------------------#####   
+# Funktion die bei Beginn einmal geladen werden sollen
 load_level(level_index)
-load_linesnumbers()
+#load_linesnumbers()
+
+# Globalisiert Funktionen, damit JavaScript drauf zugreifen kann
+element = document.getElementById("code-editor-source")
