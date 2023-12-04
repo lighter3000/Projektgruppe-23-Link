@@ -5,11 +5,17 @@
 
     <script type="text/javascript" src="brython.js"></script>
     <script type="text/javascript" src="brython_stdlib.js"></script>
+    <script type="text/javascript" src="lib/codemirror.js"></script>
     <script type="text/javascript" src="qrcode.min.js"></script>
     <script type="text/javascript" src="file-upload.js"></script>
     <script type="text/python" src="code-editor.py"></script>
     <script type="text/javascript" src="tab-space.js"></script>
 
+    <script type="text/javascript" src="tone.js"></script>
+    <script type="text/javascript" src="musical.min.js"></script>
+
+
+    <link rel="stylesheet" href="lib/codemirror.css">
     <link rel="stylesheet" href="styling.css">
 
     <title>Code-Editor turtle graphics/brython</title>
@@ -52,20 +58,22 @@
             <div class="vertical-spacer"></div>
             <!--                     Code-Editor Container                        -->
             <div class="code-editor-container area-container" id="code-editor-area">
-                <div class="code-area">
-                    <pre class="line-number-container" id="line-number-pre"><span id="line-number-area" class="line-number-font"></span></pre>
+                <!--<div class="code-area">
                     <div class="source-code-container" id="source-code-area">
                         <pre
-                            class="pre-block" id="code-editor-pre"><code class="code-block" contenteditable="true" spellcheck="false" data-gramm="false" onkeydown="handleTabKey(event)"><span  id="code-editor-source" class="code-editor-font"></span></code></pre>
+                            class="pre-block" id="code-editor-pre"><code class="code-block" contenteditable="true" spellcheck="false" data-gramm="false"><span  id="code-editor-source" class="code-editor-font"></span></code></pre>
                     </div>
                 </div>
+                --->
+                <span  id="code-editor-source" class="code-editor-font" style="height:100%"></span>
             </div>
             <div class="vertical-spacer"></div>
             <!--                     Run and Debug Buttons Container              -->
             <div class="button-container" id="button-area">
                 <button id="run_code" class="buttons button-left darkmode" tabindex="-1">Run</button>
-                <button id="load_code" class="buttons button-right darkmode" tabindex="-1">Load</button>
-                <button id="reset_code" class="buttons button-right darkmode" tabindex="-1">Reset</button>
+                <button id="reset_code" class="buttons button-right darkmode" title="Der aktuelle Code wird auf den Anfangscode zurückgesetzt"  tabindex="-1">Reset</button>
+                <button id="load_code" class="buttons button-right darkmode" title="Der zuletzt gespeicherte Code wird geladen" tabindex="-1">Load</button>
+                <button id="save_code" class="buttons button-right darkmode" title="Aktueller Code wird gespeichert"  tabindex="-1">Save</button>
                 <button id="show_solution" class="buttons button-right darkmode" tabindex="-1">Lösung</button>
             </div>
 
@@ -89,7 +97,7 @@
             <div class="vertical-spacer"></div>
         </div>
     </div>
-
+    <!--                     QR-Code Modal                                        -->
     <div id="qrcodeModal" class="modal">
         <div id="qrcode-modal-content" class="qrcode-modal-content darkmode">
             <span class="close" id="qrCodeModalCloseButton">&times;</span>
@@ -99,21 +107,39 @@
             <p id="errorMessage" class="modal-elements error-message"></p>
         </div>
     </div>
-
+    <!--                     Solution Modal                                       -->
     <div id="solutionModal" class="modal">
         <div id="solution-modal-content" class="solution-modal-content darkmode">
             <div class="close-container">
                 <span class="close" id="solutionCodeModalCloseButton">&times;</span>
             </div>
-            <div class="solution-code-container">
-                <pre
-                    class="pre-block-tutorial"><code id="solution_code" spellcheck="false" data-gramm="false"></code></pre>
+            <div id="solution_code_container" style="display: none;" class="solution-step-container">
+                <h4 class="solution-modal-title">Vollständige Lösung</h4>
+                <div class="solution-code-container">
+                    <pre
+                        class="pre-block"><code spellcheck="false" data-gramm="false"><span  id="solution_code" class="code-editor-font"></span></code></pre>
+                </div>
+                <div class="modal-spacer"></div>
+                <div class="solution-button-container">
+                    <button id="paste_solution" class="paste-solution-button darkmode">In Code-Editor einfügen</button>
+                </div>
+                <div class="modal-spacer"></div>
             </div>
-            <div class="modal-spacer"></div>
-            <div class="paste-solution-button-container">
-                <button id="paste_solution" class="paste-solution-button darkmode">In Code-Editor einfügen</button>
+
+            <div id="solution_comments_container" class="solution-step-container">
+                <h4 class="solution-modal-title">Kommentare zur Lösung (Vollständige Lösung mit Passwort)</h4>
+                <div class="solution-code-container">
+                    <pre
+                        class="pre-block"><code spellcheck="false" data-gramm="false"><span  id="solution_comments" class="code-editor-font"></span></code></pre>
+                </div>
+                <div class="modal-spacer"></div>
+                <div class="solution-button-container">
+                    <input type="password" id="solution_password" class="solution-password darkmode"
+                        placeholder="Passwort für Code-Lösung">
+                    <button id="show_solution_code" class="solution-password-button darkmode">></button>
+                </div>
+                <div class="modal-spacer"></div>
             </div>
-            <div class="modal-spacer"></div>
         </div>
     </div>
 </body>
