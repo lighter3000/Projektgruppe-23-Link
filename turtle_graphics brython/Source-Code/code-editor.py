@@ -65,13 +65,13 @@ def next_level(ev):
         #load_linesnumbers()
         
 def export_download(ev):
-    resize_canvas()
+    javascript.this().exportDownload()
 
 def export_print(ev):
-    pass
+    javascript.this().exportPrint()
 
 def export_qrcode(ev):
-    javascript.this().uploadFile()
+    javascript.this().exportUpload()
 
 def run_code(ev):
     document["console"].html = ""
@@ -87,6 +87,8 @@ def run_code(ev):
     # window.requestAnimationFrame(check_canvas_existence)
     
     written_code[level_index - 1] = _code
+
+    javascript.this().editExport(level_index)
     
     
 def save_code(ev):
@@ -183,8 +185,8 @@ def resize_canvas():
 def _writeConsole(*args):
     document["console"].html += "".join(args)
 
-sys.stdout.write = _writeConsole
-sys.stderr.write = _writeConsole            
+    sys.stdout.write = _writeConsole
+    sys.stderr.write = _writeConsole            
 
 #####------------------Solution---------------------------#####
 def get_solution_text(string):
@@ -197,7 +199,7 @@ def get_solution_text(string):
         if '#' not in line:
             lines[i] = ''
 
-        return '\n'.join(lines)
+    return '\n'.join(lines)
 
 ###-----dialog modal for solution-----#####
 soultion_modal = document.getElementById("solutionModal")
