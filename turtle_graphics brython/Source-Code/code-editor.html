@@ -97,6 +97,13 @@
             <div class="vertical-spacer"></div>
         </div>
     </div>
+    <!--                     Print Modal                                          -->
+    <div id="print-modal" class="modal">
+        <div id="print-modal-content" class="print-modal-content">
+            <p class="modal-elements">In paar Sekunden geht es weiter!</p>
+            <p class="modal-elements">Gleich kann ein Drucker gewählt werden.</p>
+        </div>
+    </div>
     <!--                     QR-Code Modal                                        -->
     <div id="qrcodeModal" class="modal">
         <div id="qrcode-modal-content" class="qrcode-modal-content">
@@ -146,10 +153,12 @@
 
         <head>
             <meta charset="utf-8">
+            <title>Tab zum Drucken</title>
 
             <style>
                 .code-hint {
-                    border-left: #8787872a solid 20px;
+                    border-left: #8787872a solid 29px;
+                    box-shadow: inset 1px 0 0 0 #6c6c6c77;
                     padding-left: 10px;
                 }
 
@@ -172,16 +181,78 @@
                 .empty-level-container {
                     margin-bottom: 100px;
                 }
+
                 .code-container {
                     height: max-content;
                     margin-bottom: 20px;
                 }
+
+                #overlay {
+                    display: none;
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0, 0, 0, 0.5);
+                    z-index: 1;
+                }
+
+                .print-modal {
+                    display: none;
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background-color: #fff;
+                    padding: 20px;
+                    z-index: 2;
+                }
+
+                .print-modal-content {
+                    /* Stile für den Inhalt des Modals hier... */
+                }
             </style>
 
             <script>
+                var printExport = false;
+                var printCounter = 0;
+
+                function showPrintModal() {
+                    document.getElementById('overlay').style.display = 'block';
+                    document.getElementById('printModal').style.display = 'block';
+                }
+
+                function hidePrintModal() {
+                    document.getElementById('overlay').style.display = 'none';
+                    document.getElementById('printModal').style.display = 'none';
+                }
+
                 function resetAnimations(svg) {
-                    svg.setCurrentTime(0)
-                    svg.unpauseAnimations()
+                    svg.setCurrentTime(0);
+                    svg.unpauseAnimations();
+                }
+
+                function decreasePrintCounter() {
+                    printCounter--;
+                    if (printCounter == 0) {
+                        window.print();
+                    }
+                }
+
+                function setEventListenerOnResetAnimations(lastFrame, svg) {
+                    lastFrame.addEventListener("endEvent", () => {
+                        setTimeout(() => {
+                            resetAnimations(svg);
+                        }, 2000);
+                    });
+                }
+
+                function setEventListenerOnDecreasePrintCounter(lastFrame) {
+                    printCounter++;
+                    lastFrame.addEventListener("endEvent", () => {
+                        decreasePrintCounter();
+                    });
                 }
 
                 function setEventListenersOnEndOfLastFrame() {
@@ -191,24 +262,36 @@
                         const animateElements = svg.querySelectorAll(['animate', 'animateMotion', 'animateTransform']);
                         const lastFrame = animateElements[animateElements.length - 1];
 
-                        lastFrame.addEventListener("endEvent", () => {
-                            setTimeout(() => {
-                                resetAnimations(svg);
-                            }, 2000)
-                        });
+                        if (!lastFrame.id.endsWith("frame4")) {
+                            if (printExport == true) {
+                                setEventListenerOnDecreasePrintCounter(lastFrame);
+                                svg.unpauseAnimations();
+                            } else {
+                                setEventListenerOnResetAnimations(lastFrame, svg);
+                            }
+                        }
                     });
+
+                    if (printExport == true && printCounter == 0) {
+                        window.print();
+                    }
+                }
+
+                function closeTab() {
+                    window.opener.postMessage('new_window_closed', '*');
+                    window.close();
                 }
 
                 window.addEventListener('load', () => {
-                    setEventListenersOnEndOfLastFrame()
-                }); 
+                    setEventListenersOnEndOfLastFrame();
+                });
+
+                window.onafterprint = closeTab;
             </script>
         </head>
 
         <body>
-
-        <h1>Deine Coding-Ergebnisse</h1>
-
+            <h1>Deine Coding-Ergebnisse</h1>
         </body>
     </div>
 </body>

@@ -78,8 +78,11 @@ def run_code(ev):
     _code = window.getCodeMirrorContent()
     #_code = document["code-editor-source"].text
 
+    # Ansatz wie man die Größe des Canvases bei jedem run neu setzen kann. Dafür muss brython_stdlib.js bearbeitet werden.
+    canvas_size = "turtle.set_defaults(turtle_canvas_wrapper = document['canvas'], canvwidth = document[\'canvas\'].clientWidth, canvheight = document[\'canvas\'].clientHeight)\n"
+
     # code_with_turtle_setup_and_rollback = "t = turtle.Turtle() \n" + _code + "\nturtle.done()"
-    code_with_turtle_rollback = _code + "\nturtle.done()"
+    code_with_turtle_rollback = _code + "\n\nturtle.done()"
     
     restart()
     exec(code_with_turtle_rollback)
@@ -216,7 +219,6 @@ document.bind("click", lambda event: soultion_modal.style.__setitem__("display",
      
 #####------------------Export PDF------------------------#####  
 
-###-----dialog modal for qrcode-------#####
 ###-----init level container----------#####
 def initialize_levels_container(level_num):
     levels_container = document["levelsContainer"]
@@ -308,6 +310,7 @@ def create_html(callback_function):
 
     callback_function(html_content)
 
+
 def download_html(html_content):
     blob = window.Blob.new([html_content], {"type": "text/html"})
     url = window.URL.createObjectURL(blob)
@@ -320,12 +323,28 @@ def download_html(html_content):
     link.click()
     document.body.removeChild(link)
 
-# vermuttlich entfernen
 def print_html(html_content):
+    modified_content = html_content.replace('var printExport = false;', 'var printExport = true;')
+    
+    window.on_message_from_new_window = on_message_from_new_window
+    window.addEventListener('message', on_message_from_new_window)
+    
     new_window = window.open("", "_blank")
-    new_window.document.write(html_content)
+    new_window.document.write(modified_content)
     new_window.document.close()
-    new_window.print()
+    show_modal()
+    
+def on_message_from_new_window(event):
+    if event.data == 'new_window_closed':
+        hide_modal()
+
+def show_modal():
+    modal = document.getElementById("print-modal")
+    modal.style.display = "block"
+
+def hide_modal():
+    modal = document.getElementById("print-modal")
+    modal.style.display = "none"
 
 qrcode_modal = document.getElementById("qrcodeModal")
 link_to_download = document.getElementById("linkToDownload")
@@ -374,6 +393,10 @@ def handle_upload_on_success(data):
     link_to_download.href = data['data']['downloadPage']
     link_to_download.text = data['data']['downloadPage']
 
+    qrcode._oDrawing._elImage.style.width = "100%"
+    
+    javascript.this().console.log("B1")
+
     qr_code_to_download.style.display = "block"
     link_to_download.style.display = "block"
     message.innerText = 'QR-Code scannen zum Herunterladen!'
@@ -384,6 +407,8 @@ def handle_upload_error(error_msg):
     error_message.style.display = "block"
     qrcode_modal.style.display = "block"
 
+
+###-----dialog modal for qrcode-------#####
 def show_qr_code_modal():
     qr_code_to_download.style.display = "none"
     link_to_download.style.display = "none"
@@ -393,8 +418,6 @@ def show_qr_code_modal():
     message.style.display = "block"
     qrcode_modal.style.display = "block"
 
-
-###-----dialog modal for qrcode-------#####
 qrcode_modal = document.getElementById("qrcodeModal")
 
 # set event to close button on modal to hide modal

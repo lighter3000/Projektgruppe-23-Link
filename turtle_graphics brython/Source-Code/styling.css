@@ -140,7 +140,8 @@ body {
 }
 
 .code-hint {
-    border-left:#8787872a solid 20px;
+    border-left: #8787872a solid 29px;
+    box-shadow: inset 1px 0 0 0 #6c6c6c77;
     padding-left: 10px;
 }
 
@@ -158,6 +159,7 @@ body {
 .canvas {
     width: 100%;
     height: 97%;
+    overflow: hidden;
 }
 
 .canvas-container-text {
@@ -412,7 +414,7 @@ button:active {
     width: 100%;
 }
 
-/*                             qrcode modal                            */
+/*                             modals                                 */
 
 .modal {
     display: none;
@@ -428,14 +430,29 @@ button:active {
     background-color: rgba(0, 0, 0, 0.6);
 }
 
-.qrcode-modal-content {
+/*                             print modal                             */
+
+.print-modal-content {
     margin-top: 10%;
-    margin-left: 42.5%;
+    margin-left: 40%;
     background-color: white;
     border-radius: 10px;
     box-shadow: var(--normal-shadow);
     padding-bottom: 10pt;
-    width: 282.66px;
+    width: 20%;
+    height: min-content;
+}
+
+/*                             qrcode modal                            */
+
+.qrcode-modal-content {
+    margin-top: 10%;
+    margin-left: 40%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: var(--normal-shadow);
+    padding-bottom: 10pt;
+    width: 20%;
     height: min-content;
 }
 
@@ -560,6 +577,7 @@ button:active {
 .modal-elements {
     padding: 10pt;
     margin: 0;
+    text-align: center;
 }
 
 .error-message {
