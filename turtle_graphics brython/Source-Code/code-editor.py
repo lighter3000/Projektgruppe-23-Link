@@ -114,7 +114,7 @@ def load_code(ev):
 ###-----Dark-Mode Button--------------#####
 def toggle_dark_mode(event):
     document.body.classList.toggle('darkmode')
-
+    
     document["qrcode-modal-content"].classList.toggle('darkmode')
     document["solution-modal-content"].classList.toggle('darkmode')
 
@@ -128,8 +128,10 @@ def toggle_dark_mode(event):
 
     if (document["dark-mode-button"].text == "Dark Mode"):
         document["dark-mode-button"].text = "Light Mode"
+        javascript.this().editor.getWrapperElement().style.color = "white" # eventuell ersetzen mit Light Theme
     else:
         document["dark-mode-button"].text = "Dark Mode"
+        javascript.this().editor.getWrapperElement().style.color = "black" # eventuell ersetzen mit Dark Theme
 
 ###-----Solution Buttons--------------#####
 def show_solution(ev):
@@ -184,9 +186,10 @@ def resize_canvas():
 #####------------------Console----------------------------#####  
 def _writeConsole(*args):
     document["console"].html += "".join(args)
+    # hier muss new line hin
 
-    sys.stdout.write = _writeConsole
-    sys.stderr.write = _writeConsole            
+sys.stdout.write = _writeConsole
+sys.stderr.write = _writeConsole            
 
 #####------------------Solution---------------------------#####
 def get_solution_text(string):

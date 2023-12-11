@@ -25,8 +25,8 @@
 /* GUTTER */
 
 .CodeMirror-gutters {
-  border-right: 1px solid #ddd;
-  background-color: #f7f7f7;
+  border-right: 1px solid #6c6c6c77;
+  background-color: #8787872a;
   white-space: nowrap;
 }
 .CodeMirror-linenumbers {}
@@ -150,9 +150,10 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #a22;}
    the editor. You probably shouldn't touch them. */
 
 .CodeMirror {
+  height: 100%;
   position: relative;
   overflow: hidden;
-  background: white;
+  background: transparent;
 }
 
 .CodeMirror-scroll {
