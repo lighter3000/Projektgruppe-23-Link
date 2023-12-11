@@ -57,7 +57,7 @@ def previous_level(ev):
 
 def next_level(ev):
     global level_index
-    if (level_index < 10):
+    if (level_index < 5):
         #written_code[level_index - 1] = document["code-editor-source"].text
         written_code[level_index - 1] = window.getCodeMirrorContent()
         level_index+= 1
@@ -65,13 +65,13 @@ def next_level(ev):
         #load_linesnumbers()
         
 def export_download(ev):
-    javascript.this().exportDownload()
+    create_html(download_html)
 
 def export_print(ev):
-    javascript.this().exportPrint()
+    create_html(print_html)
 
 def export_qrcode(ev):
-    javascript.this().exportUpload()
+    create_html(upload_html)
 
 def run_code(ev):
     document["console"].html = ""
@@ -88,7 +88,7 @@ def run_code(ev):
     
     written_code[level_index - 1] = _code
 
-    javascript.this().editExport(level_index)
+    edit_level_container(level_index)
     
     
 def save_code(ev):
@@ -212,7 +212,185 @@ soultion_modal_close_button.bind("click", lambda ev: soultion_modal.style.__seti
 document.bind("click", lambda event: soultion_modal.style.__setitem__("display", "none") if event.target == soultion_modal else None)
      
 #####------------------Export PDF------------------------#####  
-#  
+
+###-----dialog modal for qrcode-------#####
+###-----init level container----------#####
+def initialize_levels_container(level_num):
+    levels_container = document["levelsContainer"]
+
+    for level in range(level_num):
+        level_container = create_container("level " + str(level))
+
+        level_container.appendChild(create_title("H2", "Level " + str(level)))
+        level_container.appendChild(create_title("H3", "Aufgabenstellung und Hinweise"))
+        level_container.appendChild(create_container("level" + str(level) + "_exercise"))
+        level_container.appendChild(create_title("H3", "Dein Code"))
+        level_container.appendChild(create_container("level" + str(level) + "_code"))
+        level_container.appendChild(create_title("H3", "Canvas"))
+        level_container.appendChild(create_container("level" + str(level) + "_canvas_container"))
+
+        if level == 0:
+            level_container.classList.add("first-level-container")
+
+        level_container.classList.add("empty-level-container")
+
+        levels_container.appendChild(level_container)
+
+        document["level" + str(level) + "_exercise"].html = get_exercise(level)
+
+def create_title(element_type, text):
+    title = document.createElement(element_type)
+    title.html = text
+    return title
+
+def create_container(container_id):
+    container = document.createElement("div")
+    container.id = container_id
+    return container
+
+def get_exercise(level):
+    level_file_path = f"/levels/level_{level}.py"
+    
+    with open(level_file_path, "r") as level_file:
+        level_code = level_file.read()
+    
+    level_globals = {}
+    exec(level_code, level_globals)
+    
+    if 'tutorial' in level_globals:
+        return level_globals['tutorial']
+
+def edit_level_container(level):
+    level_container = document["level " + str(level)]
+    level_container.classList.remove("empty-level-container")
+
+    document["level" + str(level) + "_exercise"].html = document["tutorial"].html
+
+    add_code_from_code_mirror(document["level" + str(level) + "_code"])
+
+    canvas_container = document["level" + str(level) + "_canvas_container"]
+    canvas_container.html = document["canvas"].html
+    rename_animation_ids(canvas_container, level)
+
+def add_code_from_code_mirror(code_container):
+    code_container.html = ''
+    
+    pre_element = document.createElement("pre")
+
+    code_element = document.createElement("code")
+    code_element.text = javascript.this().editor.getValue()
+
+    pre_element.appendChild(code_element)
+    code_container.appendChild(pre_element)
+
+    code_container.classList.add("code-container")
+
+def rename_animation_ids(canvas_container, level):
+    svg = canvas_container.child_nodes[0]
+
+    for element in svg.querySelectorAll('[id^="animation_frame"]'):
+        current_id = element.id
+        new_id = 'level' + str(level) + "_" + current_id
+
+        element.id = new_id
+
+        for element in svg.querySelectorAll('[begin="' + current_id + '.end"]'):
+            element.setAttribute('begin', new_id + '.end')
+
+    svg.id = svg.id + "-" + str(level)
+
+def create_html(callback_function):
+    html_content = document.getElementById('levelsContainer').outerHTML
+    html_content = html_content.replace('hidden=""', '')
+
+    callback_function(html_content)
+
+def download_html(html_content):
+    blob = window.Blob.new([html_content], {"type": "text/html"})
+    url = window.URL.createObjectURL(blob)
+    
+    link = document.createElement('a')
+    link.href = url
+    link.download = 'exported.html'
+
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+
+# vermuttlich entfernen
+def print_html(html_content):
+    new_window = window.open("", "_blank")
+    new_window.document.write(html_content)
+    new_window.document.close()
+    new_window.print()
+
+qrcode_modal = document.getElementById("qrcodeModal")
+link_to_download = document.getElementById("linkToDownload")
+qr_code_to_download = document.getElementById("qrCodeToDownload")
+message = document.getElementById("message")
+error_message = document.getElementById("errorMessage")
+
+def upload_html(html_content):
+
+    show_qr_code_modal()
+    
+    form_data = window.FormData.new()
+    form_data.append('file', window.Blob.new([html_content], {'type': 'text/html'}), 'exported.html')
+
+    window.fetch('https://api.gofile.io/getServer')\
+        .then(lambda response: response.json())\
+        .then(lambda data: handle_server_response(data, form_data))\
+        .catch(lambda error: handle_upload_error('Error beim Upload:\n' + error.message))
+
+def handle_server_response(data, form_data):
+    if data['status'] == 'ok':
+        upload_file_url = 'https://' + data['data']['server'] + '.gofile.io/uploadFile'
+        window.fetch(upload_file_url, {
+            'method': 'POST',
+            'body': form_data
+        })\
+            .then(lambda response: response.json())\
+            .then(lambda data: handle_upload_response(data))\
+            .catch(lambda error: handle_upload_error('Error beim Upload:\n' + error.message))
+    else:
+        handle_upload_error('Error beim Upload:\n' + data['status'])
+
+def handle_upload_response(data):
+    if data['status'] == 'ok':
+        handle_upload_on_success(data)
+    else:
+        handle_upload_error('Error beim Upload:\n' + data['status'])
+
+def handle_upload_on_success(data):
+    qr_code_to_download.innerHTML = ''
+    qrcode = window.QRCode.new(qr_code_to_download)
+
+    qrcode.clear()
+    qrcode.makeCode(data['data']['downloadPage'])
+
+    link_to_download.href = data['data']['downloadPage']
+    link_to_download.text = data['data']['downloadPage']
+
+    qr_code_to_download.style.display = "block"
+    link_to_download.style.display = "block"
+    message.innerText = 'QR-Code scannen zum Herunterladen!'
+
+def handle_upload_error(error_msg):
+    message.style.display = "none"
+    error_message.innerText = error_msg
+    error_message.style.display = "block"
+    qrcode_modal.style.display = "block"
+
+def show_qr_code_modal():
+    qr_code_to_download.style.display = "none"
+    link_to_download.style.display = "none"
+    error_message.style.display = "none"
+
+    message.innerText = "Warten auf Upload ..."
+    message.style.display = "block"
+    qrcode_modal.style.display = "block"
+
+
 ###-----dialog modal for qrcode-------#####
 qrcode_modal = document.getElementById("qrcodeModal")
 
@@ -226,6 +404,7 @@ document.bind("click", lambda event: qrcode_modal.style.__setitem__("display", "
 #####------------------onload----------------------------#####   
 # Funktion die bei Beginn einmal geladen werden sollen
 load_level(level_index)
+initialize_levels_container(6)
 #load_linesnumbers()
 
 # Globalisiert Funktionen, damit JavaScript drauf zugreifen kann

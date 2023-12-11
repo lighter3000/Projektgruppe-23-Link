@@ -56,12 +56,12 @@ body {
 .navbar-container-left {
     display: flex;
     align-items: center;
-    width: 60%;
+    width: 70%;
     height: 100%;
 }
 
 .navbar-container-right {
-    width: 40%;
+    width: 30%;
 }
 
 .side-content-container {
@@ -182,7 +182,7 @@ body {
 .navbar-title {
     margin-left: var(--navbar-left-margin);
     float: left;
-    max-width: 70%;
+    max-width: 90%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -191,7 +191,7 @@ body {
 .level-title {
     margin-left: var(--navbar-left-margin);
     float: left;
-    max-width: 10%;
+    max-width: 12%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -229,7 +229,7 @@ button:active {
 
 .next-previous-button {
     --parent-height: 7;
-    --parent-width: 60;
+    --parent-width: 70;
 
     --height: var(--nav-button-height);
     --width: calc(((var(--height) * var(--parent-height)) / var(--parent-width)) / var(--aspect-ratio));
@@ -241,11 +241,6 @@ button:active {
     height: calc(var(--height) * 1%);
     width: calc(var(--width) * 1%);
     border-radius: calc(var(--radius) * var(--radius-width)) / calc(var(--radius) * (var(--radius-height)));
-}
-
-.button-left {
-    margin: var(--button-left-margin);
-    float: left;
 }
 
 .button-right {
@@ -266,9 +261,50 @@ button:active {
     border-radius: calc(var(--radius) * var(--radius-width)) / calc(var(--radius) * (var(--radius-height)));
 }
 
+.run-button {
+    --height: 100;
+    --width: 9;
+    --parent-height: 5;
+    --parent-width: 48.5;
+    --radius-width: calc((100 / ((var(--parent-width) * var(--width)) / 100)) / var(--aspect-ratio));
+    --radius-height: calc(100 / ((var(--parent-height) * var(--height)) / 100));
+
+    height: calc(var(--height) * 1%);
+    width: calc(var(--width) * 1%);
+    border-radius: calc(var(--radius) * var(--radius-width)) / calc(var(--radius) * (var(--radius-height)));
+    margin: var(--button-left-margin);
+    float: left;
+}
+
+.reset-button {
+    --height: 100;
+    --width: 12;
+    --parent-height: 5;
+    --parent-width: 48.5;
+    --radius-width: calc((100 / ((var(--parent-width) * var(--width)) / 100)) / var(--aspect-ratio));
+    --radius-height: calc(100 / ((var(--parent-height) * var(--height)) / 100));
+
+    height: calc(var(--height) * 1%);
+    width: calc(var(--width) * 1%);
+    border-radius: calc(var(--radius) * var(--radius-width)) / calc(var(--radius) * (var(--radius-height)));
+}
+
+.solution-button {
+    --height: 100;
+    --width: 14;
+    --parent-height: 5;
+    --parent-width: 48.5;
+    --radius-width: calc((100 / ((var(--parent-width) * var(--width)) / 100)) / var(--aspect-ratio));
+    --radius-height: calc(100 / ((var(--parent-height) * var(--height)) / 100));
+
+    height: calc(var(--height) * 1%);
+    width: calc(var(--width) * 1%);
+    border-radius: calc(var(--radius) * var(--radius-width)) / calc(var(--radius) * (var(--radius-height)));
+}
+
 .darkmode-button {
     --height: var(--nav-button-height);
-    --width: 20;
+    --width: 31;
     --parent-height: 7;
     --parent-width: 40;
     --radius-width: calc((100 / ((var(--parent-width) * var(--width)) / 100)) / var(--aspect-ratio));
@@ -285,7 +321,7 @@ button:active {
 .dropdown-button,
 .dropdown-menu button {
     --height: var(--nav-button-height);
-    --width: 20;
+    --width: 37;
     --parent-height: 7;
     --parent-width: 40;
     --radius-width: calc((100 / ((var(--parent-width) * var(--width)) / 100)) / var(--aspect-ratio));
@@ -299,7 +335,7 @@ button:active {
 
 .dropdown {
     margin-right: var(--navbar-right-margin);
-    width: 20%;
+    width: 37%;
     position: relative;
     display: inline-block;
     float: right;

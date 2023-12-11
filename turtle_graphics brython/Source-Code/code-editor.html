@@ -9,10 +9,8 @@
     <script type="text/javascript" src="lib/qrcode.min.js"></script>
 
     <script type="text/python" src="code-editor.py"></script>
-    <script type="text/javascript" src="file-upload.js"></script>
-    <script type="text/javascript" src="tab-space.js"></script>
-    <script type="text/javascript" src="export-html.js"></script>
 
+    <script type="text/javascript" src="tab-space.js"></script>
 
     <link rel="stylesheet" href="lib/codemirror.css">
     <link rel="stylesheet" href="styling.css">
@@ -20,28 +18,28 @@
     <title>Code-Editor turtle graphics/brython</title>
 </head>
 
-<body onload="brython()" class="darkmode">
+<body onload="brython()">
     <!--                             Navbar                                       -->
     <div class="navbar-container">
         <div class="navbar-container-left">
             <h3 class="navbar-title">Webanwendung auf Basis von turtle graphics und brython</h3>
             <!--                         Level Select Buttons                         -->
-            <button id="previous_level" class="navbar-button-left next-previous-button darkmode">-</button>
+            <button id="previous_level" class="navbar-button-left next-previous-button">-</button>
             <h3 id="level_title" class="level-title">Level 1</h3>
-            <button id="next_level" class="navbar-button-left next-previous-button darkmode">+</button>
+            <button id="next_level" class="navbar-button-left next-previous-button">+</button>
         </div>
         <div class="navbar-container-right ">
             <!--                         Dropdown                                     -->
             <div id="dropdown" class="dropdown">
-                <button id="dropdown-button" class="dropdown-button darkmode">Exportieren</button>
+                <button id="dropdown-button" class="dropdown-button">Exportieren</button>
                 <ul id="dropdown-menu" class="dropdown-menu">
-                    <li><button id="export_download" class="dropdown-button darkmode">Download</button></li>
-                    <li><button id="export_print" class="dropdown-button darkmode">Drucken</button></li>
-                    <li><button id="export_qrcode" class="dropdown-button darkmode">QR-Code</button></li>
+                    <li><button id="export_download" class="dropdown-button">Download</button></li>
+                    <li><button id="export_print" class="dropdown-button">Drucken</button></li>
+                    <li><button id="export_qrcode" class="dropdown-button">QR-Code</button></li>
                 </ul>
             </div>
             <!--                         Dark Mode Button                             -->
-            <button id="dark-mode-button" class="navbar-button-right darkmode-button darkmode">Light Mode</button>
+            <button id="dark-mode-button" class="navbar-button-right darkmode-button">Dark Mode</button>
         </div>
 
     </div>
@@ -69,14 +67,14 @@
             <div class="vertical-spacer"></div>
             <!--                     Run and Debug Buttons Container              -->
             <div class="button-container" id="button-area">
-                <button id="run_code" class="buttons button-left darkmode" tabindex="-1">Run</button>
-                <button id="reset_code" class="buttons button-right darkmode"
+                <button id="run_code" class="run-button" tabindex="-1">Run</button>
+                <button id="reset_code" class="reset-button button-right"
                     title="Der aktuelle Code wird auf den Anfangscode zurückgesetzt" tabindex="-1">Reset</button>
-                <button id="load_code" class="buttons button-right darkmode"
+                <button id="load_code" class="buttons button-right"
                     title="Der zuletzt gespeicherte Code wird geladen" tabindex="-1">Load</button>
-                <button id="save_code" class="buttons button-right darkmode" title="Aktueller Code wird gespeichert"
+                <button id="save_code" class="buttons button-right" title="Aktueller Code wird gespeichert"
                     tabindex="-1">Save</button>
-                <button id="show_solution" class="buttons button-right darkmode" tabindex="-1">Lösung</button>
+                <button id="show_solution" class="solution-button button-right" tabindex="-1">Lösung</button>
             </div>
 
             <div class="vertical-spacer"></div>
@@ -101,17 +99,17 @@
     </div>
     <!--                     QR-Code Modal                                        -->
     <div id="qrcodeModal" class="modal">
-        <div id="qrcode-modal-content" class="qrcode-modal-content darkmode">
+        <div id="qrcode-modal-content" class="qrcode-modal-content">
             <span class="close" id="qrCodeModalCloseButton">&times;</span>
             <p id="message" class="modal-elements">Warten auf Upload ...</p>
             <div id="qrCodeToDownload" class="modal-elements"></div>
-            <a id="linkToDownload" class="modal-elements darkmode"></a>
+            <a id="linkToDownload" class="modal-elements"></a>
             <p id="errorMessage" class="modal-elements error-message"></p>
         </div>
     </div>
     <!--                     Solution Modal                                       -->
     <div id="solutionModal" class="modal">
-        <div id="solution-modal-content" class="solution-modal-content darkmode">
+        <div id="solution-modal-content" class="solution-modal-content">
             <div class="close-container">
                 <span class="close" id="solutionCodeModalCloseButton">&times;</span>
             </div>
@@ -123,7 +121,7 @@
                 </div>
                 <div class="modal-spacer"></div>
                 <div class="solution-button-container">
-                    <button id="paste_solution" class="paste-solution-button darkmode">In Code-Editor einfügen</button>
+                    <button id="paste_solution" class="paste-solution-button">In Code-Editor einfügen</button>
                 </div>
                 <div class="modal-spacer"></div>
             </div>
@@ -136,15 +134,15 @@
                 </div>
                 <div class="modal-spacer"></div>
                 <div class="solution-button-container">
-                    <input type="password" id="solution_password" class="solution-password darkmode"
+                    <input type="password" id="solution_password" class="solution-password"
                         placeholder="Passwort für Code-Lösung">
-                    <button id="show_solution_code" class="solution-password-button darkmode">></button>
+                    <button id="show_solution_code" class="solution-password-button">></button>
                 </div>
                 <div class="modal-spacer"></div>
             </div>
         </div>
     </div>
-    <div id="levelsContainer" hidden>
+    <div id="levelsContainer" class="levels-container" hidden>
 
         <head>
             <meta charset="utf-8">
@@ -162,31 +160,56 @@
                 .code-editor-font {
                     font-size: 14px;
                 }
+
+                .levels-container {
+                    margin: 100px;
+                }
+
+                .first-level-container {
+                    margin-top: 100px;
+                }
+
+                .empty-level-container {
+                    margin-bottom: 100px;
+                }
+                .code-container {
+                    height: max-content;
+                    margin-bottom: 20px;
+                }
             </style>
-        </head>
-        <script>
-            function resetAnimations(svg) {
-                svg.setCurrentTime(0)
-                svg.unpauseAnimations()
-            }
 
-            function setEventListenersOnEndOfLastFrame() {
-                var svgElements = document.querySelectorAll('#levelsContainer svg');
+            <script>
+                function resetAnimations(svg) {
+                    svg.setCurrentTime(0)
+                    svg.unpauseAnimations()
+                }
 
-                svgElements.forEach(svg => {
-                    const animateElements = svg.querySelectorAll(['animate', 'animateMotion', 'animateTransform']);
-                    const lastFrame = animateElements[animateElements.length - 1];
+                function setEventListenersOnEndOfLastFrame() {
+                    var svgElements = document.querySelectorAll('#levelsContainer svg');
 
-                    lastFrame.addEventListener("endEvent", () => {
-                        resetAnimations(svg);
+                    svgElements.forEach(svg => {
+                        const animateElements = svg.querySelectorAll(['animate', 'animateMotion', 'animateTransform']);
+                        const lastFrame = animateElements[animateElements.length - 1];
+
+                        lastFrame.addEventListener("endEvent", () => {
+                            setTimeout(() => {
+                                resetAnimations(svg);
+                            }, 2000)
+                        });
                     });
-                });
-            }
+                }
 
-            window.addEventListener('load', () => {
-                setEventListenersOnEndOfLastFrame()
-            }); 
-        </script>
+                window.addEventListener('load', () => {
+                    setEventListenersOnEndOfLastFrame()
+                }); 
+            </script>
+        </head>
+
+        <body>
+
+        <h1>Deine Coding-Ergebnisse</h1>
+
+        </body>
     </div>
 </body>
 
