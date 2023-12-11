@@ -304,7 +304,7 @@ button:active {
 
 .darkmode-button {
     --height: var(--nav-button-height);
-    --width: 31;
+    --width: 35;
     --parent-height: 7;
     --parent-width: 40;
     --radius-width: calc((100 / ((var(--parent-width) * var(--width)) / 100)) / var(--aspect-ratio));
