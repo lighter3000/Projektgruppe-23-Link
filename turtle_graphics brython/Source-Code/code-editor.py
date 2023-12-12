@@ -17,6 +17,18 @@ def load_level(level_index):
     document["console"].html = ""
     level_file_path = f"/levels/level_{level_index}.py"
     
+    #####  
+    
+    # Dynamisch einen neuen Container für CodeMirror erstellen
+    #editor_container_id = f"code-editor-{level_index}"
+    #editor_container = document.createElement('div')
+    #editor_container.id = editor_container_id
+    #document['code-editor-source'].clear()
+    #document['code-editor-source'] <= editor_container
+    
+    
+    #####
+    
     with open(level_file_path, "r") as level_file:
         level_code = level_file.read()
     
@@ -28,15 +40,19 @@ def load_level(level_index):
     
     if 'tutorial' in level_globals:
         document["tutorial"].html = level_globals['tutorial']
-    # if 'tutorial_code' in level_globals:
-    #     document["tutorial_code"].text = level_globals['tutorial_code']
     
-    if written_code[level_index - 1] != "":
-        window.setCodeMirrorContent(clean_text(written_code[level_index - 1]))
-        #document["code-editor-source"].text = written_code[level_index - 1]  
+    if written_code[level_index] == 1: # if written_code[level_index] != "":
+        document["code-editor-" + str(level_index)].style.display = "block"
+        #window.setCodeMirrorContent(clean_text(written_code[level_index]))
+        # window.setCodeMirrorContent(level_index) #, clean_text(written_code[level_index]))
+        document["init_code"].text = level_globals['init_code'] 
     elif 'init_code' in level_globals:
-        window.setCodeMirrorContent(clean_text(level_globals['init_code']))
-        #document["code-editor-source"].text = level_globals['init_code']
+        # window.removeChangeListener()
+        window.handleCodeEditor(level_index, clean_text(level_globals['init_code']))
+        # window.addChangeListener(level_index)
+        #window.setCodeMirrorContent(level_index, clean_text(level_globals['init_code']))
+        #window.setCodeMirrorContent(clean_text(level_globals['init_code']))
+        document["init_code"].text = level_globals['init_code'] 
 
     if 'solution_code' in level_globals:
         document["solution_code"].text = level_globals['solution_code']         
@@ -47,22 +63,24 @@ def load_level(level_index):
 def previous_level(ev):
     global level_index
     if (level_index > 0):
-        #written_code[level_index - 1] = document["code-editor-source"].text
-        written_code[level_index - 1] = window.getCodeMirrorContent()
+        #written_code[level_index] = window.getCodeMirrorContent()
+        # written_code[level_index] = window.getCodeMirrorContent(level_index)
+        document["code-editor-" + str(level_index)].style.display = "none"
+        written_code[level_index] = 1
         level_index -= 1
         load_level(level_index)
-        #load_linesnumbers()
         
 
 
 def next_level(ev):
     global level_index
     if (level_index < 5):
-        #written_code[level_index - 1] = document["code-editor-source"].text
-        written_code[level_index - 1] = window.getCodeMirrorContent()
+        #written_code[level_index] = window.getCodeMirrorContent()
+        #written_code[level_index] = window.getCodeMirrorContent(level_index)
+        document["code-editor-" + str(level_index)].style.display = "none"
+        written_code[level_index] = 1
         level_index+= 1
         load_level(level_index)
-        #load_linesnumbers()
         
 def export_download(ev):
     create_html(download_html)
@@ -75,12 +93,12 @@ def export_qrcode(ev):
 
 def run_code(ev):
     document["console"].html = ""
-    _code = window.getCodeMirrorContent()
+    _code = window.getCodeMirrorContent(level_index)
     #_code = document["code-editor-source"].text
 
     # Ansatz wie man die Größe des Canvases bei jedem run neu setzen kann. Dafür muss brython_stdlib.js bearbeitet werden.
-    canvas_size = "turtle.set_defaults(turtle_canvas_wrapper = document['canvas'], canvwidth = document[\'canvas\'].clientWidth, canvheight = document[\'canvas\'].clientHeight)\n"
-
+    # canvas_size = "turtle.set_defaults(canvwidth = document['canvas'].clientWidth, canvheight = document['canvas'].clientHeight)\n"
+    
     # code_with_turtle_setup_and_rollback = "t = turtle.Turtle() \n" + _code + "\nturtle.done()"
     code_with_turtle_rollback = _code + "\n\nturtle.done()"
     
@@ -89,31 +107,16 @@ def run_code(ev):
 
     # window.requestAnimationFrame(check_canvas_existence)
     
-    written_code[level_index - 1] = _code
+    written_code[level_index] = _code
 
     edit_level_container(level_index)
-    
-    
-def save_code(ev):
-    written_code[level_index - 1] = document["code-editor-source"].text
-    
-def reset_code(ev):
-    level_file_path = f"/levels/level_{level_index}.py"
-    with open(level_file_path, "r") as level_file:
-        level_code = level_file.read()
-    
-    level_globals = {}
-    exec(level_code, level_globals)
-    
-    #document["code-editor-source"].text = level_globals['init_code']
-    window.setCodeMirrorContent(level_globals['init_code'])
-    
 
-def load_code(ev):
-    if written_code[level_index - 1] != "":
-        window.setCodeMirrorContent(written_code[level_index - 1])
-        #document["code-editor-source"].text = written_code[level_index - 1]
-        
+def init_turtle(turtle):
+    turtle.set_defaults(canvwidth = document['canvas'].clientWidth, canvheight = document['canvas'].clientHeight)
+    t = turtle.Turtle()
+    t.width(5)
+    return t
+    
 ###-----Dark-Mode Button--------------#####
 def toggle_dark_mode(event):
     document.body.classList.toggle('darkmode')
@@ -131,10 +134,10 @@ def toggle_dark_mode(event):
 
     if (document["dark-mode-button"].text == "Dark Mode"):
         document["dark-mode-button"].text = "Light Mode"
-        javascript.this().editor.getWrapperElement().style.color = "white" # eventuell ersetzen mit Light Theme
+        window.editors[level_index].getWrapperElement().style.color = "white" # eventuell ersetzen mit Light Theme
     else:
         document["dark-mode-button"].text = "Dark Mode"
-        javascript.this().editor.getWrapperElement().style.color = "black" # eventuell ersetzen mit Dark Theme
+        window.editors[level_index].getWrapperElement().style.color = "black" # eventuell ersetzen mit Dark Theme
 
 ###-----Solution Buttons--------------#####
 def show_solution(ev):
@@ -143,10 +146,7 @@ def show_solution(ev):
     document["solutionModal"].style.display = "block"
 
 def paste_solution(ev):
-    save_code(ev)
-    window.setCodeMirrorContent(document["solution_code"].text)
-    #document["code-editor-source"].text = document["solution_code"].text
-    #load_linesnumbers()
+    window.setCodeMirrorContent(document["solution_code"].text, level_index)
 
 def show_solution_code(ev):
     if document["solution_password"].value == "Passwort":
@@ -157,6 +157,9 @@ def show_solution_code(ev):
     else:
         document["solution_password"].value = ""
 
+def show_init_code(ev):
+    document['initcodeModal'].style.display = 'block'
+
 #####------------------Button Bindings-------------------#####  
 document["previous_level"].bind("click", previous_level)
 document["next_level"].bind("click", next_level)
@@ -164,13 +167,11 @@ document["export_download"].bind("click", export_download)
 document["export_print"].bind("click", export_print)
 document["export_qrcode"].bind("click", export_qrcode)
 document["run_code"].bind("click", run_code)
-document["reset_code"].bind("click", reset_code)
-document["load_code"].bind("click", load_code)
-document["save_code"].bind("click", save_code)
 document["dark-mode-button"].bind('click', toggle_dark_mode)
 document["show_solution"].bind("click", show_solution)
 document["paste_solution"].bind("click", paste_solution)
 document["show_solution_code"].bind("click", show_solution_code)
+document["show_init_code"].bind("click", show_init_code)
 
 
 
@@ -189,10 +190,10 @@ def resize_canvas():
 #####------------------Console----------------------------#####  
 def _writeConsole(*args):
     document["console"].html += "".join(args)
-    # hier muss new line hin
+    document["console"].html += "<br/>"
 
 sys.stdout.write = _writeConsole
-sys.stderr.write = _writeConsole            
+sys.stderr.write = _writeConsole 
 
 #####------------------Solution---------------------------#####
 def get_solution_text(string):
@@ -216,7 +217,17 @@ soultion_modal_close_button.bind("click", lambda ev: soultion_modal.style.__seti
 
 #set event to click in background to hide modal
 document.bind("click", lambda event: soultion_modal.style.__setitem__("display", "none") if event.target == soultion_modal else None)
-     
+
+###-----dialog modal for init-code----#####
+initcode_modal = document.getElementById("initcodeModal")
+
+# set event to close button on modal to hide modal
+initcode_modal_close_button = initcode_modal.getElementsByClassName("close")[0]
+initcode_modal_close_button.bind("click", lambda ev: initcode_modal.style.__setitem__("display", "none"))
+
+#set event to click in background to hide modal
+document.bind("click", lambda event: initcode_modal.style.__setitem__("display", "none") if event.target == initcode_modal else None)
+
 #####------------------Export PDF------------------------#####  
 
 ###-----init level container----------#####
@@ -427,11 +438,17 @@ qrcode_modal_close_button.bind("click", lambda ev: qrcode_modal.style.__setitem_
 #set event to click in background to hide modal
 document.bind("click", lambda event: qrcode_modal.style.__setitem__("display", "none") if event.target == qrcode_modal else None)
 
+#####------------------zoom------------------------------#####  
+def handle_zoom_change(ev):
+    if document.get(selector='#turtle-canvas'):
+        run_code(ev)
+
+window.addEventListener('resize', handle_zoom_change)
+
 #####------------------onload----------------------------#####   
 # Funktion die bei Beginn einmal geladen werden sollen
 load_level(level_index)
 initialize_levels_container(6)
-#load_linesnumbers()
 
 # Globalisiert Funktionen, damit JavaScript drauf zugreifen kann
-element = document.getElementById("code-editor-source")
+

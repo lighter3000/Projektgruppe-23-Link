@@ -6,7 +6,9 @@
     <script type="text/javascript" src="lib/brython.js"></script>
     <script type="text/javascript" src="lib/brython_stdlib.js"></script>
     <script type="text/javascript" src="lib/codemirror.js"></script>
+    <script type="text/javascript" src="lib/python.js"></script>
     <script type="text/javascript" src="lib/qrcode.min.js"></script>
+    
 
     <script type="text/python" src="code-editor.py"></script>
 
@@ -14,7 +16,11 @@
 
     <link rel="stylesheet" href="lib/codemirror.css">
     <link rel="stylesheet" href="styling.css">
-
+    <link rel="stylesheet" href="lib/material.css">
+    <link rel="stylesheet" href="lib/themes/base16-dark.css">
+    <link rel="stylesheet" href="lib/mdn-like.css">
+    <link rel="stylesheet" href="lib/eclipse.css">
+    
     <title>Code-Editor turtle graphics/brython</title>
 </head>
 
@@ -68,13 +74,8 @@
             <!--                     Run and Debug Buttons Container              -->
             <div class="button-container" id="button-area">
                 <button id="run_code" class="run-button" tabindex="-1">Run</button>
-                <button id="reset_code" class="reset-button button-right"
-                    title="Der aktuelle Code wird auf den Anfangscode zurückgesetzt" tabindex="-1">Reset</button>
-                <button id="load_code" class="safe-load-button button-right"
-                    title="Der zuletzt gespeicherte Code wird geladen" tabindex="-1">Load</button>
-                <button id="save_code" class="safe-load-button button-right" title="Aktueller Code wird gespeichert"
-                    tabindex="-1">Save</button>
                 <button id="show_solution" class="solution-button button-right" tabindex="-1">Lösung</button>
+                <button id="show_init_code" class="initcode-button button-right" tabindex="-1">Start-Code</button>
             </div>
 
             <div class="vertical-spacer"></div>
@@ -85,7 +86,9 @@
             <!--                     Canvas Container                             -->
             <div class="canvas-container area-container" id="canvas-area">
                 <p class="canvas-container-text">Canvas</p>
-                <div id="canvas" class="canvas"></div>
+                <div id="canvas" class="canvas">
+                    <div id="coordinates"></div>
+                </div>
             </div>
 
             <div class="vertical-spacer"></div>
@@ -114,14 +117,29 @@
             <p id="errorMessage" class="modal-elements error-message"></p>
         </div>
     </div>
+    <!--                     Init-Code Modal                                       -->
+    <div id="initcodeModal" class="modal">
+        <div id="initcode-modal-content" class="initcode-solution-modal-content">
+            <div class="close-container">
+                <span class="close" id="initcodeCodeModalCloseButton">&times;</span>
+            </div>
+            <div id="init_code_container" class="init-modal-container">
+                <h4 class="initcode-solution-modal-title">Start-Code des Levels</h4>
+                <div class="init-code-container">
+                    <pre
+                        class="pre-block"><code spellcheck="false" data-gramm="false"><span id="init_code" class="code-editor-font"></span></code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
     <!--                     Solution Modal                                       -->
     <div id="solutionModal" class="modal">
-        <div id="solution-modal-content" class="solution-modal-content">
+        <div id="solution-modal-content" class="initcode-solution-modal-content">
             <div class="close-container">
                 <span class="close" id="solutionCodeModalCloseButton">&times;</span>
             </div>
             <div id="solution_code_container" style="display: none;" class="solution-step-container">
-                <h4 class="solution-modal-title">Vollständige Lösung</h4>
+                <h4 class="initcode-solution-modal-title">Vollständige Lösung</h4>
                 <div class="solution-code-container">
                     <pre
                         class="pre-block"><code spellcheck="false" data-gramm="false"><span  id="solution_code" class="code-editor-font"></span></code></pre>
@@ -134,7 +152,7 @@
             </div>
 
             <div id="solution_comments_container" class="solution-step-container">
-                <h4 class="solution-modal-title">Kommentare zur Lösung (Vollständige Lösung mit Passwort)</h4>
+                <h4 class="initcode-solution-modal-title">Kommentare zur Lösung (Vollständige Lösung mit Passwort)</h4>
                 <div class="solution-code-container">
                     <pre
                         class="pre-block"><code spellcheck="false" data-gramm="false"><span  id="solution_comments" class="code-editor-font"></span></code></pre>
@@ -158,7 +176,7 @@
             <style>
                 .code-hint {
                     border-left: #8787872a solid 29px;
-                    box-shadow: inset 1px 0 0 0 #6c6c6c77;
+                    /* box-shadow: inset 1px 0 0 0 #6c6c6c77; */
                     padding-left: 10px;
                 }
 
@@ -185,32 +203,6 @@
                 .code-container {
                     height: max-content;
                     margin-bottom: 20px;
-                }
-
-                #overlay {
-                    display: none;
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background-color: rgba(0, 0, 0, 0.5);
-                    z-index: 1;
-                }
-
-                .print-modal {
-                    display: none;
-                    position: fixed;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    background-color: #fff;
-                    padding: 20px;
-                    z-index: 2;
-                }
-
-                .print-modal-content {
-                    /* Stile für den Inhalt des Modals hier... */
                 }
             </style>
 
