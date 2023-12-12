@@ -24,7 +24,7 @@ func _process(_delta):
 				tween.tween_property(self,"global_position",initialPos,0.05).set_ease(Tween.EASE_OUT)
 
 func _on_area_2d_mouse_entered():
-	if not intitialClass.is_dragging:
+	if not intitialClass.is_dragging and !Input.is_action_pressed("click"):
 		draggable = true
 		scale = Vector2(1.1,1.1)
 
@@ -33,7 +33,7 @@ func _on_area_2d_mouse_exited():
 		draggable = false
 		scale = Vector2(1,1)
 
-#If the body, wich the object enters/leaves has the group dropable, set is_inside dropable variable to true/false
+#If the body, wich the object enters/leaves has the group dropable, set is_inside_dropable variable to true/false
 #If the body the object enters/leaves has the group collision, set collision variable to true/false
 func _on_area_2d_body_entered(body:StaticBody2D):
 	if body.is_in_group('dropable'):
