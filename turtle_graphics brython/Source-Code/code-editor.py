@@ -122,6 +122,7 @@ def toggle_dark_mode(event):
     document.body.classList.toggle('darkmode')
     
     document["qrcode-modal-content"].classList.toggle('darkmode')
+    document["initcode-modal-content"].classList.toggle('darkmode')
     document["solution-modal-content"].classList.toggle('darkmode')
 
     document["linkToDownload"].classList.toggle('darkmode')
