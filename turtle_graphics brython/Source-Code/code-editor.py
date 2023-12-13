@@ -13,7 +13,7 @@ written_code = defaultdict(str)
 solution_code = defaultdict(str)
 # Einlesen des Codes und Tutorials aus .py Dateien
 def load_level(level_index):
-    #document['canvas'].html = ""
+    document['canvas'].html = ""
     document["console"].html = ""
     level_file_path = f"/levels/level_{level_index}.py"
     
@@ -48,7 +48,7 @@ def load_level(level_index):
         document["init_code"].text = level_globals['init_code'] 
     elif 'init_code' in level_globals:
         # window.removeChangeListener()
-        window.handleCodeEditor(level_index, clean_text(level_globals['init_code']))
+        handleCodeEditor(level_index, clean_text(level_globals['init_code']))
         # window.addChangeListener(level_index)
         #window.setCodeMirrorContent(level_index, clean_text(level_globals['init_code']))
         #window.setCodeMirrorContent(clean_text(level_globals['init_code']))
@@ -93,7 +93,8 @@ def export_qrcode(ev):
 
 def run_code(ev):
     document["console"].html = ""
-    _code = window.getCodeMirrorContent(level_index)
+    # _code = window.getCodeMirrorContent(level_index)
+    _code = getCodeMirrorContent(level_index)
     #_code = document["code-editor-source"].text
 
     # Ansatz wie man die Größe des Canvases bei jedem run neu setzen kann. Dafür muss brython_stdlib.js bearbeitet werden.
@@ -109,7 +110,7 @@ def run_code(ev):
     
     written_code[level_index] = _code
 
-    edit_level_container(level_index)
+    # edit_level_container(level_index)
 
 def init_turtle(turtle):
     turtle.set_defaults(canvwidth = document['canvas'].clientWidth, canvheight = document['canvas'].clientHeight)
@@ -135,10 +136,10 @@ def toggle_dark_mode(event):
 
     if (document["dark-mode-button"].text == "Dark Mode"):
         document["dark-mode-button"].text = "Light Mode"
-        window.editors[level_index].getWrapperElement().style.color = "white" # eventuell ersetzen mit Light Theme
+        editors[level_index].getWrapperElement().style.color = "white" # eventuell ersetzen mit Light Theme
     else:
         document["dark-mode-button"].text = "Dark Mode"
-        window.editors[level_index].getWrapperElement().style.color = "black" # eventuell ersetzen mit Dark Theme
+        editors[level_index].getWrapperElement().style.color = "black" # eventuell ersetzen mit Dark Theme
 
 ###-----Solution Buttons--------------#####
 def show_solution(ev):
@@ -147,7 +148,8 @@ def show_solution(ev):
     document["solutionModal"].style.display = "block"
 
 def paste_solution(ev):
-    window.setCodeMirrorContent(document["solution_code"].text, level_index)
+    # window.setCodeMirrorContent(document["solution_code"].text, level_index)
+    setCodeMirrorContent(clean_text(document["solution_code"].text), level_index)
 
 def show_solution_code(ev):
     if document["solution_password"].value == "Passwort":
@@ -160,6 +162,14 @@ def show_solution_code(ev):
 
 def show_init_code(ev):
     document['initcodeModal'].style.display = 'block'
+    
+def toggle_coordinate_system(ev):
+    coordinates_element = document["coordinates"]
+
+    if coordinates_element.style.display == "block":
+        coordinates_element.style.display = "none"
+    else:
+        coordinates_element.style.display = "block"
 
 #####------------------Button Bindings-------------------#####  
 document["previous_level"].bind("click", previous_level)
@@ -173,6 +183,7 @@ document["show_solution"].bind("click", show_solution)
 document["paste_solution"].bind("click", paste_solution)
 document["show_solution_code"].bind("click", show_solution_code)
 document["show_init_code"].bind("click", show_init_code)
+document["toggle_coordinate_system"].bind("click", toggle_coordinate_system)
 
 
 
@@ -180,6 +191,69 @@ document["show_init_code"].bind("click", show_init_code)
 
 def clean_text(text):
     return text.replace("\u200B", "")
+
+
+editors = {}
+editor = None
+
+def handleCodeEditor(level, code):
+    global editor
+    containerId = "code-editor-" + str(level)
+    container = document.createElement("div")
+    container.id = containerId
+    document["code-editor-source"].appendChild(container)
+
+    editors[level] = window.CodeMirror(container, {
+        'lineNumbers': True,
+        'value': code,
+        'mode': "python",
+        'theme': "base16-dark"
+    })
+
+    editor = editors[level]
+    addReadOnly(level)
+
+def addReadOnly(level):
+    line_handle = editor.getLineHandle(0)
+    if line_handle:
+        editor.markText({"line": 0, "ch": 0}, {"line": 0, "ch": len(line_handle["text"])}, {"readOnly": True})
+    else:
+        print("Fehler beim Hinzufügen des Schreibschutzes: Zeile nicht gefunden")
+
+def removeReadOnly(level):
+    for mark in editor.getAllMarks():
+        mark.clear()
+
+# def addChangeListener(level):
+#     editors[level].on('beforeChange', beforeChangeHandler)
+    
+# def removeChangeListener(level):
+#     editors[level].removeEventListener('beforeChange', beforeChangeHandler)
+
+def beforeChangeHandler(cm, change):
+    readOnlyLines = [0]
+    from_line = change['from']['line']  # Accessing the property using bracket notation
+    if from_line in readOnlyLines:
+        change.cancel()
+
+def setCodeMirrorContent(newContent, level):
+    global editor
+    editor = editors[level]
+    if editor:
+        removeReadOnly(level)
+        editor.setValue(newContent)
+        addReadOnly(level)
+    else:
+        javascript.this().console.log("CodeMirror-Editor ist noch nicht initialisiert")
+
+def getCodeMirrorContent(level):
+    global editor
+    editor = editors[level]
+    if editor:
+        return editor.getValue()
+    return ""
+
+
 
 #####------------------Canvas----------------------------#####  
 def resize_canvas():
@@ -295,7 +369,7 @@ def add_code_from_code_mirror(code_container):
     pre_element = document.createElement("pre")
 
     code_element = document.createElement("code")
-    code_element.text = javascript.this().editor.getValue()
+    code_element.text = editor.getValue()
 
     pre_element.appendChild(code_element)
     code_container.appendChild(pre_element)

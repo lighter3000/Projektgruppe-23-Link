@@ -1,5 +1,5 @@
 function showCoordinates(){
-    var width = document.getElementById("canvas").clientWidth, height = document.getElementById("canvas").clientHeight;
+    var width = document.getElementById("coordinates").clientWidth, height = document.getElementById("coordinates").clientHeight;
     document.getElementById("coordinates").innerHTML = "";
     var svg = d3.select("#coordinates").append("svg")
         .attr("width", width)
@@ -24,18 +24,4 @@ function showCoordinates(){
     svg.append("g")
         .attr("transform", "translate(" + width / 2 + ",0)")
         .call(yAxis);
-
-    // Zoom function
-    function zoomed(event) {
-    var transform = event.transform;
-    svg.attr("transform", transform);
-    }
-
-    // Apply zoom
-    svg.call(d3.zoom().on("zoom", zoomed));
-
-
-
 }
-
-  window.zoomed = zoomed;
