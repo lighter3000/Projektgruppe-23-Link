@@ -13,7 +13,7 @@ written_code = defaultdict(str)
 solution_code = defaultdict(str)
 # Einlesen des Codes und Tutorials aus .py Dateien
 def load_level(level_index):
-    document['canvas'].html = ""
+    #document['canvas'].html = ""
     document["console"].html = ""
     level_file_path = f"/levels/level_{level_index}.py"
     
@@ -443,6 +443,7 @@ document.bind("click", lambda event: qrcode_modal.style.__setitem__("display", "
 def handle_zoom_change(ev):
     if document.get(selector='#turtle-canvas'):
         run_code(ev)
+    window.showCoordinates()
 
 window.addEventListener('resize', handle_zoom_change)
 
@@ -450,6 +451,8 @@ window.addEventListener('resize', handle_zoom_change)
 # Funktion die bei Beginn einmal geladen werden sollen
 load_level(level_index)
 initialize_levels_container(6)
+window.showCoordinates()
+
 
 # Globalisiert Funktionen, damit JavaScript drauf zugreifen kann
 
