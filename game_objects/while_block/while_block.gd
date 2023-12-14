@@ -10,6 +10,8 @@ var successor = null
 var set_predecessor = false
 var set_successor = false
 
+func set_block_name():
+	block = "while_block"
 
 func _on_input_detector_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:

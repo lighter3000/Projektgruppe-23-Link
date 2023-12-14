@@ -12,6 +12,9 @@ var set_predecessor = false
 var set_successor_green = false
 var set_successor_red = false
 
+func set_block_name():
+	block = "if_block"
+
 func _on_input_detector_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		if set_predecessor == false:
@@ -47,4 +50,6 @@ func _on_object_connector_connection_to_if_block(node):
 			successor_red = node
 			set_successor_red = false
 			print("If-Block successor (red): %s" %successor_red)
+
+
 

@@ -7,6 +7,8 @@ signal endblock_clicked(node: Node)
 
 var predecessor = null
 
+func set_block_name():
+	block = "end_block"
 
 func _on_area_2d_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
