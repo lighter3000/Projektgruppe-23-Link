@@ -8,14 +8,15 @@
     <script type="text/javascript" src="lib/codemirror.js"></script>
     <script type="text/javascript" src="lib/python.js"></script>
     <script type="text/javascript" src="lib/qrcode.min.js"></script>
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script type="text/javascript" src="coordinates.js"></script>
+    <script type="text/javascript" src="lib/d3.v7.min.js"></script>
 
     <script type="text/python" src="code-editor.py"></script>
 
     <link rel="stylesheet" href="lib/codemirror.css">
     <link rel="stylesheet" href="styling.css">
     <link rel="stylesheet" href="lib/material.css">
+    <link rel="stylesheet" href="lib/themes/vscode-dark.css">
+    <link rel="stylesheet" href="lib/themes/vscode-light.css">
     <link rel="stylesheet" href="lib/themes/base16-dark.css">
     <link rel="stylesheet" href="lib/mdn-like.css">
     <link rel="stylesheet" href="lib/eclipse.css">
@@ -175,12 +176,11 @@
 
         <head>
             <meta charset="utf-8">
-            <title>Tab zum Drucken</title>
+            <title>Export</title>
 
             <style>
                 .code-hint {
                     border-left: #8787872a solid 29px;
-                    /* box-shadow: inset 1px 0 0 0 #6c6c6c77; */
                     padding-left: 10px;
                 }
 
@@ -279,6 +279,9 @@
                 }
 
                 window.addEventListener('load', () => {
+                    if (printExport == true) {
+                        document.title = "Tab zum Drucken"
+                    }
                     setEventListenersOnEndOfLastFrame();
                 });
 

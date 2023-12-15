@@ -6,6 +6,7 @@ import sys, traceback, json
 import javascript
 import re
 import html
+import math
 
 #####------------------Level Switch----------------------#####  
 level_index = 0
@@ -110,7 +111,7 @@ def run_code(ev):
     
     written_code[level_index] = _code
 
-    # edit_level_container(level_index)
+    edit_level_container(level_index)
 
 def init_turtle(turtle):
     turtle.set_defaults(canvwidth = document['canvas'].clientWidth, canvheight = document['canvas'].clientHeight)
@@ -136,10 +137,10 @@ def toggle_dark_mode(event):
 
     if (document["dark-mode-button"].text == "Dark Mode"):
         document["dark-mode-button"].text = "Light Mode"
-        editors[level_index].getWrapperElement().style.color = "white" # eventuell ersetzen mit Light Theme
+        editors[level_index].setOption('theme', 'vscode-dark')
     else:
         document["dark-mode-button"].text = "Dark Mode"
-        editors[level_index].getWrapperElement().style.color = "black" # eventuell ersetzen mit Dark Theme
+        editors[level_index].setOption('theme', 'vscode-light')
 
 ###-----Solution Buttons--------------#####
 def show_solution(ev):
@@ -207,7 +208,7 @@ def handleCodeEditor(level, code):
         'lineNumbers': True,
         'value': code,
         'mode': "python",
-        'theme': "base16-dark"
+        'theme': "vscode-light"
     })
 
     editor = editors[level]
@@ -261,6 +262,37 @@ def resize_canvas():
     canvas = document.getElementById("canvas")
     turtle_canvas.setAttribute('width', canvas.clientWidth)
     turtle_canvas.setAttribute('height', canvas.clientHeight)
+    
+def show_coordinates():
+    width = document["coordinates"].clientWidth
+    height = document["coordinates"].clientHeight
+    
+    document["coordinates"].html = ""
+    
+    svg = javascript.this().d3.select("#coordinates").append("svg") \
+        .attr("width", width) \
+        .attr("height", height)
+
+    g = svg.append("g")
+
+    x_scale = javascript.this().d3.scaleLinear() \
+        .domain([-width / 2, width / 2]) \
+        .range([0, width])
+
+    y_scale = javascript.this().d3.scaleLinear() \
+        .domain([-height / 2, height / 2]) \
+        .range([height, 0])
+
+    x_axis = javascript.this().d3.axisBottom(x_scale)
+    y_axis = javascript.this().d3.axisLeft(y_scale)
+
+    g.append("g") \
+        .attr("transform", f"translate(0, {height / 2})") \
+        .call(x_axis)
+
+    g.append("g") \
+        .attr("transform", f"translate({width / 2}, 0)") \
+        .call(y_axis)
 
 #####------------------Console----------------------------#####  
 def _writeConsole(*args):
@@ -517,7 +549,7 @@ document.bind("click", lambda event: qrcode_modal.style.__setitem__("display", "
 def handle_zoom_change(ev):
     if document.get(selector='#turtle-canvas'):
         run_code(ev)
-    window.showCoordinates()
+    show_coordinates()
 
 window.addEventListener('resize', handle_zoom_change)
 
@@ -525,7 +557,7 @@ window.addEventListener('resize', handle_zoom_change)
 # Funktion die bei Beginn einmal geladen werden sollen
 load_level(level_index)
 initialize_levels_container(6)
-window.showCoordinates()
+show_coordinates()
 
 
 # Globalisiert Funktionen, damit JavaScript drauf zugreifen kann
