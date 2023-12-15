@@ -44,12 +44,20 @@ def load_level(level_index):
     
     if written_code[level_index] == 1: # if written_code[level_index] != "":
         document["code-editor-" + str(level_index)].style.display = "block"
+        if (document["dark-mode-button"].text == "Dark Mode"):
+            editors[level_index].setOption('theme', 'vscode-light')
+        else:
+            editors[level_index].setOption('theme', 'vscode-dark')
         #window.setCodeMirrorContent(clean_text(written_code[level_index]))
         # window.setCodeMirrorContent(level_index) #, clean_text(written_code[level_index]))
         document["init_code"].text = level_globals['init_code'] 
     elif 'init_code' in level_globals:
         # window.removeChangeListener()
         handleCodeEditor(level_index, clean_text(level_globals['init_code']))
+        if (document["dark-mode-button"].text == "Dark Mode"):
+            editors[level_index].setOption('theme', 'vscode-light')
+        else:
+            editors[level_index].setOption('theme', 'vscode-dark')
         # window.addChangeListener(level_index)
         #window.setCodeMirrorContent(level_index, clean_text(level_globals['init_code']))
         #window.setCodeMirrorContent(clean_text(level_globals['init_code']))
@@ -70,8 +78,6 @@ def previous_level(ev):
         written_code[level_index] = 1
         level_index -= 1
         load_level(level_index)
-        
-
 
 def next_level(ev):
     global level_index
@@ -137,10 +143,11 @@ def toggle_dark_mode(event):
 
     if (document["dark-mode-button"].text == "Dark Mode"):
         document["dark-mode-button"].text = "Light Mode"
-        editors[level_index].setOption('theme', 'vscode-dark')
     else:
         document["dark-mode-button"].text = "Dark Mode"
-        editors[level_index].setOption('theme', 'vscode-light')
+
+    set_theme()
+
 
 ###-----Solution Buttons--------------#####
 def show_solution(ev):
@@ -254,7 +261,11 @@ def getCodeMirrorContent(level):
         return editor.getValue()
     return ""
 
-
+def set_theme():
+    if (document["dark-mode-button"].text == "Dark Mode"):
+            editors[level_index].setOption('theme', 'vscode-light')
+    else:
+        editors[level_index].setOption('theme', 'vscode-dark')
 
 #####------------------Canvas----------------------------#####  
 def resize_canvas():
@@ -551,14 +562,17 @@ def handle_zoom_change(ev):
         run_code(ev)
     show_coordinates()
 
-window.addEventListener('resize', handle_zoom_change)
-
 #####------------------onload----------------------------#####   
 # Funktion die bei Beginn einmal geladen werden sollen
-load_level(level_index)
-initialize_levels_container(6)
-show_coordinates()
 
+def onload():
+    load_level(level_index)
+    initialize_levels_container(6)
+    show_coordinates()
+    dark = window.matchMedia("(prefers-color-scheme:dark)").matches
+    if dark:
+        toggle_dark_mode(None)
 
-# Globalisiert Funktionen, damit JavaScript drauf zugreifen kann
+    window.addEventListener('resize', handle_zoom_change)
 
+onload()
