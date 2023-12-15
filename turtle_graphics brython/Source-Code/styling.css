@@ -1,0 +1,644 @@
+:root {
+    --nav-button-height: 66.4;
+    /* relative Size to bottom buttons */
+    --normal-shadow: 0px 1px 12px rgba(171, 171, 171, 0.5);
+    --hovered-shadow: 1px 2px 24px rgba(119, 119, 119, 0.5);
+    --button-left-margin: 0 1.94% 0 0;
+    --button-right-margin: 0 0 0 1.94%;
+    --radius: 1%;
+    --parent-height: 100;
+    --parent-width: 100;
+    --height: 100;
+    --width: 100;
+    --aspect-ratio: 1.97;
+    --navbar-left-margin: 1.67%;
+    --navbar-right-margin: 2.5%;
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: lightgray;
+    border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: darkgray;
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+body {
+    margin: 0%;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: white;
+    color: black;
+}
+
+/*                             Container                           */
+
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 7%;
+    box-shadow: var(--normal-shadow);
+}
+
+.navbar-container-left {
+    display: flex;
+    align-items: center;
+    width: 70%;
+    height: 100%;
+}
+
+.navbar-container-right {
+    width: 30%;
+}
+
+.side-content-container {
+    height: 93%;
+}
+
+.side-container {
+    height: 100%;
+    width: 48.5%;
+    margin-right: 1%;
+}
+
+.side-left {
+    margin-left: 1%;
+    float: left;
+}
+
+.side-right {
+    margin-left: 50.5%;
+}
+
+.vertical-spacer {
+    height: 2%;
+}
+
+.area-container {
+    box-shadow: var(--normal-shadow);
+    padding: 0.4%;
+}
+
+.tutorial-container {
+    --height: 25;
+    height: calc(var(--height) * 1%);
+    border-radius: calc(var(--radius) / (var(--width) / 100)) / calc(var(--radius) / (var(--height) / 100));
+}
+
+.code-editor-container {
+    --height: 60;
+    height: calc(var(--height) * 1%);
+    border-radius: calc(var(--radius) / (var(--width) / 100)) / calc(var(--radius) / (var(--height) / 100));
+}
+
+.button-container {
+    --height: 5;
+    height: calc(var(--height) * 1%);
+}
+
+.canvas-container {
+    position: relative;
+    --height: 75;
+    height: calc(var(--height) * 1%);
+    border-radius: calc(var(--radius) / (var(--width) / 100)) / calc(var(--radius) / (var(--height) / 100));
+}
+
+.console-container {
+    --height: 17;
+    height: calc(var(--height) * 1%);
+    border-radius: calc(var(--radius) / (var(--width) / 100)) / calc(var(--radius) / (var(--height) / 100));
+}
+
+.source-code-container {
+    width: 100%;
+    height: 100%;
+}
+
+/*                             code-editor + tutorial area         */
+
+.code-area {
+    overflow: auto;
+    height: 100%;
+    width: 100%;
+}
+
+.p-font {
+    font-size: 14px;
+    margin: 0;
+}
+
+.code-hint {
+    border-left: #8787872a solid 29px;
+    padding-left: 10px;
+}
+
+.code-hint-font {
+    font-size: 14px;
+}
+
+.code-editor-font {
+    font-size: 14px;
+}
+
+
+/*                             canvas                              */
+
+.canvas {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.coordinates {
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.canvas-container-text {
+    width: 100%;
+    height: 3%;
+    margin: 0;
+}
+
+/*                             console                             */
+.console {
+    overflow: auto;
+    height: 87%;
+}
+
+.console-container-text {
+    height: 13%;
+    margin: 0;
+}
+
+/*                             navbar                              */
+
+.navbar-title {
+    margin-left: var(--navbar-left-margin);
+    float: left;
+    max-width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.level-title {
+    margin-left: var(--navbar-left-margin);
+    float: left;
+    max-width: 12%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/*                             button                              */
+
+button {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18.72px; /* 1em; */
+    background-color: white;
+    border: none;
+    box-shadow: var(--normal-shadow);
+    width: auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+button:hover {
+    box-shadow: var(--hovered-shadow);
+}
+
+button:active {
+    background-color: rgb(127, 127, 127);
+}
+
+.navbar-button-left {
+    margin-left: var(--navbar-left-margin);
+}
+
+.navbar-button-right {
+    margin-right: var(--navbar-right-margin);
+}
+
+.next-previous-button {
+    --parent-height: 7;
+    --parent-width: 70;
+
+    --height: var(--nav-button-height);
+    --width: calc(((var(--height) * var(--parent-height)) / var(--parent-width)) / var(--aspect-ratio));
+
+    --radius-width: calc((100 / ((var(--parent-width) * var(--width)) / 100)) / var(--aspect-ratio));
+    --radius-height: calc(100 / ((var(--parent-height) * var(--height)) / 100));
+
+    float: left;
+    height: calc(var(--height) * 1%);
+    width: calc(var(--width) * 1%);
+    border-radius: calc(var(--radius) * var(--radius-width)) / calc(var(--radius) * (var(--radius-height)));
+}
+
+.button-right {
+    margin: var(--button-right-margin);
+    float: right;
+}
+
+.safe-load-button {
+    --height: 100;
+    --width: 11;
+    --parent-height: 5;
+    --parent-width: 48.5;
+    --radius-width: calc((100 / ((var(--parent-width) * var(--width)) / 100)) / var(--aspect-ratio));
+    --radius-height: calc(100 / ((var(--parent-height) * var(--height)) / 100));
+
+    height: calc(var(--height) * 1%);
+    width: calc(var(--width) * 1%);
+    border-radius: calc(var(--radius) * var(--radius-width)) / calc(var(--radius) * (var(--radius-height)));
+}
+
+.run-button {
+    --height: 100;
+    --width: 9;
+    --parent-height: 5;
+    --parent-width: 48.5;
+    --radius-width: calc((100 / ((var(--parent-width) * var(--width)) / 100)) / var(--aspect-ratio));
+    --radius-height: calc(100 / ((var(--parent-height) * var(--height)) / 100));
+
+    height: calc(var(--height) * 1%);
+    width: calc(var(--width) * 1%);
+    border-radius: calc(var(--radius) * var(--radius-width)) / calc(var(--radius) * (var(--radius-height)));
+    margin: var(--button-left-margin);
+    float: left;
+}
+
+.reset-button {
+    --height: 100;
+    --width: 13;
+    --parent-height: 5;
+    --parent-width: 48.5;
+    --radius-width: calc((100 / ((var(--parent-width) * var(--width)) / 100)) / var(--aspect-ratio));
+    --radius-height: calc(100 / ((var(--parent-height) * var(--height)) / 100));
+
+    height: calc(var(--height) * 1%);
+    width: calc(var(--width) * 1%);
+    border-radius: calc(var(--radius) * var(--radius-width)) / calc(var(--radius) * (var(--radius-height)));
+}
+
+.coordinatesystem-button {
+    --height: 100;
+    --width: 35;
+    --parent-height: 5;
+    --parent-width: 48.5;
+    --radius-width: calc((100 / ((var(--parent-width) * var(--width)) / 100)) / var(--aspect-ratio));
+    --radius-height: calc(100 / ((var(--parent-height) * var(--height)) / 100));
+
+    height: calc(var(--height) * 1%);
+    width: calc(var(--width) * 1%);
+    border-radius: calc(var(--radius) * var(--radius-width)) / calc(var(--radius) * (var(--radius-height)));
+}
+
+.initcode-button {
+    --height: 100;
+    --width: 22;
+    --parent-height: 5;
+    --parent-width: 48.5;
+    --radius-width: calc((100 / ((var(--parent-width) * var(--width)) / 100)) / var(--aspect-ratio));
+    --radius-height: calc(100 / ((var(--parent-height) * var(--height)) / 100));
+
+    height: calc(var(--height) * 1%);
+    width: calc(var(--width) * 1%);
+    border-radius: calc(var(--radius) * var(--radius-width)) / calc(var(--radius) * (var(--radius-height)));
+}
+
+.solution-button {
+    --height: 100;
+    --width: 15;
+    --parent-height: 5;
+    --parent-width: 48.5;
+    --radius-width: calc((100 / ((var(--parent-width) * var(--width)) / 100)) / var(--aspect-ratio));
+    --radius-height: calc(100 / ((var(--parent-height) * var(--height)) / 100));
+
+    height: calc(var(--height) * 1%);
+    width: calc(var(--width) * 1%);
+    border-radius: calc(var(--radius) * var(--radius-width)) / calc(var(--radius) * (var(--radius-height)));
+}
+
+.darkmode-button {
+    --height: var(--nav-button-height);
+    --width: 37;
+    --parent-height: 7;
+    --parent-width: 40;
+    --radius-width: calc((100 / ((var(--parent-width) * var(--width)) / 100)) / var(--aspect-ratio));
+    --radius-height: calc(100 / ((var(--parent-height) * var(--height)) / 100));
+
+    float: right;
+    height: calc(var(--height) * 1%);
+    width: calc(var(--width) * 1%);
+    border-radius: calc(var(--radius) * var(--radius-width)) / calc(var(--radius) * (var(--radius-height)));
+}
+
+/*                             dropdown                            */
+
+.dropdown-button,
+.dropdown-menu button {
+    --height: var(--nav-button-height);
+    --width: 40;
+    --parent-height: 7;
+    --parent-width: 40;
+    --radius-width: calc((100 / ((var(--parent-width) * var(--width)) / 100)) / var(--aspect-ratio));
+    --radius-height: calc(100 / ((var(--parent-height) * var(--height)) / 100));
+
+    width: 100%;
+    height: calc(var(--height) * 1%);
+    border-radius: calc(var(--radius) * var(--radius-width)) / calc(var(--radius) * (var(--radius-height)));
+}
+
+
+.dropdown {
+    margin-right: var(--navbar-right-margin);
+    width: 40%;
+    position: relative;
+    display: inline-block;
+    float: right;
+}
+
+.dropdown-menu {
+    z-index: 1;
+    display: none;
+    position: absolute;
+    border-radius: 10px;
+    box-shadow: var(--normal-shadow);
+    padding-left: 0;
+    padding-bottom: 0.5%;
+    list-style-type: none;
+    margin: 0;
+    width: 100%;
+    height: 300%;
+}
+
+.dropdown-menu button {
+    text-decoration: none;
+    display: block;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: var(--normal-shadow);
+    height: 33.33%;
+
+    --height: var(--nav-button-height);
+    --parent-height: 7;
+    --parent-width: 40;
+    --radius-width: calc((100 / ((var(--parent-width) * var(--width)) / 100)) / var(--aspect-ratio));
+    --radius-height: calc(100 / ((var(--parent-height) * var(--height)) / 100));
+    border-radius: calc(var(--radius) * var(--radius-width)) / calc(var(--radius) * (var(--radius-height)));
+}
+
+.dropdown-menu button:hover {
+    box-shadow: inset var(--hovered-shadow);
+
+}
+
+.dropdown-menu button::active {
+    background-color: rgb(127, 127, 127);
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+}
+
+/*                             tutorial                               */
+.tutorial {
+    float: left;
+    overflow: auto;
+    height: 100%;
+    width: 100%;
+}
+
+/*                             code-editor                            */
+
+.pre-block {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.code-block {
+    float: left;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+/*                             modals                                 */
+
+.modal {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+/*                             print modal                             */
+
+.print-modal-content {
+    margin-top: 10%;
+    margin-left: 40%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: var(--normal-shadow);
+    padding-bottom: 10pt;
+    width: 20%;
+    height: min-content;
+}
+
+/*                             qrcode modal                            */
+
+.qrcode-modal-content {
+    margin-top: 10%;
+    margin-left: 40%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: var(--normal-shadow);
+    padding-bottom: 10pt;
+    width: 20%;
+    height: min-content;
+}
+
+/*                             solution modal                          */
+
+.close-container {
+    float: right;
+    height: 5%;
+    max-height: 5%;
+    width: 5%;
+}
+
+.initcode-solution-modal-content {
+    --height: 60;
+    --width: 60;
+
+    margin-top: 10%;
+    margin-left: 20%;
+    background-color: white;
+    box-shadow: var(--normal-shadow);
+
+    --radius-width: calc((100 / ((var(--parent-width) * var(--width)) / 100)) / var(--aspect-ratio));
+    --radius-height: calc(100 / ((var(--parent-height) * var(--height)) / 100));
+
+    height: calc(var(--height) * 1%);
+    width: calc(var(--width) * 1%);
+    border-radius: calc(var(--radius) * var(--radius-width)) / calc(var(--radius) * (var(--radius-height)));
+}
+
+.init-modal-container {
+    margin-left: 1.66%;
+    margin-right: 1.66%;
+    width: 96.66%;
+}
+
+.init-code-container {
+    overflow: auto;
+    height: 94%;
+    width: 100%;
+}
+
+.solution-step-container {
+    margin-left: 1.66%;
+    margin-right: 1.66%;
+    width: 96.66%;
+}
+
+.solution-code-container {
+    overflow: auto;
+    height: 80%;
+    width: 100%;
+}
+
+.solution-button-container {
+    height: 8.33%;
+    width: 100%
+}
+
+.paste-solution-button {
+    --height: 100;
+    --width: 40;
+    --parent-height: 5;
+    --parent-width: 60;
+    --radius-width: calc((100 / ((var(--parent-width) * var(--width)) / 100)) / var(--aspect-ratio));
+    --radius-height: calc(100 / ((var(--parent-height) * var(--height)) / 100));
+
+    height: calc(var(--height) * 1%);
+    width: calc(var(--width) * 1%);
+    border-radius: calc(var(--radius) * var(--radius-width)) / calc(var(--radius) * (var(--radius-height)));
+}
+
+.solution-password {
+    --height: 100;
+    --width: 35.33;
+    --parent-height: 5;
+    --parent-width: 60;
+    --radius-width: calc((100 / ((var(--parent-width) * var(--width)) / 100)) / var(--aspect-ratio));
+    --radius-height: calc(100 / ((var(--parent-height) * var(--height)) / 100));
+
+    height: calc(var(--height) * 1%);
+    width: calc(var(--width) * 1%);
+    border-radius: calc(var(--radius) * var(--radius-width)) / calc(var(--radius) * (var(--radius-height)));
+    font-size: 18.72px;
+    margin-right: 1.66%;
+    outline: none;
+}
+
+.solution-password-button {
+    --height: 100;
+    --width: 4;
+    --parent-height: 5;
+    --parent-width: 60;
+    --radius-width: calc((100 / ((var(--parent-width) * var(--width)) / 100)) / var(--aspect-ratio));
+    --radius-height: calc(100 / ((var(--parent-height) * var(--height)) / 100));
+
+    height: calc(var(--height) * 1%);
+    width: calc(var(--width) * 1%);
+    border-radius: calc(var(--radius) * var(--radius-width)) / calc(var(--radius) * (var(--radius-height)));
+    margin-right: 1.66%;
+}
+
+.initcode-solution-modal-title {
+    height: 4%;
+    width: 90%;
+    max-height: 4%;
+    padding-top: 0.5%;
+    margin: 0;
+    float: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.modal-spacer {
+    height: 3.33%;
+}
+
+.close {
+    color: #878787;
+    float: right;
+    padding-right: 5pt;
+    font-size: 28px;
+    font-weight: bold;
+    height: 100%;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-elements {
+    padding: 10pt;
+    margin: 0;
+    text-align: center;
+}
+
+.error-message {
+    display: none;
+    color: red;
+}
+
+/*                             dark mode                            */
+.darkmode {
+    background-color: #1f1f1f;
+    color: white;
+}
