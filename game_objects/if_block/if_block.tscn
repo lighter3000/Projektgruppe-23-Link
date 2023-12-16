@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://y0u1veo1swd1"]
+[gd_scene load_steps=5 format=3 uid="uid://y0u1veo1swd1"]
 
 [ext_resource type="Script" path="res://game_objects/if_block/if_block.gd" id="1_qb8gp"]
 [ext_resource type="Texture2D" uid="uid://ckn7yfytvriip" path="res://game_objects/assets/if_block.png" id="2_yfu7k"]
@@ -7,15 +7,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gueu4"]
 size = Vector2(84, 65)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_om1je"]
-size = Vector2(6, 17)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s3blh"]
-size = Vector2(7, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_buo86"]
-size = Vector2(7, 20)
 
 [node name="if_block" type="StaticBody2D" groups=["collision", "if_block"]]
 script = ExtResource("1_qb8gp")
@@ -33,28 +24,7 @@ texture = ExtResource("2_yfu7k")
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_gueu4")
 
-[node name="input_detector" type="Area2D" parent="." groups=["if_block", "input"]]
-
-[node name="input_connector_collisionshape" type="CollisionShape2D" parent="input_detector"]
-position = Vector2(-45, 5.5)
-shape = SubResource("RectangleShape2D_om1je")
-
-[node name="green_output_detector" type="Area2D" parent="." groups=["green", "if_block", "output"]]
-
-[node name="green_output_connector_collisionshape" type="CollisionShape2D" parent="green_output_detector"]
-position = Vector2(45.5, -6)
-shape = SubResource("RectangleShape2D_s3blh")
-
-[node name="red_output_detector" type="Area2D" parent="." groups=["if_block", "output", "red"]]
-
-[node name="red_output_connector_collisionshape" type="CollisionShape2D" parent="red_output_detector"]
-position = Vector2(45.5, 15)
-shape = SubResource("RectangleShape2D_buo86")
-
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
-[connection signal="input_event" from="input_detector" to="." method="_on_input_detector_input_event"]
-[connection signal="input_event" from="green_output_detector" to="." method="_on_green_output_detector_input_event"]
-[connection signal="input_event" from="red_output_detector" to="." method="_on_red_output_detector_input_event"]

@@ -1,13 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://qs3du0q4n3vx"]
+[gd_scene load_steps=4 format=3 uid="uid://qs3du0q4n3vx"]
 
 [ext_resource type="Script" path="res://game_objects/start_block/start_block.gd" id="1_ixpxe"]
 [ext_resource type="Texture2D" uid="uid://dj4ep1r3j1prw" path="res://game_objects/assets/start_block.png" id="2_qbess"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ptomv"]
 size = Vector2(85, 66)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7fkfw"]
-size = Vector2(8, 20)
 
 [node name="start_block" type="StaticBody2D" groups=["start_block"]]
 script = ExtResource("1_ixpxe")
@@ -19,11 +16,3 @@ texture = ExtResource("2_qbess")
 [node name="block_collisionshape" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -1)
 shape = SubResource("RectangleShape2D_ptomv")
-
-[node name="output_connector_detector" type="Area2D" parent="." groups=["output", "start_block"]]
-
-[node name="connector_collisionshape" type="CollisionShape2D" parent="output_connector_detector"]
-position = Vector2(46, 13)
-shape = SubResource("RectangleShape2D_7fkfw")
-
-[connection signal="input_event" from="output_connector_detector" to="." method="_on_detector_input_event"]
