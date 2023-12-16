@@ -1,0 +1,68 @@
+from browser import document, window
+
+current_editor = None
+editors = []
+
+# function creates code-mirror code editor, appends that to editors and sets first line read only
+def create_code_editor(level, code):
+    global current_editor
+
+    containerId = "code-editor-" + str(level)
+    container = document.createElement("div")
+    container.id = containerId
+    document["code-editor-source"].appendChild(container)
+
+    editors.append(window.CodeMirror(container, {
+        'lineNumbers': True,
+        'value': clean_code(code),
+        'mode': "python",
+        'theme': "vscode-light"
+    }))
+
+    current_editor = editors[level]
+    
+    add_read_only()
+
+# function removes character \u200B from given code
+def clean_code(code):
+    return code.replace("\u200B", "")
+
+# function sets first line read only
+def add_read_only():
+    line_handle = current_editor.getLineHandle(0)
+    if line_handle:
+        current_editor.markText({"line": 0, "ch": 0}, {"line": 0, "ch": len(line_handle["text"])}, {"readOnly": True})
+    else:
+        print("Error when adding write protection: Line not found")
+
+# function removes the read only first line so that solution can be inserted
+def remove_read_only():
+    for mark in current_editor.getAllMarks():
+        mark.clear()
+
+# function is called by paste_solution to insert solution to code editor 
+def setCodeMirrorContent(newContent):
+    remove_read_only()
+    current_editor.setValue(clean_code(newContent))
+    add_read_only()
+
+# function is called by run_code to return value of code editor 
+def getCodeMirrorContent(level):
+    if editors[level]:
+        return editors[level].getValue()
+    return ""
+
+# function sets theme of code editor of given level
+def set_theme(level):
+    if (document["dark-mode-button"].text == "Dark Mode"):
+            editors[level].setOption('theme', 'vscode-light')
+    else:
+        editors[level].setOption('theme', 'vscode-dark')
+
+# function hides editor on level switch
+def hide_editor(level):
+    document["code-editor-" + str(level)].style.display = "none"
+
+# function shows editor on level switch
+def show_editor(level):
+    document["code-editor-" + str(level)].style.display = "block"
