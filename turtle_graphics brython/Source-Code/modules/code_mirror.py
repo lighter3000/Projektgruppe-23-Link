@@ -53,11 +53,9 @@ def getCodeMirrorContent(level):
     return ""
 
 # function sets theme of code editor of given level
-def set_theme(level):
-    if (document["dark-mode-button"].text == "Dark Mode"):
-            editors[level].setOption('theme', 'vscode-light')
-    else:
-        editors[level].setOption('theme', 'vscode-dark')
+def set_theme(theme):
+    if current_editor != None:
+        current_editor.setOption('theme', theme)
 
 # function hides editor on level switch
 def hide_editor(level):

@@ -1,0 +1,25 @@
+.navbar-image {
+    height: 50%;
+    margin-left: var(--navbar-left-margin);
+    float: left;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.navbar-title {
+    margin-left: var(--navbar-left-margin);
+    float: left;
+    max-width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.level-title {
+    margin-left: var(--navbar-left-margin);
+    float: left;
+    max-width: 12%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

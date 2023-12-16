@@ -15,24 +15,40 @@
     <script type="text/javascript" src="lib/qrcode/qrcode.min.js"></script>
     <script type="text/javascript" src="lib/d3/d3.v7.min.js"></script>
 
-    <script type="text/python" src="code_editor.py"></script>
+    <script type="text/python" src="web_app.py"></script>
 
-    <link rel="stylesheet" href="styling.css">
+    <link rel="stylesheet" href="style/body.css">
+    <link rel="stylesheet" href="style/buttons.css">
+    <link rel="stylesheet" href="style/canvas.css">
+    <link rel="stylesheet" href="style/code-editor.css">
+    <link rel="stylesheet" href="style/console.css">
+    <link rel="stylesheet" href="style/container.css">
+    <link rel="stylesheet" href="style/modal.css">
+    <link rel="stylesheet" href="style/navbar.css">
+    <link rel="stylesheet" href="style/scrollbar.css">
+    <link rel="stylesheet" href="style/theme.css">
+    <link rel="stylesheet" href="style/tutorial.css">
 
-    <title>Code-Editor turtle graphics/brython</title>
+    <link rel="icon" href="images/turtle_lightmode.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="images/turtle_lightmode.ico" type="image/x-icon">
+
+    <title>Python lernen mit Turtle Graphics</title>
 </head>
 
 <body onload="brython()">
     <!--                             Navbar                                       -->
     <div class="navbar-container">
         <div class="navbar-container-left">
-            <h3 class="navbar-title">Webanwendung auf Basis von turtle graphics und brython</h3>
+            <img id="navbar-image" src="images/turtle_darkmode.png" class="navbar-image">
+            <h3 class="navbar-title">Python lernen mit Turtle Graphics</h3>
+
             <!--                         Level Select Buttons                         -->
             <button id="previous_level" class="navbar-button-left next-previous-button">-</button>
             <h3 id="level_title" class="level-title">Level 1</h3>
             <button id="next_level" class="navbar-button-left next-previous-button">+</button>
         </div>
         <div class="navbar-container-right ">
+
             <!--                         Dropdown                                     -->
             <div id="dropdown" class="dropdown">
                 <button id="dropdown-button" class="dropdown-button">Exportieren</button>
@@ -42,33 +58,31 @@
                     <li><button id="export_qrcode" class="dropdown-button">QR-Code</button></li>
                 </ul>
             </div>
+
             <!--                         Dark Mode Button                             -->
             <button id="dark-mode-button" class="navbar-button-right darkmode-button">Dark Mode</button>
         </div>
-
     </div>
+
     <!--                             2 Container on left and right                -->
     <div class="side-content-container">
+
         <!--                         Left Container                               -->
         <div class="side-container side-left">
             <div class="vertical-spacer"></div>
+
             <!--                     Tutorial Container                           -->
             <div class="tutorial-container area-container" id="tutorial-area">
                 <div id="tutorial" class="tutorial"></div>
             </div>
             <div class="vertical-spacer"></div>
+
             <!--                     Code-Editor Container                        -->
             <div class="code-editor-container area-container" id="code-editor-area">
-                <!--<div class="code-area">
-                    <div class="source-code-container" id="source-code-area">
-                        <pre
-                            class="pre-block" id="code-editor-pre"><code class="code-block" contenteditable="true" spellcheck="false" data-gramm="false"><span  id="code-editor-source" class="code-editor-font"></span></code></pre>
-                    </div>
-                </div>
-                --->
                 <span id="code-editor-source" class="code-editor-font" style="height:100%"></span>
             </div>
             <div class="vertical-spacer"></div>
+
             <!--                     Run and Debug Buttons Container              -->
             <div class="button-container" id="button-area">
                 <button id="run_code" class="run-button" tabindex="-1">Run</button>
@@ -79,15 +93,14 @@
 
             <div class="vertical-spacer"></div>
         </div>
+
         <!--                         Right Container                              -->
         <div class="side-container side-right">
             <div class="vertical-spacer"></div>
+
             <!--                     Canvas Container                             -->
             <div class="canvas-container area-container" id="canvas-area">
                 <p class="canvas-container-text">Canvas</p>
-                <!-- <div id="canvas" class="canvas">
-                    <div id="coordinates"></div>
-                </div> -->
                 <div>
                     <div id="canvas" class="canvas"></div>
                     <div id="coordinates" class="coordinates" style="display: block;"></div>
@@ -95,6 +108,7 @@
             </div>
 
             <div class="vertical-spacer"></div>
+
             <!--                     Console Container                            -->
             <div class="console-container area-container" id="console-area">
                 <p class="console-container-text">Konsole</p>
@@ -103,6 +117,7 @@
             <div class="vertical-spacer"></div>
         </div>
     </div>
+
     <!--                     Print Modal                                          -->
     <div id="print-modal" class="modal">
         <div id="print-modal-content" class="print-modal-content">
@@ -110,6 +125,7 @@
             <p class="modal-elements">Gleich kann ein Drucker gewählt werden.</p>
         </div>
     </div>
+
     <!--                     QR-Code Modal                                        -->
     <div id="qrcodeModal" class="modal">
         <div id="qrcode-modal-content" class="qrcode-modal-content">
@@ -120,6 +136,7 @@
             <p id="errorMessage" class="modal-elements error-message"></p>
         </div>
     </div>
+
     <!--                     Init-Code Modal                                       -->
     <div id="initcodeModal" class="modal">
         <div id="initcode-modal-content" class="initcode-solution-modal-content">
@@ -135,6 +152,7 @@
             </div>
         </div>
     </div>
+
     <!--                     Solution Modal                                       -->
     <div id="solutionModal" class="modal">
         <div id="solution-modal-content" class="initcode-solution-modal-content">
@@ -170,6 +188,8 @@
             </div>
         </div>
     </div>
+    
+    <!--                     Levels Container (html_content) for export           -->
     <div id="levelsContainer" class="levels-container" hidden>
 
         <head>

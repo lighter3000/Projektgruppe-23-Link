@@ -1,5 +1,7 @@
 from browser import document, window
 
+from modules import level_handler
+
 qrcode_modal = document.getElementById("qrcodeModal")
 link_to_download = document.getElementById("linkToDownload")
 qr_code_to_download = document.getElementById("qrCodeToDownload")
@@ -56,16 +58,8 @@ def create_container(container_id):
 
 # function reads and returns exercise from filesystem
 def get_exercise(level):
-    level_file_path = f"/levels/level_{level}.py"
-    
-    with open(level_file_path, "r") as level_file:
-        level_code = level_file.read()
-    
-    level_globals = {}
-    exec(level_code, level_globals)
-    
-    if 'tutorial' in level_globals:
-        return level_globals['tutorial']
+    level_parameter = level_handler.read_level_from_filesystem(level)
+    return level_parameter['tutorial']
 
 # function is called by run_code to save written code and canvas to level container
 def edit_level_container(level, editor):
