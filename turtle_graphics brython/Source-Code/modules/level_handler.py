@@ -39,12 +39,13 @@ def load_level():
         code_mirror.show_editor(level_index)
     elif 'init_code' in level_parameter:
         code_mirror.create_code_editor(level_index, level_parameter['init_code'])
-    
-    theme.set_highlighting_theme()
+        written_code[level_index] = 1
     
     initcode.set_initcode(level_parameter['init_code'])
 
     solution.set_solution(level_parameter['solution_code'])
+
+    theme.set_highlighting_theme()
 
 # function sets level title
 def set_level_title(level):
@@ -64,7 +65,7 @@ def previous_level(ev):
     global level_index
     if (level_index > 0):
         code_mirror.hide_editor(level_index)
-        written_code[level_index] = 1
+        # written_code[level_index] = 1
         level_index -= 1
         load_level()
 
@@ -73,6 +74,6 @@ def next_level(ev):
     global level_index
     if (level_index < 5):
         code_mirror.hide_editor(level_index)
-        written_code[level_index] = 1
+        # written_code[level_index] = 1
         level_index+= 1
         load_level()

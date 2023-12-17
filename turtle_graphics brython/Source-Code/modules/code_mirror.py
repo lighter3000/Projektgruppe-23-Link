@@ -63,4 +63,6 @@ def hide_editor(level):
 
 # function shows editor on level switch
 def show_editor(level):
+    global current_editor
+    current_editor = editors[level]
     document["code-editor-" + str(level)].style.display = "block"

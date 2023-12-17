@@ -24,8 +24,8 @@ def toggle_application_theme(ev):
     else:
         document["dark-mode-button"].text = "Dark Mode"
 
-    set_highlighting_theme()
     set_navbar_image()
+    set_highlighting_theme()
 
 # function sets theme of code editor of current level
 def set_highlighting_theme():
