@@ -58,7 +58,7 @@ def create_container(container_id):
 
 # function reads and returns exercise from filesystem
 def get_exercise(level):
-    level_parameter = level_handler.read_level_from_filesystem(level)
+    level_parameter = level_handler.read_level_from_json_file(level)
     return level_parameter['tutorial']
 
 # function is called by run_code to save written code and canvas to level container

@@ -1,4 +1,5 @@
 from browser import document
+import json
 from collections import defaultdict
 
 from modules import code_mirror
@@ -11,8 +12,17 @@ from modules import theme
 level_index = 0
 written_code = defaultdict(str)
 
-# function reads level parameters from file system
-def read_level_from_filesystem(level_index):
+# function reads level parameters from json file from file system
+def read_level_from_json_file(level_index):
+    json_file_path = f"/levels/level_{level_index}.json"
+    
+    with open(json_file_path, "r") as json_file:
+        level_parameter = json.load(json_file)
+
+    return level_parameter
+
+# function reads level parameters from python file from file system
+def read_level_from_python_file(level_index):
     level_file_path = f"/levels/level_{level_index}.py"
     
     with open(level_file_path, "r") as level_file:
@@ -28,7 +38,7 @@ def load_level():
     canvas.clear_canvas()
     console.clear_console()
     
-    level_parameter = read_level_from_filesystem(level_index)
+    level_parameter = read_level_from_json_file(level_index)
    
     set_level_title(level_index)
     
