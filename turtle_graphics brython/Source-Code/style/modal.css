@@ -150,7 +150,8 @@
     --radius-height: calc(100 / ((var(--parent-height) * var(--height)) / 100));
 
     height: calc(var(--height) * 1%);
-    width: calc(var(--width) * 1%);
+    /* width: calc(var(--width) * 1%); */
+    aspect-ratio: 1 / 1;
     border-radius: calc(var(--radius) * var(--radius-width)) / calc(var(--radius) * (var(--radius-height)));
     margin-right: 1.66%;
 }

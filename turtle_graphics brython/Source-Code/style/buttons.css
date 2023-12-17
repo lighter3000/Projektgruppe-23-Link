@@ -16,14 +16,14 @@
 
 button {
     font-family: 'Courier New', Courier, monospace;
-    font-size: 18.72px; /* 1em; */
+    font-size: 1.5vw; /*18.72px;*/
     background-color: white;
     border: none;
     box-shadow: var(--normal-shadow);
     width: auto;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
+    padding: 0;
 }
 
 button:hover {

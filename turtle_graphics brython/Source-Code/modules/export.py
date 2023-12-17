@@ -73,6 +73,7 @@ def edit_level_container(level, editor):
     canvas_container = document["level" + str(level) + "_canvas_container"]
     canvas_container.html = document["canvas"].html
     rename_animation_ids(canvas_container, level)
+    set_border_on_svg(canvas_container)
 
 # function extracts written code from code mirror object to level container
 def add_code_from_code_mirror(code_container, editor):
@@ -102,6 +103,11 @@ def rename_animation_ids(canvas_container, level):
             element.setAttribute('begin', new_id + '.end')
 
     svg.id = svg.id + "-" + str(level)
+
+# function sets border on svg
+def set_border_on_svg(canvas_container):
+    svg = canvas_container.child_nodes[0]
+    svg.style.border = "solid 1px"
 
 # function is called by export-buttons with callback_function as parameter to export html_content
 # function extracts html_content from levels container and disables hidden attribute on html_content

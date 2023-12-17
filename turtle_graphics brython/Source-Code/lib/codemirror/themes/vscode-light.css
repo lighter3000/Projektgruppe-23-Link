@@ -23,7 +23,7 @@
 .cm-s-vscode-light .CodeMirror-cursor {border-left: 1px solid #333333;}
 .CodeMirror-activeline-background {background: #e6e6e6;}
 .cm-s-vscode-light div.CodeMirror-selected {background: #c6d9f0;}
-.cm-s-vscode-light .CodeMirror-gutters {background: #8787872a;}
+.cm-s-vscode-light .CodeMirror-gutters {background: #EBEBEB;}
 .cm-s-vscode-light span.cm-builtin {color: #A31515;}
 .cm-s-vscode-light {font-family: Consolas, 'Courier New', monospace, serif;}
 .cm-s-vscode-light .CodeMirror-matchingbracket {background-color: #d3e0e9; color: yellow !important;}
