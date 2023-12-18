@@ -26,6 +26,10 @@ def init_webapp():
     # sets event handler on resize events to fit canvas and coordinates to changed size
     canvas.set_resize_event_handler()
 
+    theme.set_button_size()
+
+    theme.set_title_size()
+
     # initializes empty and hidden levels container for exported html content
     export.initialize_levels_container(6)
 

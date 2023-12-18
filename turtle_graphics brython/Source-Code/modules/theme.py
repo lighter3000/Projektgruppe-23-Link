@@ -48,3 +48,31 @@ def set_navbar_image():
         navbar_image.src = "images/turtle_lightmode.png"
     else:
         navbar_image.src = "images/turtle_darkmode.png"
+
+def set_button_size():
+    buttons = document.select("button")
+    for button in buttons:
+        body_width = document.body.clientWidth
+        body_height = document.body.clientHeight
+        button_height = button.clientHeight
+        factor = 0.32
+
+        font_size = factor * (body_width / body_height) * button_height
+        button.style.fontSize = str(font_size) + "px"
+
+def set_title_size():
+    navbar_container = document["navbar_container"]
+    navbar_title = document["navbar_title"]
+    level_title = document["level_title"]
+
+    body_width = document.body.clientWidth
+    body_height = document.body.clientHeight
+    navbar_container_height = navbar_container.clientHeight
+
+    factor = 0.21
+
+    font_size = factor * (body_width / body_height) * navbar_container_height
+    window.console.log(font_size)
+
+    navbar_title.style.fontSize = str(font_size) + "px"
+    level_title.style.fontSize = str(font_size) + "px"
