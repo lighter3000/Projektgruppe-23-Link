@@ -103,7 +103,7 @@
 
 .solution-code-container {
     overflow: auto;
-    height: 80%;
+    height: 78%;
     width: 100%;
 }
 
@@ -165,14 +165,14 @@
 
 .init-code-container {
     overflow: auto;
-    height: 94%;
+    height: 92%;
     width: 100%;
 }
 
 .initcode-solution-modal-title {
-    height: 4%;
+    height: 6%;
     width: 90%;
-    max-height: 4%;
+    max-height: 6%;
     padding-top: 0.5%;
     margin: 0;
     float: left;

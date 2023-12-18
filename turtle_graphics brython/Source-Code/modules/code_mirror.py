@@ -34,10 +34,12 @@ def create_code_editor(level, code):
 
     add_read_only()
 
+
 # function counts tabs in current line
 def count_tabs_in_line(line):
-    tabs = re.match(r'^\s*', line).group()
-    return tabs.count('\t')
+    tabs = re.match(r"^\s*", line).group()
+    return tabs.count("\t")
+
 
 # function, which is triggered by the enter key, appends the correct number of tabs in the next line
 def custom_enter_key_handler(cm):
