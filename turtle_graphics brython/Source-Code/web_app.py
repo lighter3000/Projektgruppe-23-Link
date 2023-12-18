@@ -14,6 +14,12 @@ def init_webapp():
     # loads first level (levels/level0.py) from file system
     level_handler.load_level()
 
+    # sets font-size of buttons relative to height of button and sizes of body
+    theme.set_button_size()
+
+    # sets font-size of navbar_title and level_title relative to height of navbar and sizes of body
+    theme.set_title_size()
+
     # sets application theme on system settings
     theme.set_application_theme_on_system_settings()
 
@@ -25,10 +31,6 @@ def init_webapp():
 
     # sets event handler on resize events to fit canvas and coordinates to changed size
     canvas.set_resize_event_handler()
-
-    theme.set_button_size()
-
-    theme.set_title_size()
 
     # initializes empty and hidden levels container for exported html content
     export.initialize_levels_container(6)

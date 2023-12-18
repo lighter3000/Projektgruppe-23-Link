@@ -49,6 +49,7 @@ def set_navbar_image():
     else:
         navbar_image.src = "images/turtle_darkmode.png"
 
+# function sets font-size of buttons relative to height of button and sizes of body
 def set_button_size():
     buttons = document.select("button")
     for button in buttons:
@@ -60,6 +61,7 @@ def set_button_size():
         font_size = factor * (body_width / body_height) * button_height
         button.style.fontSize = str(font_size) + "px"
 
+# function sets font-size of navbar_title and level_title relative to height of navbar and sizes of body
 def set_title_size():
     navbar_container = document["navbar_container"]
     navbar_title = document["navbar_title"]
@@ -72,7 +74,6 @@ def set_title_size():
     factor = 0.21
 
     font_size = factor * (body_width / body_height) * navbar_container_height
-    window.console.log(font_size)
 
     navbar_title.style.fontSize = str(font_size) + "px"
     level_title.style.fontSize = str(font_size) + "px"
