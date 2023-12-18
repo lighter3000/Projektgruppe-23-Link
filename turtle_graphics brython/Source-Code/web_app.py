@@ -40,6 +40,7 @@ def init_webapp():
     solution.set_event_listeners_for_close_solution_modal()
     initcode.set_event_listeners_for_close_initcode_modal()
     export.set_event_listeners_for_close_qrcode_modal()
+    export.set_event_listeners_for_close_print_modal()
 
 
 init_webapp()

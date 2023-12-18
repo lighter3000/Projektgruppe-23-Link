@@ -278,3 +278,20 @@ def set_event_listeners_for_close_qrcode_modal():
         if event.target == qrcode_modal
         else None,
     )
+
+# function sets event listeners for close print modal
+def set_event_listeners_for_close_print_modal():
+    print_modal = document.getElementById("print-modal")
+    # set event to close button on modal to hide modal
+    print_modal_close_button = print_modal.getElementsByClassName("close")[0]
+    print_modal_close_button.bind(
+        "click", lambda ev: print_modal.style.__setitem__("display", "none")
+    )
+
+    # set event to click in background to hide modal
+    document.bind(
+        "click",
+        lambda event: print_modal.style.__setitem__("display", "none")
+        if event.target == print_modal
+        else None,
+    )
