@@ -62,8 +62,8 @@ def set_button_size():
         body_height = document.body.clientHeight
         button_height = button.clientHeight
 
-        if is_dropdown_button(button) or is_button_in_modal(button):
-            button_height = document["dropdown-button"].clientHeight
+        if is_dropdown_button(button) or is_button_in_modal(button) or is_darkmode_button(button):
+            button_height = document["run_code"].clientHeight
 
         factor = 0.32
         font_size = factor * (body_width / body_height) * button_height
@@ -79,6 +79,10 @@ def is_dropdown_button(button):
 # function returns True if given button is a button in modal
 def is_button_in_modal(button):
     return button.id == "show_solution_code" or button.id == "paste_solution"
+
+
+def is_darkmode_button(button):
+    return button.id == "dark-mode-button"
 
 
 # function sets font-size of navbar_title and level_title relative to height of navbar and sizes of body

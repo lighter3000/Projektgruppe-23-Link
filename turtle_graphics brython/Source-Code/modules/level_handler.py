@@ -10,7 +10,7 @@ from modules import initcode
 from modules import theme
 
 level_index = 0
-written_code = defaultdict(str)
+already_loaded = defaultdict(str)
 
 
 # function reads level parameters from json file from file system
@@ -47,11 +47,11 @@ def load_level():
 
     set_tutorial(level_parameter["tutorial"])
 
-    if allready_loaded(level_index):
+    if is_already_loaded(level_index):
         code_mirror.show_editor(level_index)
     elif "init_code" in level_parameter:
         code_mirror.create_code_editor(level_index, level_parameter["init_code"])
-        written_code[level_index] = 1
+        already_loaded[level_index] = 1
 
     initcode.set_initcode(level_parameter["init_code"])
 
@@ -71,9 +71,9 @@ def set_tutorial(tutorial):
         document["tutorial"].html = tutorial
 
 
-# function returns true if level is allready loaded
-def allready_loaded(level):
-    return written_code[level] == 1
+# function returns true if level is already loaded
+def is_already_loaded(level):
+    return already_loaded[level] == 1
 
 
 # button function switches to previous level
@@ -81,7 +81,6 @@ def previous_level(ev):
     global level_index
     if level_index > 0:
         code_mirror.hide_editor(level_index)
-        # written_code[level_index] = 1
         level_index -= 1
         load_level()
 
@@ -91,6 +90,5 @@ def next_level(ev):
     global level_index
     if level_index < 5:
         code_mirror.hide_editor(level_index)
-        # written_code[level_index] = 1
         level_index += 1
         load_level()
