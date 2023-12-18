@@ -93,7 +93,7 @@ button:active {
 
 .initcode-button {
     --height: 100;
-    --width: 22;
+    --width: 27;
     --parent-height: 5;
     --parent-width: 48.5;
     --radius-width: calc((100 / ((var(--parent-width) * var(--width)) / 100)) / var(--aspect-ratio));
