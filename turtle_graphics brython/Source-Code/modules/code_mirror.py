@@ -46,6 +46,14 @@ def custom_enter_key_handler(cm):
     cursor = cm.getCursor()
     line = cm.getLine(cursor.line)
 
+    # Prüfen, ob die aktuelle Zeile schreibgeschützt ist
+    if is_line_readonly(cm, cursor.line):
+        # Prüfen, ob der Cursor am Ende der Zeile ist
+        if cursor.ch == len(line):
+            cm.replaceRange("\n", {"line": cursor.line, "ch": cursor.ch})
+        return  # Keine Änderungen, wenn die Zeile schreibgeschützt ist
+
+
     tabs_str = ""
     for _ in range(count_tabs_in_line(line)):
         tabs_str += "\t"
@@ -58,6 +66,16 @@ def custom_enter_key_handler(cm):
     cm.replaceRange(tabs_str, {"line": cursor.line, "ch": cursor.ch})
 
 
+def is_line_readonly(cm, line_number):
+    """Prüft, ob eine bestimmte Zeile schreibgeschützt ist."""
+    line_handle = cm.getLineHandle(line_number)
+    if line_handle:
+        for mark in cm.findMarksAt({"line": line_number, "ch": 0}):
+            if mark.readOnly:
+                return True
+    return False
+
+
 # function removes character \u200B from given code
 def clean_code(code):
     return code.replace("\u200B", "")
@@ -68,7 +86,7 @@ def add_read_only():
     line_handle = current_editor.getLineHandle(0)
     if line_handle:
         current_editor.markText(
-            {"line": 0, "ch": 0},
+            {"line": -1, "ch": 0},
             {"line": 0, "ch": len(line_handle["text"])},
             {"readOnly": True},
         )
