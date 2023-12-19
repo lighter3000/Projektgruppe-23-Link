@@ -91,6 +91,12 @@ def export_print(ev):
 def export_qrcode(ev):
     create_html(upload_html)
 
+def play(str):
+    javascript.this().play_music(str)
+
+def tone(str):
+    javascript.this().play_tone(str)
+
 def run_code(ev):
     document["console"].html = ""
     # _code = window.getCodeMirrorContent(level_index)
@@ -111,6 +117,9 @@ def run_code(ev):
     written_code[level_index] = _code
 
     # edit_level_container(level_index)
+
+def stop_code(ev):
+    javascript.this().stop_music()
 
 def init_turtle(turtle):
     turtle.set_defaults(canvwidth = document['canvas'].clientWidth, canvheight = document['canvas'].clientHeight)
@@ -178,6 +187,7 @@ document["export_download"].bind("click", export_download)
 document["export_print"].bind("click", export_print)
 document["export_qrcode"].bind("click", export_qrcode)
 document["run_code"].bind("click", run_code)
+document["stop_code"].bind("click", stop_code)
 document["dark-mode-button"].bind('click', toggle_dark_mode)
 document["show_solution"].bind("click", show_solution)
 document["paste_solution"].bind("click", paste_solution)
