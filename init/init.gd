@@ -4,12 +4,6 @@ class_name intitialClass
 
 static var is_dragging = false
 
-enum AudioBus {
-	MASTER = 0,
-	MUSIC = 1,
-	Sound_EFFFECTS = 2
-}
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,13 +18,3 @@ func _ready():
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
 	else:
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
-
-	intitialClass.volume(AudioBus.MASTER, SaveSettings.get_master_volume())
-	intitialClass.volume(AudioBus.MUSIC, SaveSettings.get_music_volume())
-	intitialClass.volume(AudioBus.Sound_EFFFECTS, SaveSettings.get_sound_effects_volume())
-
-func _process(_delta):
-	pass
-
-static func volume(bus_index, value):
-	AudioServer.set_bus_volume_db(bus_index, value)
