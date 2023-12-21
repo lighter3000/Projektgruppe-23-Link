@@ -46,13 +46,14 @@ func _on_area_2d_body_entered(body:StaticBody2D):
 			body.add_to_group('busy')
 			body.block_name = block
 			body.block_node = self.get_node(".")
+			
 		body._print_block_name()
 		
 		body_ref = body
 	if body.is_in_group("collision"):
 		is_ontop = true
 	
-	
+
 func _on_area_2d_body_exited(body:StaticBody2D):
 	if body.is_in_group('dropable'):
 		is_inside_dropable = false
@@ -61,7 +62,7 @@ func _on_area_2d_body_exited(body:StaticBody2D):
 			body.remove_from_group('busy')
 			self.remove_from_group('busy')
 			body.block_name = " "
-			body.block_node = self.get_node(".")
+			body.block_node = null
 		
 		body._print_block_name()
 		
