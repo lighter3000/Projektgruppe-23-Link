@@ -34,9 +34,10 @@ grow_vertical = 2
 [node name="background_toolbar" type="TextureRect" parent="Control"]
 layout_mode = 0
 offset_right = 1152.0
-offset_bottom = 648.0
+offset_bottom = 635.0
 scale = Vector2(1.0012, 0.68)
 texture = ExtResource("3_x6wjq")
+expand_mode = 1
 
 [node name="background_elements" type="TextureRect" parent="Control"]
 layout_mode = 1

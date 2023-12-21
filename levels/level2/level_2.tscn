@@ -1,12 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://ej3vse4a5ixm"]
+[gd_scene load_steps=4 format=3 uid="uid://ej3vse4a5ixm"]
 
 [ext_resource type="Script" path="res://levels/level2/level_2.gd" id="1_emovd"]
 [ext_resource type="Texture2D" uid="uid://31wueaxyfk3e" path="res://levels/level2/assets/background_level_2.png" id="2_vapo1"]
+[ext_resource type="PackedScene" uid="uid://c4nnml61qhs0j" path="res://gui/gui.tscn" id="3_0o0sf"]
 
 [node name="level_2" type="Node2D"]
 script = ExtResource("1_emovd")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_top = 96.0
+offset_right = 1152.0
+offset_bottom = 560.0
 texture = ExtResource("2_vapo1")
+expand_mode = 1
+
+[node name="gui" parent="." instance=ExtResource("3_0o0sf")]
