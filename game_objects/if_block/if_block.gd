@@ -3,3 +3,4 @@ class_name If_Block
 
 func set_block_name():
 	block = "if_block"
+

@@ -9,3 +9,8 @@ func _process(_delta):
 
 func _ready():
 	pass
+
+
+func _on_gui_start():
+	print("\nstart button pressed!\n")
+	

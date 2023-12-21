@@ -1,6 +1,7 @@
 class_name GUI
 extends Node2D
 
+signal start()
 var help_popup
 
 func _on_ready():
@@ -20,3 +21,6 @@ func _on_help_button_pressed():
 	help_popup.popup()
 
 
+func _on_start_button_pressed():
+	emit_signal("start")
+	

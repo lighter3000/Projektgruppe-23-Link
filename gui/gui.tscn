@@ -1,7 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://c4nnml61qhs0j"]
+[gd_scene load_steps=14 format=3 uid="uid://c4nnml61qhs0j"]
 
 [ext_resource type="Script" path="res://gui/gui.gd" id="1_wri14"]
-[ext_resource type="Texture2D" uid="uid://h3vdwo2cv75r" path="res://assets/Backgrounds/game_scene/gameplay_background.png" id="2_g8oh6"]
 [ext_resource type="Texture2D" uid="uid://b5uw1euem0iro" path="res://assets/Backgrounds/game_scene/toolbar_background.png" id="3_x6wjq"]
 [ext_resource type="Texture2D" uid="uid://bebsmxfrkrc82" path="res://assets/Backgrounds/game_scene/element_background.png" id="4_npeg6"]
 [ext_resource type="Texture2D" uid="uid://bdkoie21elp58" path="res://assets/icons/back_button/back_button.png" id="5_qv4pq"]
@@ -31,18 +30,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="background_gameplay" type="TextureRect" parent="Control"]
-layout_mode = 1
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -576.0
-offset_right = 576.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_g8oh6")
 
 [node name="background_toolbar" type="TextureRect" parent="Control"]
 layout_mode = 0
@@ -140,4 +127,5 @@ shape = SubResource("RectangleShape2D_j4oce")
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/toolbar_top_margin/toolbar_top/left_items/Back_Button" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/toolbar_top_margin/toolbar_top/left_items/Help_Button" to="." method="_on_help_button_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/toolbar_top_margin/toolbar_top/right_items/Start_Button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/toolbar_top_margin/toolbar_top/right_items/MarginContainer/Delete_Button" to="." method="_on_delete_button_pressed"]
