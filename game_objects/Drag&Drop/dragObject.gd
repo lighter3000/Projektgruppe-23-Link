@@ -41,15 +41,11 @@ func _on_area_2d_body_entered(body:StaticBody2D):
 	if body.is_in_group('dropable'):
 		is_inside_dropable = true
 		body.modulate = Color(Color.LIGHT_GRAY,1)
-		
-		#if body.block_name == " ":
-		#	body.block_name = block
-		
 		if !body.is_in_group('busy'):
 			self.add_to_group('busy')
 			body.add_to_group('busy')
 			body.block_name = block
-		
+			body.block_node = self.get_node(".")
 		body._print_block_name()
 		
 		body_ref = body
@@ -61,14 +57,11 @@ func _on_area_2d_body_exited(body:StaticBody2D):
 	if body.is_in_group('dropable'):
 		is_inside_dropable = false
 		body.modulate = Color(Color.LIGHT_GRAY,0.7)
-		
-		#if self.block == body.block_name:
-		#	body.block_name = " "
-		
 		if body.is_in_group('busy') and self.is_in_group('busy'):
 			body.remove_from_group('busy')
 			self.remove_from_group('busy')
 			body.block_name = " "
+			body.block_node = self.get_node(".")
 		
 		body._print_block_name()
 		

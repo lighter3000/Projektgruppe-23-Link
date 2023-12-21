@@ -1,6 +1,7 @@
 extends StaticBody2D
 
 var block_name = " "
+var block_node
 
 func _ready():
 	modulate = Color(Color.GRAY, 0.7)
@@ -17,3 +18,6 @@ func _print_block_name():
 
 func get_block_name():
 	return block_name
+
+func get_block_node():
+	return block_node
