@@ -1,6 +1,5 @@
 from browser import document, window, bind
 import turtle
-import math
 
 from modules import code_mirror
 from modules import export
