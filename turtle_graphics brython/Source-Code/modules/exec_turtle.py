@@ -1,5 +1,6 @@
 from browser import document, window, bind
 import turtle
+import math
 
 from modules import code_mirror
 from modules import export
@@ -33,3 +34,19 @@ def init_turtle(turtle):
     t = turtle.Turtle()
     t.width(5)
     return t
+
+
+# function teleports to given position
+def teleport(t, x=0, y=0):
+    was_visible = t.isvisible()
+    t.hideturtle()
+    t.penup()
+    old_speed = t.speed()
+    t.speed(10)
+    
+    t.goto(x, y)
+
+    t.speed(old_speed)
+    t.pendown()
+    if was_visible:
+        t.showturtle()
