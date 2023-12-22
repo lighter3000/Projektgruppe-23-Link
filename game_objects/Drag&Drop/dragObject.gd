@@ -7,6 +7,7 @@ var is_ontop = false
 var body_ref
 var offset : Vector2
 var initialPos : Vector2
+var newscale = false
 
 func _process(_delta):
 	if draggable:
@@ -28,12 +29,18 @@ func _on_area_2d_mouse_entered():
 	if not intitialClass.is_dragging and !Input.is_action_pressed("click"):
 		set_block_name()
 		draggable = true
-		scale = Vector2(1.1,1.1)
+		if newscale == true:
+			scale = Vector2(1.6,1.6)
+		else:
+			scale = Vector2(1.1,1.1)
 
 func _on_area_2d_mouse_exited():
 	if not intitialClass.is_dragging:
 		draggable = false
-		scale = Vector2(1,1)
+		if newscale == true:
+			scale = Vector2(1.4,1.4)
+		else:
+			scale = Vector2(1,1)
 
 #If the body, wich the object enters/leaves has the group dropable, set is_inside_dropable variable to true/false
 #If the body the object enters/leaves has the group collision, set collision variable to true/false
@@ -52,7 +59,9 @@ func _on_area_2d_body_entered(body:StaticBody2D):
 		body_ref = body
 	if body.is_in_group("collision"):
 		is_ontop = true
-	
+	if body.is_in_group('initialpos'):
+		newscale = false
+		scale = Vector2(1,1)
 
 func _on_area_2d_body_exited(body:StaticBody2D):
 	if body.is_in_group('dropable'):
@@ -68,6 +77,11 @@ func _on_area_2d_body_exited(body:StaticBody2D):
 		
 	if body.is_in_group("collision"):
 		is_ontop = false
+	if body.is_in_group('initialpos'):
+		newscale = true
+		scale = Vector2(1.4,1.4)
+
 
 func set_block_name():
 	block = " "
+

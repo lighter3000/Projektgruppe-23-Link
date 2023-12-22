@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://gtcmx2v8gqd3" path="res://levels/level3/assets/background_level_3.png" id="2_7qwn6"]
 [ext_resource type="PackedScene" uid="uid://c4nnml61qhs0j" path="res://gui/gui.tscn" id="3_ofvs3"]
 
-[node name="level_3" type="Node2D"]
+[node name="level_3" type="Node2D" groups=["level3"]]
 script = ExtResource("1_v53s6")
 
 [node name="TextureRect" type="TextureRect" parent="."]

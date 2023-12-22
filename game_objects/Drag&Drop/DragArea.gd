@@ -14,6 +14,7 @@ func _process(_delta):
 
 func _print_block_name():
 	print(self.get_node("."))
+	print(block_node)
 	print(block_name)
 
 func get_block_name():
