@@ -22,3 +22,8 @@ func get_block_name():
 
 func get_block_node():
 	return block_node
+
+func has_block():
+	if block_node == null:
+		return false
+	return true

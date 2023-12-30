@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhl5bxiechbmt"]
+[gd_scene load_steps=9 format=3 uid="uid://bhl5bxiechbmt"]
 
 [ext_resource type="Script" path="res://options/options.gd" id="1_5bees"]
 [ext_resource type="Texture2D" uid="uid://oa4wif6eh2s5" path="res://assets/Backgrounds/main_menu_scene/main-menu-background.png" id="2_op5xw"]
+[ext_resource type="Texture2D" uid="uid://bjfwrtl8irkdc" path="res://assets/icons/fullscreen_button/fullscreen_on.png" id="3_xv280"]
+[ext_resource type="Texture2D" uid="uid://beqsmun2wv2g4" path="res://assets/icons/fullscreen_button/fullscreen_off.png" id="4_0e4ku"]
+[ext_resource type="Texture2D" uid="uid://sjp6m4xox6aw" path="res://assets/icons/vsync_button/v_sync_on.png" id="5_sm2qx"]
+[ext_resource type="Texture2D" uid="uid://df6vndv40ru1x" path="res://assets/icons/vsync_button/v_sync_off.png" id="6_rnjvi"]
+[ext_resource type="Texture2D" uid="uid://bdkoie21elp58" path="res://assets/icons/back_button/back_button.png" id="7_cau5s"]
+[ext_resource type="Texture2D" uid="uid://eiupew6rk7er" path="res://assets/icons/back_button/back_button_hovered.png" id="8_up6u2"]
 
 [node name="options" type="Control"]
 layout_mode = 3
@@ -48,50 +54,32 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -51.5
-offset_top = -28.0
-offset_right = 51.5
-offset_bottom = 28.0
+offset_left = -569.0
+offset_top = -89.0
+offset_right = -330.0
+offset_bottom = 73.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Labels" type="VBoxContainer" parent="Setting_Options/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
-
-[node name="Full_Screen_Label" type="Label" parent="Setting_Options/HBoxContainer/Labels"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Fulscreen"
-
-[node name="VSync_Label" type="Label" parent="Setting_Options/HBoxContainer/Labels"]
-layout_mode = 2
-text = "VSync"
 
 [node name="Buttons" type="VBoxContainer" parent="Setting_Options/HBoxContainer"]
 layout_mode = 2
 
 [node name="Full_Screen_Button" type="CheckBox" parent="Setting_Options/HBoxContainer/Buttons"]
 layout_mode = 2
+theme_override_icons/checked = ExtResource("3_xv280")
+theme_override_icons/unchecked = ExtResource("4_0e4ku")
 
 [node name="VSync_Button" type="CheckBox" parent="Setting_Options/HBoxContainer/Buttons"]
 layout_mode = 2
+theme_override_icons/checked = ExtResource("5_sm2qx")
+theme_override_icons/unchecked = ExtResource("6_rnjvi")
 
-[node name="Back_From_Options_Button" type="Button" parent="Setting_Options"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -22.5
-offset_top = -31.0
-offset_right = 22.5
-grow_horizontal = 2
-grow_vertical = 0
-text = "Back"
+[node name="Back_From_Options_Button" type="TextureButton" parent="Setting_Options/HBoxContainer/Buttons"]
+layout_mode = 2
+texture_normal = ExtResource("7_cau5s")
+texture_hover = ExtResource("8_up6u2")
+stretch_mode = 3
 
 [connection signal="toggled" from="Setting_Options/HBoxContainer/Buttons/Full_Screen_Button" to="." method="_on_full_screen_button_toggled"]
 [connection signal="toggled" from="Setting_Options/HBoxContainer/Buttons/VSync_Button" to="." method="_on_v_sync_button_toggled"]
-[connection signal="pressed" from="Setting_Options/Back_From_Options_Button" to="." method="_on_back_from_options_button_pressed"]
+[connection signal="pressed" from="Setting_Options/HBoxContainer/Buttons/Back_From_Options_Button" to="." method="_on_back_from_options_button_pressed"]
