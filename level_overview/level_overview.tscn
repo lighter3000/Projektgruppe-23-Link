@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1u3fxi70uw50"]
+[gd_scene load_steps=7 format=3 uid="uid://c1u3fxi70uw50"]
 
 [ext_resource type="Script" path="res://level_overview/level_overview.gd" id="1_mi7ab"]
 [ext_resource type="Texture2D" uid="uid://oa4wif6eh2s5" path="res://assets/Backgrounds/main_menu_scene/main-menu-background.png" id="2_p8lcv"]
+[ext_resource type="Texture2D" uid="uid://bdkoie21elp58" path="res://assets/icons/back_button/back_button.png" id="3_dlkdp"]
 [ext_resource type="Texture2D" uid="uid://ccbpha03xph5y" path="res://assets/icons/level1_button/lvl_1_button.png" id="3_hinug"]
+[ext_resource type="Texture2D" uid="uid://eiupew6rk7er" path="res://assets/icons/back_button/back_button_hovered.png" id="4_il2s0"]
 [ext_resource type="Texture2D" uid="uid://dlt8ei7nbjtgv" path="res://assets/icons/level2_button/lvl_2_button.png" id="4_lmkgn"]
 
 [node name="level_overview" type="Node2D"]
@@ -19,12 +21,13 @@ grow_vertical = 2
 pivot_offset = Vector2(576, 324)
 texture = ExtResource("2_p8lcv")
 
-[node name="Menu_Button" type="Button" parent="."]
+[node name="Menu_Button" type="TextureButton" parent="."]
 offset_left = 900.0
 offset_top = 500.0
 offset_right = 1038.0
 offset_bottom = 531.0
-text = "<-- Back to Menu"
+texture_normal = ExtResource("3_dlkdp")
+texture_hover = ExtResource("4_il2s0")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 offset_left = 48.0
@@ -35,19 +38,16 @@ offset_bottom = 238.0
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
 
-[node name="Level_1_Button" type="Button" parent="HBoxContainer/VBoxContainer"]
+[node name="Level_1_Button" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
-icon = ExtResource("3_hinug")
-flat = true
+texture_normal = ExtResource("3_hinug")
 
-[node name="Level_2_Button" type="Button" parent="HBoxContainer/VBoxContainer"]
+[node name="Level_2_Button" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
-icon = ExtResource("4_lmkgn")
-flat = true
+texture_normal = ExtResource("4_lmkgn")
 
-[node name="Level_3_Button" type="Button" parent="HBoxContainer/VBoxContainer"]
+[node name="Level_3_Button" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Level 3"
 
 [connection signal="pressed" from="Menu_Button" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/Level_1_Button" to="." method="_on_level_1_button_pressed"]

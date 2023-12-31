@@ -1,23 +1,24 @@
 class_name level_1
 extends Node2D
 
-var starting_value = 0;
-var value;
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
+var starting_value = 0
+var value
+var wrong_block = false
 
-
-func _ready():
-	pass
-
+@onready var wrong_drag_areas = [$DragArea, $DragArea2, $DragArea3, $DragArea4, $DragArea6]
 
 func _on_gui_start():
 	print("\nstart button pressed!\n")
-	if $"Level-Objects/DragArea5".has_block():
-		var block = $"Level-Objects/DragArea5".get_block_node()
-		value = block.execute(starting_value)
-	
-	if value == 5:
-		print("\nErgebniss: ", value, "\n")
+	for area in wrong_drag_areas:
+		if area.has_block():
+			wrong_block = true
+			print("Block placed on a wrong area")
+	if wrong_block == false:
+		if $DragArea5.has_block():
+			var block = $DragArea5.get_block_node()
+			value = block.execute(starting_value)
+		if value == 5:
+			print("\nErgebniss: ", value, "\n")
+		else:
+			print("Wrong Block!")
