@@ -57,7 +57,7 @@ func _level_texture():
 		
 	if SaveSettings.lvl3_status() == true:
 		$HBoxContainer/VBoxContainer/Level_3_Button.texture_normal = _level3_texture3
-		$HBoxContainer/VBoxContainer/Level_2_Button.texture_hover =_level3_texture4
+		$HBoxContainer/VBoxContainer/Level_3_Button.texture_hover =_level3_texture4
 	else:
 		$HBoxContainer/VBoxContainer/Level_3_Button.texture_normal = _level3_texture1
 		$HBoxContainer/VBoxContainer/Level_3_Button.texture_hover =_level3_texture2
