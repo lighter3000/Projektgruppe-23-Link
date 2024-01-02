@@ -13,7 +13,7 @@ config_version=5
 config/name="Project_CodeClash"
 run/main_scene="res://main_menu/mainmenu.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://assets/icons/desktop_icon/Icon.png"
 
 [autoload]
 

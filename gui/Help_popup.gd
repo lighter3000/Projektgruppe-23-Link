@@ -11,7 +11,3 @@ func _ready():
 		$help_message.text = "Only Numbers equal to 8 are allowed."
 	if get_parent().get_parent().is_in_group("level3"):
 		$help_message.text = "Only Numbers equal to 6 are allowed."
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
