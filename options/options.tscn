@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://beqsmun2wv2g4" path="res://assets/icons/fullscreen_button/fullscreen_off.png" id="4_0e4ku"]
 [ext_resource type="Texture2D" uid="uid://sjp6m4xox6aw" path="res://assets/icons/vsync_button/v_sync_on.png" id="5_sm2qx"]
 [ext_resource type="Texture2D" uid="uid://df6vndv40ru1x" path="res://assets/icons/vsync_button/v_sync_off.png" id="6_rnjvi"]
-[ext_resource type="Texture2D" uid="uid://bdkoie21elp58" path="res://assets/icons/back_button/back_button.png" id="7_cau5s"]
-[ext_resource type="Texture2D" uid="uid://eiupew6rk7er" path="res://assets/icons/back_button/back_button_hovered.png" id="8_up6u2"]
+[ext_resource type="Texture2D" uid="uid://c3u02y721lbw7" path="res://assets/icons/back_to_menu_button/btm_button.png" id="7_mkd4d"]
+[ext_resource type="Texture2D" uid="uid://dtxpt1idr028b" path="res://assets/icons/back_to_menu_button/btm_hovered_button.png" id="8_rj268"]
 
 [node name="options" type="Control"]
 layout_mode = 3
@@ -66,20 +66,26 @@ layout_mode = 2
 
 [node name="Full_Screen_Button" type="CheckBox" parent="Setting_Options/HBoxContainer/Buttons"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Back_To_Menu_Button")
+focus_neighbor_bottom = NodePath("../VSync_Button")
 theme_override_icons/checked = ExtResource("3_xv280")
 theme_override_icons/unchecked = ExtResource("4_0e4ku")
 
 [node name="VSync_Button" type="CheckBox" parent="Setting_Options/HBoxContainer/Buttons"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Full_Screen_Button")
+focus_neighbor_bottom = NodePath("../Back_To_Menu_Button")
 theme_override_icons/checked = ExtResource("5_sm2qx")
 theme_override_icons/unchecked = ExtResource("6_rnjvi")
 
-[node name="Back_From_Options_Button" type="TextureButton" parent="Setting_Options/HBoxContainer/Buttons"]
+[node name="Back_To_Menu_Button" type="TextureButton" parent="Setting_Options/HBoxContainer/Buttons"]
 layout_mode = 2
-texture_normal = ExtResource("7_cau5s")
-texture_hover = ExtResource("8_up6u2")
+focus_neighbor_top = NodePath("../VSync_Button")
+focus_neighbor_bottom = NodePath("../Full_Screen_Button")
+texture_normal = ExtResource("7_mkd4d")
+texture_hover = ExtResource("8_rj268")
 stretch_mode = 3
 
 [connection signal="toggled" from="Setting_Options/HBoxContainer/Buttons/Full_Screen_Button" to="." method="_on_full_screen_button_toggled"]
 [connection signal="toggled" from="Setting_Options/HBoxContainer/Buttons/VSync_Button" to="." method="_on_v_sync_button_toggled"]
-[connection signal="pressed" from="Setting_Options/HBoxContainer/Buttons/Back_From_Options_Button" to="." method="_on_back_from_options_button_pressed"]
+[connection signal="pressed" from="Setting_Options/HBoxContainer/Buttons/Back_To_Menu_Button" to="." method="_on_back_from_options_button_pressed"]
