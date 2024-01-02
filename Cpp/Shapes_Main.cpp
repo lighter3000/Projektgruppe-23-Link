@@ -468,14 +468,14 @@ int main() {
     rot->draw();
     
     
-    //Circle   
+    //Kreis   
         Circle* gruen = new Circle(400,250,50,0,255,0,5);
         gruen->draw();
  
     Triangle* weiss = new Triangle(750, 250, 500, 150, 600, 285, 255, 255, 255, 5);
     weiss->draw();
 
-    //pixel
+    //Pixel
         setPixel(325,250,0,0,0);
    
     return 0;
