@@ -6,12 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://wdpttcyoepl3" path="res://game_objects/Drag&Drop/drag_area.tscn" id="4_pw3ct"]
 [ext_resource type="PackedScene" uid="uid://c4xwakfr5oonp" path="res://game_objects/end_block/end_block.tscn" id="5_tmgx5"]
 [ext_resource type="PackedScene" uid="uid://qs3du0q4n3vx" path="res://game_objects/start_block/start_block.tscn" id="7_0eetf"]
-[ext_resource type="PackedScene" uid="uid://cae0ronckl5tf" path="res://game_objects/if_block/if_block_variants/if_block_4.tscn" id="8_lns1u"]
+[ext_resource type="PackedScene" uid="uid://cae0ronckl5tf" path="res://game_objects/if_block/if_block_variants/if_block_4/if_block_4.tscn" id="8_lns1u"]
 [ext_resource type="PackedScene" uid="uid://i4rmt6oc1lp6" path="res://game_objects/finish_block/finish_block.tscn" id="9_affri"]
-[ext_resource type="PackedScene" uid="uid://cmqh2k7iarxt5" path="res://game_objects/if_block/if_block_variants/if_block_6.tscn" id="9_x6psg"]
-[ext_resource type="PackedScene" uid="uid://bin8qir0daru5" path="res://game_objects/if_block/if_block_variants/if_block_7.tscn" id="10_4c7i2"]
-[ext_resource type="PackedScene" uid="uid://3bksofsdu6o5" path="res://game_objects/if_block/if_block_variants/if_block_8.tscn" id="11_yfy48"]
-[ext_resource type="PackedScene" uid="uid://lo08kgx2yc2c" path="res://game_objects/if_block/if_block_variants/if_block_10.tscn" id="12_bbk57"]
+[ext_resource type="PackedScene" uid="uid://cmqh2k7iarxt5" path="res://game_objects/if_block/if_block_variants/if_block_6/if_block_6.tscn" id="9_x6psg"]
+[ext_resource type="PackedScene" uid="uid://bin8qir0daru5" path="res://game_objects/if_block/if_block_variants/if_block_7/if_block_7.tscn" id="10_4c7i2"]
+[ext_resource type="PackedScene" uid="uid://3bksofsdu6o5" path="res://game_objects/if_block/if_block_variants/if_block_8/if_block_8.tscn" id="11_yfy48"]
+[ext_resource type="PackedScene" uid="uid://lo08kgx2yc2c" path="res://game_objects/if_block/if_block_variants/if_block_10/if_block_10.tscn" id="12_bbk57"]
 
 [node name="level_2" type="Node2D" groups=["level2"]]
 script = ExtResource("1_emovd")

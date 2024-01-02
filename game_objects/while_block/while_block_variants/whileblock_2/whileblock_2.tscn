@@ -1,23 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://nau4n3mfq5jl"]
+[gd_scene load_steps=5 format=3 uid="uid://cnilimj0r2p7b"]
 
-[ext_resource type="Script" path="res://game_objects/while_block/while_block_variants/whileblock_6.gd" id="1_dnya7"]
-[ext_resource type="Texture2D" uid="uid://bb22317h2vw3t" path="res://game_objects/assets/while_block.png" id="2_hgigc"]
+[ext_resource type="Script" path="res://game_objects/while_block/while_block_variants/whileblock_2/whileblock_2.gd" id="1_w8tv6"]
+[ext_resource type="Texture2D" uid="uid://dvlnh2v878ube" path="res://game_objects/while_block/while_block_variants/whileblock_2/while2.png" id="2_vn03r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27i35"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a8pbm"]
 size = Vector2(84, 66)
 
-[node name="whileblock_6" type="StaticBody2D" groups=["collision", "while_block"]]
+[node name="whileblock_2" type="StaticBody2D" groups=["collision", "while_block"]]
 top_level = true
-script = ExtResource("1_dnya7")
+script = ExtResource("1_w8tv6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_27i35")
 
 [node name="while_block_sprite" type="Sprite2D" parent="."]
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("2_hgigc")
+texture = ExtResource("2_vn03r")
 
 [node name="Area2D" type="Area2D" parent="."]
 

@@ -6,12 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://wdpttcyoepl3" path="res://game_objects/Drag&Drop/drag_area.tscn" id="4_ilhms"]
 [ext_resource type="PackedScene" uid="uid://c4xwakfr5oonp" path="res://game_objects/end_block/end_block.tscn" id="5_jemxy"]
 [ext_resource type="PackedScene" uid="uid://qs3du0q4n3vx" path="res://game_objects/start_block/start_block.tscn" id="7_ne28m"]
-[ext_resource type="PackedScene" uid="uid://cae0ronckl5tf" path="res://game_objects/if_block/if_block_variants/if_block_4.tscn" id="8_gs0gd"]
+[ext_resource type="PackedScene" uid="uid://cae0ronckl5tf" path="res://game_objects/if_block/if_block_variants/if_block_4/if_block_4.tscn" id="8_gs0gd"]
 [ext_resource type="PackedScene" uid="uid://i4rmt6oc1lp6" path="res://game_objects/finish_block/finish_block.tscn" id="9_c78rc"]
-[ext_resource type="PackedScene" uid="uid://cmqh2k7iarxt5" path="res://game_objects/if_block/if_block_variants/if_block_6.tscn" id="9_lxews"]
-[ext_resource type="PackedScene" uid="uid://dqj3vvbn5sdpr" path="res://game_objects/while_block/while_block_variants/whileblock_5.tscn" id="10_hmt6k"]
-[ext_resource type="PackedScene" uid="uid://nau4n3mfq5jl" path="res://game_objects/while_block/while_block_variants/whileblock_6.tscn" id="11_gftqh"]
-[ext_resource type="PackedScene" uid="uid://df8wtgwc81dnb" path="res://game_objects/while_block/while_block_variants/whileblock_8.tscn" id="12_f8nmv"]
+[ext_resource type="PackedScene" uid="uid://cmqh2k7iarxt5" path="res://game_objects/if_block/if_block_variants/if_block_6/if_block_6.tscn" id="9_lxews"]
+[ext_resource type="PackedScene" uid="uid://dqj3vvbn5sdpr" path="res://game_objects/while_block/while_block_variants/whileblock_5/whileblock_5.tscn" id="10_hmt6k"]
+[ext_resource type="PackedScene" uid="uid://nau4n3mfq5jl" path="res://game_objects/while_block/while_block_variants/whileblock_6/whileblock_6.tscn" id="11_gftqh"]
+[ext_resource type="PackedScene" uid="uid://df8wtgwc81dnb" path="res://game_objects/while_block/while_block_variants/whileblock_8/whileblock_8.tscn" id="12_f8nmv"]
 
 [node name="level_3" type="Node2D" groups=["level3"]]
 script = ExtResource("1_v53s6")
@@ -55,7 +55,7 @@ position = Vector2(656, 432)
 
 [node name="DragArea8" parent="." instance=ExtResource("4_ilhms")]
 top_level = true
-position = Vector2(637, 512)
+position = Vector2(864, 512)
 
 [node name="start_block" parent="." instance=ExtResource("7_ne28m")]
 top_level = true

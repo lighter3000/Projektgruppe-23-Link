@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dqj3vvbn5sdpr"]
 
-[ext_resource type="Script" path="res://game_objects/while_block/while_block_variants/whileblock_5.gd" id="1_brlbn"]
-[ext_resource type="Texture2D" uid="uid://bb22317h2vw3t" path="res://game_objects/assets/while_block.png" id="2_h6j8b"]
+[ext_resource type="Script" path="res://game_objects/while_block/while_block_variants/whileblock_5/whileblock_5.gd" id="1_brlbn"]
+[ext_resource type="Texture2D" uid="uid://dmanrt6juygoe" path="res://game_objects/while_block/while_block_variants/whileblock_5/while5.png" id="2_ka6cc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27i35"]
 
@@ -17,7 +17,7 @@ shape = SubResource("RectangleShape2D_27i35")
 
 [node name="while_block_sprite" type="Sprite2D" parent="."]
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("2_h6j8b")
+texture = ExtResource("2_ka6cc")
 
 [node name="Area2D" type="Area2D" parent="."]
 
