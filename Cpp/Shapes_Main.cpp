@@ -453,66 +453,31 @@ void MandelBrot::draw(int width,int height,int iteration){
 //----------------------------------------------------------------------------------------
 int main() {
    
-    //MandekbBrot
-    //MandelBrot* mb = new MandelBrot();
-    //mb->draw(getJPanelWidth(),getJPanelHeight(),1000);
+    //Rechteck
+    Rectangle* blau = new Rectangle(100,200,50,50,0,0,255,10);
+    blau->draw();
+    blau->floodFill2(150,250,0,0,255,getJPanelWidth(),getJPanelHeight());
+
+        
+    //Text
+    StringText* stringText = new StringText(250, 0, "Hallo Welt", "Arial", 24, 1,100,0,255);
+    stringText->draw();
+
+    //Linie
+    Line* rot = new Line(250, 250, 250, 150, 255, 0, 0, 10);
+    rot->draw();
+    
+    
+    //Circle   
+        Circle* gruen = new Circle(400,250,50,0,255,0,5);
+        gruen->draw();
+ 
+    Triangle* weiss = new Triangle(750, 250, 500, 150, 600, 285, 255, 255, 255, 5);
+    weiss->draw();
+
+    //pixel
+        setPixel(325,250,0,0,0);
    
-    
-    //Rectangle::Rectangle(int x, int y, int width,int height,int red,int green,int blue, int lineWidth){
-
-    //Rectangle
-    Rectangle* r1 = new Rectangle(200,200,250,250,100,0,255,5);
-    r1->draw();
-    r1->floodFill2(201,201,100,255,255,getJPanelWidth(),getJPanelHeight());
-    
-    Rectangle* r2 = new Rectangle(100,100,450,450,10,100,100,5);
-    r2->draw();
-    r2->floodFill2(101,101,100,200,255,getJPanelWidth(),getJPanelHeight());
-
-        
-    //StringText
-    //StringText* stringText = new StringText(0, 0, "Hello World!!!", "Arial", 24, 1,100,0,255);
-    //stringText->draw();
-
-    //Line
-    //Line* line1 = new Line(450, 550, 250, 150, 100, 0, 255, 5);
-    //line1->draw();
-    /*
-    //Line* line2 = new Line(450, 350, 250, 150, 0, 100, 255, 5);
-    //line2->draw();
-    
-    
-    //Circle
-    //Circle* c = new Circle(200,200,50,100,150,50,5);
-    //c->draw();
-     */
-    
-    //Triangle       (100,500,200,300,300,500, new Color(102,0,153), 10)
-    //Triangle* triangle = new Triangle(200, 250, 250, 150, 100, 100, 255, 100, 0, 5);
-    //triangle->draw();
-    
-    /*
-    //Test
-    for(int i= 0; i<20 ; i++) {
-        setPixel(100,(110+i),100,0,(100+i));
-    }
-    
-    //Test StringText 1
-    StringText* stringText1 = new StringText(50, 200, "getpixelresponse: "+getPixel(99, 110), "Arial", 20, 0,100,0,100);
-    stringText1->draw();
-
-    //Test StringText 2
-    StringText* stringText2 = new StringText(50, 250, "getpixelresponse: "+getPixel(100, 110), "Arial", 20, 0,100,0,100);
-    stringText2->draw();
-    
-    //Test StringText 3
-    StringText* stringText3 = new StringText(50, 300, "getpixelresponse: "+getPixel(101, 110), "Arial", 20, 0,100,0,100);
-    stringText3->draw();
-    */
-    /*
-    while(true){
-        
-    }*/
     return 0;
 }
 
