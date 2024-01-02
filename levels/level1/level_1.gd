@@ -22,7 +22,9 @@ func _on_gui_start():
 		if value == 5:
 			print("\nErgebniss: ", value, "\n")
 			SaveSettings.set_lvl1_status(true)
+			$Output.text = "Congratulations!"
 		else:
 			print("Wrong Block!")
+			$Output.text = "Try again!"
 	else:
 		print("Block placed on a wrong area")

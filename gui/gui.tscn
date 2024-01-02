@@ -118,6 +118,7 @@ texture_hover = ExtResource("12_3c34y")
 stretch_mode = 3
 
 [node name="Initial_Block_pos" type="StaticBody2D" parent="Control" groups=["collision", "initialpos"]]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Initial_Block_pos"]
 top_level = true

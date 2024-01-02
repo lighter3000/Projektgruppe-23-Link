@@ -28,7 +28,9 @@ func _on_gui_start():
 		if value1 && value2:
 			print("Richtig!")
 			SaveSettings.set_lvl2_status(true)
+			$Output.text = "Congratulations!"
 		else:
 			print("Falsch!")
+			$Output.text = "Try again!"
 	else: 
 		print("Block placed on a wrong area")
