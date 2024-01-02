@@ -54,7 +54,7 @@ func _on_area_2d_body_entered(body:StaticBody2D):
 			body.block_name = block
 			body.block_node = self.get_node(".")
 			
-		body._print_block_name()
+		#body._print_block_name()
 		
 		body_ref = body
 	if body.is_in_group("collision"):
@@ -73,7 +73,7 @@ func _on_area_2d_body_exited(body:StaticBody2D):
 			body.block_name = " "
 			body.block_node = null
 		
-		body._print_block_name()
+		#body._print_block_name()
 		
 	if body.is_in_group("collision"):
 		is_ontop = false
