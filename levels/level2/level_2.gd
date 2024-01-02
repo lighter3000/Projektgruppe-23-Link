@@ -34,3 +34,6 @@ func _on_gui_start():
 			$Output.text = "Try again!"
 	else: 
 		print("Block placed on a wrong area")
+	wrong_block = false
+	value1 = false
+	value2 = false
