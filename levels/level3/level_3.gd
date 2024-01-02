@@ -33,6 +33,7 @@ func _on_gui_start():
 		
 		if value and value2:
 			print("Richtig!")
+			SaveSettings.set_lvl3_status(true)
 		else:
 			print("Falsch!")
 	else: 

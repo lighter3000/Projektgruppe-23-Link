@@ -6,6 +6,11 @@ static var settings: Dictionary = {
 	'video': {
 		'full_screen': true,
 		'vsync': true
+	},
+	'level_completion': {
+		'lvl1': false,
+		'lvl2': false,
+		'lvl3': false
 	}
 }
 
@@ -63,5 +68,35 @@ static func is_vsync_activated():
 static func set_vsync_activation(active):
 	video()['vsync'] = active
 
+	if auto_flush:
+		save_settings()
+
+static func level_completion():
+	return settings['level_completion']
+
+static func lvl1_status():
+	return level_completion()['lvl1']
+
+static func set_lvl1_status(status):
+	level_completion()['lvl1'] = status
+	
+	if auto_flush:
+		save_settings()
+
+static func lvl2_status():
+	return level_completion()['lvl2']
+
+static func set_lvl2_status(status):
+	level_completion()['lvl2'] = status
+	
+	if auto_flush:
+		save_settings()
+
+static func lvl3_status():
+	return level_completion()['lvl3']
+
+static func set_lvl3_status(status):
+	level_completion()['lvl3'] = status
+	
 	if auto_flush:
 		save_settings()

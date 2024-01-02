@@ -27,6 +27,7 @@ func _on_gui_start():
 		
 		if value1 && value2:
 			print("Richtig!")
+			SaveSettings.set_lvl2_status(true)
 		else:
 			print("Falsch!")
 	else: 

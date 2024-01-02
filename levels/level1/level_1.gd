@@ -21,6 +21,7 @@ func _on_gui_start():
 			value = block.execute(starting_value)
 		if value == 5:
 			print("\nErgebniss: ", value, "\n")
+			SaveSettings.set_lvl1_status(true)
 		else:
 			print("Wrong Block!")
 	else:
