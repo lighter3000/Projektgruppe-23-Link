@@ -1,15 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://ej3vse4a5ixm"]
+[gd_scene load_steps=13 format=3 uid="uid://ej3vse4a5ixm"]
 
 [ext_resource type="Script" path="res://levels/level2/level_2.gd" id="1_emovd"]
 [ext_resource type="Texture2D" uid="uid://31wueaxyfk3e" path="res://levels/level2/assets/background_level_2.png" id="2_vapo1"]
 [ext_resource type="PackedScene" uid="uid://c4nnml61qhs0j" path="res://gui/gui.tscn" id="3_0o0sf"]
 [ext_resource type="PackedScene" uid="uid://wdpttcyoepl3" path="res://game_objects/Drag&Drop/drag_area.tscn" id="4_pw3ct"]
 [ext_resource type="PackedScene" uid="uid://c4xwakfr5oonp" path="res://game_objects/end_block/end_block.tscn" id="5_tmgx5"]
-[ext_resource type="PackedScene" uid="uid://y0u1veo1swd1" path="res://game_objects/if_block/if_block.tscn" id="6_ptwop"]
 [ext_resource type="PackedScene" uid="uid://qs3du0q4n3vx" path="res://game_objects/start_block/start_block.tscn" id="7_0eetf"]
-[ext_resource type="PackedScene" uid="uid://cjlxdtwtvd7mw" path="res://game_objects/while_block/while_block.tscn" id="8_7tlka"]
+[ext_resource type="PackedScene" uid="uid://cae0ronckl5tf" path="res://game_objects/if_block/if_block_variants/if_block_4.tscn" id="8_lns1u"]
 [ext_resource type="PackedScene" uid="uid://i4rmt6oc1lp6" path="res://game_objects/finish_block/finish_block.tscn" id="9_affri"]
-[ext_resource type="PackedScene" uid="uid://dqj3vvbn5sdpr" path="res://levels/level1/Level_1_Blocks/whileblock_5.tscn" id="10_7subp"]
+[ext_resource type="PackedScene" uid="uid://cmqh2k7iarxt5" path="res://game_objects/if_block/if_block_variants/if_block_6.tscn" id="9_x6psg"]
+[ext_resource type="PackedScene" uid="uid://bin8qir0daru5" path="res://game_objects/if_block/if_block_variants/if_block_7.tscn" id="10_4c7i2"]
+[ext_resource type="PackedScene" uid="uid://3bksofsdu6o5" path="res://game_objects/if_block/if_block_variants/if_block_8.tscn" id="11_yfy48"]
+[ext_resource type="PackedScene" uid="uid://lo08kgx2yc2c" path="res://game_objects/if_block/if_block_variants/if_block_10.tscn" id="12_bbk57"]
 
 [node name="level_2" type="Node2D" groups=["level2"]]
 script = ExtResource("1_emovd")
@@ -23,63 +25,63 @@ expand_mode = 1
 
 [node name="gui" parent="." instance=ExtResource("3_0o0sf")]
 
-[node name="Level-Objects" type="VBoxContainer" parent="."]
-top_level = true
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = 556.0
-offset_right = 1152.0
-offset_bottom = 648.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="DragArea" parent="Level-Objects" instance=ExtResource("4_pw3ct")]
+[node name="DragArea" parent="." instance=ExtResource("4_pw3ct")]
 top_level = true
 position = Vector2(539, 250)
 
-[node name="DragArea2" parent="Level-Objects" instance=ExtResource("4_pw3ct")]
+[node name="DragArea2" parent="." instance=ExtResource("4_pw3ct")]
 top_level = true
 position = Vector2(892, 165)
 
-[node name="DragArea3" parent="Level-Objects" instance=ExtResource("4_pw3ct")]
+[node name="DragArea3" parent="." instance=ExtResource("4_pw3ct")]
 top_level = true
 position = Vector2(383, 344)
 
-[node name="DragArea4" parent="Level-Objects" instance=ExtResource("4_pw3ct")]
+[node name="DragArea4" parent="." instance=ExtResource("4_pw3ct")]
 top_level = true
 position = Vector2(643, 343)
 
-[node name="DragArea5" parent="Level-Objects" instance=ExtResource("4_pw3ct")]
+[node name="DragArea5" parent="." instance=ExtResource("4_pw3ct")]
 top_level = true
 position = Vector2(664, 480)
 
-[node name="DragArea6" parent="Level-Objects" instance=ExtResource("4_pw3ct")]
+[node name="DragArea6" parent="." instance=ExtResource("4_pw3ct")]
 top_level = true
 position = Vector2(941, 480)
 
-[node name="end_block" parent="Level-Objects" instance=ExtResource("5_tmgx5")]
+[node name="end_block" parent="." instance=ExtResource("5_tmgx5")]
 top_level = true
-position = Vector2(539, 604)
+position = Vector2(808, 608)
 
-[node name="if_block" parent="Level-Objects" instance=ExtResource("6_ptwop")]
+[node name="end_block3" parent="." instance=ExtResource("5_tmgx5")]
 top_level = true
-position = Vector2(705, 599)
+position = Vector2(1064, 608)
 
-[node name="start_block" parent="Level-Objects" instance=ExtResource("7_0eetf")]
+[node name="end_block2" parent="." instance=ExtResource("5_tmgx5")]
+top_level = true
+position = Vector2(936, 608)
+
+[node name="start_block" parent="." instance=ExtResource("7_0eetf")]
 top_level = true
 position = Vector2(124, 331)
 
-[node name="while_block" parent="Level-Objects" instance=ExtResource("8_7tlka")]
-top_level = true
-position = Vector2(153, 603)
-
-[node name="finish_block" parent="Level-Objects" instance=ExtResource("9_affri")]
+[node name="finish_block" parent="." instance=ExtResource("9_affri")]
 top_level = true
 position = Vector2(974, 326)
 
-[node name="whileblock_5" parent="Level-Objects" instance=ExtResource("10_7subp")]
-top_level = true
-position = Vector2(332, 600)
+[node name="if_block_4" parent="." instance=ExtResource("8_lns1u")]
+position = Vector2(104, 608)
+
+[node name="if_block_6" parent="." instance=ExtResource("9_x6psg")]
+position = Vector2(232, 608)
+
+[node name="if_block_7" parent="." instance=ExtResource("10_4c7i2")]
+position = Vector2(360, 608)
+
+[node name="if_block_8" parent="." instance=ExtResource("11_yfy48")]
+position = Vector2(488, 608)
+
+[node name="if_block_10" parent="." instance=ExtResource("12_bbk57")]
+position = Vector2(616, 608)
+
+[connection signal="start" from="gui" to="." method="_on_gui_start"]

@@ -29,3 +29,4 @@ func _on_help_button_pressed():
 
 func _on_start_button_pressed():
 	emit_signal("start")
+

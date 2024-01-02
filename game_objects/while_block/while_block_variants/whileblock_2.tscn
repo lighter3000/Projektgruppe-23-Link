@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cnilimj0r2p7b"]
 
-[ext_resource type="Script" path="res://levels/level1/Level_1_Blocks/whileblock_2.gd" id="1_h43fp"]
+[ext_resource type="Script" path="res://game_objects/while_block/while_block_variants/whileblock_2.gd" id="1_h43fp"]
 [ext_resource type="Texture2D" uid="uid://bb22317h2vw3t" path="res://game_objects/assets/while_block.png" id="2_la341"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27i35"]
@@ -9,6 +9,7 @@
 size = Vector2(84, 66)
 
 [node name="whileblock_2" type="StaticBody2D" groups=["collision", "while_block"]]
+top_level = true
 script = ExtResource("1_h43fp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -8,12 +8,13 @@ var wrong_block = false
 
 @onready var wrong_drag_areas = [$DragArea, $DragArea2, $DragArea3, $DragArea4, $DragArea6]
 
+
 func _on_gui_start():
 	print("\nstart button pressed!\n")
 	for area in wrong_drag_areas:
 		if area.has_block():
 			wrong_block = true
-			print("Block placed on a wrong area")
+
 	if wrong_block == false:
 		if $DragArea5.has_block():
 			var block = $DragArea5.get_block_node()
@@ -22,3 +23,5 @@ func _on_gui_start():
 			print("\nErgebniss: ", value, "\n")
 		else:
 			print("Wrong Block!")
+	else:
+		print("Block placed on a wrong area")

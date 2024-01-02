@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://hcbdeqesddwr" path="res://gui/Help_popup.tscn" id="13_r1k67"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j4oce"]
-size = Vector2(1152, 92)
+size = Vector2(1152, 80)
 
 [node name="gui" type="Node2D"]
 script = ExtResource("1_wri14")
@@ -87,7 +87,7 @@ stretch_mode = 3
 [node name="title" type="Label" parent="Control/MarginContainer/VBoxContainer/toolbar_top_margin/toolbar_top/left_items"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-text = "Level 1"
+text = "Level Name"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -118,11 +118,10 @@ texture_hover = ExtResource("12_3c34y")
 stretch_mode = 3
 
 [node name="Initial_Block_pos" type="StaticBody2D" parent="Control" groups=["collision", "initialpos"]]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Initial_Block_pos"]
 top_level = true
-position = Vector2(576, 602)
+position = Vector2(576, 608)
 shape = SubResource("RectangleShape2D_j4oce")
 
 [connection signal="ready" from="." to="." method="_on_ready"]
