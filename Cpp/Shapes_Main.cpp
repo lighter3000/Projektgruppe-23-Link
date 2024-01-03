@@ -456,7 +456,7 @@ int main() {
     //Rechteck
     Rectangle* blau = new Rectangle(100,200,50,50,0,0,255,10);
     blau->draw();
-    blau->floodFill2(150,250,0,0,255,getJPanelWidth(),getJPanelHeight());
+    blau->floodFill2(125,225,0,0,255,getJPanelWidth(),getJPanelHeight());
 
         
     //Text
@@ -469,9 +469,10 @@ int main() {
     
     
     //Kreis   
-        Circle* gruen = new Circle(400,250,50,0,255,0,5);
-        gruen->draw();
+    Circle* gruen = new Circle(400,250,50,0,255,0,5);
+    gruen->draw();
  
+    //Dreieck
     Triangle* weiss = new Triangle(750, 250, 500, 150, 600, 285, 255, 255, 255, 5);
     weiss->draw();
 
