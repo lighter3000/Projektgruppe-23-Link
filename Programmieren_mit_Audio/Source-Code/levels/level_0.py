@@ -1,4 +1,4 @@
-tutorial = "<p class=\"p-font\"><b>Verstehe und Probiere die Verwendung von Kommentaren in Python und lerne die grundlegende Funktionen der Turtle-Grafik kennen: forward(), backward(), left(), right() und color()</b></p><br/><p class=\"p-font\">Kommentare helfen dabei, den Code zu dokumentieren und zu erklären, was etwas macht.<br/>Dies hilft anderen Entwicklern als auch dir selbst in der Zukunft, den Code leichter zu verstehen.</p><pre class=\"code-hint\"><code><span class=\"code-hint-font\"># Das ist ein Kommentar\n# Hier sind die Funktionen\nt.color(\"red\")\t# Setzt die Zeichenfarbe auf Rot\nt.forward(100)\t# Bewegt die Turtle 100 Einheiten nach vorne\nt.backward(50)\t# Bewegt die Turtle 50 Einheiten nach hinten\nt.right(90)\t# Dreht die Turtle um 90 Grad nach Rechts\nt.left(45)\t# Dreht die Turtle um 45 Grad nach Links</span></code></pre>"
-init_code = "t = init_turtle(turtle) # Diese Zeile ist schreibgeschützt\n\n"
-written_code = "t = init_turtle(turtle) # Diese Zeile ist schreibgeschützt\n\n"
-solution_code = "t = init_turtle(turtle) # Diese Zeile ist schreibgeschützt\n\nt.color(\"red\")\t# Zeichenfarbe wird auf Rot gesetzt\nt.forward(100)\t# Bewegt die Turtle 100 Einheiten nach vorne\nt.right(90)\t# Dreht die Turtle um 90 Grad nach Rechts\nt.color(\"blue\")\t# Zeichenfarbe wird auf Blau gesetzt\nt.backward(100)\t# Bewegt die Turtle 100 Einheiten nach hinten\nt.left(45)\t# Dreht die Turtle um 45 Grad nach Links\n"
+tutorial = "<p class=\"p-font\"><b>Programmieren mit Audio - Test Level</b></p><br/><p class=\"p-font\">Testlevel 00</p><pre class=\"code-hint\"><code><span class=\"code-hint-font\">Testtext</span></code></pre>"
+init_code = ""
+written_code = ""
+solution_code = ""

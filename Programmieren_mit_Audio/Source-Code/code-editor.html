@@ -31,22 +31,13 @@
     <!--                             Navbar                                       -->
     <div class="navbar-container">
         <div class="navbar-container-left">
-            <h3 class="navbar-title">Webanwendung auf Basis von turtle graphics und brython</h3>
+            <h3 class="navbar-title">Programmieren mit Audio</h3>
             <!--                         Level Select Buttons                         -->
             <button id="previous_level" class="navbar-button-left next-previous-button">-</button>
             <h3 id="level_title" class="level-title">Level 1</h3>
             <button id="next_level" class="navbar-button-left next-previous-button">+</button>
         </div>
         <div class="navbar-container-right ">
-            <!--                         Dropdown                                     -->
-            <div id="dropdown" class="dropdown">
-                <button id="dropdown-button" class="dropdown-button">Exportieren</button>
-                <ul id="dropdown-menu" class="dropdown-menu">
-                    <li><button id="export_download" class="dropdown-button">Download</button></li>
-                    <li><button id="export_print" class="dropdown-button">Drucken</button></li>
-                    <li><button id="export_qrcode" class="dropdown-button">QR-Code</button></li>
-                </ul>
-            </div>
             <!--                         Dark Mode Button                             -->
             <button id="dark-mode-button" class="navbar-button-right darkmode-button">Dark Mode</button>
         </div>
@@ -78,28 +69,12 @@
             <div class="button-container" id="button-area">
                 <button id="run_code" class="run-button" tabindex="-1">Run</button>
                 <button id="stop_code" class="run-button" tabindex="-1">Stop</button>
-                <button id="show_solution" class="solution-button button-right" tabindex="-1">Lösung</button>
-                <button id="show_init_code" class="initcode-button button-right" tabindex="-1">Start-Code</button>
-                <button id="toggle_coordinate_system" class="coordinatesystem-button button-right" tabindex="-1">Koordinatensystem</button>
             </div>
 
             <div class="vertical-spacer"></div>
         </div>
         <!--                         Right Container                              -->
         <div class="side-container side-right">
-            <div class="vertical-spacer"></div>
-            <!--                     Canvas Container                             -->
-            <div class="canvas-container area-container" id="canvas-area">
-                <p class="canvas-container-text">Canvas</p>
-                <!-- <div id="canvas" class="canvas">
-                    <div id="coordinates"></div>
-                </div> -->
-                <div>
-                    <div id="canvas" class="canvas"></div>
-                    <div id="coordinates" class="coordinates" style="display: block;"></div>
-                </div>
-            </div>
-
             <div class="vertical-spacer"></div>
             <!--                     Console Container                            -->
             <div class="console-container area-container" id="console-area">
