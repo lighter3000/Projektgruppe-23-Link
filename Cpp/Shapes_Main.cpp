@@ -477,7 +477,7 @@ int main() {
     weiss->draw();
 
     //Pixel
-        setPixel(325,250,0,0,0);
+    setPixel(325,250,0,0,0);
    
     return 0;
 }
