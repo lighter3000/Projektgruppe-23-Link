@@ -1,6 +1,7 @@
 # Inhaltsverzeichnis
 - Installation für Mac Geräte
 - Lernziele
+- Aufgaben / Level
 - Lösungen
 ## Installation für Mac-Geräte
 1. Virtualbox Version 7.0.12 installieren.
@@ -19,6 +20,16 @@ Dabei soll das Spiel ermöglichen, dass Spieler ohne programmiererische Vorkennt
 Der Spieler muss sich dabei keine Gedanken um die Programmiersprache, IDE oder die zugrunde liegende Syntax machen. 
 
 Der Spieler lernt die Benutzung von Bedingungen und Schleifen zur Lösung gestellter Aufgaben.
+## Level
+
+### Level 1:
+Level 1 führt Schleifen (While-Blöcke) ein. ...TODO
+
+### Level 2:
+Level 2 führt Bedingungen (IF-Blöcke) ein. ...TODO
+
+### Level 3:
+Level 3 verbindet die Verwendung von Schleifen und Bedingungen. ...TODO
 
 ## Lösungen
 
