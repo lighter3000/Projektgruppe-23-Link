@@ -25,6 +25,18 @@ CodeClash zeigt euch spielerisch wie Programme strukturell aufgebaut sind und wi
 
 - BACK-Button: Mit diesem Button kommt man zurück zur vorherigen Ansicht (Menüs).
 
+## Blöcke:
+
+- START-Block: Dieser Block ist statisch und symbolisiert den Programmstart.
+
+- ZIEL-Block: Dieser Block ist ebenfalls statisch und symbolisiert das Ende des Programms.
+
+- WHILE-Block: Dieser Block erhöht eine Variable (hier: x) so lange, bis der im Block angegebene Wert erreicht wurde und leitet das Signl dann zum nächsten Block weiter.
+
+- IF-Block: Dieser Block prüft, ob eine Variable (hier: x) einen gegebenen Wert hat oder nicht, je nachdem wird entweder der rote (false) oder der grüne (true) Ausgang verwendet. 
+
+- END-Block: Dieser Block wird symbolisch für den nicht verwendeten Ausgang eines IF-Blocks verwendet (hier meist "false").
+
 ## Zusammenfassung:
 
 Die verwendeten Blöcke symbolisieren unterschiedliche Strukturen und Funktionen, die man in fast jeder Programmiersprache wiederfindet. Ziel dieser Anwendung ist es, zu verstehen, wie diese Funktionen und Strukturen arbeiten, da diese universell auf alle Programmiersprachen anwendbar sind. So lassen sich mit CodeClash Programme auch ohne eine komplexere Programmiersprache schreiben, da für die Funktionen symbolisch einzelne Blöcke verwendet werden. 
