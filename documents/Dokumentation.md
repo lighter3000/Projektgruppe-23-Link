@@ -1,4 +1,6 @@
-# Die Einleitung
+# Dokumentation: CodeClash
+
+## Die Einleitung
 
 Dieses Projekt hat das Ziel, ein Programm zu entwickeln, welches Schülern an einem eventuellen tag der offenen Tür, die Informatik näher zu bringen.
 Das Ergebnis des Projekts ist ein 2D-Spiel auf Drag&Drop basis in der Godot Engine, bei dem die Schüler lernen wie bestimmte Elemente funktionieren, die in nahezu allen Programmiersprachen vorkommen.
@@ -9,15 +11,15 @@ Zum Abschluss folgt ein direktes Beispiel anhand des ersten levels, in dem noche
 
 
 
-Die Anforderungen an das Projekt
+## Die Anforderungen an das Projekt
 
 
 
-Die Entwicklungsumgebung
+## Die Entwicklungsumgebung
 
 
 
-Grafische Oberfläche
+## Grafische Oberfläche
 
 Leiste mit Blöcken am unteren Bildschirmrand: Diese Blöcke müssen platziert und teilweise kombiniert werden, um ein Programm zu erstellen und die Aufgabe zu bewältigen.
 
@@ -35,11 +37,11 @@ BACK-Button: Mit diesem Button kommt man zurück zur vorherigen Ansicht (Menüs)
 
 
 
-Beispiel
+## Beispiel
 
 
 
-Installation
+## Installation
 
 -Virtualbox Version 7.0.12 installieren.
 -Ubuntu Version 23.04 VM in Virtualbox aufsetzen.
@@ -50,5 +52,5 @@ Installation
 
 
 
-Ausblick
+## Ausblick
 
