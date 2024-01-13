@@ -31,7 +31,7 @@ CodeClash zeigt euch spielerisch wie Programme strukturell aufgebaut sind und wi
 
 - ZIEL-Block: Dieser Block ist ebenfalls statisch und symbolisiert das Ende des Programms.
 
-- WHILE-Block: Dieser Block erhöht eine Variable (hier: x) so lange, bis der im Block angegebene Wert erreicht wurde und leitet das Signl dann zum nächsten Block weiter.
+- WHILE-Block: Dieser Block erhöht eine Variable (hier: x) so lange, bis der im Block angegebene Wert erreicht wurde und leitet das Signal dann zum nächsten Block weiter.
 
 - IF-Block: Dieser Block prüft, ob eine Variable (hier: x) einen gegebenen Wert hat oder nicht, je nachdem wird entweder der rote (false) oder der grüne (true) Ausgang verwendet. 
 
