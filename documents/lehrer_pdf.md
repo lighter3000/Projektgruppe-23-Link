@@ -17,5 +17,6 @@
 ### Level 1: 
 ![Loesung 1](documents/loesungen/loesung_level1.PNG)
 ### Level 2: 
-
+![Loesung 2](documents/loesungen/loesung_level2.PNG)
 ### Level 3: 
+![Loesung 3](documents/loesungen/loesung_level3.PNG)
