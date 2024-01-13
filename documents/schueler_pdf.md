@@ -1,13 +1,15 @@
+# Schülerhandbuch: CodeClash
+
 ## Ziele:
 
 - Grundliegende Einführung in typische Funktionen der Programmierung
 - Spielerisches Lernen von Programmstrukturen und deren Logik
 
-## Einführung
+## Einführung:
 
 CodeClash zeigt euch spielerisch wie Programme strukturell aufgebaut sind und wie verschiedene Bausteine eines Programms funktionieren
 
-## Benutzeroberfläche
+## Benutzeroberfläche:
 
 - Leiste mit Blöcken am unteren Bildschirmrand: Diese Blöcke müssen platziert und teilweise kombiniert werden, um ein Programm zu erstellen und die Aufgabe zu bewältigen.
 
@@ -23,6 +25,6 @@ CodeClash zeigt euch spielerisch wie Programme strukturell aufgebaut sind und wi
 
 - BACK-Button: Mit diesem Button kommt man zurück zur vorherigen Ansicht (Menüs).
 
-## Ziele
+## Zusammenfassung:
 
 Die verwendeten Blöcke symbolisieren unterschiedliche Strukturen und Funktionen, die man in fast jeder Programmiersprache wiederfindet. Ziel dieser Anwendung ist es, zu verstehen, wie diese Funktionen und Strukturen arbeiten, da diese universell auf alle Programmiersprachen anwendbar sind. So lassen sich mit CodeClash Programme auch ohne eine komplexere Programmiersprache schreiben, da für die Funktionen symbolisch einzelne Blöcke verwendet werden. 
