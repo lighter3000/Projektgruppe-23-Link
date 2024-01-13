@@ -7,7 +7,7 @@
 
 ## Einführung:
 
-CodeClash zeigt euch spielerisch wie Programme strukturell aufgebaut sind und wie verschiedene Bausteine eines Programms funktionieren
+CodeClash zeigt euch spielerisch wie Programme strukturell aufgebaut sind und wie verschiedene Bausteine eines Programms funktionieren.
 
 ## Benutzeroberfläche:
 
