@@ -2,7 +2,7 @@
 
 ## Ziele:
 
-- Grundliegende Einführung in typische Funktionen der Programmierung
+- Grundlegende Einführung in typische Funktionen der Programmierung
 - Spielerisches Lernen von Programmstrukturen und deren Logik
 
 ## Einführung:
