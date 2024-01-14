@@ -109,4 +109,4 @@ Die grundlegenden Anforderungen, welche and das Projekt gestellt wurden, sind re
 Wie der Leser sicher schon bemerkt hat gibt es derzeit nur 3 grundlegende Level, welche um weitere Level erweitert werden können.
 Ebenso gibt es derzeit nur simple while-schleifen und if-abfragen in den Aufgaben. Neue Blöcke wie z.B. Addition oder Subtraktion würden dem Spiel viele neue Levelmöglichkeiten geben.
 Ebenso kann dynamisches Feedback in den Leveln und ein ausführliches Tutorial dem Spieler eine neue Stufe an Immersion geben.
-Diese Ideen und mehr könnte der nächste Student, welcher an dem Projekt arbeitet umsetzen und erweitern.
+Diese Ideen und weitere könnte der nächste Student, welcher an dem Projekt arbeitet, umsetzen und erweitern.
