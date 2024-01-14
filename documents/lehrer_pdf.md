@@ -66,6 +66,7 @@ Um zu prüfen, ob das Programm die gestellten Anforderungen erfüllt drückt der
 
 
 ## Lösungen
+Ist ein Level korrekt gelöst wird dies dem Spieler in der oberen Leiste angezeigt. In der Level-Übersicht verändert sich die Farbe des Level-Buttons, sollte das Level einmal korrekt gelöst worden sein. 
 
 ### Level 1: 
 ![Loesung 1](documents/loesungen/loesung_level1.PNG)
