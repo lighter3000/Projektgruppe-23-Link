@@ -70,25 +70,23 @@ Anhand einer Baumstruktur werden vorgefertigte Elemente in eine Szene gelegt. Di
 
 - START-Block: Dieser Block ist statisch und symbolisiert den Programmstart.
 
-![Start_Block](game_objects/assets/start_block.png)
-
 <img src="game_objects/assets/start_block.png" height="256" />
 
 - ZIEL-Block: Dieser Block ist ebenfalls statisch und symbolisiert das Ende des Programms.
 
-![Ziel_Block](game_objects/assets/finish_block.png)
+<img src="game_objects/assets/finish_block.png" height="256" />
 
 - WHILE-Block: Dieser Block erhöht eine Variable (hier: x) so lange, bis der im Block angegebene Wert erreicht wurde und leitet das Signal dann zum nächsten Block weiter.
 
-![While_Block](game_objects/assets/while_block.png)
+<img src="game_objects/assets/while_block.png" height="256" />
 
 - IF-Block: Dieser Block prüft, ob eine Variable (hier: x) einen gegebenen Wert hat oder nicht, je nachdem wird entweder der rote (false) oder der grüne (true) Ausgang verwendet. 
 
-![If_Block](game_objects/assets/if_block.png)
+<img src="game_objects/assets/if_block.png" height="256" />
 
 - END-Block: Dieser Block wird symbolisch für den nicht verwendeten Ausgang eines IF-Blocks verwendet (hier meist "false").
 
-![End_Block](game_objects/assets/end_block.png)
+<img src="game_objects/assets/end_block.png" height="256" />
 
 ## Beispiel
 
