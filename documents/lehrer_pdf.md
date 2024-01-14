@@ -1,8 +1,9 @@
 # Inhaltsverzeichnis
 - Installation für Mac Geräte
 - Lernziele
-- Aufgaben / Level
+- Aufgabenbeschreibung
 - Lösungen
+
 ## Installation für Mac-Geräte
 1. Virtualbox Version 7.0.12 installieren.
 2. Ubuntu Version 23.04 VM in Virtualbox aufsetzen.
@@ -20,16 +21,20 @@ Dabei soll das Spiel ermöglichen, dass Spieler ohne programmiererische Vorkennt
 Der Spieler muss sich dabei keine Gedanken um die Programmiersprache, IDE oder die zugrunde liegende Syntax machen. 
 
 Der Spieler lernt die Benutzung von Bedingungen und Schleifen zur Lösung gestellter Aufgaben.
-## Level
 
-### Level 1:
-Level 1 führt Schleifen (While-Blöcke) ein. ...TODO
+## Aufgabenbeschreibung
 
-### Level 2:
-Level 2 führt Bedingungen (IF-Blöcke) ein. ...TODO
+Das Spielfeld besitzt einen unbeweglichen Start- und Endblock, sowie Felder auf denen Blöcke platziert werden können. 
 
-### Level 3:
-Level 3 verbindet die Verwendung von Schleifen und Bedingungen. ...TODO
+Der Startblock symbolisiert den Beginn des Programms und der Endblock das Ende des Programms.
+
+Die Felder werden als Platinen dargestellt und die Verbindung der Felder sind als Leiterbahnen dargestellt.
+
+Der Spieler zieht per Drag and Drop den gewünschten Block aus der unteren Leiste auf eines der Felder. 
+
+Um zu prüfen, ob das Programm die gestellten Anforderungen erfüllt drückt der Spieler auf den Start-Knopf in der oberen Leiste. Sollte die Lösung falsch sein oder der Spieler unzufrieden mit seiner Auswahl sein kann der Delete-Button gedrückt werden um das Level zurückzusetzen.
+
+
 
 ## Lösungen
 
