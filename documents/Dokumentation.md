@@ -72,6 +72,8 @@ Anhand einer Baumstruktur werden vorgefertigte Elemente in eine Szene gelegt. Di
 
 ![Start_Block](game_objects/assets/start_block.png)
 
+<img src="game_objects/assets/start_block.png" width="200" height="200" />
+
 - ZIEL-Block: Dieser Block ist ebenfalls statisch und symbolisiert das Ende des Programms.
 
 ![Ziel_Block](game_objects/assets/finish_block.png)
