@@ -12,7 +12,13 @@ Zum Abschluss folgt ein direktes Beispiel anhand des ersten levels, in dem noche
 
 ## Die Anforderungen an das Projekt
 
+Die Schüler sollen mithilfe dieses Spiels die grundlegenden Funktionen der Programmierung kennenlernen. 
 
+Dabei soll das Spiel ermöglichen, dass Spieler ohne programmiererische Vorkenntnisse Programme entwerfen können.
+
+Der Spieler muss sich dabei keine Gedanken um die Programmiersprache, IDE oder die zugrunde liegende Syntax machen. 
+
+Der Spieler lernt die Benutzung von Bedingungen und Schleifen zur Lösung gestellter Aufgaben.
 
 ## Die Entwicklungsumgebung
 
@@ -64,7 +70,7 @@ Anhand einer Baumstruktur werden vorgefertigte Elemente in eine Szene gelegt. Di
 
 - START-Block: Dieser Block ist statisch und symbolisiert den Programmstart.
 
-![Start_Block](game_objects/assets/start_block.png =256x190.75)
+![Start_Block](game_objects/assets/start_block.png)
 
 - ZIEL-Block: Dieser Block ist ebenfalls statisch und symbolisiert das Ende des Programms.
 
