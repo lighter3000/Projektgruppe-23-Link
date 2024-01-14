@@ -90,7 +90,7 @@ Die Felder werden als Platinen dargestellt und die Verbindung der Felder sind al
 Der Spieler zieht per Drag and Drop die gewünschten Blöcke aus der unteren Leiste auf eines der Felder.
 Um zu prüfen, ob das Programm die gestellten Anforderungen erfüllt drückt der Spieler auf den Start-Knopf in der oberen Leiste. Sollte die Lösung des Spielers falsch sein oder der Spieler unzufrieden mit seiner Auswahl sein kann der Delete-Button gedrückt werden um das Level zurückzusetzen.
 
-![Loesung_level_1](documents/loesungen/loesung_level1.PNG)
+<img src="documents/loesungen/loesung_level1.PNG" height="512" />
 
 ## Installation für Mac-Geräte
 
@@ -106,7 +106,7 @@ Um zu prüfen, ob das Programm die gestellten Anforderungen erfüllt drückt der
 ## Ausblick
 
 Die grundlegenden Anforderungen, welche and das Projekt gestellt wurden, sind realisiert. Das Projektergebnis hat jedoch noch viel Potenzial.
-Wie der Leser sicher schon bemerkt hat gibt es derzeit nut 3 grundlegende Level, welche um weite erweitert werden können.
-Ebenso gibt es derzeit nur simple while und if schleifen in den Aufgaben. Neue Blöcke wie z.B. Addition oder Subtraktion würden dem Spiel viele mögliche Levelmöglichkeiten geben.
-Ebenso kann dynamisches Feedback in den Leveln und ein ausführliches Tutorial dem Spieler ein neues level an immersion geben.
+Wie der Leser sicher schon bemerkt hat gibt es derzeit nur 3 grundlegende Level, welche um weitere Level erweitert werden können.
+Ebenso gibt es derzeit nur simple while-schleifen und if-abfragen in den Aufgaben. Neue Blöcke wie z.B. Addition oder Subtraktion würden dem Spiel viele neue Levelmöglichkeiten geben.
+Ebenso kann dynamisches Feedback in den Leveln und ein ausführliches Tutorial dem Spieler eine neue Stufe an Immersion geben.
 Diese Ideen und mehr könnte der nächste Student, welcher an dem Projekt arbeitet umsetzen und erweitern.
