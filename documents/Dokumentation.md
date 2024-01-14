@@ -8,17 +8,12 @@ Das Ergebnis des Projekts ist ein 2D-Spiel auf Drag&Drop basis in der Godot Engi
 In der folgenden Arbeit werden die Anforderungen der Anwendung sowie die Entwicklungsumgebung genauer erläutert. Im Anschluss wird die Grafische Oberfläche der Anwendung und der grobe Ablauf eines levels beschrieben.
 Zum Abschluss folgt ein direktes Beispiel anhand des ersten levels, in dem nocheinmal ein konkretes Beispiel zur veranschaulichung des Spielablaufs erläutert wird.
 
-
-
 ## Die Anforderungen an das Projekt
 
-Die Schüler sollen mithilfe dieses Spiels die grundlegenden Funktionen der Programmierung kennenlernen. 
-
-Dabei soll das Spiel ermöglichen, dass Spieler ohne programmiererische Vorkenntnisse Programme entwerfen können.
-
-Der Spieler muss sich dabei keine Gedanken um die Programmiersprache, IDE oder die zugrunde liegende Syntax machen. 
-
-Der Spieler lernt die Benutzung von Bedingungen und Schleifen zur Lösung gestellter Aufgaben.
+- Die Schüler sollen mithilfe dieses Spiels die grundlegenden Funktionen der Programmierung kennenlernen. 
+- Dabei soll das Spiel ermöglichen, dass Spieler ohne programmiererische Vorkenntnisse Programme entwerfen können.
+- Der Spieler muss sich dabei keine Gedanken um die Programmiersprache, IDE oder die zugrunde liegende Syntax machen. 
+- Der Spieler lernt die Benutzung von Bedingungen und Schleifen zur Lösung gestellter Aufgaben.
 
 ## Die Entwicklungsumgebung
 
@@ -89,6 +84,11 @@ Anhand einer Baumstruktur werden vorgefertigte Elemente in eine Szene gelegt. Di
 <img src="game_objects/assets/end_block.png" height="256" />
 
 ## Beispiel
+Das Spielfeld besitzt einen unbeweglichen Start- und Zielblock, sowie Felder auf denen Blöcke platziert werden können.
+Der Startblock symbolisiert den Beginn des Programms und der Zielblock das Ende des Programms.
+Die Felder werden als Platinen dargestellt und die Verbindung der Felder sind als Leiterbahnen dargestellt.
+Der Spieler zieht per Drag and Drop die gewünschten Blöcke aus der unteren Leiste auf eines der Felder.
+Um zu prüfen, ob das Programm die gestellten Anforderungen erfüllt drückt der Spieler auf den Start-Knopf in der oberen Leiste. Sollte die Lösung des Spielers falsch sein oder der Spieler unzufrieden mit seiner Auswahl sein kann der Delete-Button gedrückt werden um das Level zurückzusetzen.
 
 ![Loesung_level_1](documents/loesungen/loesung_level1.PNG)
 
