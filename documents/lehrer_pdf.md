@@ -64,6 +64,8 @@ Der Spieler zieht per Drag and Drop die gewünschten Blöcke aus der unteren Lei
 
 Um zu prüfen, ob das Programm die gestellten Anforderungen erfüllt drückt der Spieler auf den Start-Knopf in der oberen Leiste. Sollte die Lösung des Spielers falsch sein oder der Spieler unzufrieden mit seiner Auswahl sein kann der Delete-Button gedrückt werden um das Level zurückzusetzen.
 
+Das dritte Level baut auf den ersten beiden Level auf. Dem Spieler wird empfohlen die Level in der richtigen Reihenfolge zu absolvieren.
+
 
 ## Lösungen
 Ist ein Level korrekt gelöst wird dies dem Spieler in der oberen Leiste angezeigt. In der Level-Übersicht verändert sich die Farbe des Level-Buttons, sollte das Level einmal korrekt gelöst worden sein. 
