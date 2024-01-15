@@ -454,8 +454,8 @@ void MandelBrot::draw(int width,int height,int iteration){
 int main() {
    
     //Rectangle
-    Rectangle* blau = new Rectangle(100,200,50,50,0,0,255,10);
-    blau->fill();
+    Rectangle* blau = new Rectangle(0,399,799,200,255,255,255,10);
+    schnee->fill();
     schnee2->draw();
     delete schnee;
     delete schnee2;
