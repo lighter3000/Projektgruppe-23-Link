@@ -456,25 +456,36 @@ void MandelBrot::draw(int width,int height,int iteration){
 //----------------------------------------------------------------------------------------
 int main() {
    
-    //MandekbBrot
-    //MandelBrot* mb = new MandelBrot();
-    //mb->draw(getJPanelWidth(),getJPanelHeight(),1000);
-   
-    
-    //Rectangle::Rectangle(int x, int y, int width,int height,int red,int green,int blue, int lineWidth){
-
-    Rectangle* stump = new Rectangle(125,250,50,200,5,91,58,10);
-    stump->draw();
-    stump->floodFill2(150,350,91,58,41,getJPanelWidth(),getJPanelHeight());
-
     //Rectangle
-    Rectangle* schnee = new Rectangle(0,399,799,200,255,255,255,10);
-    schnee->draw();
-    //schnee->floodFill2(550,500,255,255,255,getJPanelWidth(),getJPanelHeight());
+    Rectangle* blau = new Rectangle(0,399,799,200,255,255,255,10);
+    schnee->fill();
+    schnee2->draw();
+    delete schnee;
+    delete schnee2;
+
+
+    Rectangle* stump = new Rectangle(125,250,50,200,139,69,19,10);
+    Rectangle* stump2 = new Rectangle(125,250,50,200,0,0,0,1);
+    stump->fill();
+    stump2->draw();
     
-    Rectangle* sky = new Rectangle(0,0,799,399,5,213,250,10);
-    sky->draw();
-    //sky->floodFill2(210,200,5,213,250,getJPanelWidth(),getJPanelHeight());
+    int x1 = 100; int y = 150; int x2 = 200; int y3 = 100;
+   
+    for (int i = 1; i <= 4; i++){
+
+        Triangle* t = new Triangle(x1, y, x2, y, 150, y3, 0, 100, 0, 5);
+        Triangle* t2 = new Triangle(x1, y, x2, y, 150, y3, 0, 0, 0, 1);
+        t->fill();
+        t2->draw();
+	    delete t;
+        delete t2;
+
+	    x1 = x1 - 25;
+	    y = y + 50;
+	    x2 = x2 + 25;
+
+	    y3 = y3 + 30;
+    }
 
         
     //StringText
@@ -482,12 +493,9 @@ int main() {
     stringText->draw();
 
     //Line
-    /* Line* line1 = new Line(450, 550, 250, 150, 100, 0, 255, 5);
-    line1->draw();
+    // Line* line1 = new Line(450, 550, 250, 150, 100, 0, 255, 5);
+    //line1->draw();
     
-    Line* line2 = new Line(450, 350, 250, 150, 0, 100, 255, 5);
-    line2->draw();
-    */
     
     //Circle    
     int r = 75; int circleX = 550; int circleY =375;
@@ -495,8 +503,11 @@ int main() {
     for (int i = 1; i <= 3; i++){
 
         Circle* c = new Circle(circleX,circleY,r,255,255,255,5);
-        c->draw();
+        Circle* c2 = new Circle(circleX,circleY,r,0,0,0,1);
+        c->fill();
+        c2->draw();
         delete c;
+        delete c2;
 
         r = r - 25;
         circleX = circleX + 25;
@@ -506,46 +517,39 @@ int main() {
     int knopfY = 425;
     for (int i = 1; i <= 3; i++){
         Circle* c = new Circle(615,knopfY,10,255,94,5,5);
-        c->draw();
+        Circle* c2 = new Circle(615,knopfY,10,0,0,0,1);
+        c->fill();
+        c2->draw();
         delete c;
+        delete c2;
         knopfY = knopfY -50;
     }
 
     int AugeX = 610;
     for (int i = 1; i <= 2; i++){
         Circle* c = new Circle(AugeX,265,5,0,0,0,5);
-        c->draw();
+        c->fill();
         delete c;
         AugeX = AugeX + 20;
     }
-
-    Rectangle* hat1 = new Rectangle(575,230,100,25,0,0,0,10);
-    hat1->draw();
-    hat1->floodFill2(623,240,0,0,0,getJPanelWidth(),getJPanelHeight());
-    Rectangle* hat2 = new Rectangle(600,200,50,50,0,0,0,10);
-    hat2->draw();
-    hat2->floodFill2(625,214,0,0,0,getJPanelWidth(),getJPanelHeight());
+    //Rectangle::Rectangle(int x, int y, int width,int height,int red,int green,int blue, int lineWidth)
+    Rectangle* hat1 = new Rectangle(575,250,100,10,0,0,0,10);
+    hat1->fill();
     
+    Rectangle* hat2 = new Rectangle(600,200,50,50,0,0,0,10);
+    hat2->fill();
+    
+
     
     //Triangle       (100,500,200,300,300,500, new Color(102,0,153), 10)
 
     Triangle* nose = new Triangle(625, 280, 625, 290, 600, 285, 255, 165, 0, 5);
-    nose->draw();
+    nose->fill();
 
-    int x1 = 100; int y = 150; int x2 = 200; int y3 = 100;
-    for (int i = 1; i <= 4; i++){
-
-        Triangle* t = new Triangle(x1, y, x2, y, 150, y3, 0, 100, 0, 5);
-        t->draw();
-	    delete t;
-
-	    x1 = x1 - 25;
-	    y = y + 50;
-	    x2 = x2 + 25;
-
-	    y3 = y3 + 30;
-    }
-    
+    Line* arm_links = new Line(575, 340, 530, 300, 0, 0, 0, 5);
+    arm_links->draw();
+    Line* arm_rechts = new Line(670, 340, 720, 300, 0, 0, 0, 5);
+    arm_rechts->draw();
     
     //pixel
 
@@ -558,23 +562,8 @@ int main() {
     for(int i= 0; i<1000 ; i++) {
         setPixel(distribution1(gen),distribution2(gen),255,255,255);
     }
-    /*
-    //Test StringText 1
-    StringText* stringText1 = new StringText(50, 200, "getpixelresponse: "+getPixel(99, 110), "Arial", 20, 0,100,0,100);
-    stringText1->draw();
 
-    //Test StringText 2
-    StringText* stringText2 = new StringText(50, 250, "getpixelresponse: "+getPixel(100, 110), "Arial", 20, 0,100,0,100);
-    stringText2->draw();
-    
-    //Test StringText 3
-    StringText* stringText3 = new StringText(50, 300, "getpixelresponse: "+getPixel(101, 110), "Arial", 20, 0,100,0,100);
-    stringText3->draw();
-    */
-    /*
-    while(true){
-        
-    }*/
+
     return 0;
 }
 
