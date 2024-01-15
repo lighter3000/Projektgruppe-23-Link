@@ -7,6 +7,9 @@
 #include <iterator>
 #include <complex>
 
+#include <iostream>
+#include <random>
+
 using namespace std;
 //----------------------------------------------------------------------------------------
 //Shape
@@ -85,7 +88,7 @@ void Shape::floodFill(int x,int y,int red,int green,int blue,int jframeheight,in
         
   }
     }
-    
+ /*   
 void Shape::floodFill2(int x,int y,int red,int green,int blue,int jframewidth,int jframeheight){
     
     set<Position*> Points;
@@ -122,7 +125,7 @@ void Shape::floodFill2(int x,int y,int red,int green,int blue,int jframewidth,in
     }
     
 }
-
+*/
 //----------------------------------------------------------------------------------------
 //Line
 class Line : public Shape {
@@ -195,6 +198,7 @@ protected:
 public:
     Triangle(int x1P=0, int y1P=0, int x2P=0, int y2P=0, int x3P=0, int y3P=0, int red=0,int green=0,int blue=0, int _lineWidth=1);
     void draw();
+    void fill();
     //double area();
     string shapeType();
 
@@ -220,7 +224,10 @@ string Triangle::shapeType(){
 }
 
 void Triangle::draw(){
-    setTriangle(_position.x, _position.y, _position.x2, _position.y2, _position.x3, _position.y3, _red, _green, _blue, _lineWidth);
+    setDrawTriangle(_position.x, _position.y, _position.x2, _position.y2, _position.x3, _position.y3, _red, _green, _blue, _lineWidth);
+}
+void Triangle::fill(){
+    setFillTriangle(_position.x, _position.y, _position.x2, _position.y2, _position.x3, _position.y3, _red, _green, _blue, _lineWidth);
 }
 
 //----------------------------------------------------------------------------------------
@@ -242,6 +249,7 @@ protected:
 public:
     Circle(int xP=0, int yP=0, int radius=0, int red=0, int green=0,int blue=0, int lineWidth=1);
     void draw();
+    void fill();
     //double area();
     string shapeType();
 
@@ -268,8 +276,12 @@ string Circle::shapeType(){
 }
 
 void Circle::draw(){
-    setCircle(_position.x, _position.y, _radius, _red, _green, _blue, _lineWidth);
+    setDrawCircle(_position.x, _position.y, _radius, _red, _green, _blue, _lineWidth);
 }
+void Circle::fill(){
+    setFillCircle(_position.x, _position.y, _radius, _red, _green, _blue, _lineWidth);
+}
+
 
 //----------------------------------------------------------------------------------------
 //StringText
@@ -339,6 +351,7 @@ protected:
 public:
     Rectangle(int x=0, int y=0, int width=0,int height=0,int red=0,int green=0,int blue=0, int lineWidth=1);
     void draw();
+    void fill();
     //double area();
     string shapeType();
 
@@ -365,12 +378,12 @@ string Rectangle::shapeType(){
 
 void Rectangle::draw(){
 
-    int i = _position.x;
-    int w = _width;
+   // int i = _position.x;
+    //int w = _width;
 
 
 //Pixel
-    while(w >= 0){
+   /* while(w >= 0){
 
         setPixel(i,_position.y,_red,_green,_blue);
 
@@ -393,13 +406,18 @@ void Rectangle::draw(){
         i2++;
 
         h--;
-    }
+    }*/
     
-   //setRectangle(_position.x, _position.y, _width, _height, _red, _green, _blue, _lineWidth);
+   setDrawRectangle(_position.x, _position.y, _width, _height, _red, _green, _blue, _lineWidth);
+}
+
+void Rectangle::fill(){
+   setFillRectangle(_position.x, _position.y, _width, _height, _red, _green, _blue, _lineWidth);
 }
 
 //----------------------------------------------------------------------------------------
 //MandelBrot
+/*
 class MandelBrot:public Shape {
  
 public:
@@ -449,116 +467,76 @@ void MandelBrot::draw(int width,int height,int iteration){
             }
         }
 }
-
+*/
 //----------------------------------------------------------------------------------------
-int main() {
-   
-    //Rectangle
-    Rectangle* blau = new Rectangle(0,399,799,200,255,255,255,10);
-    schnee->fill();
-    schnee2->draw();
-    delete schnee;
-    delete schnee2;
+int main() {   
+
+    //Circle
+
+    Circle* c0 = new Circle(0,0,200,0,0,0,5);
+    c0->draw();
+
+    Circle* c1 = new Circle(0,0,200,200,0,0,5);
+    c1->fill();
 
 
-    Rectangle* stump = new Rectangle(125,250,50,200,139,69,19,10);
-    Rectangle* stump2 = new Rectangle(125,250,50,200,0,0,0,1);
-    stump->fill();
-    stump2->draw();
-    
-    int x1 = 100; int y = 150; int x2 = 200; int y3 = 100;
-   
-    for (int i = 1; i <= 4; i++){
+    //Triangle
 
-        Triangle* t = new Triangle(x1, y, x2, y, 150, y3, 0, 100, 0, 5);
-        Triangle* t2 = new Triangle(x1, y, x2, y, 150, y3, 0, 0, 0, 1);
-        t->fill();
-        t2->draw();
-	    delete t;
-        delete t2;
+    int triangle_position_x[10];
+    triangle_position_x[0] = 200;
+    triangle_position_x[1] = 300;
+    triangle_position_x[2] = 340;
+    triangle_position_x[3] = 300;
+    triangle_position_x[4] = 200;
+    triangle_position_x[5] = 100;
+    triangle_position_x[6] = 60;
+    triangle_position_x[7] = 100;
+    triangle_position_x[8] = 200;
+    triangle_position_x[9] = 300;
 
-	    x1 = x1 - 25;
-	    y = y + 50;
-	    x2 = x2 + 25;
+    int triangle_position_y[10];
+    triangle_position_y[0] = 60;
+    triangle_position_y[1] = 100;
+    triangle_position_y[2] = 200;
+    triangle_position_y[3] = 300;
+    triangle_position_y[4] = 340;
+    triangle_position_y[5] = 300;
+    triangle_position_y[6] = 200;
+    triangle_position_y[7] = 100;
+    triangle_position_y[8] = 60;
+    triangle_position_y[9] = 100;
 
-	    y3 = y3 + 30;
+    for(int i = 0; i<8; i++){
+        Triangle* t1 = new Triangle(triangle_position_x[i], triangle_position_y[i], triangle_position_x[i+1], triangle_position_y[i+1], triangle_position_x[i+2], triangle_position_y[i+2], 220, 220, 0, 3);
+        t1->draw();
     }
 
-        
-    //StringText
-    StringText* stringText = new StringText(250, 0, "Frohe Weihnachten", "Comic Sans", 24, 1,100,0,255);
-    stringText->draw();
 
-    //Line
-    // Line* line1 = new Line(450, 550, 250, 150, 100, 0, 255, 5);
-    //line1->draw();
-    
-    
-    //Circle    
-    int r = 75; int circleX = 550; int circleY =375;
-    int values[] = {375, 300, 250};
-    for (int i = 1; i <= 3; i++){
+    //Circle
 
-        Circle* c = new Circle(circleX,circleY,r,255,255,255,5);
-        Circle* c2 = new Circle(circleX,circleY,r,0,0,0,1);
-        c->fill();
-        c2->draw();
-        delete c;
-        delete c2;
+    int circle_position_x;
+    int circle_position_y;
 
-        r = r - 25;
-        circleX = circleX + 25;
-        circleY = values[i]; 
+    Circle* c001 = new Circle(100,0,100,0,0,255,3);
+    c001->draw();
+    Circle* c002 = new Circle(0,100,100,0,0,255,3);
+    c002->draw();
+    Circle* c003 = new Circle(200,100,100,0,0,255,3);
+    c003->draw();
+    Circle* c004 = new Circle(100,200,100,0,0,255,3);
+    c004->draw();
+
+    circle_position_x = 29;
+    for(int i = 1; i <= 2; i++){
+        circle_position_y = 29;
+        for(int j = 1; j <= 2; j++){
+            Circle* c06 = new Circle(circle_position_x,circle_position_y,100,0,0,255,3);
+            c06->draw();
+            circle_position_y += 142;
+        }
+        circle_position_x = circle_position_x + 142;
     }
 
-    int knopfY = 425;
-    for (int i = 1; i <= 3; i++){
-        Circle* c = new Circle(615,knopfY,10,255,94,5,5);
-        Circle* c2 = new Circle(615,knopfY,10,0,0,0,1);
-        c->fill();
-        c2->draw();
-        delete c;
-        delete c2;
-        knopfY = knopfY -50;
-    }
-
-    int AugeX = 610;
-    for (int i = 1; i <= 2; i++){
-        Circle* c = new Circle(AugeX,265,5,0,0,0,5);
-        c->fill();
-        delete c;
-        AugeX = AugeX + 20;
-    }
-    //Rectangle::Rectangle(int x, int y, int width,int height,int red,int green,int blue, int lineWidth)
-    Rectangle* hat1 = new Rectangle(575,250,100,10,0,0,0,10);
-    hat1->fill();
-    
-    Rectangle* hat2 = new Rectangle(600,200,50,50,0,0,0,10);
-    hat2->fill();
-    
-
-    
-    //Triangle       (100,500,200,300,300,500, new Color(102,0,153), 10)
-
-    Triangle* nose = new Triangle(625, 280, 625, 290, 600, 285, 255, 165, 0, 5);
-    nose->fill();
-
-    Line* arm_links = new Line(575, 340, 530, 300, 0, 0, 0, 5);
-    arm_links->draw();
-    Line* arm_rechts = new Line(670, 340, 720, 300, 0, 0, 0, 5);
-    arm_rechts->draw();
-    
-    //pixel
-
-    std::random_device rd;
-    std::mt19937 gen(rd());
-
-    std::uniform_int_distribution<int> distribution1(0,799);
-    std::uniform_int_distribution<int> distribution2(0,599);
-
-    for(int i= 0; i<1000 ; i++) {
-        setPixel(distribution1(gen),distribution2(gen),255,255,255);
-    }
 
     return 0;
 }
