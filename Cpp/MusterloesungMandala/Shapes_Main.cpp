@@ -453,117 +453,113 @@ void MandelBrot::draw(int width,int height,int iteration){
 //----------------------------------------------------------------------------------------
 int main() {
    
-    //MandekbBrot
-    //MandelBrot* mb = new MandelBrot();
-    //mb->draw(getJPanelWidth(),getJPanelHeight(),1000);
-   
-    
-    //Rectangle::Rectangle(int x, int y, int width,int height,int red,int green,int blue, int lineWidth){
-
     //Rectangle
-    //Rectangle* r1 = new Rectangle(200,200,250,250,100,0,255,5);
-    //r1->draw();
-    //r1->floodFill2(201,201,100,255,255,getJPanelWidth(),getJPanelHeight());
+    Rectangle* blau = new Rectangle(100,200,50,50,0,0,255,10);
+    blau->fill();
+    schnee2->draw();
+    delete schnee;
+    delete schnee2;
+
+
+    Rectangle* stump = new Rectangle(125,250,50,200,139,69,19,10);
+    Rectangle* stump2 = new Rectangle(125,250,50,200,0,0,0,1);
+    stump->fill();
+    stump2->draw();
     
-    //Rectangle* r2 = new Rectangle(100,100,450,450,10,100,100,5);
-    //r2->draw();
-    //r2->floodFill2(101,101,100,200,255,getJPanelWidth(),getJPanelHeight());
+    int x1 = 100; int y = 150; int x2 = 200; int y3 = 100;
+   
+    for (int i = 1; i <= 4; i++){
+
+        Triangle* t = new Triangle(x1, y, x2, y, 150, y3, 0, 100, 0, 5);
+        Triangle* t2 = new Triangle(x1, y, x2, y, 150, y3, 0, 0, 0, 1);
+        t->fill();
+        t2->draw();
+	    delete t;
+        delete t2;
+
+	    x1 = x1 - 25;
+	    y = y + 50;
+	    x2 = x2 + 25;
+
+	    y3 = y3 + 30;
+    }
 
         
     //StringText
-    //StringText* stringText = new StringText(0, 0, "Hello World!!!", "Arial", 24, 1,100,0,255);
-    //stringText->draw();
+    StringText* stringText = new StringText(250, 0, "Frohe Weihnachten", "Comic Sans", 24, 1,100,0,255);
+    stringText->draw();
 
     //Line
-    //Line* line1 = new Line(450, 550, 250, 150, 100, 0, 255, 5);
+    // Line* line1 = new Line(450, 550, 250, 150, 100, 0, 255, 5);
     //line1->draw();
     
-    //Line* line2 = new Line(450, 350, 250, 150, 0, 100, 255, 5);
-    //line2->draw();
     
-    
-    //Circle
-    Circle* c0 = new Circle(10,10,200,0,0,0,5);
-    c0->draw();
+    //Circle    
+    int r = 75; int circleX = 550; int circleY =375;
+    int values[] = {375, 300, 250};
+    for (int i = 1; i <= 3; i++){
 
-    Circle* c01 = new Circle(10,110,100,0,155,155,5);
-    c01->draw();
-    Circle* c02 = new Circle(110,10,100,0,155,155,5);
-    c02->draw();
-    Circle* c03 = new Circle(110,210,100,0,155,155,5);
-    c03->draw();
-    Circle* c04 = new Circle(210,110,100,0,155,155,5);
-    c04->draw();
+        Circle* c = new Circle(circleX,circleY,r,255,255,255,5);
+        Circle* c2 = new Circle(circleX,circleY,r,0,0,0,1);
+        c->fill();
+        c2->draw();
+        delete c;
+        delete c2;
 
-    int circle_position_x;
-    int circle_position_y;
-
-    circle_position_x = 44;
-    for(int i = 1; i <= 2; i++){
-        circle_position_y = 44;
-        for(int j = 1; j <= 2; j++){
-            Circle* c05 = new Circle(circle_position_x,circle_position_y,83,155,155,0,5);
-            c05->draw();
-            circle_position_y += 166;
-        }
-        circle_position_x = circle_position_x + 166;
+        r = r - 25;
+        circleX = circleX + 25;
+        circleY = values[i]; 
     }
 
-    Circle* c1 = new Circle(70,70,140,155,0,155,5);
-    c1->draw();
-
-    Circle* c2 = new Circle(140,140,70,155,0,0,5);
-    c2->draw();
-    
-    Circle* c11 = new Circle(70,150,60,0,0,155,5);
-    c11->draw();
-    Circle* c12 = new Circle(150,70,60,0,0,155,5);
-    c12->draw();
-    Circle* c13 = new Circle(150,230,60,0,0,155,5);
-    c13->draw();
-    Circle* c14 = new Circle(230,150,60,0,0,155,5);
-    c14->draw();
-
-    circle_position_x = 94;
-    for(int i = 1; i <= 2; i++){
-        circle_position_y = 94;
-        for(int j = 1; j <= 2; j++){
-            Circle* c15 = new Circle(circle_position_x,circle_position_y,58,0,155,0,5);
-            c15->draw();
-            circle_position_y += 116;
-        }
-        circle_position_x = circle_position_x + 116;
+    int knopfY = 425;
+    for (int i = 1; i <= 3; i++){
+        Circle* c = new Circle(615,knopfY,10,255,94,5,5);
+        Circle* c2 = new Circle(615,knopfY,10,0,0,0,1);
+        c->fill();
+        c2->draw();
+        delete c;
+        delete c2;
+        knopfY = knopfY -50;
     }
 
-//    Circle* c2 = new Circle(140,140,70,155,0,0,5);
-//    c2->draw();
+    int AugeX = 610;
+    for (int i = 1; i <= 2; i++){
+        Circle* c = new Circle(AugeX,265,5,0,0,0,5);
+        c->fill();
+        delete c;
+        AugeX = AugeX + 20;
+    }
+    //Rectangle::Rectangle(int x, int y, int width,int height,int red,int green,int blue, int lineWidth)
+    Rectangle* hat1 = new Rectangle(575,250,100,10,0,0,0,10);
+    hat1->fill();
+    
+    Rectangle* hat2 = new Rectangle(600,200,50,50,0,0,0,10);
+    hat2->fill();
+    
 
+    
     //Triangle       (100,500,200,300,300,500, new Color(102,0,153), 10)
-    //Triangle* triangle = new Triangle(200, 250, 250, 150, 100, 100, 255, 100, 0, 5);
-    //triangle->draw();
-    
-    /*
-    //Test
-    for(int i= 0; i<20 ; i++) {
-        setPixel(100,(110+i),100,0,(100+i));
-    }
-    
-    //Test StringText 1
-    StringText* stringText1 = new StringText(50, 200, "getpixelresponse: "+getPixel(99, 110), "Arial", 20, 0,100,0,100);
-    stringText1->draw();
 
-    //Test StringText 2
-    StringText* stringText2 = new StringText(50, 250, "getpixelresponse: "+getPixel(100, 110), "Arial", 20, 0,100,0,100);
-    stringText2->draw();
+    Triangle* nose = new Triangle(625, 280, 625, 290, 600, 285, 255, 165, 0, 5);
+    nose->fill();
+
+    Line* arm_links = new Line(575, 340, 530, 300, 0, 0, 0, 5);
+    arm_links->draw();
+    Line* arm_rechts = new Line(670, 340, 720, 300, 0, 0, 0, 5);
+    arm_rechts->draw();
     
-    //Test StringText 3
-    StringText* stringText3 = new StringText(50, 300, "getpixelresponse: "+getPixel(101, 110), "Arial", 20, 0,100,0,100);
-    stringText3->draw();
-    */
-    /*
-    while(true){
-        
-    }*/
+    //pixel
+
+    std::random_device rd;
+    std::mt19937 gen(rd());
+
+    std::uniform_int_distribution<int> distribution1(0,799);
+    std::uniform_int_distribution<int> distribution2(0,599);
+
+    for(int i= 0; i<1000 ; i++) {
+        setPixel(distribution1(gen),distribution2(gen),255,255,255);
+    }
+
     return 0;
 }
 
