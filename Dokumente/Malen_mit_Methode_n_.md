@@ -1,4 +1,4 @@
-# Malen mit Methode(n) -
+# Funktion fürs Färben -
 ### eine experimentelle Einführung in die Programmierung
 
 ## 1	&nbsp;	Lernziele
@@ -19,7 +19,7 @@ Dabei dieses Ziel zu erreichen kann helfen:
 
 Hilft auch im normalen Unterricht und bei den Hausaufgaben
 
-## 2	&nbsp;	Getting started
+## 2	&nbsp;	Vorbereitung
 
 Über den Finder[^3] sollte im Verzeichnis *Programme* eine Datei namens *ASCII.jar*, die aussieht wie eine heiße Tasse Kaffee, zu finden sein.
 
@@ -45,51 +45,13 @@ womit im selben Ordner wie die *Shapes_Main.cpp* eine Datei mit dem Namen *a.out
 
 welche sich mit dem "Choose" Button unserer Leinwand öffnen lässt und uns unser erstes Bild zeichnet.
 
-## 3	&nbsp;	Grundlagen
+## 3	&nbsp;	Variablen
 
-Wenn man nun in der *Shapes_Main.cpp* im Editor nach unten scrollt bis `int main(){` findet man folgende Aufrufe und Methoden:
+## 4	&nbsp;	Farben auf dem Bildschirm
 
-```
-    //Rechteck
-    Rectangle* blau = new Rectangle(100,200,50,50,0,0,255,10);
-    blau->fill();
-    
-    //Dreick
-    Triangle* weiss = new Triangle(750,250,500,150,600,250,255,255,255,10);
-    weiss->draw();
-      
-    //Text
-    StringText* stringText = new StringText(250, 0, "Hallo Welt", "Comic Sans", 24, 1,100,0,255);
-    stringText->draw();
+## 5	&nbsp;	Funktionen
 
-    //Linie
-    Line* rot = new Line(250, 250, 250, 150, 255, 0, 0, 5);
-    rot->draw();
-    
-    //Kreis   
-    Circle* gruen = new Circle(400,250,50,0,255,0,2);
-    gruen->draw();
-    
-    //Pixel
-    setPixel(325,250,0,0,0);
-```
-
-<p>"//" Zeigt einen Kommentar an, dieser wird von einem Programm nicht beachtet, sondern dient lediglich nur dir als Programmierer</p>
-<p>"Rectangle* blau = new Rectangle" ruft einen sogenannten Konstruktor auf welcher für uns ein neues Rechteck mit dem Namen "blau" erstellt.</p>
-Der interessante Teil hierbei sind die Zahlen die wir als sogenannte "Parameter" dabei übergeben.
-Wenn man diese Verändert, verändert sich das Rechteck. 
-Probier es einfach mal aus und verändere einige der Parameter und schaue was passiert aber Achtung, einige der Werte können nicht höher als 255 gesetzt werden, welche das sind und warum klären wir später.
-
-`blau->fill();` zeichnet dann tatsächlich das Rechteck bzw. `blau->draw();` würde dann nur den Umriss zeichnen wie du gut an dem Dreick oder Kreis sehen kannst
-
-
-Speichere die Änderungen, keine Sorge du kannst alle Änderungen mit dem Tastenkürzel "⌘ + Z"[^4] jederzeit rückgängig machen so lange du den Editor nicht schließt.
-Übersetze noch einmal mit dem Terminal mit `cpp Shapes-Main.cpp -o a` und dann lass dir mit dem "Choose" Button auf der Leinwand die Änderungen zeichnen.
-Sollten dir dabei Fehlermeldungen anzeigen dann frag doch einmal den Dozenten.
-
-## 4	&nbsp;	Variablen
-
-## 3	&nbsp;	Schleifen
+## 6	&nbsp;	Schleifen
 
 Du kannst auch einmal versuchen den Kreis oder die Linie mehrmals aufzurufen,
 wobei du vor allem darauf achten musst jeden neuen Kreis einen eigenen Namen zu geben zum Beispiel:
@@ -133,13 +95,52 @@ for(int i = 250; i <= 450; i = i + 100){
 }
 ```
 
-## 5	&nbsp;	If-Abfragen
+## 7	&nbsp;	If-Abfragen
 
-## 6	&nbsp;	Farben auf dem Bildschirm
+## 8	&nbsp;	Getting Started
 
-## 7	&nbsp;	Methoden
+Wenn man nun in der *Shapes_Main.cpp* im Editor nach unten scrollt bis `int main(){` findet man folgende Aufrufe und Methoden:
 
-## 8	&nbsp;	Glossar
+```
+    //Rechteck
+    Rectangle* blau = new Rectangle(100,200,50,50,0,0,255,10);
+    blau->fill();
+    
+    //Dreick
+    Triangle* weiss = new Triangle(750,250,500,150,600,250,255,255,255,10);
+    weiss->draw();
+      
+    //Text
+    StringText* stringText = new StringText(250, 0, "Hallo Welt", "Comic Sans", 24, 1,100,0,255);
+    stringText->draw();
+
+    //Linie
+    Line* rot = new Line(250, 250, 250, 150, 255, 0, 0, 5);
+    rot->draw();
+    
+    //Kreis   
+    Circle* gruen = new Circle(400,250,50,0,255,0,2);
+    gruen->draw();
+    
+    //Pixel
+    setPixel(325,250,0,0,0);
+```
+
+<p>"//" Zeigt einen Kommentar an, dieser wird von einem Programm nicht beachtet, sondern dient lediglich nur dir als Programmierer</p>
+<p>"Rectangle* blau = new Rectangle" ruft einen sogenannten Konstruktor auf welcher für uns ein neues Rechteck mit dem Namen "blau" erstellt.</p>
+Der interessante Teil hierbei sind die Zahlen die wir als sogenannte "Parameter" dabei übergeben.
+Wenn man diese Verändert, verändert sich das Rechteck. 
+Probier es einfach mal aus und verändere einige der Parameter und schaue was passiert aber Achtung, einige der Werte können nicht höher als 255 gesetzt werden, welche das sind und warum klären wir später.
+
+`blau->fill();` zeichnet dann tatsächlich das Rechteck bzw. `blau->draw();` würde dann nur den Umriss zeichnen wie du gut an dem Dreick oder Kreis sehen kannst
+
+Speichere die Änderungen, keine Sorge du kannst alle Änderungen mit dem Tastenkürzel "⌘ + Z"[^4] jederzeit rückgängig machen so lange du den Editor nicht schließt.
+Übersetze noch einmal mit dem Terminal mit `cpp Shapes-Main.cpp -o a` und dann lass dir mit dem "Choose" Button auf der Leinwand die Änderungen zeichnen.
+Sollten dir dabei Fehlermeldungen anzeigen dann frag doch einmal den Dozenten.
+
+## 9	&nbsp;	Konventionen
+
+## 10	&nbsp;	Glossar
 
 [^1]: Kommilitone: Jemand mit dir zur selben Zeit zur selben Schule geht.
 [^2]: Dozent: Lehrer an einer Hochschule.
