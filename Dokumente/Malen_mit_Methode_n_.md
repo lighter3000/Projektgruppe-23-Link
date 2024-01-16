@@ -1,4 +1,4 @@
-# Funktion fürs Färben -
+# Funktionen zum Färben -
 ### eine experimentelle Einführung in die Programmierung
 
 ## 1	&nbsp;	Lernziele
@@ -12,7 +12,7 @@ Mit der Bearbeitung der Aufgaben sollen folgenden Fähigkeiten erlangt werden:
 -   Eine Einleitung in weitere grundlegende Konzepte der Programmierung und ggf. Verwendung und Vertiefung dieser.
 
 Dabei dieses Ziel zu erreichen kann helfen:
--  Immer langsam, je mehr man versteht, umso weniger muss auswendig gelernt werden
+- Immer langsam, je mehr man versteht, umso weniger muss auswendig gelernt werden
 - Darüber reden, laut am besten mal mit dem Sitznachbar
 - Notizen machen am besten mit einem Stift, nicht nur die Übungen ansehen
 - Viel trinken, denn das Gehirn braucht Wasser. (Aber bitte nicht hier am Platz)
@@ -21,25 +21,31 @@ Hilft auch im normalen Unterricht und bei den Hausaufgaben
 
 ## 2	&nbsp;	Vorbereitung
 
-Über den Finder[^3] sollte im Verzeichnis *Programme* eine Datei namens *ASCII.jar*, die aussieht wie eine heiße Tasse Kaffee, zu finden sein.
+Auf dem Desktop befindet sich ein Ordner namens Programmiererlebnisse, zunächst klickst du einmal mit der rechten Maustaste darauf und
+wählst *Neues Terminal beim Ordner* aus
+
+![Neues Terminal Mac](TerminalMac.png)
+
+//todo bessere Bild
+![Terminal](Terminal.png)
+
+Danach öffne den Ordner und dort sollte ein Programm namens *ASCII.jar*, die aussieht wie eine heiße Tasse Kaffee, zu finden sein.
 
 ![Swing Programm im Finder](SwingImFinder.png)
 
-Wenn du diese öffnest, erscheint unsere Leinwand.
+Wenn du diese öffnest, erscheint unsere Leinwand. Sollte dem nicht der Fall sein und du bekommst stattdessen eine Fehlermeldung,
+dann starte das Programm übers Terminal mit dem Kommando `ASCII % java -jar ASCII.jar`
+
+![Option B jar zu öffnen](TerminalSwing.png)
 
 ![Unsere Swing Leinwand](SwingLeinwand.png)
 
-Des Weiteren benötigen man das Terminal, dass man öffnet, indem man
-//todo rausfinden wie man das Terminal auf einem mac öffnet
-
-![Terminal](Terminal.png)
-
 und zum Schluss öffnet man noch die *Shapes_Main.cpp* im 
-//todo editor auf mac herausfinden
+//todo editor
 
 und nun kann man im Terminal folgendes eingeben:
 
-`cpp Shapes-Main.cpp -o a`
+`clang Shapes-Main.cpp -o a`
 
 womit im selben Ordner wie die *Shapes_Main.cpp* eine Datei mit dem Namen *a.out* erscheinen sollte.
 
@@ -132,17 +138,52 @@ Der interessante Teil hierbei sind die Zahlen die wir als sogenannte "Parameter"
 Wenn man diese Verändert, verändert sich das Rechteck. 
 Probier es einfach mal aus und verändere einige der Parameter und schaue was passiert aber Achtung, einige der Werte können nicht höher als 255 gesetzt werden, welche das sind und warum klären wir später.
 
-`blau->fill();` zeichnet dann tatsächlich das Rechteck bzw. `blau->draw();` würde dann nur den Umriss zeichnen wie du gut an dem Dreick oder Kreis sehen kannst
+`blau->fill();` zeichnet dann tatsächlich das Rechteck bzw. `blau->draw();` würde dann nur den Umriss zeichnen wie du gut an dem Dreieck oder Kreis sehen kannst
 
 Speichere die Änderungen, keine Sorge du kannst alle Änderungen mit dem Tastenkürzel "⌘ + Z"[^4] jederzeit rückgängig machen so lange du den Editor nicht schließt.
-Übersetze noch einmal mit dem Terminal mit `cpp Shapes-Main.cpp -o a` und dann lass dir mit dem "Choose" Button auf der Leinwand die Änderungen zeichnen.
+Übersetze noch einmal mit dem Terminal mit `clang Shapes-Main.cpp -o a` und dann lass dir mit dem "Choose" Button auf der Leinwand die Änderungen zeichnen.
 Sollten dir dabei Fehlermeldungen anzeigen dann frag doch einmal den Dozenten.
 
 ## 9	&nbsp;	Konventionen
 
+Zum Schluss solltest du noch ein paar Konventionen[^5] und sogenannte "good practices" also gute Gewohnheiten beim Programmieren mitnehmen von denen du auch so einige
+hier schon gesehen hast
+
+Variablennamen sollten eindeutig sein und werden meist kleingeschrieben, wobei es mehrere möglichkeiten gibt, hier nur mal zwei.</br>
+-> erhöht die Lesbarkeit und hilft beim Verständnis
+```
+pixelPositionY = 125;
+```
+oder
+```
+pixel_position_y = 125;
+```
+
+Code zwischen {} sollte mit der *tab* Taste stets (weiter) eingerückt werden </br>
+Zudem werden geschweifte Klammern "{" bzw. "}" direkt hinter die Funktion geschrieben bzw. in dieselbe Reihe beim Schließen </br>
+-> erhöht die Lesbarkeit deutlich
+```
+if(x == true){
+    if(y == true){
+        do;
+    }
+}    
+```
+Vergesse nicht Kommentare zu schreiben und achte darauf die Umlaute wie ä ö ü vermieden werden sollten </br>
+-> Hilft deutlich beim Verständnis und Umlaute werden nicht von allen Texteditoren oder Entwicklungsumgebungen unterstützt 
+```
+//Hier koennte ihr Kommentar stehen
+```
+Somit solltest du eigentlich gewappnet[^6] sein das, wahrscheinlich von dem Dozenten vorgegeben Bild, gut zu zeichnen oder
+deiner kreativität freien lauf zu lassen.
+
+Viel Glück und Erfolg!
+
 ## 10	&nbsp;	Glossar
 
-[^1]: Kommilitone: Jemand mit dir zur selben Zeit zur selben Schule geht.
-[^2]: Dozent: Lehrer an einer Hochschule.
+[^1]: Jemand mit dir zur selben Zeit zur selben Schule geht.
+[^2]: Lehrer an einer Hochschule.
 [^3]: Datei Explorer nur für Mac.
-[^4]: ⌘ wird uch CMD oder Commmand Taste genannt 
+[^4]: ⌘ wird uch CMD oder Commmand Taste genannt.
+[^5]: Regeln oder Vereinbarungen für das (soziale) Verhalten.
+[^6]: Gut ausgerüstet/ausgestattet, um schwierige Situationen zu überstehen
