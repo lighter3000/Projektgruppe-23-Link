@@ -21,7 +21,7 @@ Hilft auch im normalen Unterricht und bei den Hausaufgaben
 
 ## 2	&nbsp;	Getting started
 
-Über den Finder[^3] sollte im Verzeichnis *Programme* eine Datei namens *SwingGui.jar*, die aussieht wie eine heiße Tasse Kaffee, zu finden sein.
+Über den Finder[^3] sollte im Verzeichnis *Programme* eine Datei namens *ASCII.jar*, die aussieht wie eine heiße Tasse Kaffee, zu finden sein.
 
 ![Swing Programm im Finder](SwingImFinder.png)
 
@@ -35,7 +35,7 @@ Des Weiteren benötigen man das Terminal, dass man öffnet, indem man
 ![Terminal](Terminal.png)
 
 und zum Schluss öffnet man noch die *Shapes_Main.cpp* im 
-//todo editor auf mac rausfinden
+//todo editor auf mac herausfinden
 
 und nun kann man im Terminal folgendes eingeben:
 
@@ -87,6 +87,8 @@ Speichere die Änderungen, keine Sorge du kannst alle Änderungen mit dem Tasten
 Übersetze noch einmal mit dem Terminal mit `cpp Shapes-Main.cpp -o a` und dann lass dir mit dem "Choose" Button auf der Leinwand die Änderungen zeichnen.
 Sollten dir dabei Fehlermeldungen anzeigen dann frag doch einmal den Dozenten.
 
+## 4	&nbsp;	Variablen
+
 ## 3	&nbsp;	Schleifen
 
 Du kannst auch einmal versuchen den Kreis oder die Linie mehrmals aufzurufen,
@@ -95,7 +97,7 @@ wobei du vor allem darauf achten musst jeden neuen Kreis einen eigenen Namen zu 
 ```
     //Kreis   
     Circle* gruen = new Circle(400,250,50,0,255,0,5);
-    gruen->draw();
+    gruen->fill();
     Circle* gruen2 = new Circle(400,350,50,0,255,0,5);
     gruen2->fill();
     Circle* gruen3 = new Circle(400,450,50,0,255,0,5);
@@ -130,7 +132,14 @@ for(int i = 250; i <= 450; i = i + 100){
     gruen->draw();
 }
 ```
-## N	&nbsp;	Glossar
+
+## 5	&nbsp;	If-Abfragen
+
+## 6	&nbsp;	Farben auf dem Bildschirm
+
+## 7	&nbsp;	Methoden
+
+## 8	&nbsp;	Glossar
 
 [^1]: Kommilitone: Jemand mit dir zur selben Zeit zur selben Schule geht.
 [^2]: Dozent: Lehrer an einer Hochschule.
