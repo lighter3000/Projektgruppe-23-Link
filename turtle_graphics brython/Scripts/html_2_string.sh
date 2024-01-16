@@ -11,7 +11,7 @@ display_help() {
     echo
     echo "Example:"
     echo "  $0 input.html"
-    echo "  $0 input.html -out output.txt"
+    echo "  $0 -out output.txt input.html"
     exit 0
 }
 

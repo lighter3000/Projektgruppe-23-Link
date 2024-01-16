@@ -1,34 +1,48 @@
-# Projektgruppe WS23/24 (Programmiererlebnisse)
-
-## Projektteam
+# Learn Python with Turtle Graphics
+Szenario der Projektgruppe WS23/24 (Programmiererlebnisse) an der Hochschule Emden / Leer
 
 ### Stakeholder: 
 - Prof. Carsten Link
-### Scrum Master
-- Viet Hai Nguyen (7021478)
-### Product Owner
-- Marcus Rosengart
+- Frederik Gosewehr, M.Eng.
 ### Entwicklerteam
-- Name 1
-- Name 2
-- Name 3
+- Tom Bohne
+- Niklas Hagengers
+- Noah Saibel
 
 
-## Geplantes Vorgehen (Scrum)
+## Webanwendung zum interaktiven Erlernen von Python
+![](<./turtle_graphics brython/images/Webapplication.png>)
+Dieses Projekt ist im Rahmen des Moduls Projektgruppe an der Hochschule Emden/Leer entstanden.
+Hierbei handelt es sich um eine interaktive Webanwendung, die Schülerinnen und Schülern ein Programmiererlebnis bietet. Die Webanwendung vermittelt spielerisch durch mehrere Level grundlegende Konzepte der Programmierung mit Python.
+Die clientseitige Logik basiert auf Brython, während Turtle Graphics für die Visualisierung im interaktiven Lernprozess verwendet wird.
 
-Geplantes Vorhaben, definiert durch den Arbeitsablauf mit Scrum:
-- Im Produkt Backlog befinden sich die angesammelten bekannten Anforderungen, also der Auftragsbestand
-    - Dieser wird in Form von sog. „Issues“ angelegt
--  Ausgewählte Issues werden alle 14 Tage in den Sprint-Backlog geschoben
--  Daraus entsteht ein 2-wöchiger Sprint, der von einem Daily Scrum begleitet wird
--   Ein Daily Scrum kann in Form eines Standups abgehalten werden
-    - Die Teammitglieder stellen kurz vor, woran sie arbeiten, was sie vorhaben und ob alles rund läuft.
-    - Der Scrum Master sorgt u.a. dafür, dass alle Mitglieder ohne Probleme arbeiten können, sollten Probleme auftreten.
-- Am Ende des Sprints steht die CI (Code Integration)
-    - Die Software ist nun bestenfalls mit den gewünschten Features, die zu Anfang des Sprints im Sprint-Backlog waren, inkrementell verbessert.
-- Im Sprint Review kommen die Teammitglieder inkl. SM und PO zusammen
-    - Man tauscht sich über die Ergebnisse des letzten Sprints aus und organisiert den Fortschritt
-- In der Sprint-Retrospektive geht es nach dem Sprint dann mehr darum, was beim Sprint gut oder schlecht lief und was man besser machen kann.
-    - Oft veranschaulicht mit Themen auf Whiteboards (auch digital)
-    - Der SM ist der Moderator
-- Vor jedem Sprint findet zudem die Sprintplanung statt, in welchem Issues bzw. Anforderungen aus dem Produkt-Backlog in den Sprint-Backlog übernommen werden und zu einem neuen Sprint (mit eben diesen Issues) übergehen.
+### Installation und Inbetriebnahme der Webanwendung
+Mittels des Scripts [brython_turtle_init.sh](<./turtle_graphics brython//scripts/brython_turtle_init.sh>) wird die Webanwendung in einem Zielordner gecloned, der Server gestartet und das Frontend im Browser geöffnet. Die Hilfsfunktion des Scripts ist im Folgenden dargestellt:
+```
+Usage: ./brython_turtle_init.sh [options]
+Initializes the Learn-Python-with-Turtle-Graphics repository, 
+starts the Python HTTP-server and opens webapp.
+
+Options:
+  -dir, --directory DIRECTORY   Specify the target directory. Default is 'Learn-Python-with-Turtle-Graphics'.
+  -h, --help                    Display this help message.
+```
+Existiert die Anwendung bereits im Zielordner wird gepullt um die neuste Version zu laden.
+
+### Anleitungen
+Die Dokumenation des Szenarios ist im Abschnitt 2 der Datei [Dokumentation.pdf](<./turtle_graphics brython/documentation/Dokumentation.pdf>) zu finden. Diese enthält neben einer Produktbeschreibung, die Dokumetation der Umsetzung und Hilfestellung für mögliche Weiterentwicklungen in Form von Schnittstellenbeschreibungen.  
+  
+Eine Anleitung für Schülerinnen und Schüler befindet sich in der Datei [Schüler-PDF.pdf](<./turtle_graphics brython/documentation/Schueler-PDF.pdf>). Diese enthält eine Bedienungsanleitung zur Webanwendung sowie auch  und Erläuterungen zu den Programmierkonzepten und zum Einsatz von Turtle Graphics.  
+  
+Die Datei [Lehrer-PDF.pdf](<./turtle_graphics brython/documentation/Lehrer-PDF.pdf>) dient als Anleitung für Dozentinnen und Dozenten. Diese beinhaltet Anleitungen zur Installation und Inbetriebnahme der Webanwendung, unterstützt beim Erstellen neuer Levels und gibt Anleitung zur Passwortänderung für Lösungen in der Webanwendung. Zusätzlich enthält die Lehrer-PDF Musterlösungen für jedes Level und Hilfestellungen bei typischerweise auftrettenden Fehlermeldungen.
+
+### Lizenz
+Dieses Projekt ist unter der GNU General Public License lizensiert. Bitte lesen Sie die [LICENSE.md](<./turtle_graphics brython/LICENSE.md>) für weitere Details.
+
+### Externe Bibliotheken
+Die folgenden externen Bibliotheken werden in diesem Projekt verwendet. Die jeweiligen Lizenzen finden Sie in den hinterlegten Lizenz-Dateien:
+
+- [Brython](<./turtle_graphics brython/lib/brython/LICENSE>)
+- [CodeMirror](<./turtle_graphics brython/lib/codemirror/LICENSE>)
+- [D3.js](<./turtle_graphics brython/lib/d3/LICENSE>)
+- [qrcode.js](<./turtle_graphics brython/lib/qrcode/LICENSE>)

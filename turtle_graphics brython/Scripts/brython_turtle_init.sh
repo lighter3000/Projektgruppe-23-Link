@@ -3,7 +3,7 @@
 # Function to display help
 display_help() {
     echo "Usage: $0 [options]"
-    echo "Initializes the Learn-Python-with-Turtle-Graphics repository, starts the Python HTTP-server and opens Webapp."
+    echo "Initializes the Learn-Python-with-Turtle-Graphics repository, starts the Python HTTP-server and opens webapp."
     echo
     echo "Options:"
     echo "  -dir, --directory DIRECTORY  Specify the target directory. Default is 'Learn-Python-with-Turtle-Graphics' in this directory."

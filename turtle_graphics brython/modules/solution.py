@@ -5,6 +5,7 @@ from modules import code_mirror
 
 password = "Passwort"
 
+
 # button function for show solution modal with comment solution
 def show_solution(ev):
     document["solution_comments_container"].style.display = "block"
