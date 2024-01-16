@@ -1,4 +1,4 @@
-# Funktionen zum Färben -
+# Farbzauber und Funktionen -
 ### eine experimentelle Einführung in die Programmierung
 
 ## 1	&nbsp;	Lernziele
@@ -149,7 +149,7 @@ Sollten dir dabei Fehlermeldungen anzeigen dann frag doch einmal den Dozenten.
 Zum Schluss solltest du noch ein paar Konventionen[^5] und sogenannte "good practices" also gute Gewohnheiten beim Programmieren mitnehmen von denen du auch so einige
 hier schon gesehen hast
 
-Variablennamen sollten eindeutig sein und werden meist kleingeschrieben, wobei es mehrere möglichkeiten gibt, hier nur mal zwei.</br>
+Variablennamen sollten eindeutig sein und werden meist kleingeschrieben, wobei es mehrere Möglichkeiten gibt, hier nur mal zwei.</br>
 -> erhöht die Lesbarkeit und hilft beim Verständnis
 ```
 pixelPositionY = 125;
