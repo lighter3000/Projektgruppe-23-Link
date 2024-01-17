@@ -65,7 +65,7 @@ wobei du vor allem darauf achten musst jeden neuen Kreis einen eigenen Namen zu 
 ```
     //Kreis   
     Circle* gruen = new Circle(400,250,50,0,255,0,5);
-    gruen->fill();
+    gruen->draw();
     Circle* gruen2 = new Circle(400,350,50,0,255,0,5);
     gruen2->fill();
     Circle* gruen3 = new Circle(400,450,50,0,255,0,5);
@@ -98,10 +98,47 @@ Für unsere Zwecke eignet sich vor allem die for-Schleife, weil mit dieser läss
 for(int i = 250; i <= 450; i = i + 100){
     Circle* gruen = new Circle(400,i,50,0,255,0,5);
     gruen->draw();
+    delete gruen;
+}
+```
+Außerdem müssen wir nun auch darauf achten unser erzeugtes Objekt auch wieder zu löschen damit wir es noch einmal neu an anderer Stelle nue zu zeichnen.
+
+## 7	&nbsp;	If-Abfragen
+
+Aber vielleicht fällt dir ein Unterschied zwischen der vorherigen Ausgabe und jetzt auf, der mittlere Kreis ist nicht mehr ausgefüllt!
+Da müssen wir wohl eine bedingte Ausnahme festlegen. Hier kommen nun sogenannte "if-Abfragen" ins Spiel.
+
+```
+if(Bedingung == wahr){
+    mach etwas
+}else{
+    mach etwas Anderes
+}
+```
+Man kann auch mehrere verschiedene Abfragen aufeinander stapeln welche jeweils nur ausgeführt werden, wenn die vorherigen Abfragen unerfüllt blieben.
+
+```
+if(Bedingung == wahr){
+    mach etwas
+}else if( Andere Bedingung == wahr){
+    mach etwas Anderes
+}else{
+    mach etwas ganz Anderes
+```
+Dies erlaubt uns verschiedene Aktionen basierend auf einer Bedingung auszuführen zum Beispiel unseren mittleren Kreis zu füllen.
+
+```
+for(int i = 250; i <= 450; i = i + 100){
+    Circle* gruen = new Circle(400,i,50,0,255,0,5);
+    if( i == 350){
+        gruen->fill();
+    }else {
+        gruen->draw();
+    }
+    delete gruen;
 }
 ```
 
-## 7	&nbsp;	If-Abfragen
 
 ## 8	&nbsp;	Getting Started
 
