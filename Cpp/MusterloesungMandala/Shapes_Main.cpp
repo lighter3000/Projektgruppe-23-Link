@@ -88,44 +88,6 @@ void Shape::floodFill(int x,int y,int red,int green,int blue,int jframeheight,in
         
   }
     }
- /*   
-void Shape::floodFill2(int x,int y,int red,int green,int blue,int jframewidth,int jframeheight){
-    
-    set<Position*> Points;
-    set<Position*>::iterator itr;
-    
-    Position* p = new Position(x,y);
-    
-    Points.insert(p);
-    
-    while(!Points.empty()){
-        
-        itr = Points.begin();
-        Points.erase(itr);
-        
-        Position* pbegin = *itr;
-        
-        if((pbegin->x < jframewidth) && (pbegin->x > 0)&&
-        (pbegin->y < jframeheight) && (pbegin->y > 0) &&
-      (getPixel(pbegin->x,pbegin->y).compare("238,238,238") == 0)){
-            
-            setPixel(pbegin->x,pbegin->y,red,green,blue);
-            
-            Position* pright = new Position(pbegin->x+1,pbegin->y);
-            Points.insert(pright);
-            Position* pleft = new Position(pbegin->x-1,pbegin->y);
-            Points.insert(pleft);
-            Position* psouth = new Position(pbegin->x,pbegin->y+1);
-            Points.insert(psouth);
-            Position* pnorth = new Position(pbegin->x,pbegin->y-1);
-            Points.insert(pnorth);
-            
-        }
-        
-    }
-    
-}
-*/
 //----------------------------------------------------------------------------------------
 //Line
 class Line : public Shape {
@@ -377,98 +339,14 @@ string Rectangle::shapeType(){
 }
 
 void Rectangle::draw(){
-
-   // int i = _position.x;
-    //int w = _width;
-
-
-//Pixel
-   /* while(w >= 0){
-
-        setPixel(i,_position.y,_red,_green,_blue);
-
-        setPixel(i,_position.y+_height,_red,_green,_blue);
-
-        i++;
-
-        w--;
-    }
-
-    int i2 = _position.y;
-    int h  = _height;
-
-    while(h >= 0){
-
-        setPixel(_position.x,i2,_red,_green,_blue);
-
-        setPixel(_position.x+_width,i2,_red,_green,_blue);
-
-        i2++;
-
-        h--;
-    }*/
-    
    setDrawRectangle(_position.x, _position.y, _width, _height, _red, _green, _blue, _lineWidth);
 }
 
 void Rectangle::fill(){
    setFillRectangle(_position.x, _position.y, _width, _height, _red, _green, _blue, _lineWidth);
 }
-
 //----------------------------------------------------------------------------------------
-//MandelBrot
-/*
-class MandelBrot:public Shape {
- 
-public:
-  MandelBrot();
-  void draw(int,int,int);
-  string shapeType();
-  int value(int,int,int,int,int);
-
-};
-
-MandelBrot::MandelBrot(){
-    
-  
-}
-
-string MandelBrot::shapeType(){
-
-string s = "Das ist ein Mandelbrot";
-
-return s;
-
-}
-
-int MandelBrot::value (int x, int y,int width,int height,int iteration)  {
-    complex<float> point((float)x/width-1.5, (float)y/height-0.5);
-    complex<float> z(0, 0);
-    int nb_iter = 0;
-    while (abs (z) < 2 && nb_iter <= iteration) {
-        z = z * z + point;
-        nb_iter++;
-    }
-    if (nb_iter < iteration)
-       return (255*nb_iter)/20;
-    else
-       return 0;
-}
-
-void MandelBrot::draw(int width,int height,int iteration){
-    
- for (int i = 0; i < width; i++) {
-   for (int j = 0; j < height; j++)  {
-          
-          int val = value(i, j,width,height,iteration);
-          
-          setPixel(i,j,0,0,val);
-                
-            }
-        }
-}
-*/
-//----------------------------------------------------------------------------------------
+//Main
 int main() {   
 
     //Circle
