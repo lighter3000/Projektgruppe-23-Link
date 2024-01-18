@@ -34,7 +34,7 @@ Danach öffne den Ordner und dort sollte ein Programm namens *ASCII.jar*, die au
 ![Swing Programm im Finder](SwingImFinder.png)
 
 Wenn du diese öffnest, erscheint unsere Leinwand. Sollte dem nicht der Fall sein und du bekommst stattdessen eine Fehlermeldung,
-dann starte das Programm übers Terminal mit dem Kommando `ASCII % java -jar ASCII.jar`
+dann starte das Programm übers Terminal mit dem Kommando `java -jar ASCII.jar`
 
 ![Option B jar zu öffnen](TerminalSwing.png)
 
