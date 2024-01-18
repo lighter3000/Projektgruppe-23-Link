@@ -1,4 +1,4 @@
-tutorial = "<p class=\"p-font\"><b>Programmieren mit Audio - Test Level</b></p><br/><p class=\"p-font\">Testlevel 02</p><pre class=\"code-hint\"><code><span class=\"code-hint-font\">Testtext</span></code></pre>"
+tutorial = "<p class=\"p-font\"><b> Programmieren mit Audio - Schleifen </b></p><br/><pre class=\"code-hint\"><code><span class=\"code-hint-font\">Erstellen Sie eine Variable a mit dem Wert 0.\nDanach erstellen Sie eine for oder while Schleife, die von 0 bis 10 geht.\nBei jedem Schleifendurchlauf soll der Wert des aktuellen Durchlaufs auf a oben drauf addiert werden.\nWenn die Schleife durchgelaufen ist, soll a ausgegeben werden.\nAls Tipp: Bei einer Schleife mit vier Durchläufen (0-3) wäre der Wert der Variable a am Ende 6.</span><code></pre>"
 init_code = ""
 written_code = ""
 solution_code = ""

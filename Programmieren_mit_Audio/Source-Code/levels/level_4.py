@@ -1,4 +1,4 @@
-tutorial = "<p class=\"p-font\"><b>Programmieren mit Audio - Test Level</b></p><br/><p class=\"p-font\">Testlevel 04</p><pre class=\"code-hint\"><code><span class=\"code-hint-font\">Testtext</span></code></pre>"
-init_code = ""
+tutorial = "<p class=\"p-font\"><b> Programmieren mit Audio - C-Dur-Tonleiter erstellen </b></p><br/><pre class=\"code-hint\"><code><span class=\"code-hint-font\">Sie haben folgendes Array gegeben:\ntöne = [\"C\", \"E\", \"D\", \"F\", \"E\", \"H\", \"F\", \"G\", \"G\", \"E\", \"A\", \"C\", \"H\", \"C\", \"C\"].\nErstellen Sie jetzt ein leeres Array namens C_Dur_Tonleiter.\nBenutzen Sie eine Schleife und eine If/Else Verzweigung, um das Array so zu füllen, das es\neine C-Dur-Tonleiter (C, D, E, F, G, A, H, C) darstellt und lassen Sie es mithilfe der tones()\nFunktion abspielen.\nKleiner Tipp: Sie müssen einen Weg finden, wie man ein Element überspringt.\n(Beim Abspielen von Ton H kommt es zu einem Fehlerton).</span><code></pre>"
+init_code = "töne = [\"C\", \"E\", \"D\", \"F\", \"E\", \"H\", \"F\", \"G\", \"G\", \"E\", \"A\", \"C\", \"H\", \"C\", \"C\"]"
 written_code = ""
 solution_code = ""

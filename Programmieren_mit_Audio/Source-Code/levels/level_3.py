@@ -1,4 +1,4 @@
-tutorial = "<p class=\"p-font\"><b>Programmieren mit Audio - Test Level</b></p><br/><p class=\"p-font\">Testlevel 03</p><pre class=\"code-hint\"><code><span class=\"code-hint-font\">Testtext</span></code></pre>"
+tutorial = "<p class=\"p-font\"><b> Programmieren mit Audio - Töne abspielen </b></p><br/><pre class=\"code-hint\"><code><span class=\"code-hint-font\">Erstellen Sie wie in Aufgabe 1 eine Variable a mit dem Wert 10 und eine Verzweigung, die überprüft, ob\na kleiner/gleich oder größer 10 ist. Diesmal soll aber nichts auf der Konsole ausgeben werden.\nWenn a kleiner/gleich 10 ist, soll mithilfe der tone() Funktion der Ton \"C\" ausgegeben werden,\nist a größer als 10 soll der Ton \"D\" ausgegeben werden.\nÜberprüfen Sie ihren Code wie in Aufgaben 1, indem Sie den Wert der Variable a verändern und\ndas Programm erneut starten.</span><code></pre>"
 init_code = ""
 written_code = ""
 solution_code = ""
