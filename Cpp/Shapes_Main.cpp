@@ -422,6 +422,28 @@ void Rectangle::fill(){
 //----------------------------------------------------------------------------------------
 int main() {
    
+    //Rechteck
+    Rectangle* blau = new Rectangle(100,200,50,50,0,0,255,10);
+    blau->fill();
+    
+    //Dreick
+    Triangle* weiss = new Triangle(750,250,500,150,600,250,255,255,255,10);
+    weiss->draw();
+      
+    //Text
+    StringText* stringText = new StringText(250, 0, "Hallo Welt", "Comic Sans", 24, 1,100,0,255);
+    stringText->draw();
+
+    //Linie
+    Line* rot = new Line(250, 250, 250, 150, 255, 0, 0, 5);
+    rot->draw();
+    
+    //Kreis   
+    Circle* gruen = new Circle(400,250,50,0,255,0,2);
+    gruen->draw();
+    
+    //Pixel
+    setPixel(325,250,0,0,0);
 
     return 0;
 }
