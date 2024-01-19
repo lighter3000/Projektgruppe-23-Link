@@ -1,5 +1,5 @@
-#ifndef Shapes_Main_cpp
-#define Shapes_Main_cpp
+#ifndef Shapes_Main_Mandala_cpp
+#define Shapes_Main_Mandala_cpp
 #include "DrawGUI.cpp"
 #include <cmath>
 
@@ -119,9 +119,20 @@ Line::Line(int x1P, int y1P,int x2P, int y2P, int red,int green,int blue, int li
 
     _lineWidth = lineWidth;
 
-    _red = red;
+      _red = red;
+    if(red>255){
+        _red = 255;
+    }
+    
     _green = green;
+    if(green>255){
+        _green = 255;
+    }
+
     _blue = blue;
+    if(blue>255){
+        _blue = 255;
+    }
 }
 
 string Line::shapeType(){
@@ -172,9 +183,20 @@ Triangle::Triangle(int x1P, int y1P,int x2P, int y2P,int x3P, int y3P, int red,i
 
     _lineWidth = lineWidth;
 
-    _red = red;
+      _red = red;
+    if(red>255){
+        _red = 255;
+    }
+    
     _green = green;
+    if(green>255){
+        _green = 255;
+    }
+
     _blue = blue;
+    if(blue>255){
+        _blue = 255;
+    }
 }
 
 string Triangle::shapeType(){
@@ -224,9 +246,20 @@ Circle::Circle(int xP, int yP, int radius, int red,int green, int blue, int line
     _radius = radius;
     _lineWidth = lineWidth;
 
-    _red = red;
+     _red = red;
+    if(red>255){
+        _red = 255;
+    }
+    
     _green = green;
+    if(green>255){
+        _green = 255;
+    }
+
     _blue = blue;
+    if(blue>255){
+        _blue = 255;
+    }
 }
 
 string Circle::shapeType(){
@@ -280,9 +313,20 @@ StringText::StringText(int xP, int yP, string text, string fontType, int fontSiz
     _fontSize = fontSize;
     _bold_1or0 = bold_1or0;
 
-    _red = red;
+      _red = red;
+    if(red>255){
+        _red = 255;
+    }
+    
     _green = green;
+    if(green>255){
+        _green = 255;
+    }
+
     _blue = blue;
+    if(blue>255){
+        _blue = 255;
+    }
 }
 
 string StringText::shapeType(){
@@ -324,9 +368,20 @@ Rectangle::Rectangle(int x, int y, int width,int height,int red,int green,int bl
     _position = Position(x,y);
     _width = width;
     _height = height;
-    _red = red;
+      _red = red;
+    if(red>255){
+        _red = 255;
+    }
+    
     _green = green;
+    if(green>255){
+        _green = 255;
+    }
+
     _blue = blue;
+    if(blue>255){
+        _blue = 255;
+    }
     _lineWidth = lineWidth;
 }
 
@@ -351,38 +406,38 @@ int main() {
 
     //Circle
 
-    Circle* c0 = new Circle(0,0,200,0,0,0,5);
+    Circle* c0 = new Circle(150,100,200,0,0,0,5);
     c0->draw();
 
-    Circle* c1 = new Circle(0,0,200,200,0,0,5);
+    Circle* c1 = new Circle(150,100,200,200,0,0,5);
     c1->fill();
 
 
     //Triangle
 
     int triangle_position_x[10];
-    triangle_position_x[0] = 200;
-    triangle_position_x[1] = 300;
-    triangle_position_x[2] = 340;
-    triangle_position_x[3] = 300;
-    triangle_position_x[4] = 200;
-    triangle_position_x[5] = 100;
-    triangle_position_x[6] = 60;
-    triangle_position_x[7] = 100;
-    triangle_position_x[8] = 200;
-    triangle_position_x[9] = 300;
+    triangle_position_x[0] = 350;
+    triangle_position_x[1] = 450;
+    triangle_position_x[2] = 490;
+    triangle_position_x[3] = 450;
+    triangle_position_x[4] = 350;
+    triangle_position_x[5] = 250;
+    triangle_position_x[6] = 210;
+    triangle_position_x[7] = 250;
+    triangle_position_x[8] = 350;
+    triangle_position_x[9] = 450;
 
     int triangle_position_y[10];
-    triangle_position_y[0] = 60;
-    triangle_position_y[1] = 100;
-    triangle_position_y[2] = 200;
-    triangle_position_y[3] = 300;
-    triangle_position_y[4] = 340;
-    triangle_position_y[5] = 300;
-    triangle_position_y[6] = 200;
-    triangle_position_y[7] = 100;
-    triangle_position_y[8] = 60;
-    triangle_position_y[9] = 100;
+    triangle_position_y[0] = 160;
+    triangle_position_y[1] = 200;
+    triangle_position_y[2] = 300;
+    triangle_position_y[3] = 400;
+    triangle_position_y[4] = 440;
+    triangle_position_y[5] = 400;
+    triangle_position_y[6] = 300;
+    triangle_position_y[7] = 200;
+    triangle_position_y[8] = 160;
+    triangle_position_y[9] = 200;
 
     for(int i = 0; i<8; i++){
         Triangle* t1 = new Triangle(triangle_position_x[i], triangle_position_y[i], triangle_position_x[i+1], triangle_position_y[i+1], triangle_position_x[i+2], triangle_position_y[i+2], 220, 220, 0, 3);
@@ -395,18 +450,18 @@ int main() {
     int circle_position_x;
     int circle_position_y;
 
-    Circle* c001 = new Circle(100,0,100,0,0,255,3);
+    Circle* c001 = new Circle(250,100,100,0,0,255,3);
     c001->draw();
-    Circle* c002 = new Circle(0,100,100,0,0,255,3);
+    Circle* c002 = new Circle(150,200,100,0,0,255,3);
     c002->draw();
-    Circle* c003 = new Circle(200,100,100,0,0,255,3);
+    Circle* c003 = new Circle(350,200,100,0,0,255,3);
     c003->draw();
-    Circle* c004 = new Circle(100,200,100,0,0,255,3);
+    Circle* c004 = new Circle(250,300,100,0,0,255,3);
     c004->draw();
 
-    circle_position_x = 29;
+    circle_position_x = 179;
     for(int i = 1; i <= 2; i++){
-        circle_position_y = 29;
+        circle_position_y = 129;
         for(int j = 1; j <= 2; j++){
             Circle* c06 = new Circle(circle_position_x,circle_position_y,100,0,0,255,3);
             c06->draw();

@@ -1,5 +1,5 @@
-#ifndef Shapes_Main_cpp
-#define Shapes_Main_cpp
+#ifndef Shapes_Main_Weinachten_cpp
+#define Shapes_Main_Weinachten_cpp
 #include "DrawGUI.cpp"
 #include <cmath>
 
@@ -42,9 +42,6 @@ public:
 virtual double area();
 virtual string shapeType();
 void typeZeigen(Shape*);
-void floodFill(int,int,int,int,int,int,int);
-void floodFill2(int,int,int,int,int,int,int);
-
 };
 
 void Shape::typeZeigen(Shape* s){
@@ -67,66 +64,49 @@ return 0;
 
 }
 
-void Shape::floodFill(int x,int y,int red,int green,int blue,int jframeheight,int jframewidth)
-{
+//----------------------------------------------------------------------------------------
+
+//Pixle
+
+class Pixel : public Shape {
+
+    protected:
+        int _x;
+        int _y;
+        
+        int _red;
+        int _green;
+        int _blue;
+    public: 
+        Pixel(int x=0, int y=0,int red=0,int green=0,int blue=0);
+        void draw();
+
+};
+
+Pixel::Pixel(int x, int y,int red,int green,int blue){
     
-    
-    if((x > jframewidth) || (y > jframeheight) || (x < 0) || (y < 0)
-    ||(getPixel(x, y).compare("238,238,238") != 0)){
-        
-        return;
-        
-    } else if ((x < jframewidth) && (y < jframeheight) &&
-      (getPixel(x, y).compare("238,238,238") == 0)){
-        
-        setPixel(x,y,red,green,blue);
-        
-         floodFill(x+1,y,red,green,blue,jframeheight,jframewidth); // east
-         floodFill(x,y+1,red,green,blue,jframeheight,jframewidth); // south
-         floodFill(x-1,y,red,green,blue,jframeheight,jframewidth); // west
-         floodFill(x,y-1,red,green,blue,jframeheight,jframewidth); // north
-        
-  }
+    _position = Position(x,y);
+
+      _red = red;
+    if(red>255){
+        _red = 255;
     }
     
-void Shape::floodFill2(int x,int y,int red,int green,int blue,int jframewidth,int jframeheight){
-    
-    set<Position*> Points;
-    set<Position*>::iterator itr;
-    
-    Position* p = new Position(x,y);
-    
-    Points.insert(p);
-    
-    while(!Points.empty()){
-        
-        itr = Points.begin();
-        Points.erase(itr);
-        
-        Position* pbegin = *itr;
-        
-        if((pbegin->x < jframewidth) && (pbegin->x > 0)&&
-        (pbegin->y < jframeheight) && (pbegin->y > 0) &&
-      (getPixel(pbegin->x,pbegin->y).compare("238,238,238") == 0)){
-            
-            setPixel(pbegin->x,pbegin->y,red,green,blue);
-            
-            Position* pright = new Position(pbegin->x+1,pbegin->y);
-            Points.insert(pright);
-            Position* pleft = new Position(pbegin->x-1,pbegin->y);
-            Points.insert(pleft);
-            Position* psouth = new Position(pbegin->x,pbegin->y+1);
-            Points.insert(psouth);
-            Position* pnorth = new Position(pbegin->x,pbegin->y-1);
-            Points.insert(pnorth);
-            
-        }
-        
+    _green = green;
+    if(green>255){
+        _green = 255;
     }
-    
+
+    _blue = blue;
+    if(blue>255){
+        _blue = 255;
+    }
 }
 
-//----------------------------------------------------------------------------------------
+void Pixel::draw(){
+    setPixel(_position.x, _position.y, _red, _green,_blue);
+}
+
 //Line
 class Line : public Shape {
 
@@ -157,9 +137,20 @@ Line::Line(int x1P, int y1P,int x2P, int y2P, int red,int green,int blue, int li
 
     _lineWidth = lineWidth;
 
-    _red = red;
+      _red = red;
+    if(red>255){
+        _red = 255;
+    }
+    
     _green = green;
+    if(green>255){
+        _green = 255;
+    }
+
     _blue = blue;
+    if(blue>255){
+        _blue = 255;
+    }
 }
 
 string Line::shapeType(){
@@ -211,8 +202,19 @@ Triangle::Triangle(int x1P, int y1P,int x2P, int y2P,int x3P, int y3P, int red,i
     _lineWidth = lineWidth;
 
     _red = red;
+    if(red>255){
+        _red = 255;
+    }
+
     _green = green;
+    if(green>255){
+        _green = 255;
+    }
+
     _blue = blue;
+    if(blue>255){
+        _blue = 255;
+    }
 }
 
 string Triangle::shapeType(){
@@ -262,9 +264,20 @@ Circle::Circle(int xP, int yP, int radius, int red,int green, int blue, int line
     _radius = radius;
     _lineWidth = lineWidth;
 
-    _red = red;
+      _red = red;
+    if(red>255){
+        _red = 255;
+    }
+    
     _green = green;
+    if(green>255){
+        _green = 255;
+    }
+
     _blue = blue;
+    if(blue>255){
+        _blue = 255;
+    }
 }
 
 string Circle::shapeType(){
@@ -318,9 +331,20 @@ StringText::StringText(int xP, int yP, string text, string fontType, int fontSiz
     _fontSize = fontSize;
     _bold_1or0 = bold_1or0;
 
-    _red = red;
+      _red = red;
+    if(red>255){
+        _red = 255;
+    }
+    
     _green = green;
+    if(green>255){
+        _green = 255;
+    }
+
     _blue = blue;
+    if(blue>255){
+        _blue = 255;
+    }
 }
 
 string StringText::shapeType(){
@@ -362,9 +386,20 @@ Rectangle::Rectangle(int x, int y, int width,int height,int red,int green,int bl
     _position = Position(x,y);
     _width = width;
     _height = height;
-    _red = red;
+      _red = red;
+    if(red>255){
+        _red = 255;
+    }
+    
     _green = green;
+    if(green>255){
+        _green = 255;
+    }
+
     _blue = blue;
+    if(blue>255){
+        _blue = 255;
+    }
     _lineWidth = lineWidth;
 }
 
@@ -377,37 +412,6 @@ string Rectangle::shapeType(){
 }
 
 void Rectangle::draw(){
-
-   // int i = _position.x;
-    //int w = _width;
-
-
-//Pixel
-   /* while(w >= 0){
-
-        setPixel(i,_position.y,_red,_green,_blue);
-
-        setPixel(i,_position.y+_height,_red,_green,_blue);
-
-        i++;
-
-        w--;
-    }
-
-    int i2 = _position.y;
-    int h  = _height;
-
-    while(h >= 0){
-
-        setPixel(_position.x,i2,_red,_green,_blue);
-
-        setPixel(_position.x+_width,i2,_red,_green,_blue);
-
-        i2++;
-
-        h--;
-    }*/
-    
    setDrawRectangle(_position.x, _position.y, _width, _height, _red, _green, _blue, _lineWidth);
 }
 
@@ -415,62 +419,11 @@ void Rectangle::fill(){
    setFillRectangle(_position.x, _position.y, _width, _height, _red, _green, _blue, _lineWidth);
 }
 
-//----------------------------------------------------------------------------------------
-//MandelBrot
-class MandelBrot:public Shape {
- 
-public:
-  MandelBrot();
-  void draw(int,int,int);
-  string shapeType();
-  int value(int,int,int,int,int);
-
-};
-
-MandelBrot::MandelBrot(){
-    
-  
-}
-
-string MandelBrot::shapeType(){
-
-string s = "Das ist ein Mandelbrot";
-
-return s;
-
-}
-
-int MandelBrot::value (int x, int y,int width,int height,int iteration)  {
-    complex<float> point((float)x/width-1.5, (float)y/height-0.5);
-    complex<float> z(0, 0);
-    int nb_iter = 0;
-    while (abs (z) < 2 && nb_iter <= iteration) {
-        z = z * z + point;
-        nb_iter++;
-    }
-    if (nb_iter < iteration)
-       return (255*nb_iter)/20;
-    else
-       return 0;
-}
-
-void MandelBrot::draw(int width,int height,int iteration){
-    
- for (int i = 0; i < width; i++) {
-   for (int j = 0; j < height; j++)  {
-          
-          int val = value(i, j,width,height,iteration);
-          
-          setPixel(i,j,0,0,val);
-                
-            }
-        }
-}
 
 //----------------------------------------------------------------------------------------
+//Main
 int main() {
-   
-   
+
     //Rectangle
     Rectangle* schnee = new Rectangle(0,399,799,200,255,255,255,10);
     Rectangle* schnee2 = new Rectangle(0,399,799,200,0,0,0,1);
@@ -478,7 +431,8 @@ int main() {
     schnee2->draw();
     delete schnee;
     delete schnee2;
-
+    
+    //Rectangle::Rectangle(int x, int y, int width,int height,int red,int green,int blue, int lineWidth){
 
     Rectangle* stump = new Rectangle(125,250,50,200,139,69,19,10);
     Rectangle* stump2 = new Rectangle(125,250,50,200,0,0,0,1);
@@ -503,17 +457,10 @@ int main() {
 	    y3 = y3 + 30;
     }
 
-        
     //StringText
     StringText* stringText = new StringText(250, 0, "Frohe Weihnachten", "Comic Sans", 24, 1,100,0,255);
     stringText->draw();
 
-    //Line
-    // Line* line1 = new Line(450, 550, 250, 150, 100, 0, 255, 5);
-    //line1->draw();
-
-    
-    
     //Circle    
     int r = 75; int circleX = 550; int circleY =375;
     int values[] = {375, 300, 250};
@@ -549,15 +496,14 @@ int main() {
         delete c;
         AugeX = AugeX + 20;
     }
-
+    //Rectangle::Rectangle(int x, int y, int width,int height,int red,int green,int blue, int lineWidth)
     Rectangle* hat1 = new Rectangle(575,250,100,10,0,0,0,10);
     hat1->fill();
+
     Rectangle* hat2 = new Rectangle(600,200,50,50,0,0,0,10);
     hat2->fill();
     
-    
     //Triangle       (100,500,200,300,300,500, new Color(102,0,153), 10)
-
     Triangle* nose = new Triangle(625, 280, 625, 290, 600, 285, 255, 165, 0, 5);
     nose->fill();
 
@@ -575,9 +521,10 @@ int main() {
     std::uniform_int_distribution<int> distribution2(0,599);
 
     for(int i= 0; i<1000 ; i++) {
-        setPixel(distribution1(gen),distribution2(gen),255,255,255);
+         Pixel* p = new Pixel(distribution1(gen),distribution2(gen),255,255,255);
+         p->draw();
+         delete p;
     }
-
     return 0;
 }
 
