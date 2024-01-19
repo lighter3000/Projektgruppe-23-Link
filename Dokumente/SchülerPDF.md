@@ -26,24 +26,32 @@ wählst *Neues Terminal beim Ordner* aus
 
 ![Neues Terminal Mac](TerminalMac.png)
 
-//todo bessere Bild
+
 ![Terminal](Terminal.png)
 
-Danach öffne den Ordner und dort sollte ein Programm namens *ASCII.jar*, die aussieht wie eine heiße Tasse Kaffee, zu finden sein.
+Danach öffne den Ordner und dort sollte ein Programm namens *Farbzauber.jar*, die aussieht wie eine heiße Tasse Kaffee, zu finden sein.
 
 ![Swing Programm im Finder](SwingImFinder.png)
 
 Wenn du diese öffnest, erscheint unsere Leinwand. Sollte dem nicht der Fall sein und du bekommst stattdessen eine Fehlermeldung,
-dann starte das Programm übers Terminal mit dem Kommando `java -jar ASCII.jar`
+dann starte das Programm übers Terminal mit dem Kommando `Farbzauber % java -jar Farbzauber.jar` und nach dem sich unsere Leinwand geöffnet hat
+befreien wir das Terminal mit "⌘ + ."[^4]
 
 ![Option B jar zu öffnen](TerminalSwing.png)
 
 ![Unsere Swing Leinwand](SwingLeinwand.png)
 
-und zum Schluss öffnet man noch die *Shapes_Main.cpp* im 
-//todo editor
+und zum Schluss öffnet man noch die *Shapes_Main.cpp* im Editor in dem wir einen Rechtsklick auf die Datei machen
+und dann mit der Maus über "Öffnen mit" hovern und dann in der neuen Auswahl "CotEditor" auswählen.
 
-und nun kann man im Terminal folgendes eingeben:
+![Öffnen von Editor](OeffnenEditor.png)
+
+Hier scrollen wir einmal nach unten bis wir bei ``int main() {`` an gelangen, wo wir später auch unsere gesamte Arbeit verrichten.
+Du kannst im Übrigen alles in diesem Dokument was in solchen Code-blöcken steht:
+```
+Hallo Welt
+```
+ganze einfach mit "⌘ + C" und "⌘ + V" kopieren und nun kann man im Terminal folgendes eingeben:
 
 `clang Shapes-Main.cpp -o a`
 
@@ -53,9 +61,97 @@ welche sich mit dem "Choose" Button unserer Leinwand öffnen lässt und uns unse
 
 ## 3	&nbsp;	Variablen
 
+Wie eine Box mit Namen. Man kann den Inhalt ersetzen, bearbeiten oder an verschiedenen Stellen darauf zugreifen.
+Nützlich, wenn man an verschiedenen Stellen denselben Wert benötigt oder verändern möchte.
+
+Erstellen z.B. für ganze Zahlen:
+``Int zahl_1;``
+``Int zahl_2;``
+``Int ergebniss;``
+
+Zahlen darin abspeichern, verändern und an mehreren Stellen verwenden:
+``zahl_1 = 1;``
+``zahl_2 = 3;``
+```
+	zahl_1 = zahl_1 + 1;
+	zahl_1 += 1;
+	ergebniss = zahl_1 * zahl_2;
+```
+Dabei ist zu beachten, dass diese Variablen nur eine bestimmte Lebensdauer haben, sprich sie existieren nur im Rahmen
+von der zuletzt geöffneten geschweiften Klammer "{" bis hin wo diese wieder geschlossen wird "}"
+
+Weitere Typen:
+Float und Double für Kommazahlen.
+Boolean: Ist in diesem Fall entweder 0 für FALSE oder ein anderer wert für TRUE.
+Gut verwendbar für If-Abfragen. Dabei ist zu beachten, dass man für einen "ist gleich" Vergleich "==" verwendet.
+```
+bool nee = 0;
+bool jap = 1;
+
+if(nee == 0){
+    zahl_1 -= 1;
+}
+```
+Kurz ``if(jap) zahl_1 += 1;``
+
+Ist zahl_1 jetzt um eins größer?
+
+Char: Um einen einzelnen character also Buchstaben, Zeichen, Ziffern zu Speichern.
+String: Ist eine verkettung von Char. Das heißt der String "Moin" besteht aus den Char 'M', 'o', 'i', 'n' in der Reihenfolge.
+
 ## 4	&nbsp;	Farben auf dem Bildschirm
 
+Farben
+
+Werden RGB also (Red, Green, Blue) dargestellt.
+Dabei handelt es sich um Additive Farbmischung die beim Mischen von Licht angewandt wird.
+In unserem fall mit drei Werten die von 0 bis 255 gehen.
+Sind alle drei Werte gleich hat man Graustufen. Dabei ist (255, 255, 255) Weiß und (0, 0, 0) Schwarz.
+Ein paar Farbbeispiele wären:
+Rot(255, 0, 0), Grün(0, 255, 0), Blau(0, 0, 255),
+Gelb(255, 255, 0), Orange(255, 127, 0), Magenta(255, 0, 255)
+
+Hier ein Link zum ausprobieren:
+https://informatik.schule.de/rgb/RGB_farbmischer.html
+
 ## 5	&nbsp;	Funktionen
+
+Ähnlich wie bei Variablen sind Funktionen Programmabschnitte, die über ihren Namen mehrmals, an verschiedenen Stellen, aufrufbar sind.
+Häufig werden Parameter, meist Werte, mitgegeben bzw. zurückgegeben.
+
+Erstellen z.B. um zwei übergebene ganze Zahlen (Variablen nach dem Funktionsnamen) zu addieren und zurückzugeben(inhalt der Klammer nach return):
+```
+int addiere(int summand1, int summand2) {
+    int summe = summand1 + summand2;
+    return (summe);
+}
+```
+Aufrufen der Funktion z.B. um ein Ergebnis der Zahlen 3 und 7 zu erhalten: </br>
+``int summe = addiere(3, 7);`` </br>
+Wir stellen euch schon die Funktion zum setzten eines Pixels zur verfügung.
+Pixel: (position_x, position_y, rot, grün, blau)
+``setPixel(2, 2, 50, 50, 50);``
+
+Als weiteren Teil der Funktionen gibt es noch Konstruktoren. Diese funktionieren wie ein Bauplan für eigene Variablen bzw. Objekte und können mehrere Variablen und funktionen enthalten. </br>
+Aufrufen eines Konstruktor z.B. für einen Kreis </br>
+``Circle* circle = new Circle(0, 0, 200, 0, 0, 0, 5);`` </br>
+In diesem Fall wurde ein Kreis(Circle*) der den Namen(circle) hat mit der Funktion(Circle) und den Parametern((0,0,200,0,0,0,5)) erstellt.
+
+In diesem Fall haben wir euch einige bereitgestellt. </br>
+Linie: (anfang_x, anfang_y, ende_x, ende_y, rot, grün, blau, linienbreite) </br>
+``Line* line = new Line(45, 55, 25, 15, 100, 0, 255, 5);``
+
+Dreieck: (ecke_1_x, ecke_1_y, ecke_2_x, ecke_2_y, ecke_3_x, ecke_3_y, rot, grün, blau, linienbreite) </br>
+``Triangle* triangle = new Triangle(11, 11, 22, 22, 11, 22, 100, 100, 10, 5);``
+
+Kreis: (ecke_oben_links_x, ecke_oben_links_y, radius, rot, grün, blau, liniendicke) </br>
+``Circle* circle = new Circle(0, 0, 200, 0, 0, 0, 5);``
+
+Rechteck: (ecke_oben_links_x, ecke_oben_links_y, breite, höhe, rot, grün, blau, linienbreite) </br>
+``Rectangle* rectangle = new Rectangle(0, 20, 80, 30, 255, 255, 255, 5);``
+
+Text: (ecke_oben_links_x, ecke_oben_links_y, "Hier der Text", "Schriftart", schriftgröße, 0_keines/1_dick/2_kursiv/3_beides, rot, grün, blau) </br>
+``StringText* stringText = new StringText(25, 10, "Moin", "Comic Sans", 12, 1, 50, 50, 255);``
 
 ## 6	&nbsp;	Schleifen
 
@@ -177,7 +273,7 @@ Probier es einfach mal aus und verändere einige der Parameter und schaue was pa
 
 `blau->fill();` zeichnet dann tatsächlich das Rechteck bzw. `blau->draw();` würde dann nur den Umriss zeichnen wie du gut an dem Dreieck oder Kreis sehen kannst
 
-Speichere die Änderungen, keine Sorge du kannst alle Änderungen mit dem Tastenkürzel "⌘ + Z"[^4] jederzeit rückgängig machen so lange du den Editor nicht schließt.
+Speichere die Änderungen, keine Sorge du kannst alle Änderungen mit dem Tastenkürzel "⌘ + Z" jederzeit rückgängig machen so lange du den Editor nicht schließt.
 Übersetze noch einmal mit dem Terminal mit `clang Shapes-Main.cpp -o a` und dann lass dir mit dem "Choose" Button auf der Leinwand die Änderungen zeichnen.
 Sollten dir dabei Fehlermeldungen anzeigen dann frag doch einmal den Dozenten.
 
@@ -221,6 +317,6 @@ Viel Glück und Erfolg!
 [^1]: Jemand mit dir zur selben Zeit zur selben Schule geht.
 [^2]: Lehrer an einer Hochschule.
 [^3]: Datei Explorer nur für Mac.
-[^4]: ⌘ wird uch CMD oder Commmand Taste genannt.
+[^4]: ⌘ wird uch CMD oder Command Taste genannt.
 [^5]: Regeln oder Vereinbarungen für das (soziale) Verhalten.
 [^6]: Gut ausgerüstet/ausgestattet, um schwierige Situationen zu überstehen
