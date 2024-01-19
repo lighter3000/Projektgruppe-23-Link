@@ -9,7 +9,6 @@ Szenario der Projektgruppe WS23/24 (Programmiererlebnisse) an der Hochschule Emd
 
 
 ## Webanwendung zum interaktiven Erlernen von Programmiergrundlagen mithilfe eines Audiointerface
-![](<./Programmieren_Mit_Audio/Source-Code/images/Programmieren_Mit_Audio_Webanwendung.png>)
 Das Szenarienpaket Programmieren mit Audio ist im Rahmen der Projektgruppe WS23/24 bei Prof. Link entstanden.
 Es soll Schülern erste Programmiergrundlagen beibringen, dabei aber nicht auf Konsolenausgaben setzen sondern auch auf die Ausgabe von Tönen oder Musik per ABC-Notation.
 
