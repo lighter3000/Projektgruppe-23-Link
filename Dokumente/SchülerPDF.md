@@ -34,8 +34,7 @@ Danach öffne den Ordner und dort sollte ein Programm namens *Farbzauber.jar*, d
 ![Swing Programm im Finder](SwingImFinder.png)
 
 Wenn du diese öffnest, erscheint unsere Leinwand. Sollte dem nicht der Fall sein und du bekommst stattdessen eine Fehlermeldung,
-dann starte das Programm übers Terminal mit dem Kommando `Farbzauber % java -jar Farbzauber.jar` und nach dem sich unsere Leinwand geöffnet hat
-befreien wir das Terminal mit "⌘ + ."[^4]
+dann starte das Programm übers Terminal mit dem Kommando `Farbzauber % java -jar Farbzauber.jar &`
 
 ![Option B jar zu öffnen](TerminalSwing.png)
 
@@ -106,12 +105,12 @@ Farben
 Werden RGB also (Red, Green, Blue) dargestellt.
 Dabei handelt es sich um Additive Farbmischung die beim Mischen von Licht angewandt wird.
 In unserem fall mit drei Werten die von 0 bis 255 gehen.
-Sind alle drei Werte gleich hat man Graustufen. Dabei ist (255, 255, 255) Weiß und (0, 0, 0) Schwarz.
+Sind alle drei Werte gleich, hat man Graustufen. Dabei ist (255, 255, 255) Weiß und (0, 0, 0) Schwarz.
 Ein paar Farbbeispiele wären:
 Rot(255, 0, 0), Grün(0, 255, 0), Blau(0, 0, 255),
 Gelb(255, 255, 0), Orange(255, 127, 0), Magenta(255, 0, 255)
 
-Hier ein Link zum ausprobieren:
+Hier ein Link zum Ausprobieren:
 https://informatik.schule.de/rgb/RGB_farbmischer.html
 
 ## 5	&nbsp;	Funktionen
@@ -273,7 +272,7 @@ Probier es einfach mal aus und verändere einige der Parameter und schaue was pa
 
 `blau->fill();` zeichnet dann tatsächlich das Rechteck bzw. `blau->draw();` würde dann nur den Umriss zeichnen wie du gut an dem Dreieck oder Kreis sehen kannst
 
-Speichere die Änderungen, keine Sorge du kannst alle Änderungen mit dem Tastenkürzel "⌘ + Z" jederzeit rückgängig machen so lange du den Editor nicht schließt.
+Speichere die Änderungen, keine Sorge du kannst alle Änderungen mit dem Tastenkürzel "⌘ + Z"[^4] jederzeit rückgängig machen so lange du den Editor nicht schließt.
 Übersetze noch einmal mit dem Terminal mit `clang Shapes-Main.cpp -o a` und dann lass dir mit dem "Choose" Button auf der Leinwand die Änderungen zeichnen.
 Sollten dir dabei Fehlermeldungen anzeigen dann frag doch einmal den Dozenten.
 
