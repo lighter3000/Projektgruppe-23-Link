@@ -27,7 +27,7 @@ wählst *Neues Terminal beim Ordner* aus
 ![Neues Terminal Mac](TerminalMac.png)
 
 
-![Terminal](terminal.png)
+![Terminal](Terminal.png)
 
 Danach öffne den Ordner und dort sollte ein Programm namens *Farbzauber.jar*, die aussieht wie eine heiße Tasse Kaffee, zu finden sein.
 
@@ -97,6 +97,17 @@ Ist zahl_1 jetzt um eins größer?
 
 Char: Um einen einzelnen character also Buchstaben, Zeichen, Ziffern zu Speichern.
 String: Ist eine verkettung von Char. Das heißt der String "Moin" besteht aus den Char 'M', 'o', 'i', 'n' in der Reihenfolge.
+
+
+Arrays: Gut, wenn etwas öfter in gleicher Reihenfolge benötigt wird. Nacher werden noch Schleifen genannt z.B. die for-Schleife mit denen Arrays leicht zu verwenden sind.
+```
+int triangle_position_x[4];
+triangle_position_x[0] = 200;
+triangle_position_x[1] = 300;
+triangle_position_x[2] = 340;
+triangle_position_x[3] = 300;
+```
+Beim aufrufen nutzt man den Arraynamen(triangle_position_x) mit passendem Index([1]). dabei ist darauf zu achten das der Index bei null anfängt und nicht überschritten wird.
 
 ## 4	&nbsp;	Farben auf dem Bildschirm
 
