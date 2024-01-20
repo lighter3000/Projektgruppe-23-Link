@@ -71,7 +71,180 @@ die passende Version für ihr System und folgen sie den weiteren Anweisungen auf
 
 # 2	&nbsp;	Musterlösungen
 
-# 2.1	&nbsp;	Weihnachtsbild
+# 2.1	&nbsp;	RGB
+```
+int main() {
+    //Circle(int x, int y, int radius,int red,int green,int blue, int lineWidth)
+    Circle* c01 = new Circle(70,50,50,0,0,0,3);
+    c01->draw();
+    delete c01;
+    Circle* c02 = new Circle(270,50,50,0,0,0,3);
+    c02->draw();
+    delete c02;
+    Circle* c03 = new Circle(470,50,50,0,0,0,3);
+    c03->draw();
+    delete c03;
+    Circle* c04 = new Circle(670,50,50,0,0,0,3);
+    c04->draw();
+    delete c04;
+
+    Circle* c11 = new Circle(70,50,50,0,255,255,3);
+    c11->fill();
+    delete c11;
+     Circle* c12 = new Circle(270,50,50,0,127,255,3);
+    c12->fill();
+    delete c12;
+     Circle* c13 = new Circle(470,50,50,0,0,255,3);
+    c13->fill();
+    delete c13;
+     Circle* c14 = new Circle(670,50,50,127,0,255,3);
+    c14->fill();
+    delete c14;
+
+    //Rectangle(int x, int y, int width,int height,int red,int green,int blue, int lineWidth)
+    Rectangle* r01 = new Rectangle(70,250,100,100,0,0,0,3);
+    r01->draw();
+    delete r01;
+    Rectangle* r02 = new Rectangle(270,250,100,100,0,0,0,3);
+    r02->draw();
+    delete r02;
+    Rectangle* r03 = new Rectangle(470,250,100,100,0,0,0,3);
+    r03->draw();
+    delete r03;
+    Rectangle* r04 = new Rectangle(670,250,100,100,0,0,0,3);
+    r04->draw();
+    delete r04;
+
+    Rectangle* r11 = new Rectangle(70,250,100,100,255,0,255,3);
+    r11->fill();
+    delete r11;
+    Rectangle* r12 = new Rectangle(270,250,100,100,255,0,127,3);
+    r12->fill();
+    delete r12;
+    Rectangle* r13 = new Rectangle(470,250,100,100,255,0,0,3);
+    r13->fill();
+    delete r13;
+    Rectangle* r14 = new Rectangle(670,250,100,100,255,127,0,3);
+    r14->fill();
+    delete r14;
+
+    //Triangle(int x1P, int y1P, int x2P, int y2P, int x3P, int y3P,int red,int green,int blue, int lineWidth)
+    Triangle* t01 = new Triangle(120, 450, 70, 550, 170, 550, 0, 0, 0, 3);
+    t01->draw();
+    delete t01;
+    Triangle* t02 = new Triangle(320, 450, 270, 550, 370, 550, 0, 0, 0, 3);
+    t02->draw();
+    delete t02;
+    Triangle* t03 = new Triangle(520, 450, 470, 550, 570, 550, 0, 0, 0, 3);
+    t03->draw();
+    delete t03;
+    Triangle* t04 = new Triangle(720, 450, 670, 550, 770, 550, 0, 0, 0, 3);
+    t04->draw();
+    delete t04;
+
+    Triangle* t11 = new Triangle(120, 450, 70, 550, 170, 550, 255, 255, 0, 3);
+    t11->fill();
+    delete t11;
+    Triangle* t12 = new Triangle(320, 450, 270, 550, 370, 550, 127, 255, 0, 3);
+    t12->fill();
+    delete t12;
+    Triangle* t13 = new Triangle(520, 450, 470, 550, 570, 550, 0, 255, 0, 3);
+    t13->fill();
+    delete t13;
+    Triangle* t14 = new Triangle(720, 450, 670, 550, 770, 550, 0, 255, 127, 3);
+    t14->fill();
+    delete t14;
+
+    //Text (int xP, int yP,string text, string fontType, int fontSize, int bold_1or0, int red,int green,int blue)
+    StringText* circle01 = new StringText(90,160, " 0,255,255 ", "Comic Sans", 13, 1,0,0,0);
+    StringText* circle21 = new StringText(90,180, " Türkis", "Comic Sans", 13, 1,0,0,0);
+    circle01->draw();
+    circle21->draw();
+    delete circle01;
+    delete circle21;
+
+    StringText* circle02 = new StringText(290,160, " 0,127,255 ", "Comic Sans", 13, 1,0,0,0);
+    StringText* circle22 = new StringText(290,180, " Hellblau", "Comic Sans", 13, 1,0,0,0);
+    circle02->draw();
+    circle22->draw();
+    delete circle02;
+    delete circle22;
+    StringText* circle03 = new StringText(490,160, " 0,0,255 ", "Comic Sans", 13, 1,0,0,0);
+    StringText* circle23 = new StringText(490,180, " Blau", "Comic Sans", 13, 1,0,0,0);
+    circle03->draw();
+    circle23->draw();
+    delete circle03;
+    delete circle23;
+    StringText* circle04 = new StringText(690,160, " 127,0,255 ", "Comic Sans", 13, 1,0,0,0);
+    StringText* circle24 = new StringText(690,180, " Violett", "Comic Sans", 13, 1,0,0,0);
+    circle04->draw();
+    circle24->draw();
+    delete circle04;
+    delete circle24;
+    //-----------------------------------------------------------------------------------------------
+    StringText* rectagle01 = new StringText(90,360, " 255,0,255 ", "Comic Sans", 13, 1,0,0,0);
+    StringText* rectagle21 = new StringText(90,380, " Pink", "Comic Sans", 13, 1,0,0,0);
+    rectagle01->draw();
+    rectagle21->draw();
+    delete rectagle01;
+    delete rectagle21;
+
+    StringText* rectagle02 = new StringText(290,360, " 255,0,127 ", "Comic Sans", 13, 1,0,0,0);
+    StringText* rectagle22 = new StringText(290,380, " Magenta", "Comic Sans", 13, 1,0,0,0);
+    rectagle02->draw();
+    rectagle22->draw();
+    delete rectagle02;
+    delete rectagle22;
+
+    StringText* rectagle03 = new StringText(490,360, " 255,0,0 ", "Comic Sans", 13, 1,0,0,0);
+    StringText* rectagle23 = new StringText(490,380, " Rot", "Comic Sans", 13, 1,0,0,0);
+    rectagle03->draw();
+    rectagle23->draw();
+    delete rectagle03;
+    delete rectagle23;
+
+    StringText* rectagle04 = new StringText(690,360, " 255,127,0 ", "Comic Sans", 13, 1,0,0,0);
+    StringText* rectagle24 = new StringText(690,380, " Orange", "Comic Sans", 13, 1,0,0,0);
+    rectagle04->draw();
+    rectagle24->draw();
+    delete rectagle04;
+    delete rectagle24;
+    //-----------------------------------------------------------------------------------------------
+
+    StringText* triangle01 = new StringText(90,560, " 255,255,0 ", "Comic Sans", 13, 1,0,0,0);
+    StringText* triangle21 = new StringText(90,580, " Gelb", "Comic Sans", 13, 1,0,0,0);
+    triangle01->draw();
+    triangle21->draw();
+    delete triangle01;
+    delete triangle21;
+
+    StringText* triangle02 = new StringText(290,560, " 127,255,0 ", "Comic Sans", 13, 1,0,0,0);
+    StringText* triangle22 = new StringText(290,580, " Grün-Gelb", "Comic Sans", 13, 1,0,0,0);
+    triangle02->draw();
+    triangle22->draw();
+    delete triangle02;
+    delete triangle22;
+
+    StringText* triangle03 = new StringText(490,560, " 0,255,0 ", "Comic Sans", 13, 1,0,0,0);
+    StringText* triangle23 = new StringText(490,580, " Grün", "Comic Sans", 13, 1,0,0,0);
+    triangle03->draw();
+    triangle23->draw();
+    delete triangle03;
+    delete triangle23;
+
+    StringText* triangle04 = new StringText(690,560, " 0,255,127 ", "Comic Sans", 13, 1,0,0,0);
+    StringText* triangle24 = new StringText(690,580, " Mint-Grün", "Comic Sans", 13, 1,0,0,0);
+    triangle04->draw();
+    triangle24->draw();
+    delete triangle04;
+    delete triangle24;
+    
+    return 0;
+}
+```
+![Musterlösung RGB](RGB.png)
+
+# 2.2	&nbsp;	Weihnachtsbild
 ```
 int main() {
 
@@ -181,7 +354,7 @@ int main() {
 ```
 ![Musterlösung Weihnachten](Weihnachten.png)
 
-# 2.2	&nbsp;	Mandala
+# 2.3	&nbsp;	Mandala
 ```
 int main() {   
 
