@@ -17,7 +17,7 @@ Hierbei handelt es sich um eine interaktive Webanwendung, die Schülerinnen und 
 Die clientseitige Logik basiert auf Brython, während Turtle Graphics für die Visualisierung im interaktiven Lernprozess verwendet wird.
 
 ### Installation und Inbetriebnahme der Webanwendung
-Mittels des Scripts [brython_turtle_init.sh](<./turtle_graphics brython//scripts/brython_turtle_init.sh>) wird die Webanwendung in einem Zielordner gecloned, der Server gestartet und das Frontend im Browser geöffnet. Die Hilfsfunktion des Scripts ist im Folgenden dargestellt:
+Mittels des Scripts [brython_turtle_init.sh](<./turtle_graphics brython/scripts/brython_turtle_init.sh>) wird die Webanwendung in einem Zielordner gecloned, der Server gestartet und das Frontend im Browser geöffnet. Die Hilfsfunktion des Scripts ist im Folgenden dargestellt:
 ```
 Usage: ./brython_turtle_init.sh [options]
 Initializes the Learn-Python-with-Turtle-Graphics repository, 
