@@ -18,7 +18,7 @@ Hiernach ist ein Systemneustart erforderlich. Folgen Sie anschließend den Anwei
 Ab hier könnnen sie der Anleitung für Linux folgen mit dem einzigen Unterschied, dass sie über die Suche mit `\\wsl$\` den Dateiordner
 öffnen müssen
 
-![öfnnen von Ubuntu Ordnern](WslSuche.png)
+![WSL Bild](WslSuche.png)
 
 ### 1.1.2	&nbsp;	Linux
 
