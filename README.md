@@ -27,7 +27,14 @@ Eine allgemeine Anleitung findet man auf der GitHub-Repository ([hier](https://g
 - Java Development Kit (JDK) 1.8
 - Apache Ant 1.10+
 
-### MacOS
+### Automatisch (per Skript)
+
+- setup_appinventor.sh (MacOS)
+- setup_appinventor.bat (Windows)
+
+Bei Mac musst man den Shell-Skript mit `chmod +x setup_appinventor.sh` ausführbar machen, welches sich dann mit `./setup_appinventor.sh` starten lässt.
+
+### Manuell
 
 1. Virtualbox Version 7.0.14 und Vagrant installieren
 
