@@ -80,6 +80,9 @@ def tone(str):
 
 def tones(arr):
     javascript.this().play_tone_array(arr)
+    
+def stop_code(ev):
+    javascript.this().stop_music()
 
 def run_code(ev):
     document["console"].html = ""
@@ -100,8 +103,6 @@ def run_code(ev):
 
     # edit_level_container(level_index)
 
-def stop_code(ev):
-    javascript.this().stop_music()
         
 ###-----Dark-Mode Button--------------#####
 def toggle_dark_mode(event):
