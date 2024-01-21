@@ -27,7 +27,7 @@ wählst *Neues Terminal beim Ordner* aus
 ![Neues Terminal Mac](TerminalMac.png)
 
 
-![Terminal](Terminal.png)
+![Terminal](terminal.png)
 
 Danach öffne den Ordner und dort sollte ein Programm namens *Farbzauber.jar*, die aussieht wie eine heiße Tasse Kaffee, zu finden sein.
 
