@@ -1,4 +1,4 @@
-# To Do Liste mit MIT App Inventor
+# Programmieren Lernen mit dem MIT App Inventor
 
 Szenario der Projektgruppe WS23/24 (Programmiererlebnisse) an der Hochschule Emden / Leer
 
