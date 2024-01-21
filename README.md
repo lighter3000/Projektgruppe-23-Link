@@ -69,7 +69,13 @@ Mit `vagrant halt` und `vagrant destroy` lässt sich die VM anhalten/löschen.
 
 ### Windows/Linux
 
-Die Installation ist bis auf Schritt (2) identisch mit der Anleitung für MacOS. 
+Die Installation ist bis auf Schritt (2) identisch mit der Anleitung für MacOS.
+
+### Musterlösung zum Testen
+
+Unter /src/myToDoList_Musterloesung.aia findet ihr die Musterlösung mit den 5 Screens (4 Aufgaben + To Do Liste) zum Testen. Zum importieren klickt ihr in der MIT App Inventor umgebung auf "Importiere ein Projekt (.aia) von meinem Computer"
+
+![Import](Vokabeltrainer/images/import.png)
 
 ### Lizenz
 
