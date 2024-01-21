@@ -18,7 +18,7 @@ Hierbei handelt es sich um ein Szenarienpaket, in dem die Schüler und Schüleri
 
 ![UI](Vokabeltrainer/images/UI.png)
 
-![Block](Vokabeltrainer/images/UI.png)
+![Block](Vokabeltrainer/images/Block.png)
 
 ## Installation mit Vagrant (Virtualbox)
 
