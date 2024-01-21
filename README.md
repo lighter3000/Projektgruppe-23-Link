@@ -1,58 +1,68 @@
-# Projektgruppe WS23/24 (Programmiererlebnisse)
+# To Do Liste mit MIT App Inventor
 
-## Projektteam
+Szenario der Projektgruppe WS23/24 (Programmiererlebnisse) an der Hochschule Emden / Leer
 
-### Stakeholder: 
-- Prof. Carsten Link
-### Scrum Master
-- Viet Hai Nguyen (7021478)
-### Product Owner
-- Marcus Rosengart
-### Entwicklerteams
+### Stakeholder:
 
-#### Webanwendung mit brython
-Mit k-turtle
-- Noah S.
-- Niklas H.
-- Tom B.
+- Prof. Dr. Carsten Link
+- Frederik Gosewehr, M.Eng.
 
-Als ISBN-Prüfsumme
-- Mohamed
+### Entwicklerteam:
 
-#### ASCII Bild
-- Marcus R.
-- Nick
-- Dennis
+- Viet Hai Nguyen
+- Timm Seiler
 
-#### Vokabeltrainer mit MIT App Inventor
-- Viet Hai N.
-- Timm S.
+### Beschreibung
 
-#### Musik Recherche
-- Jan W.
-- Majd
+Hierbei handelt es sich um ein Szenarienpaket, in dem die Schüler und Schülerinnen sowohl grundlegende Programmierung (Bedingungen, Listen) mithilfe der visuellen Blockprogrammierungssprache "Blockly", als auch die Möglichkeit haben die visuelle Seite der UI-Entwicklung einer App, kennenzulernen. Hierzu wurden mehrere, kleine Einführungsaufgaben entworfen und mit einer Hauptaufgabe, die Umsetzung einer To Do Liste, abgeschlossen.
 
-#### 2D Spiel mit GoDot Engine
-- Torben L.
-- Max
-- Niklas S.
-- Daniel S.
+![image-20240121160211509](C:\Users\haifr\AppData\Roaming\Typora\typora-user-images\image-20240121160211509.png)
 
-## Geplantes Vorgehen (Scrum)
+![image-20240121160949973](C:\Users\haifr\AppData\Roaming\Typora\typora-user-images\image-20240121160949973.png)
 
-Geplantes Vorhaben, definiert durch den Arbeitsablauf mit Scrum:
-- Im Produkt Backlog befinden sich die angesammelten bekannten Anforderungen, also der Auftragsbestand
-    - Dieser wird in Form von sog. „Issues“ angelegt
--  Ausgewählte Issues werden alle 14 Tage in den Sprint-Backlog geschoben
--  Daraus entsteht ein 2-wöchiger Sprint, der von einem Daily Scrum begleitet wird
--   Ein Daily Scrum kann in Form eines Standups abgehalten werden
-    - Die Teammitglieder stellen kurz vor, woran sie arbeiten, was sie vorhaben und ob alles rund läuft.
-    - Der Scrum Master sorgt u.a. dafür, dass alle Mitglieder ohne Probleme arbeiten können, sollten Probleme auftreten.
-- Am Ende des Sprints steht die CI (Code Integration)
-    - Die Software ist nun bestenfalls mit den gewünschten Features, die zu Anfang des Sprints im Sprint-Backlog waren, inkrementell verbessert.
-- Im Sprint Review kommen die Teammitglieder inkl. SM und PO zusammen
-    - Man tauscht sich über die Ergebnisse des letzten Sprints aus und organisiert den Fortschritt
-- In der Sprint-Retrospektive geht es nach dem Sprint dann mehr darum, was beim Sprint gut oder schlecht lief und was man besser machen kann.
-    - Oft veranschaulicht mit Themen auf Whiteboards (auch digital)
-    - Der SM ist der Moderator
-- Vor jedem Sprint findet zudem die Sprintplanung statt, in welchem Issues bzw. Anforderungen aus dem Produkt-Backlog in den Sprint-Backlog übernommen werden und zu einem neuen Sprint (mit eben diesen Issues) übergehen.
+## Installation mit Vagrant (Virtualbox)
+
+Eine allgemeine Anleitung findet man auf der GitHub-Repository ([hier](https://github.com/mit-cml/appinventor-sources)). Benötigt werden
+
+- Java Development Kit (JDK) 1.8
+- Apache Ant 1.10+
+
+### MacOS
+
+1. Virtualbox Version 7.0.14 und Vagrant installieren
+
+2. Security Restrictions in MacOS für Virtualbox anpassen (siehe [Link](https://medium.com/@Aenon/mac-virtualbox-kernel-driver-error-df39e7e10cd8))
+
+3. Klone die Repository mit
+   	`git clone https://github.com/haifrosch/appinventor-sources-master.git`
+
+4. Dann folgende Befehle im \appinventor-sources-master Verzeichnis ausführen
+
+   `vagrant plugin install vagrant-vbguest 	# only once`
+
+   `vagrant up             	# initializes the VM`
+   Beim ersten Mal wird es einige Minuten dauern, um die Abhängigkeiten für die VM  einzurichten.
+
+5. Um sich mit der VM zu verbinden
+   	`vagrant ssh`
+
+6. Dependencies updaten mit
+   	`git submodule update --init`
+
+7. Dann builden mit
+   	`ant`
+
+8. Und mit dem folgenden Befehl den Server starten
+   	`start_appinventor`
+
+9. Die Anwendung ist nun über `localhost:8888` erreichbar
+
+Mit `vagrant halt` und `vagrant destroy` lässt sich die VM anhalten/löschen.
+
+### Windows/Linux
+
+Die Installation ist bis auf Schritt (2) identisch mit der Anleitung für MacOS. 
+
+### Lizenz
+
+[Apache-2.0 license](https://github.com/mit-cml/appinventor-sources/blob/master/LICENSE)
