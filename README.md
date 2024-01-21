@@ -16,9 +16,9 @@ Szenario der Projektgruppe WS23/24 (Programmiererlebnisse) an der Hochschule Emd
 
 Hierbei handelt es sich um ein Szenarienpaket, in dem die Schüler und Schülerinnen sowohl grundlegende Programmierung (Bedingungen, Listen) mithilfe der visuellen Blockprogrammierungssprache "Blockly", als auch die Möglichkeit haben die visuelle Seite der UI-Entwicklung einer App, kennenzulernen. Hierzu wurden mehrere, kleine Einführungsaufgaben entworfen und mit einer Hauptaufgabe, die Umsetzung einer To Do Liste, abgeschlossen.
 
-[UI](Vokabeltrainer/images/UI.png)
+![UI](Vokabeltrainer/images/UI.png)
 
-[Block](Vokabeltrainer/images/UI.png)
+![Block](Vokabeltrainer/images/UI.png)
 
 ## Installation mit Vagrant (Virtualbox)
 
