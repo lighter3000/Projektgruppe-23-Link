@@ -74,3 +74,4 @@ Die Installation ist bis auf Schritt (2) identisch mit der Anleitung für MacOS.
 ### Lizenz
 
 [Apache-2.0 license](https://github.com/mit-cml/appinventor-sources/blob/master/LICENSE)
+[Creative Commons 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
