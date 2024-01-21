@@ -16,9 +16,9 @@ Szenario der Projektgruppe WS23/24 (Programmiererlebnisse) an der Hochschule Emd
 
 Hierbei handelt es sich um ein Szenarienpaket, in dem die Schüler und Schülerinnen sowohl grundlegende Programmierung (Bedingungen, Listen) mithilfe der visuellen Blockprogrammierungssprache "Blockly", als auch die Möglichkeit haben die visuelle Seite der UI-Entwicklung einer App, kennenzulernen. Hierzu wurden mehrere, kleine Einführungsaufgaben entworfen und mit einer Hauptaufgabe, die Umsetzung einer To Do Liste, abgeschlossen.
 
-![image-20240121160211509](C:\Users\haifr\AppData\Roaming\Typora\typora-user-images\image-20240121160211509.png)
+![image-20240121160211509](\images\UI.png)
 
-![image-20240121160949973](C:\Users\haifr\AppData\Roaming\Typora\typora-user-images\image-20240121160949973.png)
+![image-20240121160949973](\images\Block.png)
 
 ## Installation mit Vagrant (Virtualbox)
 
