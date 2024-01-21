@@ -16,9 +16,9 @@ Szenario der Projektgruppe WS23/24 (Programmiererlebnisse) an der Hochschule Emd
 
 Hierbei handelt es sich um ein Szenarienpaket, in dem die Schüler und Schülerinnen sowohl grundlegende Programmierung (Bedingungen, Listen) mithilfe der visuellen Blockprogrammierungssprache "Blockly", als auch die Möglichkeit haben die visuelle Seite der UI-Entwicklung einer App, kennenzulernen. Hierzu wurden mehrere, kleine Einführungsaufgaben entworfen und mit einer Hauptaufgabe, die Umsetzung einer To Do Liste, abgeschlossen.
 
-![UI](Vokabeltrainer/images/UI.png)
+![UI](AppInventor_Projekt/images/UI.png)
 
-![Block](Vokabeltrainer/images/Block.png)
+![Block](AppInventor_Projekt/images/Block.png)
 
 ## Installation mit Vagrant (Virtualbox)
 
@@ -73,9 +73,9 @@ Die Installation ist bis auf Schritt (2) identisch mit der Anleitung für MacOS.
 
 ### Musterlösung zum Testen
 
-Unter /src findet ihr die Musterlösung [myToDoList_Musterloesung.aia](Vokabeltrainer/src/myToDoList_Musterloesung.aia) mit den 5 Screens (4 Aufgaben + To Do Liste) zum Testen. Zum importieren klickt ihr in der MIT App Inventor umgebung auf "Importiere ein Projekt (.aia) von meinem Computer"
+Unter /src findet ihr die Musterlösung [myToDoList_Musterloesung.aia](AppInventor_Projekt/src/myToDoList_Musterloesung.aia) mit den 5 Screens (4 Aufgaben + To Do Liste) zum Testen. Zum importieren klickt ihr in der MIT App Inventor umgebung auf "Importiere ein Projekt (.aia) von meinem Computer"
 
-![Import](Vokabeltrainer/images/import.png)
+![Import](AppInventor_Projekt/images/import.png)
 
 ### Lizenz
 
