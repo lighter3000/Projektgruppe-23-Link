@@ -41,6 +41,7 @@ Eine allgemeine Anleitung findet man auf der GitHub-Repository ([hier](https://g
    `vagrant plugin install vagrant-vbguest 	# only once`
 
    `vagrant up             	# initializes the VM`
+   
    Beim ersten Mal wird es einige Minuten dauern, um die Abhängigkeiten für die VM  einzurichten.
 
 5. Um sich mit der VM zu verbinden
