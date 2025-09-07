@@ -1,42 +1,40 @@
 # Projektgruppe WS23/24 (Programmiererlebnisse)
 
+Dieses Projekt ist eine Kopie des Studienprojektes "Programmiererlebnisse" aus dem WS 2023/24.
+Es dient als Beispielprojekt für Bewerbungszwecke (z. B. im Lebenslauf), ohne das Originalprojekt zu verändern.
+
+Falls irgendwas mit dem Projekt nicht in Ordnung ist, meldet euch einfach.
+
+Aus Gründen der Privatsphäre habe ich die Namen der Studierenden und Professoren entfernt.
+
 ## Projektteam
 
 ### Stakeholder: 
-- Prof. Carsten Link
+- 1 Professor
 ### Scrum Master
-- Viet Hai Nguyen (7021478)
+- 1 Studierender
 ### Product Owner
-- Marcus Rosengart
+- 1 Studierender
 ### Entwicklerteams
 
 #### Webanwendung mit brython
 Mit k-turtle
-- Noah S.
-- Niklas H.
-- Tom B.
+- 3 Studierende
 
 Als ISBN-Prüfsumme
-- Mohamed
+- 1 Studierender
 
 #### ASCII Bild
-- Marcus R.
-- Nick
-- Dennis
+- 3 Studierende
 
 #### Vokabeltrainer mit MIT App Inventor
-- Viet Hai N.
-- Timm S.
+- 2 Studierende
 
 #### Musik Recherche
-- Jan W.
-- Majd
+- 2 Studierende
 
 #### 2D Spiel mit GoDot Engine
-- Torben L.
-- Max
-- Niklas S.
-- Daniel S.
+- 4 Studierende
 
 ## Geplantes Vorgehen (Scrum)
 
